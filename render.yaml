@@ -55,7 +55,7 @@ services:
   # ─────────────────────────────────────────
   # 2. FRONTEND REACT (Static Site)
   # ─────────────────────────────────────────
-  - type: static_site
+  - type: static_build
     name: kleerinfini-frontend
     runtime: static
     rootDir: kleerinfini-b2b-platform/kleerinfini-ui
