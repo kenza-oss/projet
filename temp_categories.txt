@@ -1,0 +1,48 @@
+﻿26 objects imported automatically (use -v 2 for details).
+
+3: ├ëquipement & Mat├®riel ├ëlectrique
+31: Mat├®riaux et ├ëquipements de Construction :
+27: Produits Zootechniques & Animaux Vivants
+26: Produits de la p├¬che & Aquaculture
+7: Produits chimiques & D├®riv├®sÔÇ»:
+2: Produits Plastiques & PPE
+34: Meubles & D├®coration
+35: Produits ├ëlectrom├®nager & ├ëlectronique
+36: Machine & ├ëquipement Industriel
+8: Produits Cosm├®tiques
+39: Produits m├®nagers & ustensiles
+40: Parfums & Eaux de Parfum
+44: Pneus & Accessoires
+28: ├ëquipements et Machines Zootechniques
+6: Produits de lÔÇÖIndustrie M├®canique
+42: Produits Recycl├®s & ├ëcologiques
+45: Mat├®riel Informatique ÔÇö Innovation Locale, Performance Mondiale
+49: ├ëpices & Th├®s ÔÇö Les Saveurs Authentiques de lÔÇÖAlg├®rie, R├®colt├®es avec Soin
+47: Panneaux Solaires & Solutions ├ënerg├®tiques ÔÇö LÔÇÖ├ënergie du Soleil, Made in Algeria
+46: T├®l├®phones & Appareils Mobiles ÔÇö Connectivit├® Fiable, Technologie Locale
+50: Jus & Boissons
+55: Eau Min├®rale Naturelle dÔÇÖOrigine ÔÇö La Puret├® Profonde de lÔÇÖAlg├®rie
+52: Produits Laitiers & D├®riv├®s ÔÇö Tradition Fra├«che, Qualit├® Contr├┤l├®e
+54: Pierres Naturelles dÔÇÖException & D├®coratives ÔÇö Les Tr├®sors Invisibles de lÔÇÖAlg├®rie
+32: Produits Textile & Habillement
+53: Carton & Papier ÔÇö Emballages Durables et Professionnel, Made in Algeria
+59: Main-dÔÇÖ┼ôuvre & Sous-traitance Internationale
+56: Mat├®riaux Industriels pour la Construction ÔÇö Inox, Aluminium, PVC
+58: Services Professionnels & Prestations Intellectuelles
+60: Projets dÔÇÖInvestissement & Opportunit├®s Commerciales
+19: Services Immobiliers Certifi├®s ÔÇö Acheter en Alg├®rie, en Toute S├®r├®nit├®
+64: Licences Commerciales & Franchise Internationale
+1: Produits Agroalimentaires Transform├®s
+51: Carrelage & Dalles de Sol ÔÇö ├ël├®gance Alg├®rienne, Durabilit├® Mondiale
+4: Produits Artisanaux & Cr├®ations Faites ├á la Main ÔÇö LÔÇÖ├éme de lÔÇÖAlg├®rie, Tiss├®e avec Passion
+5: Bois & Produits D├®riv├®s dÔÇÖOrigine Alg├®rienne
+25: Produits Agricoles Non Transform├®s
+62: Organisation dÔÇÖ├ëv├®nements & Salons Professionnels ├á lÔÇÖInternational
+48: Bijoux & Accessoires de Mode ÔÇö LÔÇÖ├ëclat de lÔÇÖAlg├®rie, Port├® avec Orgueil
+43: ├ëquipement & Syst├¿mes Hydrauliques
+29: Produits, ├ëquipements & Machines Agricoles
+41: Produits de Beaut├® Naturels
+30: Produits miniers & m├®tallurgiques :
+33: Produits Pharmaceutiques & M├®dicaux
+57: Vitre & Verre de Construction ÔÇö Transparence, S├®curit├®, Performance
+61: Services Num├®riques & Solutions Informatiques

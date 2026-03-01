@@ -1,0 +1,100 @@
+INFO 2026-02-01 18:39:40,078 basehttp "GET /api/certifications/ HTTP/1.1" 200 11461
+INFO 2026-02-01 18:39:43,084 basehttp "GET /api/products/ HTTP/1.1" 200 48278
+INFO 2026-02-01 18:39:44,450 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:39:47,501 basehttp "GET /api/products/ HTTP/1.1" 200 48278
+INFO 2026-02-01 18:39:49,637 basehttp "POST /api/login/ HTTP/1.1" 200 694
+INFO 2026-02-01 18:39:50,380 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:39:51,099 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+WARNING 2026-02-01 18:39:51,125 log Not Found: /api/producers/dashboard/me/
+WARNING 2026-02-01 18:39:51,127 basehttp "GET /api/producers/dashboard/me/ HTTP/1.1" 404 24249
+INFO 2026-02-01 18:39:52,181 basehttp "GET /api/products/?producer=me HTTP/1.1" 200 2
+INFO 2026-02-01 18:39:56,345 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:40:02,556 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:40:06,060 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:40:06,240 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:40:08,626 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:41:02,917 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:04,188 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:05,222 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:08,366 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+WARNING 2026-02-01 18:41:08,382 log Not Found: /api/producers/dashboard/me/
+WARNING 2026-02-01 18:41:08,382 basehttp "GET /api/producers/dashboard/me/ HTTP/1.1" 404 24249
+INFO 2026-02-01 18:41:09,929 basehttp "GET /api/products/?producer=me HTTP/1.1" 200 2
+INFO 2026-02-01 18:41:10,535 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:11,701 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:15,013 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:41:17,542 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:18,556 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:19,659 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:20,724 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+WARNING 2026-02-01 18:41:20,748 log Not Found: /api/producers/dashboard/me/
+WARNING 2026-02-01 18:41:20,749 basehttp "GET /api/producers/dashboard/me/ HTTP/1.1" 404 24249
+INFO 2026-02-01 18:41:21,657 basehttp "GET /api/products/?producer=me HTTP/1.1" 200 2
+INFO 2026-02-01 18:41:21,788 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:22,884 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:24,016 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:25,142 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:26,230 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:26,435 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:41:27,351 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+WARNING 2026-02-01 18:41:27,432 log Not Found: /api/producers/dashboard/me/
+WARNING 2026-02-01 18:41:27,434 basehttp "GET /api/producers/dashboard/me/ HTTP/1.1" 404 24249
+INFO 2026-02-01 18:41:28,325 basehttp "GET /api/products/?producer=me HTTP/1.1" 200 2
+INFO 2026-02-01 18:41:28,454 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:29,529 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:41:33,255 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 18:42:23,021 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:42:26,039 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:42:27,120 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:42:28,105 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+WARNING 2026-02-01 18:42:28,119 log Not Found: /api/producers/dashboard/me/
+WARNING 2026-02-01 18:42:28,124 basehttp "GET /api/producers/dashboard/me/ HTTP/1.1" 404 24249
+INFO 2026-02-01 18:42:29,010 basehttp "GET /api/products/?producer=me HTTP/1.1" 200 2
+INFO 2026-02-01 18:42:29,244 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:42:30,272 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+INFO 2026-02-01 18:42:33,573 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+WARNING 2026-02-01 19:05:10,452 log Unauthorized: /api/profiles/me/
+WARNING 2026-02-01 19:05:10,458 basehttp "PATCH /api/profiles/me/ HTTP/1.1" 401 172
+WARNING 2026-02-01 19:09:19,708 log Unauthorized: /api/profiles/me/
+WARNING 2026-02-01 19:09:19,711 basehttp "PATCH /api/profiles/me/ HTTP/1.1" 401 172
+WARNING 2026-02-01 19:09:44,463 log Unauthorized: /api/profiles/me/
+WARNING 2026-02-01 19:09:44,471 basehttp "PATCH /api/profiles/me/ HTTP/1.1" 401 172
+INFO 2026-02-01 19:12:06,981 autoreload C:\Users\DELL\Desktop\dev\kleer-infini-backend\kleerinfini\producers\serializers.py changed, reloading.
+INFO 2026-02-01 19:16:03,277 autoreload Watching for file changes with StatReloader
+WARNING 2026-02-01 19:17:38,021 log Unauthorized: /api/profiles/me/
+WARNING 2026-02-01 19:17:38,025 basehttp "PATCH /api/profiles/me/ HTTP/1.1" 401 172
+WARNING 2026-02-01 19:17:44,040 log Unauthorized: /api/profiles/me/
+WARNING 2026-02-01 19:17:44,042 basehttp "PATCH /api/profiles/me/ HTTP/1.1" 401 172
+INFO 2026-02-01 19:27:35,235 basehttp "HEAD /api/profiles/ HTTP/1.1" 200 0
+INFO 2026-02-01 19:27:37,488 basehttp "GET /api/profiles/ HTTP/1.1" 200 1929
+INFO 2026-02-01 19:27:37,530 basehttp - Broken pipe from ('127.0.0.1', 44431)
+INFO 2026-02-01 19:27:37,611 basehttp - Broken pipe from ('127.0.0.1', 44434)
+WARNING 2026-02-01 19:32:07,729 log Unauthorized: /api/profiles/me/
+WARNING 2026-02-01 19:32:07,731 basehttp "GET /api/profiles/me/ HTTP/1.1" 401 172
+WARNING 2026-02-01 19:32:07,742 log Unauthorized: /api/profiles/me/
+WARNING 2026-02-01 19:32:07,743 basehttp "GET /api/profiles/me/ HTTP/1.1" 401 172
+WARNING 2026-02-01 19:32:09,657 log Unauthorized: /api/events/upcoming/
+WARNING 2026-02-01 19:32:09,662 basehttp "GET /api/events/upcoming/ HTTP/1.1" 401 58
+WARNING 2026-02-01 19:32:09,672 log Unauthorized: /api/events/upcoming/
+WARNING 2026-02-01 19:32:09,672 basehttp "GET /api/events/upcoming/ HTTP/1.1" 401 58
+INFO 2026-02-01 19:32:11,464 basehttp "GET /api/certifications/ HTTP/1.1" 200 11461
+INFO 2026-02-01 19:32:12,578 basehttp "GET /api/certifications/ HTTP/1.1" 200 11461
+INFO 2026-02-01 19:32:15,736 basehttp "GET /api/products/ HTTP/1.1" 200 48278
+INFO 2026-02-01 19:32:16,864 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 19:32:20,136 basehttp "GET /api/products/ HTTP/1.1" 200 48278
+INFO 2026-02-01 19:32:22,464 basehttp "POST /api/login/ HTTP/1.1" 200 694
+INFO 2026-02-01 19:32:22,696 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 19:32:24,134 basehttp "GET /api/profiles/me/ HTTP/1.1" 200 1124
+WARNING 2026-02-01 19:32:24,177 log Not Found: /api/producers/dashboard/me/
+WARNING 2026-02-01 19:32:24,179 basehttp "GET /api/producers/dashboard/me/ HTTP/1.1" 404 24249
+INFO 2026-02-01 19:32:25,021 basehttp "GET /api/products/?producer=me HTTP/1.1" 200 2
+INFO 2026-02-01 19:32:28,434 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 19:32:34,606 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 19:32:37,715 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 19:32:37,984 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+INFO 2026-02-01 19:32:40,420 basehttp "GET /api/categories/ HTTP/1.1" 200 126830
+WARNING 2026-02-01 19:34:40,576 log Bad Request: /api/profiles/me/
+WARNING 2026-02-01 19:34:40,576 basehttp "PATCH /api/profiles/me/ HTTP/1.1" 400 88
+WARNING 2026-02-01 19:34:51,716 log Bad Request: /api/profiles/me/
+WARNING 2026-02-01 19:34:51,717 basehttp "PATCH /api/profiles/me/ HTTP/1.1" 400 88
+INFO 2026-02-01 19:44:39,200 autoreload C:\Users\DELL\Desktop\dev\kleer-infini-backend\kleerinfini\producers\serializers.py changed, reloading.

@@ -1,0 +1,52 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-15 17:01+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+#: users/views.py:19
+msgid "تم تسجيل المنتج بنجاح ✅"
+msgstr "Le producteur a été enregistré avec succès ✅"
+
+#: users/views.py:28
+msgid "Producer registered successfully ✅"
+msgstr "Le producteur a été enregistré avec succès ✅"
+
+msgid "The link is invalid or has expired"
+msgstr "Le lien est invalide ou expiré"
+
+msgid "Invitation does not exist"
+msgstr "L'invitation n'existe pas"
+
+msgid "Client registered successfully ✅"
+msgstr "Le client a été enregistré avec succès ✅"
+
+msgid "Email is required"
+msgstr "L'adresse e-mail est requise"
+
+msgid "Logged out successfully ✅"
+msgstr "Déconnexion réussie ✅"
+
+msgid "Invalid or expired token"
+msgstr "Jeton invalide ou expiré"
+
+
+msgid "There is no subscription associated with this user"
+msgid "Il n’y a aucun abonnement associé à cet utilisateur"
+
+
+msgid "Effective payment has been raised ✅"
+msgid "Le paiement effectif a été effectué ✅"

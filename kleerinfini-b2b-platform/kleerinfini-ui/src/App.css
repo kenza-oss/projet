@@ -1,0 +1,450 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.registration-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.form-wrapper {
+  position: relative;
+  z-index: 1;
+  padding: 40px;
+  max-width: 900px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  color: #fff;
+}
+
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.form-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.registration-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.form-input {
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #000;
+  font-size: 16px;
+  outline: none;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.form-input::placeholder {
+  color: #333;
+}
+
+.form-error {
+  color: #ffcccc;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.submit-button {
+  grid-column: span 2;
+  padding: 14px;
+  background-color: #ff6b00;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  margin-top: 20px;
+}
+
+.submit-button:hover {
+  background-color: #e65a00;
+}
+
+/* Elegant Phone Input for Registration */
+.custom-phone-input-elegant {
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s;
+}
+
+.custom-phone-input-elegant:focus-within {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.custom-phone-input-elegant input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #1f2937;
+  width: 100%;
+  font-size: 0.875rem;
+  padding-left: 0.5rem;
+}
+
+.custom-phone-input-elegant .react-phone-number-input__country {
+  background: transparent !important;
+  border: none !important;
+}
+
+/* React Select Elegant Styling */
+.react-select-elegant__control {
+  border-color: #e5e7eb !important;
+  border-radius: 0.5rem !important;
+  padding: 0.25rem !important;
+  box-shadow: none !important;
+  transition: all 0.2s !important;
+}
+
+.react-select-elegant__control:hover {
+  border-color: #d1d5db !important;
+}
+
+.react-select-elegant__control--is-focused {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1) !important;
+}
+
+.react-select-elegant__placeholder {
+  font-size: 0.875rem !important;
+  color: #9ca3af !important;
+}
+
+.react-select-elegant__single-value {
+  font-size: 0.875rem !important;
+  color: #1f2937 !important;
+}
+
+.react-select-elegant__multi-value {
+  background-color: #eff6ff !important;
+  border-radius: 0.25rem !important;
+  color: #1e40af !important;
+}
+
+.react-select-elegant__multi-value__label {
+  color: #1e40af !important;
+  font-size: 0.75rem !important;
+  font-weight: 600 !important;
+}
+
+.registration-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/*.form-wrapper {*/
+/*    position: relative;*/
+/*    z-index: 1;*/
+/*    padding: 40px;*/
+/*    max-width: 900px;*/
+/*    width: 100%;*/
+/*    background-color: rgba(255, 255, 255, 0.1);*/
+/*    backdrop-filter: blur(10px);*/
+/*    -webkit-backdrop-filter: blur(10px);*/
+/*    border-radius: 20px;*/
+/*    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);*/
+/*    color: #fff;*/
+/*}*/
+
+.form-title {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  color: #fff;
+}
+
+.form-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.registration-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-label {
+  margin-bottom: 5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/*.form-input {*/
+/*    padding: 12px;*/
+/*    border: none;*/
+/*    border-radius: 12px;*/
+/*    background: rgba(255, 255, 255, 0.3);*/
+/*    color: #000;*/
+/*    font-size: 16px;*/
+/*    outline: none;*/
+/*    backdrop-filter: blur(4px);*/
+/*    -webkit-backdrop-filter: blur(4px);*/
+/*    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);*/
+/*}*/
+
+.form-input::placeholder {
+  color: #333;
+}
+
+.form-error {
+  color: #ffcccc;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+/*.submit-button {*/
+/*    grid-column: span 2;*/
+/*    padding: 14px;*/
+/*    background-color: #ff6b00;*/
+/*    color: white;*/
+/*    font-weight: bold;*/
+/*    border: none;*/
+/*    border-radius: 25px;*/
+/*    cursor: pointer;*/
+/*    transition: 0.3s ease;*/
+/*    margin-top: 20px;*/
+/*}*/
+
+.submit-button:hover {
+  background-color: #e65a00;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* LIGHT PHONE INPUT START */
+.light-phone-input .PhoneInput {
+  display: flex !important;
+  align-items: center !important;
+  background-color: white !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 8px !important;
+  padding: 0.75rem 1rem !important;
+  width: 100% !important;
+  color: #1a1a1a !important;
+  transition: all 0.3s !important;
+}
+
+.light-phone-input .PhoneInput:focus-within {
+  border-color: #FF6600 !important;
+  box-shadow: 0 0 0 1px #FF6600 !important;
+}
+
+.light-phone-input .PhoneInputInput {
+  background-color: transparent !important;
+  border: none !important;
+  color: #1a1a1a !important;
+  outline: none !important;
+  font-size: 0.875rem !important;
+  font-family: 'Inter', sans-serif !important;
+  width: 100% !important;
+}
+
+.light-phone-input .PhoneInputInput::placeholder {
+  color: #9ca3af !important;
+}
+
+.light-phone-input .PhoneInputCountryIcon {
+  opacity: 0.9;
+}
+
+/* LIGHT PHONE INPUT END */
+
+/* LUXURY PHONE INPUT START (Blue Accent) */
+.luxury-phone-input .PhoneInput {
+  display: flex !important;
+  align-items: center !important;
+  background-color: white !important;
+  border: 1px solid #e5e7eb !important;
+  border-radius: 12px !important;
+  padding: 0.875rem 1.25rem !important;
+  width: 100% !important;
+  color: #1a1a1a !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+.luxury-phone-input .PhoneInput:focus-within {
+  border-color: #2563eb !important;
+  box-shadow: 0 0 0 1px #2563eb !important;
+}
+
+.luxury-phone-input .PhoneInputInput {
+  background-color: transparent !important;
+  border: none !important;
+  color: #1a1a1a !important;
+  outline: none !important;
+  font-size: 0.875rem !important;
+  font-family: 'Inter', sans-serif !important;
+  width: 100% !important;
+}
+
+.luxury-phone-input .PhoneInputInput::placeholder {
+  color: #9ca3af !important;
+}
+
+.luxury-phone-input .PhoneInputCountrySelect {
+  cursor: pointer !important;
+}
+/* LUXURY PHONE INPUT END */
+
+.font-inter {
+  font-family: 'Inter', sans-serif !important;
+}

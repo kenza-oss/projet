@@ -1,0 +1,1450 @@
+{
+  "welcome": "Bienvenido",
+  "logout": "Cerrar sesión",
+  "profile": "Mi perfil",
+  "language": "Idioma",
+  "messages": "Mensajería",
+  "home": {
+    "nav": {
+      "univers": "Universo",
+      "producers": "Productores",
+      "products": "Productos",
+      "accessVip": "ACCESO VIP",
+      "becomePartner": "SER SOCIO"
+    },
+    "hero": {
+      "title": "Puerta de Oro de la",
+      "subtitle": "Excelencia Argelina",
+      "img_alt": "Excelencia de los Dátiles Deglet Nour",
+      "desc1": "Conectando al mundo con la",
+      "desc2": "élite de la producción no hidrocarburífera.",
+      "group_label": "Grupo Internacional de Exportación",
+      "excellence_label": "Herencia y Excelencia",
+      "scroll": "Desplazar",
+      "img_industry": "Industria Argelina",
+      "img_partners": "Alianzas Internacionales",
+      "img_production": "Capacidad de Producción",
+      "stats": {
+        "verified": "Productores Certificados",
+        "sectors": "Sectores de Exportación",
+        "compliance": "Cumplimiento y Calidad"
+      }
+    },
+    "search": {
+      "title": "Exigencia y",
+      "subtitle": "Saber hacer",
+      "desc": "Identifique a sus futuros socios entre la élite de la producción argelina.",
+      "placeholder": "Producto, artesano o región...",
+      "placeholderCat": "Todos los sectores",
+      "placeholderWhere": "Todas las regiones",
+      "what": "SU BÚSQUEDA",
+      "category": "SECTOR DE ACTIVIDAD",
+      "where": "LOCALIZACIÓN",
+      "regions": "Regiones",
+      "expertise": "Peritaje",
+      "button": "Buscar",
+      "action": "ENTRAR EN EL SHOWROOM",
+      "mapAction": "Mapeo de Productores",
+      "map": {
+        "title": "Productores",
+        "placeholder": "Buscar por nombre...",
+        "all": "Todos",
+        "no_address": "Dirección no especificada",
+        "country": "Argelia",
+        "view_profile": "Ver perfil",
+        "certified_count": "ESTABLECIMIENTOS CERTIFICADOS",
+        "no_results": "No se encontraron productores...",
+        "live_network": "Red en vivo",
+        "explore_desc": "Explore la excelencia B2B argelina por geolocalización.",
+        "loading": "KLEER INFINI MAPPING..."
+      },
+      "regionList": [
+        "Adrar",
+        "Chlef",
+        "Laghouat",
+        "Oum El Bouaghi",
+        "Batna",
+        "Béjaïa",
+        "Biskra",
+        "Béchar",
+        "Blida",
+        "Bouira",
+        "Tamanrasset",
+        "Tébessa",
+        "Tlemcen",
+        "Tiaret",
+        "Tizi Ouzou",
+        "Argel",
+        "Djelfa",
+        "Jijel",
+        "Sétif",
+        "Saïda",
+        "Skikda",
+        "Sidi Bel Abbès",
+        "Annaba",
+        "Guelma",
+        "Constantine",
+        "Médéa",
+        "Mostaganem",
+        "M'Sila",
+        "Mascara",
+        "Ouargla",
+        "Oran",
+        "El Bayadh",
+        "Illizi",
+        "Bordj Bou Arreridj",
+        "Boumerdès",
+        "El Tarf",
+        "Tindouf",
+        "Tissemsilt",
+        "El Oued",
+        "Khenchela",
+        "Souk Ahras",
+        "Tipaza",
+        "Mila",
+        "Aïn Defla",
+        "Naâma",
+        "Aïn Témouchent",
+        "Ghardaïa",
+        "Relizane",
+        "Timimoun",
+        "Bordj Badji Mokhtar",
+        "Ouled Djellal",
+        "Béni Abbès",
+        "In Salah",
+        "In Guezzam",
+        "Touggourt",
+        "Djanet",
+        "El M'Ghair",
+        "El Meniaa"
+      ]
+    },
+    "categories": {
+      "title": "Explore Nuestras",
+      "elite_sectors": "Sectores de Élite",
+      "subtitle": "Áreas de Excelencia",
+      "header_start": "Áreas de",
+      "premium_badge": "Exportación Premium",
+      "desc": "Una inmersión en la riqueza de la región argelina a través de nuestros sectores excepcionales.",
+      "desc_excellence": "Una selección rigurosa de las industrias argelinas más eficientes, preparadas para el mercado mundial.",
+      "sector_details": "Explorar el Sector",
+      "explore_more": "Descubrir todos los sectores",
+      "sector_default": "Sector",
+      "sectors": {
+        "industrial_machine": "Maquinaria y Equipo Industrial",
+        "construction_materials": "Materiales y Equipos de Construcción",
+        "solar_energy": "Paneles Solares y Soluciones Energéticas",
+        "tires_accessories": "Neumáticos y Accesorios",
+        "raw_agri": "Productos Agrícolas No Procesados",
+        "home_appliances": "Electrodomésticos y Productos Electrónicos",
+        "mining_metallurgy": "Productos mineros y metalúrgicos",
+        "pharma_medical": "Productos Farmacéuticos y Médicos",
+        "cosmetic_products": "Productos cosméticos",
+        "perfumes": "Perfumes y aguas de perfume",
+        "fishery": "Productos de pesca y acuicultura"
+      },
+      "items": {
+        "construction": "Materiales y equipos de construcción",
+        "mecanique": "Productos de la industria mecánica",
+        "electro": "Electrodomésticos y electrónica",
+        "industrial": "Maquinaria y equipos industriales",
+        "elec": "Equipos eléctricos y energía",
+        "agri_raw": "Productos agrícolas sin procesar",
+        "agri_processed": "Productos alimenticios procesados",
+        "beauty": "Productos de belleza naturales",
+        "spices": "Especias y tés excepcionales",
+        "dairy": "Productos lácteos y derivados",
+        "jewelry_fashion": "Joyas y Accesorios de Moda — El Resplandor de Argelia",
+        "wood_derivatives": "Madera y Productos Derivados de Origen Argelino",
+        "industrial_construction": "Materiales Industriales (Inox, Aluminio, PVC)",
+        "juice_drinks": "Jugos y Bebidas",
+        "plastic_ppe": "Productos Plásticos y EPI",
+        "agri_machinery": "Productos, Equipamiento y Maquinaria Agrícola"
+      }
+    },
+    "cta": {
+      "title": "Impulse Su",
+      "subtitle": "Visión Internacional",
+      "desc": "Únase al ecosistema B2B más prestigioso de África. Conéctese a la fuente de la artesanía y la industria excepcionales.",
+      "register": "REGÍSTRATE AHORA",
+      "explore": "DESCUBRE LA RED",
+      "ready": "¿Listo para la Excelencia?",
+      "vision": "Visión Internacional",
+      "partners_title": "Socios y Alianzas Estratégicas",
+      "chamber_part1": "Cámara de",
+      "chamber_part2": "Comercio Int."
+    },
+    "products": {
+      "title": "Productos",
+      "portfolio": "Portafolio de Firma",
+      "haute_couture": "Haute Couture",
+      "export_b2b": "Export B2B",
+      "subtitle": "Haute Couture Export",
+      "desc": "Una selección rigurosa de los mejores productos argelinos locales, listos para el mercado internacional.",
+      "viewAll": "Ver todo el catálogo",
+      "viewDetails": "Ver Detalles",
+      "quick_buy": "Compra Rápida",
+      "explore_full": "Explorar Colección Completa",
+      "reviews": "reseñas",
+      "items": {
+        "perfume": {
+          "name": "Esencia Floral Premium – Botella Estriada 50 ml",
+          "desc": "Una elegante botella de vidrio estriado que contiene una esencia floral de color, presentada en un diseño refinado que combina la estética moderna con un toque artesanal. El producto muestra un acabado cuidado, un tinte cautivador y una presentación de alta gama adecuada para los mercados internacionales."
+        },
+        "dates": {
+          "name": "Deglet Nour – Dátiles Argelinos Premium",
+          "desc": "Los dátiles Deglet Nour de Argelia se cosechan en los palmerales del sur de Argelia, particularmente famosos por su calidad. Estos dátiles se benefician de un secado natural al sol, preservando su suavidad, color ámbar y valor nutricional. Ideal para consumo directo, repostería o exportación agroalimentaria premium."
+        },
+        "aloe": {
+          "name": "Jarabe y Gel de Aloe Vera Natural",
+          "desc": "Un producto de excelencia de las mejores granjas argelinas, que cumple con los más altos estándares internacionales de calidad y trazabilidad."
+        },
+        "olive": {
+          "name": "Aceite de Oliva Virgen Extra – Primera Presión en Frío",
+          "desc": "Aceite de oliva virgen extra producido en Argelia, obtenido exclusivamente por procedimientos mecánicos sin refinado. Sabor frutado, ligero amargor y acidez naturalmente baja. Producto ideal para distribuidores, importadores y marcas que deseen un aceite de oliva mediterráneo auténtico y premium."
+        },
+        "ceramics": {
+          "name": "Cerámicas & Azulejos",
+          "desc": "Azulejos de cerámica duraderos y estéticos, diseñados para la exportación."
+        },
+        "electronics": {
+          "name": "Componentes Electrónicos",
+          "desc": "Piezas electrónicas de alta precisión para aplicaciones industriales."
+        },
+        "textile": {
+          "name": "Textiles & Telas",
+          "desc": "Telas de algodón premium para la fabricación textil internacional."
+        },
+        "solar_panel": {
+          "name": "Paneles Solares de Alto Rendimiento",
+          "desc": "Paneles solares monocristalinos de grado industrial para proyectos energéticos a gran escala. Alta eficiencia y durabilidad."
+        },
+        "olive_oil_premium": {
+          "name": "Aceite de Oliva Virgen Extra Premium",
+          "desc": "Aceite de oliva de calidad superior prensado en frío de los mejores olivares argelinos. Baja acidez y rico aroma."
+        },
+        "industrial_valve": {
+          "name": "Válvula Industrial de Precisión",
+          "desc": "Válvula industrial cromada de alta precisión para sistemas de petróleo, gas e hidráulicos. Diseñada para la excelencia."
+        }
+      }
+    },
+    "why": {
+      "title": "Por qué",
+      "subtitle": "¿Elegirnos?",
+      "desc": "Experiencia única que combina tecnología B2B e inteligencia de mercado para impulsar sus exportaciones.",
+      "reasons": {
+        "sourcing": {
+          "title": "Sourcing de Élite",
+          "desc": "Una selección exclusiva de los mejores productores certificados argelinos."
+        },
+        "quality": {
+          "title": "Calidad Excepcional",
+          "desc": "Estándares de calidad internacionales para cada producto exportado."
+        },
+        "vision": {
+          "title": "Visión Mundial",
+          "desc": "Abrimos las puertas al mercado global para el terroir local."
+        },
+        "support": {
+          "title": "Soporte VIP",
+          "desc": "Soporte dedicado para facilitar sus transacciones, desde la negociación hasta la logística internacional."
+        }
+      },
+      "elite": "Élite B2B",
+      "about_button": "¿Quiénes somos?"
+    },
+    "events": {
+      "agenda": "AGENDA DE EXPORTACIÓN",
+      "title": "Ferias y",
+      "subtitle": "Misiones Globales",
+      "filters": {
+        "all": "Todos",
+        "national": "Argelia",
+        "international": "Internacional"
+      },
+      "view_all": "VER TODA LA AGENDA",
+      "recommended": "RECOMENDADO",
+      "location": "LUGARES",
+      "date": "Fecha",
+      "days": "Días",
+      "reserve": "Reservar mi lugar",
+      "none": "No hay eventos programados en este momento.",
+      "event_default": "Evento",
+      "category_names": {
+        "cat1": "Agroindustria Procesada",
+        "cat25": "Productos Agrícolas Crudos",
+        "cat26": "Pesca y Acuicultura",
+        "cat27": "Zootecnia y Ganadería",
+        "cat49": "Especias y Tés Excepcionales",
+        "cat50": "Jugos y Bebidas",
+        "cat52": "Productos Lácteos",
+        "cat55": "Agua Mineral Natural",
+        "cat4": "Artesanía y Creaciones",
+        "cat48": "Joyería y Moda de Argelia",
+        "cat36": "Máquinas Industriales",
+        "cat6": "Industria Mecánica",
+        "cat3": "Electricidad y Energía",
+        "cat47": "Soluciones Solares",
+        "cat29": "Equipamiento Agrícola",
+        "cat30": "Minería y Metalurgia",
+        "cat43": "Sistemas Hidráulicos",
+        "cat44": "Neumáticos y Accesorios",
+        "cat7": "Química y Derivados",
+        "cat2": "Plásticos y EPP",
+        "cat53": "Cartón y Embalaje",
+        "cat31": "Materiales de Construcción",
+        "cat51": "Azulejos y Revestimientos",
+        "cat54": "Piedras Naturales",
+        "cat56": "Inox, Aluminio y PVC",
+        "cat57": "Vidrio Industrial",
+        "cat34": "Muebles y Diseño",
+        "cat35": "Electrodomésticos",
+        "cat39": "Utensilios de Casa",
+        "cat46": "Dispositivos Móviles",
+        "cat5": "Madera y Derivados",
+        "cat42": "Productos Reciclados",
+        "cat8": "Productos Cosméticos",
+        "cat40": "Perfumes de Lujo",
+        "cat41": "Belleza Natural",
+        "cat33": "Farma y Médico",
+        "cat61": "Soluciones IT",
+        "cat45": "Innovación de Materiales",
+        "cat58": "Servicios Intelectuales",
+        "cat59": "Subcontratación",
+        "cat60": "Inversiones B2B",
+        "cat62": "Eventos Pro",
+        "cat19": "Inmobiliaria Certificada",
+        "cat64": "Licencias y Franquicias"
+      },
+      "fallback": {
+        "gulfood": {
+          "name": "Gulfood Dubai",
+          "desc": "La feria de alimentos y bebidas más grande del mundo",
+          "location": "Dubái, UAE",
+          "date": "26-30 ene 2026"
+        },
+        "agropack": {
+          "name": "AGRO PACK EXPO",
+          "desc": "Feria internacional de envasado y procesamiento de alimentos",
+          "location": "Argel, SAFEX",
+          "date": "2-5 feb 2026"
+        },
+        "paris": {
+          "name": "Salon de l'Agriculture",
+          "desc": "El evento agrícola más grande del mundo",
+          "location": "París, Francia",
+          "date": "21 feb - 1 mar 2026"
+        },
+        "itb": {
+          "name": "ITB Berlin",
+          "desc": "La feria de turismo B2B más grande del mundo",
+          "location": "Berlín, Alemania",
+          "date": "3-5 mar 2026"
+        },
+        "hannover": {
+          "name": "HANNOVER MESSE",
+          "desc": "La feria industrial más grande del mundo",
+          "location": "Hannover, Alemania",
+          "date": "20-24 abr 2026"
+        },
+        "djazagro": {
+          "name": "DJAZAGRO",
+          "desc": "Feria internacional de la industria alimentaria",
+          "location": "Argel, SAFEX",
+          "date": "Abril 2026"
+        }
+      }
+    },
+    "certifications": {
+      "quality_standards": "Calidad y Estándares",
+      "title": "Certifications y",
+      "subtitle": "Cumplimiento Internacional",
+      "desc_main": "Productores que cumplen con los estándares exigidos por los mercados internacionales, garantizando trazabilidad y calidad.",
+      "transparency_title": "Transparencia total para sus compras",
+      "transparency_desc": "Todos los productores presentes en la plataforma muestran sus certificaciones oficiales en su perfil. Estas certificaciones permiten a los compradores filtrar, comparar y seleccionar socios que cumplan con los requisitos de su mercado.",
+      "explore_btn": "Explorar productores certificados",
+      "items": {
+        "iso": "Estándares Internacionales",
+        "ce": "Cumplimiento Europeo",
+        "haccp": "Seguridad Alimentaria",
+        "bio": "Agricultura Ecológica",
+        "sgs": "Inspección y Verificación",
+        "ecocert": "Desarrollo Sostenible",
+        "fda": "Administración de Alimentos y Medicamentos",
+        "halal": "Cumplimiento Religioso",
+        "gmp": "Buenas Prácticas de Fabricación",
+        "coc": "Certificado de Conformidad de Exportación"
+      }
+    },
+    "empower": {
+      "excellence": "Excelencia",
+      "img_industry": "Industria Argelina",
+      "img_partners": "Alianzas Internacionales",
+      "img_production": "Capacidad de Producción",
+      "title": "La Industria Argelina",
+      "subtitle": "Un Potencial de Excelencia.",
+      "desc": "Argelia cuenta con una infraestructura industrial moderna y fábricas de alta capacidad. Nuestros socios combinan excelencia técnica y seriedad profesional, posicionando el \"Hecho en Argelia\" como garantía de calidad en los mercados internacionales.",
+      "program_btn": "Consultar el programa de facilitación de exportaciones",
+      "features": {
+        "industrial": {
+          "title": "Capacidad Industrial de Vanguardia",
+          "desc": "Fábricas modernas equipadas con tecnologías avanzadas, capaces de cumplir con los estándares internacionales más exigentes."
+        },
+        "certified": {
+          "title": "Productores Certificados y Serios",
+          "desc": "Empresas argelinas rigurosas, certificadas por ISO, que garantizan confiabilidad y excelencia en cada asociación."
+        },
+        "export": {
+          "title": "Potencial de Exportación Estratégico",
+          "desc": "Posición geográfica privilegiada y acuerdos comerciales favorables para conquistar los mercados africanos, europeos y de Oriente Medio."
+        }
+      }
+    },
+    "hero_products": {
+      "title": "Descubra nuestros productos",
+      "stats": {
+        "producers": "+500 productores registrados",
+        "countries": "10+ países atendidos",
+        "products": "1000+ productos exportables"
+      }
+    },
+    "aboutShort": {
+      "title": "La Excelencia",
+      "img_alt": "Exportación Internacional",
+      "ambition": "NUESTRA AMBICIÓN",
+      "subtitle": "Sin Fronteras",
+      "badge_title": "Estándar de Excelencia",
+      "badge_desc": "Cumplimiento de alto nivel en el corazón de nuestro proceso de selección global.",
+      "desc": "Kleer Infini es el arquitecto de su expansión internacional, conectando el saber hacer local con los estándares globales.",
+      "points": {
+        "trust": {
+          "title": "Confianza Total",
+          "desc": "Soporte legal y logístico completo."
+        },
+        "efficiency": {
+          "title": "Eficacia Rara",
+          "desc": "Conexión directa ultrarrápida."
+        }
+      },
+      "button": "Descubre Nuestra Historia"
+    },
+    "testimonials": {
+      "reputation": "Reputación de Excelencia",
+      "title": "Qué dicen",
+      "subtitle": "nuestros Socios",
+      "desc": "\"Una presencia mundial, una confianza absoluta.\"",
+      "items": {
+        "elena": {
+          "name": "Elena Richardson",
+          "role": "Directora de Importación-Exportación, Global Foods Co.",
+          "country": "Londres, UK",
+          "quote": "Kleer Infini ha revolucionado nuestro abastecimiento en Argelia. La calidad de los productos y el profesionalismo de los productores seleccionados son simplemente notables."
+        },
+        "ahmed": {
+          "name": "Ahmed Al-Mansouri",
+          "role": "Fundador y CEO, Desert Gold Trading",
+          "country": "Dubái, UAE",
+          "quote": "Una experiencia B2B de un refinamiento raro. La plataforma nos conecta directamente con la esencia del terroir argelino con total eficiencia y transparencia."
+        }
+      }
+    },
+    "map": {
+      "title": "Mapa de Productores",
+      "placeholder": "Buscar entre productores con coordenadas...",
+      "search": "Buscar",
+      "loading": "Cargando productores...",
+      "count": "{{count}} productor encontrado",
+      "count_plural": "{{count}} productores encontrados",
+      "email": "CORREO ELECTRÓNICO",
+      "phone": "TELÉFONO",
+      "address": "DIRECCIÓN",
+      "ville": "CIUDAD",
+      "view_profile": "Ver perfil",
+      "all": "Todos",
+      "no_address": "Dirección no especificada",
+      "country": "Argelia",
+      "no_results": "No se encontraron productores...",
+      "certified_count": "ESTABLECIMIENTOS CERTIFICADOS",
+      "live_network": "Red en Vivo",
+      "explore_desc": "Explore la excelencia B2B argelina mediante geolocalización."
+    },
+    "steps": {
+      "title": "Su Trayectoria",
+      "subtitle": "hacia la Excelencia",
+      "badge": "Excelencia B2B",
+      "items": {
+        "guide_text": "Únase a nuestro círculo exclusivo como comprador internacional o productor de élite.",
+        "exploration": {
+          "title": "1 Exploración",
+          "desc": "Acceda a nuestro catálogo confidencial de productos certificados y saber hacer ancestral."
+        },
+        "interactions": {
+          "title": "2 Interacciones",
+          "desc": "Inicie intercambios directos, personalice sus presupuestos y asegure sus asociaciones."
+        },
+        "excellence": {
+          "title": "3 Excelencia",
+          "desc": "Haga realidad sus ambiciones de exportación con un soporte logístico de alta gama."
+        }
+      },
+      "buttons": {
+        "start": "Unirse a la Élite",
+        "showroom": "Explorar el Showroom",
+        "leave_demand": "Dejar mi solicitud de importación"
+      }
+    },
+    "footer": {
+      "desc": "La puerta de enlace premium para exportar productos argelinos excepcionales a todo el mundo.",
+      "rights": "Todos los derechos reservados.",
+      "navigation": "Navegación",
+      "excellence": "ÁREA DE EXCELENCIA",
+      "presence": "PRESENCIA GLOBAL",
+      "univers": "Nuestro Universo",
+      "showroom": "Showroom de Productos",
+      "carte": "Mapa Interactivo",
+      "partenaire": "Convertirse en socio",
+      "producerLogin": "Inicio de sesión del productor",
+      "sitemap": "Mapa del sitio",
+      "faq": "Preguntas frecuentes",
+      "savoirFaire": "Saber hacer argelino",
+      "conciergerie": "Conserjería de exportación",
+      "buyerLogin": "Área del comprador",
+      "mentions": "Avisos legales",
+      "contact": "Contáctenos",
+      "privacy": "Política de Privacidad",
+      "terms": "Términos de Uso",
+      "cookies": "Cookies",
+      "rating": "Nota de Excelencia",
+      "mission_statement": "Asociación con instituciones globales para una nueva era de excelencia B2B argelina.",
+      "security_secure": "KleerInfini Business Secure",
+      "security_confidential": "Sus datos son estrictamente confidenciales",
+      "categories_title": "Sectores Estratégicos de Exportación",
+      "categories": {
+        "agro_terroir": "Agroalimentario y Terruño",
+        "indus_energy": "Industria y Energía",
+        "construction_habitat": "Construcción y Vivienda",
+        "sante_beaute": "Salud, Belleza y Servicios"
+      },
+      "payments": {
+        "title": "Métodos de Pago Seguros",
+        "bank_transfer": "Transferencia Bancaria",
+        "bank_transfer_subtitle": "Ventas de exportación internacional",
+        "cards": "Tarjetas Bancarias",
+        "digital_solutions": "Soluciones Digitales",
+        "digital_solutions_subtitle": "PayPal y Wise Business"
+      },
+      "contact_title": "Contacto",
+      "address": "Argel, Argelia",
+      "alger_time": "Argel (GMT+1) :"
+    }
+  },
+  "about": {
+    "title": "¿QUIÉNES SOMOS?",
+    "description": "Kleer Infini es una empresa tecnológica argelina especializada en el desarrollo de soluciones digitales y comerciales dedicadas a los mercados B2B nacionales e internacionales. Nuestra misión es apoyar la transformación digital de las empresas, fortalecer su competitividad exportadora y proporcionarles herramientas concretas para la prospección, el marketing y el establecimiento de relaciones comerciales. Fundada por un equipo multidisciplinario, Kleer Infini combina habilidades en tecnología, comercio internacional e inteligencia de mercado para ofrecer una plataforma única de valor agregado.",
+    "button": "Nuestras misiones",
+    "missionsTitle": "Nuestra misión",
+    "mission1": "Simplificar y modernizar los procesos de venta B2B, exportación y generación de prospectos.",
+    "mission2": "Ofrecer una plataforma fiable, multilingüe y constantemente actualizada, integrando herramientas de apoyo a la decisión.",
+    "mission3": "Fortalecer la visibilidad internacional de las empresas argelinas a través de soluciones digitales eficaces.",
+    "offersTitle": "Lo que ofrecemos",
+    "offer1": {
+      "title": "Plataforma de Ventas y Marketing",
+      "desc": "Motor de búsqueda avanzado para filtrar empresas y acceder a archivos detallados."
+    },
+    "offer2": {
+      "title": "Marketing digital B2B",
+      "desc": "Promoción en mercados regionales e internacionales con contenido y segmentación."
+    },
+    "offer3": {
+      "title": "EasyBusiness Export",
+      "desc": "Procedimientos de exportación: aduanas, estadísticas, regulaciones, documentos, puntos de referencia."
+    },
+    "offer4": {
+      "title": "Directorio de Negocios",
+      "desc": "Directorio que estructura datos por sector, región, producto, etc."
+    },
+    "expertiseTitle": "Nuestras áreas de especialización",
+    "expertise1": "Web y Móvil",
+    "expertise2": "Cloud e Infra IT",
+    "expertise3": "Automatización (CRM, ERP)",
+    "expertise4": "Monitoreo y Datos B2B",
+    "expertise5": "Plataformas B2B",
+    "expertise6": "Internacionalización",
+    "valuesTitle": "Nuestros valores",
+    "values": "Exigencia – Transparencia – Fiabilidad – Innovación",
+    "visionTitle": "Nuestra visión",
+    "vision": "Hacer de Kleer Infini un líder B2B digital en el norte de África conectado internacionalmente gracias a una infraestructura inteligente y escalable.",
+    "partnersTitle": "Nuestros socios",
+    "partner1": "Gerente de Exportación",
+    "partner2": "Socio Tecnológico",
+    "partner3": "Director Com.",
+    "partner4": "Gerente de Mercado",
+    "partner5": "Consultor Sénior",
+    "partner6": "Estratega de Datos"
+  },
+  "clientHeader": {
+    "greeting": "Hola,",
+    "clientName": "Nombre del Cliente",
+    "subtitle": "¿Listo para explorar a los productores?",
+    "profileAlt": "Perfil del Cliente"
+  },
+  "messageBox": {
+    "msg1": "Hola",
+    "msg2": "¡Hola!",
+    "inputPlaceholder": "Escribe un mensaje...",
+    "attachmentsLabel": "Archivos adjuntos:",
+    "attachmentAlt": "archivo adjunto"
+  },
+  "profil": {
+    "title": "Mi perfil",
+    "editInfo": "Cambiar mi información personal",
+    "changePassword": "Cambiar mi contraseña",
+    "deleteAccount": "Eliminar mi cuenta",
+    "profilePicture": "Foto de perfil",
+    "avatarPlaceholder": "Avatar",
+    "lastName": "Apellido",
+    "firstName": "Nombre",
+    "email": "Dirección de correo electrónico",
+    "phone": "Teléfono",
+    "company": "Empresa",
+    "website": "Sitio web",
+    "updateButton": "Actualizar",
+    "currentPassword": "Contraseña actual",
+    "newPassword": "Nueva Contraseña",
+    "confirmPassword": "Confirmar nueva contraseña",
+    "changePasswordButton": "Cambiar contraseña",
+    "confirmDeleteMessage": "¿Está seguro de que desea eliminar su cuenta?",
+    "confirmDelete": "Eliminar permanentemente",
+    "cancel": "Cancelar",
+    "updated": "Información actualizada:",
+    "passwordChanged": "Contraseña cambiada:",
+    "accountDeleted": "Cuenta eliminada"
+  },
+  "form": {
+    "registerTitle": "Registrarse",
+    "registerSubtitle": "Para acceder a fichas de productos detalladas, precios negociados y soporte de exportación personalizado.",
+    "nom": "Apellido",
+    "prenom": "Nombre",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "telephone": "Teléfono",
+    "societe": "Empresa",
+    "pays": "País",
+    "secteur": "Sector de actividad",
+    "langue": "Idioma preferido",
+    "siteweb": "Sitio web (opcional)",
+    "choose": "Elegir",
+    "submit": "Registrarse",
+    "nomRequired": "Apellido requerido",
+    "prenomRequired": "Nombre requerido",
+    "emailRequired": "Correo electrónico requerido",
+    "invalidEmail": "Correo electrónico no válido",
+    "passwordRequired": "Contraseña requerida",
+    "societeRequired": "Empresa requerida",
+    "telephoneRequired": "Teléfono requerido",
+    "paysRequired": "País requerido",
+    "secteurRequired": "Sector de actividad requerido",
+    "langueRequired": "Idioma requerido",
+    "invalidURL": "URL no válida",
+    "success": "¡Registro exitoso!",
+    "noVideoSupport": "Su navegador no admite video."
+  },
+  "sidebar": {
+    "dashboard": "Tablero",
+    "search": "Buscar productores",
+    "requests": "Mis solicitudes",
+    "messages": "Mensajería",
+    "documents": "Documentos recibidos",
+    "hub": "HUB ESTRATÉGICO DE EXPORTACIÓN",
+    "profile": "Mi perfil",
+    "language": "Idioma",
+    "logout": "Cerrar sesión"
+  },
+  "dashboard": {
+    "languageTitle": "Elija su idioma preferido",
+    "logoutMessage": "¿Estás seguro de que quieres cerrar la sesión?",
+    "logoutButton": "Cerrar sesión",
+    "cancelButton": "Cancelar",
+    "sectionUnknown": "Sección no encontrada"
+  },
+  "categories": {
+    "search": {
+      "moteur_titre": "MOTOR DE BÚSQUEDA DE EXPORTACIÓN",
+      "rechercher_titre": "BUSCAR UNA REFERENCIA",
+      "rechercher_desc": "Ingrese un sector, un producto o un código aduanero para acceder instantáneamente a los catálogos certificados.",
+      "placeholder": "Ej: Cerámica, Dátiles Deglet Nour, Textil...",
+      "trouver_btn": "BUSCAR",
+      "catalogues_pdf": "CATÁLOGOS PDF",
+      "catalogues_desc": "Guía completa de los Sectores Estratégicos de Exportación de Argelia (Edición 2026).",
+      "consulter_btn": "CONSULTARLOS"
+    },
+    "sectors_dynamic": {
+      "cosmetics": {
+        "name": "Productos Cosméticos",
+        "desc": "Gama completa de productos de belleza y cuidado de alta gama."
+      },
+      "perfumes": {
+        "name": "Perfumes y Aguas de Perfume",
+        "desc": "Fragancias cautivadoras nacidas del saber hacer tradicional."
+      },
+      "fishery": {
+        "name": "Productos de la Pesca",
+        "desc": "Productos del mar frescos y procesados, certificados para la exportación."
+      },
+      "pharma": {
+        "name": "Productos Farmacéuticos",
+        "desc": "Medicamentos y soluciones médicas que cumplen con los estándares internacionales."
+      },
+      "agri_processed": {
+        "name": "Agroindustria Procesada",
+        "desc": "Productos alimenticios de alta calidad listos para la exportación global."
+      },
+      "agri_raw": {
+        "name": "Agricultura en Bruto",
+        "desc": "Productos agrícolas frescos directamente de las mejores explotaciones."
+      },
+      "crafts": {
+        "name": "Artesanía y Creaciones",
+        "desc": "Objetos únicos que reflejan el patrimonio y la cultura argelina."
+      },
+      "wood": {
+        "name": "Madera y Derivados",
+        "desc": "Madera y derivados para la industria y decoración."
+      },
+      "electrical": {
+        "name": "Electricidad y Energía",
+        "desc": "Equipos eléctricos y soluciones energéticas de alto rendimiento."
+      },
+      "mechanical": {
+        "name": "Industria Mecánica",
+        "desc": "Piezas y maquinaria de precisión para diversos sectores industriales."
+      },
+      "textile": {
+        "name": "Textil y Confección",
+        "desc": "Tejidos de calidad y prêt-à-porter con acabados meticulosos."
+      },
+      "construction": {
+        "name": "Materiales de Construcción",
+        "desc": "Soluciones integrales para la edificación y obras públicas."
+      },
+      "mining_metallurgy": {
+        "name": "Minería y Metalurgia",
+        "desc": "Recursos minerales y productos metalúrgicos de primera elección."
+      },
+      "hydraulic_systems": {
+        "name": "Sistemas Hidráulicos",
+        "desc": "Componentes y sistemas para la gestión de fluidos industriales."
+      },
+      "solar_energy": {
+        "name": "Energía Solar",
+        "desc": "Paneles fotovoltaicos y soluciones de energía renovable."
+      },
+      "plastic_ppe": {
+        "name": "Plástico y EPI",
+        "desc": "Productos plásticos industriales y Equipos de Protección Individual."
+      },
+      "juice_drinks": {
+        "name": "Jugos y Bebidas",
+        "desc": "Refrescos con sabores naturales y auténticos."
+      },
+      "industrial": {
+        "name": "Maquinaria Industrial",
+        "desc": "Equipos pesados y máquinas herramienta para la producción en masa."
+      },
+      "furniture_decoration": {
+        "name": "Muebles y Decoración",
+        "desc": "Muebles de diseño y accesorios para interiores excepcionales."
+      },
+      "jewelry": {
+        "name": "Joyas y Moda",
+        "desc": "Creaciones de joyería fina y accesorios de moda refinados."
+      },
+      "dairy": {
+        "name": "Productos Lácteos",
+        "desc": "Amplia gama de productos lácteos frescos y derivados de calidad."
+      },
+      "spices": {
+        "name": "Especias y Tés",
+        "desc": "Sabores excepcionales y aromas intensos para la cuisine del mundo."
+      },
+      "appliances": {
+        "name": "Electrodomésticos",
+        "desc": "Aparatos modernos que combinan rendimiento y eficiencia energética."
+      }
+    },
+    "phares": "NUESTRAS CATEGORÍAS CLAVE",
+    "voir_tout": "VER TODO",
+    "action_bar": {
+      "nos_produits": "NUESTROS PRODUCTOS DE EXPORTACIÓN",
+      "standard_excellence": "Estándar de Excelencia para Mercados Internacionales"
+    },
+    "sidebar": {
+      "titre": "SECTORES ESTRATÉGICOS",
+      "initialisation": "Inicialización..."
+    },
+    "card": {
+      "disponible": "DISPONIBLE",
+      "tarification": "TARIFAS",
+      "prix_public": "Precio Público",
+      "sur_devis": "Bajo Cotización",
+      "explorer": "EXPLORAR",
+      "description_default": "Gama completa certificada para exportación internacional. Normas ISO. Embalaje adaptado a los requisitos B2B."
+    },
+    "drawer": {
+      "secteur": "SECTOR",
+      "export_platinum": "EXPORT PLATINUM",
+      "profil_titre": "Perfil del Sector",
+      "description_default": "Argelia despliega su excelencia a través de este sector estratégico. Nuestras empresas asociadas respetan rigurosos protocolos de calidad para satisfacer los mercados globales más competitivos.",
+      "qualite_label": "Calidad",
+      "qualite_desc": "Estándares internacionales garantizados en toda la cadena.",
+      "provenance_label": "Proveniencia",
+      "provenance_desc": "Origen 100% Argelia, trazabilidad completa y certificada.",
+      "certifications_titre": "Garantías y Certificaciones",
+      "expedition_titre": "ENVÍO GLOBAL",
+      "expedition_desc": "Logística integrada a +120 destinos. Soluciones de transporte marítimo y aéreo optimizadas.",
+      "ouvrir_dossier": "ABRIR DOSSIER DE EXPORTACIÓN",
+      "lancer_consultation": "INICIAR CONSULTA"
+    }
+  },
+  "quotes": {
+    "title_service": "Consulta de Servicio",
+    "title_sourcing": "Iniciar una Consulta",
+    "title_quote": "Solicitud de Cotización",
+    "pro_space": "espacio pro",
+    "concerning": "Relativo a",
+    "service_type": "Tipo de Misión",
+    "service_location": "Lugar de Intervención",
+    "service_type_placeholder": "Ej: Auditoría, Transporte completo...",
+    "service_location_placeholder": "Ej: Argel, Orán (En el sitio)",
+    "incoterm": "Incoterm Deseado",
+    "incoterm_placeholder": "Seleccionar un Incoterm...",
+    "target_price": "Precio Objetivo / Presupuesto",
+    "target_price_placeholder": "Ej: 1200 USD/MT",
+    "volume_service": "Alcance / Número",
+    "volume_product": "Volumen / Cantidad",
+    "volume_service_placeholder": "Ej: 5 consultores, 10 camiones...",
+    "volume_product_placeholder": "Ej: 5000 Unidades / Toneladas",
+    "duration": "Duración / Frecuencia",
+    "packaging": "Embalaje",
+    "duration_placeholder": "Ej: 6 meses, Semanal...",
+    "packaging_placeholder": "Ej: Granel, Big Bag, Cartón...",
+    "office": "Sede / Oficina",
+    "destination": "Destino Final",
+    "office_placeholder": "Ej: Madrid, Sede Social",
+    "destination_placeholder": "Ej: Puerto de Barcelona, España",
+    "start_date": "Fecha de Inicio",
+    "deadline": "Plazo Deseado",
+    "specs_label": "Pliego de Condiciones / Detalles",
+    "attach_file": "Adjuntar un documento (PDF/IMG)",
+    "modify_file": "Modificar el archivo",
+    "message_placeholder": "Especifique aquí sus especificaciones técnicas, normas de calidad requeridas o cualquier otra solicitud especial...",
+    "sending": "Transmisión en curso...",
+    "sent": "Expediente Transmitido ✅",
+    "submit": "Validar la Consulta",
+    "secure": "KleerInfini Business Secure",
+    "confidential": "Sus datos son confidenciales"
+  },
+  "producerLogin": {
+    "title": "Bienvenido de nuevo",
+    "subtitle": "Acceda a su panel estratégico de exportación.",
+    "errors": {
+      "notProducer": "Esta cuenta no es una cuenta de productor. Utilice el inicio de sesión de cliente.",
+      "waitingValidation": "Su cuenta está pendiente de validación por parte de nuestros equipos. Recibirá un correo electrónico de confirmación de registro tras la activación.",
+      "invalidCredentials": "Credenciales inválidas o error de conexión."
+    },
+    "emailLabel": "Correo electrónico profesional",
+    "emailPlaceholder": "your@company.com",
+    "emailRequired": "Correo electrónico requerido",
+    "passwordLabel": "Contraseña",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "passwordRequired": "Contraseña requerida",
+    "submit": "Iniciar sesión",
+    "loading": "Sincronizando...",
+    "newToKleer": "¿Nuevo en Kleer Infini?",
+    "createAccess": "Crear acceso de productor",
+    "clientAccess": "Acceso Cliente",
+    "leftSubtitle": "Lleve sus ambiciones a nivel internacional. Gestione su presencia de exportación desde un espacio dedicado.",
+    "activeProducers": "+500 Productores argelinos activos"
+  },
+  "producerRegister": {
+    "steps": {
+      "identity": "Identidad",
+      "documents": "Documentos",
+      "capacity": "Capacidad",
+      "security": "Seguridad",
+      "validation": "Validación"
+    },
+    "stepIndicator": "Paso {{current}} / {{total}}",
+    "title": "ÚNETE A LA RED DE EXPORTACIÓN",
+    "subtitle": "Únase al ecosistema de socios certificados de Kleer Infini.",
+    "leftTitle1": "Excelencia",
+    "leftTitle2": "Natural.",
+    "leftSubtitle": "Únase a la red líder de exportación internacional.",
+    "impactGlobal": "Impacto Global",
+    "accreditation": "Acreditación Kleer Infini",
+    "copyright": "© 2024 Kleer Infini • Excelencia en exportaciones",
+    "alreadyAccount": "¿Ya tienes una cuenta? Iniciar sesión",
+    "continue": "Continuar",
+    "previous": "Anterior",
+    "processing": "Procesando...",
+    "finalize": "Finalizar",
+    "validationError": "Por favor, complete los campos obligatorios para este paso.",
+    "locationError": "Por favor, seleccione su ubicación exacta en el mapa.",
+    "submitError": "Ocurrió un error durante su solicitud.",
+    "submitSuccess": "Su solicitud ha sido enviada con éxito.",
+    "companyName": "Nombre de la empresa",
+    "companyNamePlaceholder": "EJ: GLOBAL EXPORT SA",
+    "firstName": "Nombre del responsable",
+    "firstNamePlaceholder": "John",
+    "lastName": "Apellido del responsable",
+    "lastNamePlaceholder": "Doe",
+    "activity": "Actividad principal",
+    "activityPlaceholder": "SU SECTOR",
+    "email": "Correo electrónico profesional",
+    "emailPlaceholder": "contact@yourcompany.com",
+    "phone": "Teléfono",
+    "whatsapp": "WhatsApp",
+    "country": "País",
+    "countryPlaceholder": "SELECCIONAR...",
+    "city": "Estado / Región",
+    "cityPlaceholder": "REGIÓN",
+    "address": "Municipio",
+    "addressPlaceholder": "DIRECCIÓN",
+    "locationPrecise": "Ubicación precisa",
+    "locationValidated": "Ubicación validada",
+    "docsTitle": "Certificaciones y Calidad",
+    "docsSubtitle": "Adjunte sus documentos oficiales (ISO, HACCP, Fichas técnicas) para acelerar su acreditación.",
+    "certPdf": "Certificaciones PDF",
+    "clickToAdd": "Haga clic para agregar",
+    "techDocs": "Fichas técnicas",
+    "productSpecs": "Especificaciones del producto",
+    "categories": "Categorías de exportación",
+    "categoriesPlaceholder": "ELEGIR...",
+    "minQuantity": "Cantidad mínima",
+    "minQuantityPlaceholder": "EJ: 1 CONTENEDOR 40FT",
+    "monthlyCapacity": "Capacidad mensual",
+    "monthlyCapacityPlaceholder": "EJ: 50.000 UNIDADES",
+    "yearlyCapacity": "Capacidad anual",
+    "yearlyCapacityPlaceholder": "EJ: 600.000 UNIDADES",
+    "targetMarkets": "Mercados preferidos",
+    "securityAccount": "Seguridad de la cuenta",
+    "securitySubtitle": "Defina un acceso robusto para su área de miembros.",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar",
+    "whyJoin": "¿Por qué unirse a Kleer Infini?",
+    "whyJoinPlaceholder": "CUÉNTENOS SOBRE SU VISIÓN Y CAPACIDAD...",
+    "disclaimer": "Al enviar este formulario, inicia el proceso de acreditación Kleer Infini. Nuestros expertos revisarán su perfil en 48 horas.",
+    "errors": {
+      "required": "Campo requerido",
+      "emailInvalid": "Email inválido",
+      "categoryMin": "Seleccione al menos una categoría",
+      "passwordInvalid": "La contraseña debe contener al menos 12 caracteres, una letra mayúscula, una minúscula y un número",
+      "passwordMatch": "Las contraseñas no coinciden"
+    }
+  },
+  "clientLogin": {
+    "welcomeBack": "Bienvenido de nuevo",
+    "partner": "Socio.",
+    "subtitle": "Inicia sesión para acceder a tu panel y gestionar tus solicitudes de exportación.",
+    "network": "Kleer Infini Global Network",
+    "noAccount": "¿Aún no tienes cuenta?",
+    "register": "Registrarse",
+    "title": "Conexión",
+    "accessSpace": "Accede a tu espacio cliente",
+    "emailLabel": "Correo electrónico profesional",
+    "emailPlaceholder": "contacto@empresa.com",
+    "emailRequired": "Correo electrónico requerido",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "passwordRequired": "Contraseña requerida",
+    "forgotPassword": "¿Olvidó su contraseña?",
+    "submit": "CONECTARSE",
+    "loading": "CONEXIÓN EN CURSO...",
+    "terms": "Al iniciar sesión, acepta nuestros términos de uso.",
+    "errorCredentials": "Credenciales incorrectas o error de conexión."
+  },
+  "clientRegister": {
+    "steps": {
+      "identity": "Identidad",
+      "company": "Empresa",
+      "finalization": "Finalización"
+    },
+    "leftTitle1": "La Excelencia",
+    "leftTitle2": "B2B.",
+    "leftSubtitle": "Únase a una comunidad de élite. Acceda a los mejores productores certificados y transforme sus intercambios comerciales.",
+    "network": "Kleer Infini Global Network",
+    "alreadyMember": "¿Ya es miembro?",
+    "login": "Conexión",
+    "title": "Crear una cuenta",
+    "firstNameLabel": "Nombre",
+    "firstNamePlaceholder": "Juan",
+    "firstNameRequired": "El nombre es obligatorio",
+    "lastNameLabel": "Apellido",
+    "lastNamePlaceholder": "García",
+    "lastNameRequired": "El apellido es obligatorio",
+    "emailLabel": "Correo electrónico profesional",
+    "emailPlaceholder": "contacto@empresa.com",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "Correo electrónico no válido",
+    "passwordLabel": "Contraseña",
+    "passwordPlaceholder": "••••••••",
+    "passwordRequired": "La contraseña es obligatoria",
+    "passwordMin": "La contraseña debe tener al menos 8 caracteres",
+    "phoneLabel": "Teléfono",
+    "phoneRequired": "El número de teléfono es obligatorio",
+    "companyLabel": "Nombre de la Empresa",
+    "companyPlaceholder": "GLOBAL TRADING CO.",
+    "companyRequired": "El nombre de la empresa es obligatorio",
+    "countryLabel": "País",
+    "countryPlaceholder": "Seleccionar...",
+    "countryRequired": "El país es obligatorio",
+    "sectorLabel": "Sector",
+    "sectorPlaceholder": "Agroalimentario",
+    "sectorRequired": "El sector de actividad es obligatorio",
+    "languageLabel": "Idioma preferido",
+    "languageRequired": "El idioma es obligatorio",
+    "websiteLabel": "Sitio Web (Opcional)",
+    "websitePlaceholder": "www.ejemplo.com",
+    "websiteInvalid": "URL no válida",
+    "confirmationTitle": "Confirmación",
+    "confirmationSubtitle": "Está a punto de unirse a Kleer Infini. Verifique su información y valide para comenzar.",
+    "freeRegistration": "Registro Gratuito",
+    "dashboardAccess": "Acceso Inmediato al Panel",
+    "dedicatedSupport": "Soporte Dedicado",
+    "previous": "Anterior",
+    "continue": "Continuar",
+    "submit": "Crear mi cuenta",
+    "loading": "Procesando...",
+    "invitationValidated": "Invitación validada para {{email}}",
+    "registerFree": "Puede registrarse libremente sin invitación.",
+    "accountCreation": "Creando su cuenta de socio...",
+    "welcome": "¡Bienvenido! Acceso inmediato a su panel.",
+    "errorGeneral": "Ocurrió un error durante el registro."
+  },
+  "products": {
+    "listing": {
+      "hero": {
+        "badge": "Exportación Internacional",
+        "title": "Lo mejor de Argelia,",
+        "subtitle": "Sin fronteras.",
+        "desc": "Explore nuestro catálogo exclusivo de productos certificados para el mercado internacional. Calidad premium, trazabilidad garantizada.",
+        "bg_text": "Export"
+      },
+      "featured": {
+        "badge": "Selección Premium",
+        "title": "Imprescindibles de la semana",
+        "best_seller": "Más vendido",
+        "superfood": "Superalimento"
+      },
+      "header": {
+        "algeria": "Argelia",
+        "global_catalog": "Catálogo Global",
+        "certified_count": "Productos Certificados",
+        "sort_by": "Ordenar por",
+        "sort_options": {
+          "relevance": "Relevancia",
+          "price_asc": "Precio ascendente",
+          "price_desc": "Precio descendente",
+          "newest": "Más recientes"
+        }
+      },
+      "sidebar": {
+        "filters": "Filtres",
+        "reset": "Reiniciar",
+        "categories": "Categorías",
+        "price_range": "Rango de precio",
+        "reviews": "Reseñas de clientes",
+        "apply": "Aplicar filtros"
+      }
+    },
+    "details": {
+      "back_to_catalog": "Volver al catálogo",
+      "no_image": "Imagen no disponible",
+      "export_immediate": "Exportación Inmediata",
+      "origin_fallback": "Exportación Argelia",
+      "indicative_price": "Precio indicativo",
+      "unit": "Unidad",
+      "request_quote": "Solicitar presupuesto",
+      "presentation": "Presentación del producto",
+      "desc_fallback": "Una selección rigurosa para una calidad de exportación excepcional, respetando las normas internacionales más exigentes.",
+      "logistic_delay": "Plazo Logístico",
+      "min_moq": "MOQ mínimo",
+      "units": "unidades",
+      "tech_doc": "Documentación Técnica",
+      "product_catalog": "Catálogo de Productos",
+      "download_pdf": "Descargar PDF",
+      "tech_sheet": "Ficha Técnica",
+      "specifications": "Especificaciones",
+      "compliance": "Certificaciones y Conformidad",
+      "certified_partner": "Socio de Exportación Certificado",
+      "company_profile": "Ficha de la Empresa",
+      "similar_discoveries": "Descubrimientos Similares",
+      "loading_error": "No se pudieron cargar los detalles del producto.",
+      "product_not_found": "Producto no encontrado",
+      "return_to_products": "Volver a los productos"
+    },
+    "grid": {
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "page_info": "Página {{current}} de {{total}}",
+      "loading": "Cargando productos...",
+      "error_title": "¡Error!",
+      "no_results": "Ningún producto coincide con su búsqueda.",
+      "reset": "Reiniciar"
+    },
+    "card": {
+      "exclusive_collection": "Colección Exclusiva",
+      "partner": "Socio",
+      "more_images": "+{{count}}",
+      "request_quote": "Solicitar presupuesto"
+    },
+    "modal": {
+      "description": "Descripción",
+      "specifications": "Especificaciones",
+      "video": "Vídeo",
+      "desc_quality": "Calidad de exportación excepcional.",
+      "desc_protocols": "Nuestros productos respetan protocolos estrictos para garantizar una frescura y un sabor inigualables.",
+      "language": "Idioma",
+      "origin": "Origen",
+      "availability": "Disponibilidad",
+      "in_stock": "En stock",
+      "on_order": "Bajo pedido",
+      "download_catalog": "Descargar el Catálogo (PDF)",
+      "tech_sheet": "Ficha Técnica (PDF)",
+      "cert_verified": "Documento Verificado",
+      "certificate": "Certificado",
+      "available": "Disponible",
+      "business_stats": {
+        "indicative_price": "Precio indicativo",
+        "quote_disclamer": "Sujeto a cotización",
+        "moq": "MOQ",
+        "units": "Unidades",
+        "logistic_delay": "Plazo Logístico",
+        "logistic_delay_fallback": "15-20 Días"
+      },
+      "documents": "Documentos",
+      "quality": "Calidad",
+      "producer_fallback": "Productor Certificado",
+      "certified": "Certificado",
+      "product_fallback": "Producto"
+    },
+    "export_section": {
+      "title": "Exportar Productos",
+      "subtitle": "Descubra la autenticidad de los productos argelinos de excelencia",
+      "read_less": "Leer menos",
+      "read_more": "Leer más",
+      "discover": "Descubrir →",
+      "view_all": "Ver todos los productos"
+    },
+    "search": {
+      "showroom": "Showroom de la Excelencia",
+      "title": "Productos Premium de Argelia",
+      "subtitle": "Descubra lo mejor de la producción premium argelina destinada a la exportación.",
+      "placeholder": "Buscar un producto, un sabor, un origen...",
+      "search_btn": "Buscar",
+      "certified_categories": "Categorías Certificadas",
+      "traceability": "Trazabilidad Garantizada",
+      "direct_export": "Exportación Directa"
+    },
+    "categories_list": {
+      "view_all": "Ver todo"
+    },
+    "errors": {
+      "critical": "Ha ocurrido un error crítico",
+      "reload": "Recargar la página"
+    },
+    "items": {
+      "solar_panel": {
+        "name": "Paneles Solares de Alto Rendimiento"
+      },
+      "olive_oil_premium": {
+        "name": "Aceite de Oliva Virgen Extra Premium"
+      },
+      "industrial_valve": {
+        "name": "Válvula Industrial de Precisión"
+      }
+    },
+    "about_page": {
+      "hero": {
+        "badge": "Visión Élite",
+        "subtitle_start": "Excelencia en Exportación de la ",
+        "subtitle_end": " para la producción argelina.",
+        "az": "A a la Z"
+      },
+      "ecosystem": {
+        "badge": "Nuestro Ecosistema",
+        "title_start": "Dominio ",
+        "title_italic": "Total",
+        "desc": "Hemos estructurado nuestra oferta para cubrir cada etapa crítica de su expansión internacional. Desde la estrategia hasta la entrega final.",
+        "quote": "Bienvenido a la plataforma B2B de referencia para la exportación argelina no hidrocarburífera."
+      },
+      "services": {
+        "a": "Acompañamiento Estratégico",
+        "b": "Networking B2B Global",
+        "c": "Certificación y Conformidad",
+        "d": "Aduanas y Logística",
+        "e": "Excelencia Operativa",
+        "f": "Facilitación del Comercio",
+        "g": "Gestión de Calidad",
+        "h": "Hub de Exportación Digital",
+        "i": "Inteligencia Comercial",
+        "j": "Legal y Seguridad",
+        "l": "Entrega Internacional",
+        "m": "Conexión Directa",
+        "n": "Negociación Facilitada",
+        "o": "Optimización de Flujos",
+        "p": "Alianzas de Confianza",
+        "s": "Seguridad de Transacciones",
+        "t": "Trazabilidad Total",
+        "x": "Experiencia en Exportación"
+      },
+      "expansion": {
+        "badge": "Expansión Global",
+        "title": "Oportunidades y ",
+        "title_italic": "Alianzas",
+        "p1": "Kleer Infini se afirma como el catalizador central de la exportación argelina. Desplegamos soluciones estratégicas y alianzas internacionales para impulsar a nuestros socios en el mercado mundial.",
+        "p2": "Nuestra plataforma constituye el hub privilegiado para clientes extranjeros, instituciones internacionales y cámaras de comercio que buscan excelencia y fiabilidad.",
+        "button": "Contáctenos"
+      },
+      "trust": {
+        "security": "SEGURIDAD",
+        "traceability": "TRAZABILIDAD",
+        "compliance": "CONFORMIDAD",
+        "excellence": "EXCELENCIA"
+      }
+    },
+    "events_page": {
+      "hero": {
+        "badge": "Edición Especial 2026",
+        "title_part1": "Oportunidades &",
+        "title_part2": "Agendas Export 2026",
+        "subtitle": "El calendario estratégico de élite para los exportadores argelinos. Construcción, Industria, Tech y Agroindustria.",
+        "button": "Descubrir la Agenda 2026"
+      },
+      "ai": {
+        "badge": "Análisis de Precisión",
+        "title_part1": "Inteligencia",
+        "title_part2": "Económica",
+        "desc": "Nuestro algoritmo exclusivo analiza su perfil exportador e identifica las ferias internacionales más relevantes para su sector. Disfrute de una selección a medida para maximizar su ROI.",
+        "data_label": "KleerAI Data",
+        "data_status": "Actualizado en tiempo real",
+        "vip_badge": "Solo VIP",
+        "vip_access": "Acceso Exclusivo"
+      },
+      "card": {
+        "elite_match": "Elite Match",
+        "reserve": "Reservar un Stand",
+        "no_events": "No se han identificado eventos estratégicos por el momento. Vuelva pronto."
+      },
+      "slideshow": {
+        "title_part1": "Próximas Citas",
+        "title_part2": "Export Elite",
+        "remaining_time": "Tiempo Restante"
+      },
+      "modal": {
+        "match_score": "Match Score",
+        "accompagnement": "Participe en este gran evento estratégico. KleerInfini le acompaña en su proceso de exportación con herramientas avanzadas de inteligencia industrial y conexión directa con los tomadores de decisiones.",
+        "status_label": "Estado",
+        "status_value": "Inscripciones Abiertas",
+        "support_label": "Acompañamiento",
+        "support_value": "Incluido por KleerAI",
+        "close": "Cerrar"
+      }
+    },
+    "export_facilitation": {
+      "header": {
+        "home": "Inicio",
+        "platform": "Plataforma",
+        "intelligence": "Inteligencia",
+        "security": "Seguridad"
+      },
+      "hero": {
+        "badge": "Centro Soberano Estratégico 2026",
+        "title_italic": "Facilitación",
+        "title_main": "EXPORTACIÓN",
+        "desc": "Excelencia operativa al servicio de la nación. Argelia 2026: Una infraestructura de datos soberanos para una expansión global sin precedentes.",
+        "button_primary": "Gestionar Exportación",
+        "button_secondary": "Saber más",
+        "connectivity": "Conectividad Global",
+        "network": "Red Alfa 2026"
+      },
+      "scroll": "EXPANSIÓN",
+      "hub": {
+        "badge": "Arquitectura de Poder",
+        "title_main": "HUB",
+        "title_gradient": "SOBERANO.",
+        "desc": "El premier ecosistema algorítmico dedicado al rendimiento de las exportaciones argelinas. Visión 2026: Automatizamos el cumplimiento complejo para liberar su potencial creativo y comercial.",
+        "cloud_title": "DATA CORE CLOUD",
+        "cloud_desc": "SEGURIDAD MILITAR ALOJAMIENTO LOCAL",
+        "ai_title": "INTELIGENCIA IA",
+        "ai_desc": "PREDICCIÓN DE FLUJOS ANÁLISIS DE MERCADO",
+        "ecosystem_tag": "Ecosistema Alfa v.2.6"
+      },
+      "program": {
+        "badge": "PROGRAMME INTÉGRÉ 2026",
+        "title_main": "FACILITACIÓN",
+        "title_italic": "sin límites.",
+        "desc": "Un conjunto de herramientas de alta precisión diseñadas para borrar fronteras. Nosotros manejamos la complejidad, usted gestiona el crecimiento global.",
+        "items": {
+          "fspe": {
+            "title": "Simulador FSPE 2026",
+            "desc": "Cálculo instantáneo de sus ayudas financieras según las últimas enmiendas legislativas de 2026 para maximizar sus retornos.",
+            "tag": "GOBERNANZA"
+          },
+          "zlecaf": {
+            "title": "Red ZLECAF",
+            "desc": "Desbloquee corredores comerciales panafricanos con análisis en tiempo real de barreras arancelarias y no arancelarias.",
+            "tag": "PANAFRICANISMO"
+          },
+          "legal": {
+            "title": "Vigilancia Jurídica Pro",
+            "desc": "Inteligencia regulatoria automatizada que cubre más de 120 jurisdicciones internationales para un cumplimiento impecable.",
+            "tag": "LEGAL Y CUMPLIMIENTO"
+          },
+          "logistics": {
+            "title": "Logística Predictiva",
+            "desc": "Optimización de su cadena de suministro a través de nuestros corredores prioritarios y tarifas negociadas para el transporte multimodal.",
+            "tag": "LOGÍSTICA ELITE"
+          }
+        }
+      },
+      "vision": {
+        "elite_badge": "KLEER INFINI ELITE",
+        "badge": "Precisión Absoluta",
+        "title_main": "El Arte del",
+        "title_italic": "Impacto.",
+        "desc": "Más allá de la asistencia, creamos trayectorias de dominación industrial. Kleer Infini 2026 es el catalizador de la nueva era económica argelina, fusionando prestigio, tecnología y audacia estratégica.",
+        "button": "El Manifiesto Estratégico"
+      },
+      "final": {
+        "title_main": "REINE",
+        "title_italic": "sobre el Infinito.",
+        "desc": "Tome el control de su destino internacional con la plataforma soberana de referencia. Su expansión comienza aquí, impulsada por la excelencia de Kleer Infini.",
+        "button": "LANZAR EXPANSIÓN 2026"
+      },
+      "footer": {
+        "desc": "La élite de la facilitación de exportaciones argelinas. Inteligencia estratégica y Soberanía.",
+        "platform": "Plataforma",
+        "resources": "Recursos",
+        "sovereignty": "Soberanía",
+        "links": {
+          "dashboard": "Panel de Control",
+          "fspe": "Simulador FSPE",
+          "zlecaf": "Análisis ZLECAF",
+          "docs": "Documentación",
+          "api": "Referencia API",
+          "network": "Red Global",
+          "privacy": "Política de Privacidad",
+          "terms": "Términos de Servicio",
+          "legal": "Vigilancia Legal"
+        },
+        "copyright": "© 2026 KLEER INFINI SOBERANÍA. TODOS LOS DERECHOS RESERVADOS.",
+        "algeria": "ARGELIA",
+        "international": "INTERNACIONAL"
+      }
+    }
+  },
+  "producer_profile": {
+    "loading": "Cargando perfil...",
+    "not_found": {
+      "title": "Perfil no encontrado",
+      "desc": "El productor que busca no existe o aún no ha configurado su escaparate internacional.",
+      "back_home": "Volver al inicio"
+    },
+    "tabs": {
+      "products": "Productos",
+      "videos": "Videos",
+      "performance": "Rendimiento",
+      "documents": "DOCUMENTOS",
+      "logistics": "Logística"
+    },
+    "sidebar": {
+      "website": "Sitio web",
+      "type": "Tipo",
+      "message": "Mensaje",
+      "public_space": "Su espacio público",
+      "about": "Acerca de la empresa",
+      "capacity": "Capacidad",
+      "leader": "Responsable",
+      "role": "Director General",
+      "no_desc": "No se proporcionó descripción."
+    },
+    "performance": {
+      "details": "Detalles de la empresa",
+      "nif": "Identificación fiscal (NIF)",
+      "year": "Año de creación",
+      "prod_capacity": "Capacité de Production",
+      "headquarters": "Sede social",
+      "visitors": "Origen de los visitantes",
+      "visibility": "Visibilidad del perfil",
+      "partners": "Socios estratégicos",
+      "activity": "Historial de actividad",
+      "markets": "Mercados objetivo",
+      "global_coverage": "Cobertura mundial"
+    },
+    "products": {
+      "details": "Detalles",
+      "fob": "FOB",
+      "contact": "Contacto",
+      "no_products": "No hay productos listados."
+    },
+    "videos": {
+      "no_videos": "No hay videos disponibles para estos productos."
+    },
+    "documents": {
+      "title": "Fichas técnicas y catálogos",
+      "company_doc": "Documento de la empresa",
+      "spec": "Especificación del producto",
+      "catalog": "Catálogo de productos",
+      "no_docs": "No hay documentos disponibles (Fichas técnicas o Catálogos)."
+    },
+    "logistics": {
+      "title": "Infraestructura logística",
+      "lead_time": "Tiempo de procesamiento",
+      "moq": "Cantidad mínima (MOQ)",
+      "incoterms": "Incoterms aceptados",
+      "points": "Infraestructuras y puntos fuertes",
+      "no_info": "No hay información logística adicional proporcionada por el productor."
+    },
+    "messaging": {
+      "title": "Enviar un mensaje",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "cancel": "Cancelar",
+      "send": "Enviar",
+      "success": "¡Mensaje enviado con éxito!",
+      "sending": "Enviando..."
+    }
+  },
+  "client_dashboard": {
+    "sidebar": {
+      "dashboard": "Panel",
+      "search": "Buscar productores",
+      "requests": "Mis solicitudes",
+      "messages": "Mensajes",
+      "documents": "Documentos recibidos",
+      "hub": "Centro Estratégico",
+      "profile": "Mi perfil"
+    },
+    "home": {
+      "sentRequests": "Solicitudes enviadas",
+      "receivedResponses": "Respuestas recibidas",
+      "conversations": "Conversaciones",
+      "documents": "Documentos",
+      "contactedProducers": "Productores contactados",
+      "premiumAccount": "Cuenta Premium",
+      "welcome": "Hola",
+      "readyToExplore": "¿Listo para explorar los mejores productores africanos?",
+      "lastActivity": "Última actividad: hace 2m",
+      "newRequest": "+ Nueva solicitud",
+      "recentActivities": "Actividades recientes",
+      "viewAll": "VER TODO",
+      "noRecentActivity": "Sin actividad reciente.",
+      "specificProduct": "¿Necesitas un producto específico?",
+      "sourcingTeam": "Nuestro equipo dedicado te ayuda a encontrar los mejores productores africanos certificados.",
+      "contactSupport": "Contactar soporte",
+      "details": "Detalles"
+    }
+  }
+}

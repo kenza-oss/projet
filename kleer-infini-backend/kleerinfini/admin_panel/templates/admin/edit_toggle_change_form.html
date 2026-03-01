@@ -1,0 +1,30 @@
+{% extends "admin/change_form.html" %}
+
+{% load i18n %}
+
+{% block form_top %}
+    {% if edit_toggle_url %}
+        <div class="bg-yellow-50 border border-yellow-200 rounded-md px-4 py-3 mb-4 flex items-center justify-between">
+            <div class="text-yellow-900 text-sm">
+                {% if editing_enabled %}
+                    {% trans "Mode édition activé : vous pouvez modifier les champs." %}
+                {% else %}
+                    {% trans "Mode lecture seule : activez la modification pour éditer les champs." %}
+                {% endif %}
+            </div>
+            <a href="{{ edit_toggle_url }}" class="inline-flex items-center px-3 py-2 text-sm font-medium rounded-md bg-yellow-500 hover:bg-yellow-600 text-white transition">
+                {{ edit_toggle_label }}
+            </a>
+        </div>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}
+
+{% block object-tools-items %}
+    {% if edit_toggle_url %}
+        <li>
+            <a href="{{ edit_toggle_url }}" class="historylink">{{ edit_toggle_label }}</a>
+        </li>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

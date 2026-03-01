@@ -1,0 +1,1447 @@
+{
+  "welcome": "Hoş Geldiniz",
+  "logout": "Çıkış Yap",
+  "profile": "Profilim",
+  "language": "Dil",
+  "messages": "Mesajlar",
+  "home": {
+    "nav": {
+      "univers": "Evren",
+      "producers": "Üreticiler",
+      "products": "Ürünler",
+      "accessVip": "VIP ERİŞİMİ",
+      "becomePartner": "ORTAK OLUN"
+    },
+    "hero": {
+      "title": "Cezayir Mükemmelliğinin",
+      "subtitle": "Altın Kapısı",
+      "desc1": "Dünyayı Cezayir'in",
+      "desc2": "hidrokarbon dışı üretim elitleriyle buluşturuyoruz.",
+      "group_label": "Uluslararası İhracat Grubu",
+      "img_alt": "Deglet Nour Hurmalarının Mükemmelliği",
+      "excellence_label": "Miras ve Mükemmellik",
+      "scroll": "Kaydır",
+      "stats": {
+        "verified": "Sertifikalı Üreticiler",
+        "sectors": "İhracat Sektörleri",
+        "compliance": "Uyumluluk ve Kalite"
+      }
+    },
+    "search": {
+      "title": "Gereksinim ve",
+      "subtitle": "Bilgi Birikimi",
+      "desc": "Cezayir üretiminin seçkinleri arasından gelecekteki ortaklarınızı belirleyin.",
+      "placeholder": "Ürün, zanaatkar veya bölge...",
+      "placeholderCat": "Tüm sektörler",
+      "placeholderWhere": "Tüm bölgeler",
+      "what": "ARAMANIZ",
+      "category": "FAALİYET SEKTÖRÜ",
+      "where": "KONUM",
+      "regions": "Bölgeler",
+      "expertise": "Uzmanlıklar",
+      "button": "Ara",
+      "action": "SHOWROOM'A GİRİN",
+      "mapAction": "Üreticiler Haritası",
+      "map": {
+        "title": "Üreticiler",
+        "placeholder": "İsime göre ara...",
+        "all": "Hepsi",
+        "no_address": "Adres belirtilmedi",
+        "country": "Cezayir",
+        "view_profile": "Profili görüntüle",
+        "certified_count": "SERTİFİKALI KURULUŞLAR",
+        "no_results": "Üretici bulunamadı...",
+        "live_network": "Canlı Ağ",
+        "explore_desc": "Coğrafi konuma göre Cezayir B2B mükemmelliğini keşfedin.",
+        "loading": "KLEER INFINI MAPPING..."
+      },
+      "regionList": [
+        "Adrar",
+        "Chlef",
+        "Laghouat",
+        "Oum El Bouaghi",
+        "Batna",
+        "Becaye",
+        "Biskra",
+        "Beşar",
+        "Blida",
+        "Bouira",
+        "Tamanrasset",
+        "Tibessa",
+        "Tlemcen",
+        "Tiaret",
+        "Tizi Vuzu",
+        "Cezayir",
+        "Celfa",
+        "Cicel",
+        "Setif",
+        "Saida",
+        "Skikda",
+        "Sidi Bel Abbes",
+        "Annaba",
+        "Guelma",
+        "Konstantin",
+        "Medea",
+        "Mostaganem",
+        "M'Sila",
+        "Mascara",
+        "Ouargla",
+        "Vahran",
+        "El Bayadh",
+        "Illizi",
+        "Bordj Bou Arreridj",
+        "Boumerdes",
+        "El Tarf",
+        "Tindouf",
+        "Tissemsilt",
+        "El Oued",
+        "Khenchela",
+        "Souk Ahras",
+        "Tipaza",
+        "Mila",
+        "Ain Defla",
+        "Naama",
+        "Ain Temouchent",
+        "Hardaye",
+        "Relizane",
+        "Timimoun",
+        "Bordj Badji Mokhtar",
+        "Ouled Djellal",
+        "Beni Abbes",
+        "In Salah",
+        "In Guezzam",
+        "Touggourt",
+        "Djanet",
+        "El M'Ghair",
+        "El Meniaa"
+      ]
+    },
+    "categories": {
+      "title": "Kategorilerimizi",
+      "subtitle": "Mükemmeliyet Alanları",
+      "header_start": "Alanlar",
+      "premium_badge": "Premium İhracat",
+      "elite_sectors": "Seçkin Sektörler",
+      "desc": "Seçkin sektörlerimiz aracılığıyla Cezayir bölgesinin zenginliğine bir daldırma.",
+      "desc_excellence": "Küresel pazar için hazır, en yüksek performanslı Cezayir endüstrilerinin titiz bir seçimi.",
+      "sector_details": "Sektörü Keşfet",
+      "explore_more": "Tüm sektörleri keşfedin",
+      "sector_default": "Sektör",
+      "sectors": {
+        "industrial_machine": "Endüstriyel Makine ve Ekipman",
+        "construction_materials": "İnşaat Malzemeleri ve Ekipmanları",
+        "solar_energy": "Güneş Panelleri ve Enerji Çözümleri",
+        "tires_accessories": "Lastikler ve Aksesuarlar",
+        "raw_agri": "İşlenmemiş Tarım Ürünleri",
+        "home_appliances": "Ev Aletleri ve Elektronik Ürünler",
+        "mining_metallurgy": "Madencilik ve Metalurji Ürünleri",
+        "pharma_medical": "İlaç ve Tıbbi Ürünler",
+        "cosmetic_products": "Kozmetik Ürünleri",
+        "perfumes": "Parfümler ve Esanslar",
+        "fishery": "Balıkçılık ve Su Ürünleri"
+      },
+      "items": {
+        "construction": "İnşaat Malzemeleri ve Ekipmanları",
+        "mecanique": "Mekanik Sanayi Ürünleri",
+        "electro": "Beyaz Eşya ve Elektronik",
+        "industrial": "Endüstriyel Makine ve Ekipmanlar",
+        "elec": "Elektrik Ekipmanları ve Enerji",
+        "agri_raw": "İşlenmemiş Tarım Ürünleri",
+        "agri_processed": "İşlenmiş Gıda Ürünleri",
+        "beauty": "Doğal Güzellik Ürünleri",
+        "spices": "Özel Baharatlar ve Çaylar",
+        "dairy": "Süt Ürünleri ve Türevleri",
+        "jewelry_fashion": "Takı ve Moda Aksesuarları — Cezayir'in Işıltısı",
+        "wood_derivatives": "Ahşap ve Cezayir Menşeli Türev Ürünler",
+        "industrial_construction": "İnşaat İçin Endüstriyel Malzemeler (İnoks, Alüminyum, PVC)",
+        "juice_drinks": "Meyve Suları ve İçecekler",
+        "plastic_ppe": "Plastik Ürünler ve PPE",
+        "agri_machinery": "Tarımsal Ürünler, Ekipmanlar ve Makineler"
+      }
+    },
+    "cta": {
+      "title": "Uluslararası Vizyonunuzu",
+      "subtitle": "Güçlendirin",
+      "desc": "Afrika'nın en prestijli B2B ekosistemine katılın. Eşsiz zanaatkarlık ve endüstrinin kaynağına bağlanın.",
+      "register": "ŞİMDİ KAYDOLUN",
+      "explore": "AĞI KEŞFEDİN",
+      "ready": "Mükemmelliğe Hazır mısınız?",
+      "vision": "Uluslararası Vizyon",
+      "partners_title": "Ortaklar ve Stratejik İttifaklar",
+      "chamber_part1": "Uluslararası Ticaret",
+      "chamber_part2": "Odası"
+    },
+    "products": {
+      "title": "Ürünler",
+      "portfolio": "İmza Portföyü",
+      "haute_couture": "Haute Couture",
+      "export_b2b": "İhracat B2B",
+      "subtitle": "Haute Couture İhracat",
+      "desc": "Uluslararası pazar için hazır, en iyi yerel Cezayir ürünlerinden titiz bir seçki.",
+      "viewAll": "Tüm kataloğu gör",
+      "viewDetails": "Detayları Gör",
+      "quick_buy": "Hızlı Satın Al",
+      "explore_full": "Tüm Koleksiyonu Keşfet",
+      "reviews": "inceleme",
+      "items": {
+        "perfume": {
+          "name": "Premium Çiçeksi Esans – 50ml Oluklu Şişe",
+          "desc": "Modern estetikle zanaatkar dokunuşunu birleştiren rafine bir tasarımla sunulan, renkli bir çiçek esansı içeren zarif oluklu cam şişe. Ürün, uluslararası pazarlara uygun temiz bir kaplama, büyüleyici bir renk ve üst düzey bir sunum sergiliyor."
+        },
+        "dates": {
+          "name": "Deglet Nour – Premium Cezayir Hurması",
+          "desc": "Cezayir Deglet Nour hurmaları, özellikle kaliteleriyle ünlü olan güney Cezayir'deki palmiye bahçelerinden hasat edilir. Bu hurmalar, yumuşaklıklarını, kehribar renklerini ve besin değerlerini koruyan doğal güneş kurutmasından yararlanır. Doğrudan tüketim, pastacılık veya premium tarım-gıda ihracatı için idealdir."
+        },
+        "aloe": {
+          "name": "Doğal Aloe Vera Şurubu ve Jeli",
+          "desc": "En iyi Cezayir çiftliklerinden gelen, en yüksek uluslararası kalite ve izlenebilirlik standartlarını karşılayan bir mükemmellik ürünü."
+        },
+        "olive": {
+          "name": "Sızma Zeytinyağı – İlk Soğuk Sıkım",
+          "desc": "Cezayir'de üretilen, rafine edilmeden sadece mekanik yollarla elde edilen sızma zeytinyağı. Meyvemsi tat, hafif acılık ve doğal olarak düşük asitlik. Otantik ve premium bir Akdeniz zeytinyağı isteyen distribütörler, ithalatçılar ve markalar için ideal bir ürün."
+        },
+        "ceramics": {
+          "name": "Seramik & Fayans",
+          "desc": "İhracat için tasarlanmış, dayanıklı ve estetik seramik fayanslar."
+        },
+        "electronics": {
+          "name": "Elektronik Bileşenler",
+          "desc": "Endüstriyel uygulamalar için yüksek hassasiyetli elektronik parçalar."
+        },
+        "textile": {
+          "name": "Tekstil & Kumaş",
+          "desc": "Uluslararası tekstil üretimi için birinci sınıf pamuklu kumaşlar."
+        },
+        "solar_panel": {
+          "name": "Yüksek Performanslı Güneş Panelleri",
+          "desc": "Büyük ölçekli enerji projeleri için endüstriyel sınıf monokristal güneş panelleri. Yüksek verimlilik ve dayanıklılık."
+        },
+        "olive_oil_premium": {
+          "name": "Premium Sızma Zeytinyağı",
+          "desc": "En iyi Cezayir bahçelerinden elde edilen üstün kaliteli soğuk sıkım zeytinyağı. Düşük asitlik ve zengin aroma."
+        },
+        "industrial_valve": {
+          "name": "Endüstriyel Hassas Vana",
+          "desc": "Petrol, gaz ve hidrolik sistemler için yüksek hassasiyetli krom kaplama endüstriyel vana. Mükemmellik için tasarlandı."
+        }
+      }
+    },
+    "why": {
+      "title": "Neden",
+      "subtitle": "Biz?",
+      "desc": "İhracatınızı artırmak için B2B teknolojisini ve pazar zekasını birleştiren benzersiz uzmanlık.",
+      "reasons": {
+        "sourcing": {
+          "title": "Elit Kaynak Kullanımı",
+          "desc": "En iyi sertifikalı Cezayirli üreticilerden oluşan özel bir seçki."
+        },
+        "quality": {
+          "title": "Olağanüstü Kalite",
+          "desc": "Her ihraç edilen ürün için uluslararası kalite standartları."
+        },
+        "vision": {
+          "title": "Dünya Vizyonu",
+          "desc": "Yerel lezzetler için küresel pazarın kapılarını açıyoruz."
+        },
+        "support": {
+          "title": "VIP Desteği",
+          "desc": "Müzakereden uluslararası lojistiğe kadar işlemlerinizi kolaylaştırmak için özel destek."
+        }
+      },
+      "elite": "Elite B2B",
+      "about_button": "Biz kimiz?"
+    },
+    "events": {
+      "agenda": "İHRACAT GÜNDEMİ",
+      "title": "Sergiler &",
+      "subtitle": "Küresel Misyonlar",
+      "filters": {
+        "all": "Hepsi",
+        "national": "Cezayir",
+        "international": "Uluslararası"
+      },
+      "view_all": "TÜM GÜNDEMİ GÖR",
+      "recommended": "ÖNERİLEN",
+      "location": "KONUMLAR",
+      "date": "Tarih",
+      "days": "Gün",
+      "reserve": "Yerimi ayırt",
+      "none": "Şu anda planlanmış bir etkinlik yok.",
+      "category_names": {
+        "cat1": "İşlenmiş Gıda",
+        "cat25": "Ham Tarım Ürünleri",
+        "cat26": "Balıkçılık ve Su Ürünleri",
+        "cat27": "Hayvancılık ve Besicilik",
+        "cat49": "Özel Baharatlar ve Çaylar",
+        "cat50": "Meyve Suları ve İçecekler",
+        "cat52": "Süt Ürünleri",
+        "cat55": "Doğal Maden Suyu",
+        "cat4": "El Sanatları ve Tasarımlar",
+        "cat48": "Cezayir Mücevher ve Modası",
+        "cat36": "Endüstriyel Makineler",
+        "cat6": "Mekanik Endüstrisi",
+        "cat3": "Elektrik ve Enerji",
+        "cat47": "Güneş Enerjisi Çözümleri",
+        "cat29": "Tarım Ekipmanları",
+        "cat30": "Madencilik ve Metalürji",
+        "cat43": "Hidrolik Sistemler",
+        "cat44": "Lastikler ve Aksesuarlar",
+        "cat7": "Kimya ve Türevleri",
+        "cat2": "Plastik ve KKD",
+        "cat53": "Karton ve Ambalaj",
+        "cat31": "İnşaat Malzemeleri",
+        "cat51": "Fayans ve Kaplamalar",
+        "cat54": "Doğal Taşlar",
+        "cat56": "Paslanmaz Çelik, Alüminyum ve PVC",
+        "cat57": "Sanayi Camı",
+        "cat34": "Mobilya ve Tasarım",
+        "cat35": "Beyaz Eşya",
+        "cat39": "Ev Gereçleri",
+        "cat46": "Mobil Cihazlar",
+        "cat5": "Ahşap ve Türevleri",
+        "cat42": "Geri Dönüştürülmüş Ürünler",
+        "cat8": "Kozmetik Ürünler",
+        "cat40": "Lüks Parfümler",
+        "cat41": "Doğal Güzellik",
+        "cat33": "İlaç ve Medikal",
+        "cat61": "BT Çözümleri",
+        "cat45": "Malzeme İnovasyonu",
+        "cat58": "Fikri Hizmetler",
+        "cat59": "Yan Sanayi ve Tedarik",
+        "cat60": "B2B Yatırımları",
+        "cat62": "Profesyonel Etkinlikler",
+        "cat19": "Sertifikalı Gayrimenkul",
+        "cat64": "Lisanslar ve Bayilikler"
+      },
+      "event_default": "Etkinlik",
+      "fallback": {
+        "gulfood": {
+          "name": "Gulfood Dubai",
+          "desc": "Dünyanın en büyük gıda ve içecek fuarı",
+          "location": "Dubai, BAE",
+          "date": "26-30 Ocak 2026"
+        },
+        "agropack": {
+          "name": "AGRO PACK EXPO",
+          "desc": "Uluslararası ambalaj ve gıda işleme fuarı",
+          "location": "Cezayir, SAFEX",
+          "date": "2-5 Şubat 2026"
+        },
+        "paris": {
+          "name": "Salon de l'Agriculture",
+          "desc": "Dünyanın en büyük tarım etkinliği",
+          "location": "Paris, Fransa",
+          "date": "21 Şubat - 1 Mart 2026"
+        },
+        "itb": {
+          "name": "ITB Berlin",
+          "desc": "Dünyanın en büyük B2B turizm fuarı",
+          "location": "Berlin, Almanya",
+          "date": "3-5 Mart 2026"
+        },
+        "hannover": {
+          "name": "HANNOVER MESSE",
+          "desc": "Dünyanın en büyük sanayi fuarı",
+          "location": "Hannover, Almanya",
+          "date": "20-24 Nisan 2026"
+        },
+        "djazagro": {
+          "name": "DJAZAGRO",
+          "desc": "Uluslararası gıda endüstrisi fuarı",
+          "location": "Cezayir, SAFEX",
+          "date": "Nisan 2026"
+        }
+      }
+    },
+    "certifications": {
+      "quality_standards": "Kalite ve Standartlar",
+      "title": "Sertifikalar ve",
+      "subtitle": "Uluslararası Uyumluluk",
+      "desc_main": "Uluslararası pazarların gerektirdiği standartları karşılayan, izlenebilirlik ve kaliteyi garanti eden üreticiler.",
+      "transparency_title": "Satın almalarınız için tam şeffaflık",
+      "transparency_desc": "Platformdaki tüm üreticiler, profillerinde resmi sertifikalarını sergiler. Bu sertifikalar, alıcıların pazar gereksinimlerine uygun ortakları filtrelemesine, karşılaştırmasına ve seçmesine olanak tanır.",
+      "explore_btn": "Sertifikalı üreticileri keşfedin",
+      "items": {
+        "iso": "Uluslararası Standartlar",
+        "ce": "Avrupa Uyumluluğu",
+        "haccp": "Gıda Güvenliği",
+        "bio": "Organik Tarım",
+        "sgs": "Muayene ve Doğrulama",
+        "ecocert": "Sürdürülebilir Kalkınma",
+        "fda": "Gıda ve İlaç İdaresi",
+        "halal": "Dini Uyumluluk",
+        "gmp": "İyi Üretim Uygulamaları",
+        "coc": "İhracat Uygunluk Belgesi"
+      }
+    },
+    "empower": {
+      "excellence": "Mükemmellik",
+      "img_industry": "Cezayir Endüstrisi",
+      "img_partners": "Uluslararası Ortaklıklar",
+      "img_production": "Üretim Kapasitesi",
+      "title": "Cezayir Endüstrisi",
+      "subtitle": "Mükemmellik İçin Bir Potansiyel.",
+      "desc": "Cezayir, modern bir endüstriyel altyapıya ve yüksek kapasiteli fabrikalara sahiptir. Ortaklarımız teknik mükemmelliği ve profesyonel ciddiyeti birleştirerek \"Made in Algeria\"yı uluslararası pazarlarda bir kalite markası olarak konumlandırıyor.",
+      "program_btn": "İhracat kolaylaştırma programına danışın",
+      "features": {
+        "industrial": {
+          "title": "Son Teknoloji Endüstriyel Kapasite",
+          "desc": "En zorlu uluslararası standartları karşılayabilen, ileri teknolojilerle donatılmış modern fabrikalar."
+        },
+        "certified": {
+          "title": "Sertifikalı ve Güvenilir Üreticiler",
+          "desc": "Her ortaklıkta güvenilirlik ve mükemmelliği garanti eden, ISO sertifikalı titiz Cezayirli şirketler."
+        },
+        "export": {
+          "title": "Stratejik İhracat Potansiyeli",
+          "desc": "Afrika, Avrupa ve Orta Doğu pazarlarını fethetmek için ayrıcalıklı coğrafi konum ve uygun ticaret anlaşmaları."
+        }
+      }
+    },
+    "hero_products": {
+      "title": "Ürünlerimizi keşfedin",
+      "stats": {
+        "producers": "+500 kayıtlı üretici",
+        "countries": "10+ ülkeye hizmet verildi",
+        "products": "1000+ ihraç edilebilir ürün"
+      }
+    },
+    "aboutShort": {
+      "title": "Mükemmellik",
+      "subtitle": "Sınır Tanımaz",
+      "img_alt": "Uluslararası İhracat",
+      "ambition": "HİSSELİ HIRS",
+      "badge_title": "Mükemmellik Standardı",
+      "badge_desc": "Küresel seçim sürecimizin merkezinde üst düzey uyumluluk.",
+      "desc": "Kleer Infini, yerel bilgi birikimini küresel standartlara bağlayan uluslararası genişlemenizin mimarıdır.",
+      "points": {
+        "trust": {
+          "title": "Tam Güven",
+          "desc": "Eksiksiz yasal ve lojistik destek."
+        },
+        "efficiency": {
+          "title": "Nadir Etkinlik",
+          "desc": "Ultra hızlı doğrudan bağlantı."
+        }
+      },
+      "button": "Hikayemizi Keşfedin"
+    },
+    "testimonials": {
+      "reputation": "Mükemmellik İtibarı",
+      "title": "Ortaklarımız",
+      "subtitle": "neler diyor",
+      "desc": "\"Küresel varlık, mutlak güven.\"",
+      "items": {
+        "elena": {
+          "name": "Elena Richardson",
+          "role": "İthalat-İhracat Direktörü, Global Foods Co.",
+          "country": "Londra, İngiltere",
+          "quote": "Kleer Infini Cezayir'deki tedarik sürecimizde devrim yarattı. Ürünlerin kalitesi ve seçilen üreticilerin profesyonelliği tek kelimeyle dikkat çekici."
+        },
+        "ahmed": {
+          "name": "Ahmed Al-Mansouri",
+          "role": "Kurucu ve CEO, Desert Gold Trading",
+          "country": "Dubai, BAE",
+          "quote": "Nadir bir inceliğe sahip B2B deneyimi. Platform bizi tam bir verimlilik ve şeffaflıkla doğrudan Cezayir topraklarının özüne bağlıyor."
+        }
+      }
+    },
+    "map": {
+      "title": "Üretici Haritası",
+      "placeholder": "Koordinatlı üreticiler arasında ara...",
+      "search": "Ara",
+      "loading": "Üreticiler yükleniyor...",
+      "count": "{{count}} üretici bulundu",
+      "count_plural": "{{count}} üretici bulundu",
+      "email": "E-POSTA",
+      "phone": "TELEFON",
+      "address": "ADRES",
+      "ville": "ŞEHİR",
+      "view_profile": "Profili Görüntüle",
+      "all": "Hepsi",
+      "no_address": "Adres belirtilmedi",
+      "country": "Cezayir",
+      "no_results": "Üretici bulunamadı...",
+      "certified_count": "SERTİFİKALI KURULUŞLAR",
+      "live_network": "Canlı Ağ",
+      "explore_desc": "Coğrafi konuma göre Cezayir B2B mükemmelliğini keşfedin."
+    },
+    "steps": {
+      "title": "Yolculuğunuz",
+      "subtitle": "Mükemmelliğe",
+      "badge": "B2B Mükemmelliği",
+      "items": {
+        "guide_text": "Uluslararası bir alıcı veya elit bir üretici olarak özel çevremize katılın.",
+        "exploration": {
+          "title": "1 Keşif",
+          "desc": "Sertifikalı ürünler ve atalardan kalma bilgi birikiminden oluşan gizli kataloğumuza erişin."
+        },
+        "interactions": {
+          "title": "2 Etkileşimler",
+          "desc": "Doğrudan alışverişler başlatın, tekliflerinizi kişiselleştirin ve ortaklıklarınızı güvence altına alın."
+        },
+        "excellence": {
+          "title": "3 Mükemmellik",
+          "desc": "Üst düzey lojistik destekle ihracat tutkularınızı gerçeğe dönüştürün."
+        }
+      },
+      "buttons": {
+        "start": "Elite Katılın",
+        "showroom": "Showroom'u Keşfedin",
+        "leave_demand": "İthalat talebimi bırak"
+      }
+    },
+    "footer": {
+      "desc": "Olağanüstü Cezayir ürünlerini tüm dünyaya ihraç etmek için premium geçit.",
+      "rights": "Tüm hakları saklıdır.",
+      "navigation": "Navigasyon",
+      "excellence": "MÜKEMMELİYET ALANI",
+      "presence": "KÜRESEL VARLIK",
+      "univers": "Bizim Dünyamız",
+      "showroom": "Ürün Showroom'u",
+      "carte": "Etkileşimli Harita",
+      "partenaire": "Ortak Olun",
+      "producerLogin": "Üretici Girişi",
+      "sitemap": "Site Haritası",
+      "faq": "SSS",
+      "savoirFaire": "Cezayir Bilgi Birikimi",
+      "conciergerie": "İhracat Konsiyerj",
+      "buyerLogin": "Alıcı Alanı",
+      "mentions": "Yasal Uyarılar",
+      "contact": "Bize Ulaşın",
+      "privacy": "Gizlilik Politikası",
+      "terms": "Kullanım Şartları",
+      "cookies": "Çerezler",
+      "rating": "Mükemmellik Notu",
+      "mission_statement": "Cezayir B2B mükemmelliğinde yeni bir dönem için küresel kurumlarla ortaklık yapıyoruz.",
+      "security_secure": "KleerInfini Business Secure",
+      "security_confidential": "Verileriniz kesinlikle gizlidir",
+      "categories_title": "Stratejik İhracat Sektörleri",
+      "categories": {
+        "agro_terroir": "Tarım-Gıda ve Terroir",
+        "indus_energy": "Endüstri ve Enerji",
+        "construction_habitat": "İnşaat ve Konut",
+        "sante_beaute": "Sağlık, Güzellik ve Hizmetler"
+      },
+      "payments": {
+        "title": "Güvenli Ödeme Yöntemleri",
+        "bank_transfer": "Banka Havalesi",
+        "bank_transfer_subtitle": "Uluslararası ihracat satışları",
+        "cards": "Banka Kartları",
+        "digital_solutions": "Dijital Çözümler",
+        "digital_solutions_subtitle": "PayPal ve Wise Business"
+      },
+      "contact_title": "İletişim",
+      "address": "Cezayir, Cezayir",
+      "alger_time": "Cezayir (GMT+1) :"
+    }
+  },
+  "about": {
+    "title": "BİZ KİMİZ?",
+    "description": "Kleer Infini, ulusal ve uluslararası B2B pazarlarına yönelik dijital ve ticari çözümlerin geliştirilmesinde uzmanlaşmış bir Cezayir teknoloji şirketidir. Misyonumuz, şirketlerin dijital dönüşümünü desteklemek, ihracat rekabet güçlerini artırmak ve onlara prospeksiyon, pazarlama ve ticari ilişki kurma için somut araçlar sunmaktır. Multidisipliner bir ekip tarafından kurulan Kleer Infini, benzersiz bir katma değerli platform sunmak için teknoloji, uluslararası ticaret ve pazar zekası becerilerini birleştirir.",
+    "button": "Misyonlarımız",
+    "missionsTitle": "Misyonumuz",
+    "mission1": "B2B satış, ihracat ve potansiyel müşteri oluşturma süreçlerini basitleştirmek ve modernize etmek.",
+    "mission2": "Karar destek araçlarını entegre eden, güvenilir, çok dilli ve sürekli güncellenen bir platform sunmak.",
+    "mission3": "Etkili dijital çözümler aracılığıyla Cezayirli şirketlerin uluslararası görünürlüğünü güçlendirmek.",
+    "offersTitle": "Neler sunuyoruz",
+    "offer1": {
+      "title": "Satış ve Pazarlama Platformu",
+      "desc": "Şirketleri filtrelemek ve detaylı dosyalara erişmek için gelişmiş arama motoru."
+    },
+    "offer2": {
+      "title": "B2B dijital pazarlama",
+      "desc": "İçerik ve hedefleme ile bölgesel ve uluslararası pazarlarda tanıtım."
+    },
+    "offer3": {
+      "title": "EasyBusiness İhracat",
+      "desc": "İhracat prosedürleri: gümrük, istatistikler, düzenlemeler, belgeler, kıyaslamalar."
+    },
+    "offer4": {
+      "title": "İş Rehberi",
+      "desc": "Verileri sektöre, bölgeye, ürüne vb. göre yapılandıran rehber."
+    },
+    "expertiseTitle": "Uzmanlık alanlarımız",
+    "expertise1": "Web ve Mobil",
+    "expertise2": "Bulut ve BT Altyapısı",
+    "expertise3": "Otomasyon (CRM, ERP)",
+    "expertise4": "B2B İzleme ve Veri",
+    "expertise5": "B2B platformları",
+    "expertise6": "Uluslararasılaşma",
+    "valuesTitle": "Değerlerimiz",
+    "values": "Gereksinim – Şeffaflık – Güvenilirlik – İnovasyon",
+    "visionTitle": "Vizyonumuz",
+    "vision": "Akıllı ve ölçeklenebilir bir altyapı sayesinde uluslararası bağlantılı, Kuzey Afrika'da dijital bir B2B lideri olmak.",
+    "partnersTitle": "Ortaklarımız",
+    "partner1": "İhracat Müdürü",
+    "partner2": "Teknoloji Ortağı",
+    "partner3": "İletişim Direktörü",
+    "partner4": "Pazar Müdürü",
+    "partner5": "Kıdemli Danışman",
+    "partner6": "Veri Stratejisti"
+  },
+  "clientHeader": {
+    "greeting": "Merhaba,",
+    "clientName": "Müşteri Adı",
+    "subtitle": "Üreticileri keşfetmeye hazır mısınız?",
+    "profileAlt": "Müşteri Profili"
+  },
+  "messageBox": {
+    "msg1": "Merhaba",
+    "msg2": "Merhaba!",
+    "inputPlaceholder": "Bir mesaj yazın...",
+    "attachmentsLabel": "Ekli dosyalar:",
+    "attachmentAlt": "ekli dosya"
+  },
+  "profil": {
+    "title": "Profilim",
+    "editInfo": "Kişisel bilgilerimi değiştir",
+    "changePassword": "Şifremi değiştir",
+    "deleteAccount": "Hesabımı sil",
+    "profilePicture": "Profil resmi",
+    "avatarPlaceholder": "Avatar",
+    "lastName": "Soyad",
+    "firstName": "Ad",
+    "email": "E-posta adresi",
+    "phone": "Telefon",
+    "company": "Şirket",
+    "website": "Web sitesi",
+    "updateButton": "Güncelle",
+    "currentPassword": "Mevcut şifre",
+    "newPassword": "Yeni Şifre",
+    "confirmPassword": "Yeni şifreyi onayla",
+    "changePasswordButton": "Şifreyi değiştir",
+    "confirmDeleteMessage": "Hesabınızı silmek istediğinizden emin misiniz?",
+    "confirmDelete": "Kalıcı olarak sil",
+    "cancel": "İptal",
+    "updated": "Güncellenmiş bilgiler:",
+    "passwordChanged": "Şifre değiştirildi:",
+    "accountDeleted": "Hesap silindi"
+  },
+  "form": {
+    "registerTitle": "Kaydol",
+    "registerSubtitle": "Detaylı ürün dosyalarına, müzakere edilmiş fiyatlara ve kişiselleştirilmiş ihracat desteğine erişmek için.",
+    "nom": "Soyad",
+    "prenom": "Ad",
+    "email": "E-posta",
+    "password": "Şifre",
+    "telephone": "Telefon",
+    "societe": "Şirket",
+    "pays": "Ülke",
+    "secteur": "Faaliyet sektörü",
+    "langue": "Tercih edilen dil",
+    "siteweb": "Web sitesi (isteğe bağlı)",
+    "choose": "Seç",
+    "submit": "Kaydol",
+    "nomRequired": "Soyad gerekli",
+    "prenomRequired": "Ad gerekli",
+    "emailRequired": "E-posta gerekli",
+    "invalidEmail": "Geçersiz e-posta",
+    "passwordRequired": "Şifre gerekli",
+    "societeRequired": "Şirket gerekli",
+    "telephoneRequired": "Telefon gerekli",
+    "paysRequired": "Ülke gerekli",
+    "secteurRequired": "Faaliyet sektörü gerekli",
+    "langueRequired": "Dil gerekli",
+    "invalidURL": "Geçersiz URL",
+    "success": "Kayıt başarılı!",
+    "noVideoSupport": "Tarayıcınız videoyu desteklemiyor."
+  },
+  "sidebar": {
+    "dashboard": "Panel",
+    "search": "Üretici ara",
+    "requests": "Taleplerim",
+    "messages": "Mesajlar",
+    "documents": "Alınan belgeler",
+    "hub": "İHRACAT STRATEJİK MERKEZİ",
+    "profile": "Profilim",
+    "language": "Dil",
+    "logout": "Çıkış Yap"
+  },
+  "dashboard": {
+    "languageTitle": "Tercih ettiğiniz dili seçin",
+    "logoutMessage": "Çıkış yapmak istediğinizden emin misiniz?",
+    "logoutButton": "Çıkış yap",
+    "cancelButton": "İptal",
+    "sectionUnknown": "Bölüm bulunamadı"
+  },
+  "categories": {
+    "search": {
+      "moteur_titre": "İHRACAT ARAMA MOTORU",
+      "rechercher_titre": "REFERANS ARA",
+      "rechercher_desc": "Sertifikalı kataloglara anında erişmek için bir sektör, ürün veya gümrük kodu girin.",
+      "placeholder": "Ör: Seramik, Deglet Nour Hurması, Tekstil...",
+      "trouver_btn": "BUL",
+      "catalogues_pdf": "PDF KATALOGLARI",
+      "catalogues_desc": "Cezayir İhracat Stratejik Sektörleri Tam Kılavuzu (2026 Baskısı).",
+      "consulter_btn": "GÖZ ATIN"
+    },
+    "sectors_dynamic": {
+      "cosmetics": {
+        "name": "Kozmetik Ürünleri",
+        "desc": "Üst düzey cilt bakımı ve güzellik ürünlerinin tam yelpazesi."
+      },
+      "perfumes": {
+        "name": "Parfümler ve Esanslar",
+        "desc": "Geleneksel uzmanlıktan doğan büyüleyici kokular."
+      },
+      "fishery": {
+        "name": "Balıkçılık Ürünleri",
+        "desc": "İhracat kalitesi sertifikalı, taze ve işlenmiş deniz ürünleri."
+      },
+      "pharma": {
+        "name": "Farmasötik Ürünler",
+        "desc": "Uluslararası standartları karşılayan ilaçlar ve tıbbi çözümler."
+      },
+      "agri_processed": {
+        "name": "İşlenmiş Tarım",
+        "desc": "Küresel ihracata hazır yüksek kaliteli gıda ürünleri."
+      },
+      "agri_raw": {
+        "name": "Ham Tarım",
+        "desc": "Doğrudan en iyi çiftliklerden gelen taze tarım ürünleri."
+      },
+      "crafts": {
+        "name": "Zanaat ve Kreasyonlar",
+        "desc": "Cezayir mirasını ve kültürünü yansıtan benzersiz objeler."
+      },
+      "wood": {
+        "name": "Ahşap ve Türevleri",
+        "desc": "Sanayi ve dekorasyon için ahşap malzemeler ve türev ürünler."
+      },
+      "electrical": {
+        "name": "Elektrik ve Enerji",
+        "desc": "Yüksek performanslı elektrikli ekipmanlar ve enerji çözümleri."
+      },
+      "mechanical": {
+        "name": "Mekanik Sanayi",
+        "desc": "Çeşitli endüstriyel sektörler için hassas parçalar ve makineler."
+      },
+      "textile": {
+        "name": "Tekstil ve Hazır Giyim",
+        "desc": "Titiz kaplamalı kaliteli kumaşlar ve hazır giyim."
+      },
+      "construction": {
+        "name": "İnşaat Malzemeleri",
+        "desc": "Bina ve bayındırlık işleri için kapsamlı çözümler."
+      },
+      "mining_metallurgy": {
+        "name": "Madencilik ve Metalurji",
+        "desc": "Birinci sınıf maden kaynakları ve metalurji ürünleri."
+      },
+      "hydraulic_systems": {
+        "name": "Hidrolik Sistemler",
+        "desc": "Endüstriyel sıvı yönetimi için bileşenler ve sistemler."
+      },
+      "solar_energy": {
+        "name": "Güneş Enerjisi",
+        "desc": "Fotovoltaik paneller ve yenilenebilir enerji çözümleri."
+      },
+      "plastic_ppe": {
+        "name": "Plastik ve KKD",
+        "desc": "Endüstriyel plastik ürünler ve Kişisel Koruyucu Ekipmanlar."
+      },
+      "juice_drinks": {
+        "name": "Meyve Suları ve İçecekler",
+        "desc": "Doğal ve otantik tatlara sahip ferahlatıcılar."
+      },
+      "industrial": {
+        "name": "Endüstriyel Makineler",
+        "desc": "Seri üretim için ağır ekipmanlar ve takım tezgahları."
+      },
+      "furniture_decoration": {
+        "name": "Mobilya ve Dekorasyon",
+        "desc": "Sıradışı iç mekanlar için tasarım mobilyalar ve aksesuarlar."
+      },
+      "jewelry": {
+        "name": "Takı ve Moda",
+        "desc": "Değerli mücevher kreasyonları ve rafine moda aksesuarları."
+      },
+      "dairy": {
+        "name": "Süt Ürünleri",
+        "desc": "Geniş taze süt ürünleri yelpazesi ve kaliteli türevler."
+      },
+      "spices": {
+        "name": "Baharatlar ve Çaylar",
+        "desc": "Dünya mutfağı için olağanüstü lezzetler ve yoğun aromalar."
+      },
+      "appliances": {
+        "name": "Beyaz Eşya",
+        "desc": "Performans ve enerji verimliliğini birleştiren modern cihazlar."
+      }
+    },
+    "phares": "ÖNE ÇIKAN KATEGORİLERİMİZ",
+    "voir_tout": "HEPSİNİ GÖR",
+    "action_bar": {
+      "nos_produits": "İHRACAT ÜRÜNLERİMİZ",
+      "standard_excellence": "Uluslararası Pazarlar İçin Mükemmellik Standardı"
+    },
+    "sidebar": {
+      "titre": "STRATEJİK SEKTÖRLER",
+      "initialisation": "Başlatılıyor..."
+    },
+    "card": {
+      "disponible": "Mevcut",
+      "tarification": "FİYATLANDIRMA",
+      "prix_public": "Liste Fiyatı",
+      "sur_devis": "Teklif İste",
+      "explorer": "KEŞFET",
+      "description_default": "Uluslararası ihracat için tam sertifikalı seri. ISO standartları. B2B gereksinimlerine uygun paketleme."
+    },
+    "drawer": {
+      "secteur": "SEKTÖR",
+      "export_platinum": "EXPORT PLATINUM",
+      "profil_titre": "Sektör Profili",
+      "description_default": "Cezayir, mükemmelliğini bu stratejik sektör aracılığıyla sergiliyor. Ortak şirketlerimiz, en rekabetçi küresel pazarları tatmin etmek için titiz kalite protokollerine uymaktadır.",
+      "qualite_label": "Kalite",
+      "qualite_desc": "Tüm zincir boyunca garanti edilen uluslararası standartlar.",
+      "provenance_label": "Menşei",
+      "provenance_desc": "%100 Cezayir menşeli, tam ve sertifikalı izlenebilirlik.",
+      "certifications_titre": "Garanti ve Sertifikalar",
+      "expedition_titre": "DÜNYA ÇAPINDA SEVKİYAT",
+      "expedition_desc": "120'den fazla destinasyona entegre lojistik. Optimize edilmiş deniz ve hava taşımacılığı çözümleri.",
+      "ouvrir_dossier": "İHRACAT DOSYASINI AÇ",
+      "lancer_consultation": "DANIŞMANLIK BAŞLAT"
+    }
+  },
+  "quotes": {
+    "title_service": "Servis Danışmanlığı",
+    "title_sourcing": "Danışmanlık Başlat",
+    "title_quote": "Teklif Talebi",
+    "pro_space": "profesyonel alan",
+    "concerning": "Hakkında",
+    "service_type": "Görev Türü",
+    "service_location": "Müdahale Yeri",
+    "service_type_placeholder": "Örn: Denetim, Tam nakliye...",
+    "service_location_placeholder": "Örn: Cezayir, Oran (Sahada)",
+    "incoterm": "İstenen Teslim Şekli (Incoterm)",
+    "incoterm_placeholder": "Incoterm Seçin...",
+    "target_price": "Hedef Fiyat / Bütçe",
+    "target_price_placeholder": "Örn: 1200 USD/MT",
+    "volume_service": "Kapsam / Sayı",
+    "volume_product": "Hacim / Miktar",
+    "volume_service_placeholder": "Örn: 5 danışman, 10 kamyon...",
+    "volume_product_placeholder": "Örn: 5000 Birim / Ton",
+    "duration": "Süre / Sıklık",
+    "packaging": "Paketleme",
+    "duration_placeholder": "Örn: 6 ay, Haftalık...",
+    "packaging_placeholder": "Örn: Dökme, Big Bag, Karton...",
+    "office": "Merkez / Ofis",
+    "destination": "Nihai Varış Yeri",
+    "office_placeholder": "Örn: İstanbul, Genel Merkez",
+    "destination_placeholder": "Örn: Marsilya Limanı, Fransa",
+    "start_date": "Başlangıç Tarihi",
+    "deadline": "İstenen Teslim Tarihi",
+    "specs_label": "Teknik Şartname / Detaylar",
+    "attach_file": "Belge ekle (PDF/IMG)",
+    "modify_file": "Dosyayı değiştir",
+    "message_placeholder": "Teknik özelliklerinizi, gerekli kalite standartlarını veya diğer özel taleplerinizi buraya belirtin...",
+    "sending": "İletiliyor...",
+    "sent": "Dosya İletildi ✅",
+    "submit": "Danışmanlığı Onayla",
+    "secure": "KleerInfini Business Secure",
+    "confidential": "Verileriniz gizlidir"
+  },
+  "producerLogin": {
+    "title": "Tekrar hoşgeldiniz",
+    "subtitle": "Stratejik ihracat kontrol panelinize erişin.",
+    "errors": {
+      "notProducer": "Bu hesap bir üretici hesabı değil. Lütfen müşteri girişini kullanın.",
+      "waitingValidation": "Hesabınız ekiplerimiz tarafından doğrulanmayı bekliyor. Aktivasyon sonrasında bir e-posta alacaksınız.",
+      "invalidCredentials": "Geçersiz kimlik bilgileri veya bağlantı hatası."
+    },
+    "emailLabel": "Profesyonel E-posta",
+    "emailPlaceholder": "your@company.com",
+    "emailRequired": "E-posta gerekli",
+    "passwordLabel": "Şifre",
+    "forgotPassword": "Şifrenizi mi unuttunuz?",
+    "passwordRequired": "Şifre gerekli",
+    "submit": "Giriş Yap",
+    "loading": "Senkronize ediliyor...",
+    "newToKleer": "Kleer Infini'de yeni misiniz?",
+    "createAccess": "Üretici erişimi oluştur",
+    "clientAccess": "Müşteri Erişimi",
+    "leftSubtitle": "Tutkularınızı uluslararası alana taşıyın. İhracat varlığınızı özel bir alandan yönetin.",
+    "activeProducers": "+500 Aktif Cezayirli Üretici"
+  },
+  "producerRegister": {
+    "steps": {
+      "identity": "Kimlik",
+      "documents": "Belgeler",
+      "capacity": "Kapasite",
+      "security": "Güvenlik",
+      "validation": "Doğrulama"
+    },
+    "stepIndicator": "Adım {{current}} / {{total}}",
+    "title": "İHRACAT AĞINA KATILIN",
+    "subtitle": "Kleer Infini sertifikalı ortaklar ekosistemine katılın.",
+    "leftTitle1": "Doğal",
+    "leftTitle2": "Mükemmellik.",
+    "leftSubtitle": "Lider uluslararası ihracat ağına katılın.",
+    "impactGlobal": "Küresel Etki",
+    "accreditation": "Kleer Infini Akreditasyonu",
+    "copyright": "© 2024 Kleer Infini • İhracat Mükemmelliği",
+    "alreadyAccount": "Zaten bir hesabınız var mı? Giriş Yap",
+    "continue": "Devam Et",
+    "previous": "Önceki",
+    "processing": "İşleniyor...",
+    "finalize": "Sonuçlandır",
+    "validationError": "Lütfen bu adım için gerekli alanları doldurun.",
+    "locationError": "Lütfen harita üzerinde tam konumunuzu seçin.",
+    "submitError": "İsteğiniz sırasında bir hata oluştu.",
+    "submitSuccess": "Başvurunuz başarıyla gönderildi.",
+    "companyName": "Şirket Adı",
+    "companyNamePlaceholder": "ÖRN: GLOBAL EXPORT SA",
+    "firstName": "Yöneticinin Adı",
+    "firstNamePlaceholder": "John",
+    "lastName": "Yöneticinin Soyadı",
+    "lastNamePlaceholder": "Doe",
+    "activity": "Ana Faaliyet",
+    "activityPlaceholder": "SEKTÖRÜNÜZ",
+    "email": "Profesyonel E-posta",
+    "emailPlaceholder": "contact@yourcompany.com",
+    "phone": "Telefon",
+    "whatsapp": "WhatsApp",
+    "country": "Ülke",
+    "countryPlaceholder": "SEÇİN...",
+    "city": "Eyalet / Bölge",
+    "cityPlaceholder": "BÖLGE",
+    "address": "Belediye",
+    "addressPlaceholder": "ADRES",
+    "locationPrecise": "Kesin Konum",
+    "locationValidated": "Konum Doğrulandı",
+    "docsTitle": "Sertifikalar ve Kalite",
+    "docsSubtitle": "Akreditasyonunuzu hızlandırmak için lütfen resmi belgelerinizi (ISO, HACCP, Teknik sayfalar) ekleyin.",
+    "certPdf": "PDF Sertifikaları",
+    "clickToAdd": "Eklemek için tıklayın",
+    "techDocs": "Teknik Sayfalar",
+    "productSpecs": "Ürün Özellikleri",
+    "categories": "İhracat Kategorileri",
+    "categoriesPlaceholder": "SEÇİN...",
+    "minQuantity": "Minimum Miktar",
+    "minQuantityPlaceholder": "ÖRN: 1 40FT KONTEYNER",
+    "monthlyCapacity": "Aylık Kapasite",
+    "monthlyCapacityPlaceholder": "ÖRN: 50.000 BİRİM",
+    "yearlyCapacity": "Yıllık Kapasite",
+    "yearlyCapacityPlaceholder": "ÖRN: 600.000 BİRİM",
+    "targetMarkets": "Tercih Edilen Pazarlar",
+    "securityAccount": "Hesap Güvenliği",
+    "securitySubtitle": "Üye alanınız için sağlam bir erişim tanımlayın.",
+    "password": "Şifre",
+    "confirmPassword": "Onayla",
+    "whyJoin": "Neden Kleer Infini'ye katılmalısınız?",
+    "whyJoinPlaceholder": "BİZE VİZYONUNUZDAN VE KAPASİTENİZDEN BAHSEDİN...",
+    "disclaimer": "Bu formu göndererek Kleer Infini akreditasyon sürecini başlatmış olursunuz. Uzmanlarımız profilinizi 48 saat içinde inceleyecektir.",
+    "errors": {
+      "required": "Gerekli alan",
+      "emailInvalid": "Geçersiz e-posta",
+      "categoryMin": "En az bir kategori seçin",
+      "passwordInvalid": "Şifre en az 12 karakter, büyük harf, küçük harf ve sayı içermelidir",
+      "passwordMatch": "Şifreler eşleşmiyor"
+    }
+  },
+  "clientLogin": {
+    "welcomeBack": "Tekrar Hoş Geldiniz",
+    "partner": "Ortak.",
+    "subtitle": "Panelinize erişmek ve ihracat taleplerinizi yönetmek için giriş yapın.",
+    "network": "Kleer Infini Global Network",
+    "noAccount": "Henüz hesabınız yok mu?",
+    "register": "Kaydol",
+    "title": "Bağlantı",
+    "accessSpace": "Müşteri alanınıza erişin",
+    "emailLabel": "Profesyonel E-posta",
+    "emailPlaceholder": "iletisim@sirket.com",
+    "emailRequired": "E-posta gerekli",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "••••••••",
+    "passwordRequired": "Şifre gerekli",
+    "forgotPassword": "Şifrenizi mi unuttunuz?",
+    "submit": "BAĞLAN",
+    "loading": "BAĞLANIYOR...",
+    "terms": "Giriş yaparak kullanım koşullarımızı kabul etmiş olursunuz.",
+    "errorCredentials": "Geçersiz kimlik bilgileri veya bağlantı hatası."
+  },
+  "clientRegister": {
+    "steps": {
+      "identity": "Kimlik",
+      "company": "Şirket",
+      "finalization": "Sonuçlandırma"
+    },
+    "leftTitle1": "B2B",
+    "leftTitle2": "Mükemmelliği.",
+    "leftSubtitle": "Bir seçkin topluluğa katılın. En iyi sertifikalı üreticilere erişin ve ticari alışverişlerinizi dönüştürün.",
+    "network": "Kleer Infini Global Network",
+    "alreadyMember": "Zaten üye misiniz?",
+    "login": "Bağlantı",
+    "title": "Hesap Oluştur",
+    "firstNameLabel": "Ad",
+    "firstNamePlaceholder": "Ahmet",
+    "firstNameRequired": "Ad gereklidir",
+    "lastNameLabel": "Soyad",
+    "lastNamePlaceholder": "Yılmaz",
+    "lastNameRequired": "Soyad gereklidir",
+    "emailLabel": "Profesyonel E-posta",
+    "emailPlaceholder": "iletisim@sirket.com",
+    "emailRequired": "E-posta gereklidir",
+    "emailInvalid": "Geçersiz e-posta",
+    "passwordLabel": "Şifre",
+    "passwordPlaceholder": "••••••••",
+    "passwordRequired": "Şifre gereklidir",
+    "passwordMin": "Şifre en az 8 karakter içermelidir",
+    "phoneLabel": "Telefon",
+    "phoneRequired": "Telefon numarası gereklidir",
+    "companyLabel": "Şirket Adı",
+    "companyPlaceholder": "GLOBAL TRADING CO.",
+    "companyRequired": "Şirket adı gereklidir",
+    "countryLabel": "Ülke",
+    "countryPlaceholder": "Seçin...",
+    "countryRequired": "Ülke gereklidir",
+    "sectorLabel": "Sektör",
+    "sectorPlaceholder": "Gıda-tarım",
+    "sectorRequired": "Faaliyet sektörü gereklidir",
+    "languageLabel": "Tercih edilen dil",
+    "languageRequired": "Dil gereklidir",
+    "websiteLabel": "Web Sitesi (İsteğe Bağlı)",
+    "websitePlaceholder": "www.ornek.com",
+    "websiteInvalid": "Geçersiz URL",
+    "confirmationTitle": "Onay",
+    "confirmationSubtitle": "Kleer Infini'ye katılmak üzeresiniz. Bilgilerinizi kontrol edin ve başlamak için onaylayın.",
+    "freeRegistration": "Ücretsiz Kayıt",
+    "dashboardAccess": "Panele Anında Erişim",
+    "dedicatedSupport": "Özel Destek",
+    "previous": "Önceki",
+    "continue": "Devam Et",
+    "submit": "Hesabımı oluştur",
+    "loading": "İşleniyor...",
+    "invitationValidated": "{{email}} için davet doğrulandı",
+    "registerFree": "Davet olmadan özgürce kayıt olabilirsiniz.",
+    "accountCreation": "Ortak hesabınız oluşturuluyor...",
+    "welcome": "Hoş geldiniz! Panelinize anında erişim.",
+    "errorGeneral": "Kayıt sırasında bir hata oluştu."
+  },
+  "products": {
+    "listing": {
+      "hero": {
+        "badge": "Uluslararası İhracat",
+        "title": "Cezayir'in En İyisi,",
+        "subtitle": "Sınırlar Ötesinde.",
+        "desc": "Uluslararası pazar için sertifikalı ürünlerden oluşan özel kataloğumuzu keşfedin. Premium kalite, garantili izlenebilirlik.",
+        "bg_text": "İhracat"
+      },
+      "featured": {
+        "badge": "Premium Seçki",
+        "title": "Haftanın Vazgeçilmezleri",
+        "best_seller": "En Çok Satan",
+        "superfood": "Süper Gıda"
+      },
+      "header": {
+        "algeria": "Cezayir",
+        "global_catalog": "Global Katalog",
+        "certified_count": "Sertifikalı Ürünler",
+        "sort_by": "Sırala",
+        "sort_options": {
+          "relevance": "Uygunluk",
+          "price_asc": "Artan fiyat",
+          "price_desc": "Azalan fiyat",
+          "newest": "En yeniler"
+        }
+      },
+      "sidebar": {
+        "filters": "Filtreler",
+        "reset": "Sıfırla",
+        "categories": "Kategoriler",
+        "price_range": "Fiyat Aralığı",
+        "reviews": "Müşteri Değerlendirmeleri",
+        "apply": "Filtreleri Uygula"
+      }
+    },
+    "details": {
+      "back_to_catalog": "Kataloğa dön",
+      "no_image": "Görsel mevcut değil",
+      "export_immediate": "Hemen İhracat",
+      "origin_fallback": "Cezayir İhracatı",
+      "indicative_price": "Gösterge fiyat",
+      "unit": "Birim",
+      "request_quote": "Teklif iste",
+      "presentation": "Ürün sunumu",
+      "desc_fallback": "En zorlu uluslararası standartlara uygun, olağanüstü ihracat kalitesi için titiz bir seçim.",
+      "logistic_delay": "Lojistik Süre",
+      "min_moq": "Minimum MOQ",
+      "units": "birim",
+      "tech_doc": "Teknik Dokümantasyon",
+      "product_catalog": "Ürün Kataloğu",
+      "download_pdf": "PDF İndir",
+      "tech_sheet": "Teknik Föy",
+      "specifications": "Özellikler",
+      "compliance": "Sertifikalar ve Uyumluluk",
+      "certified_partner": "Sertifikalı İhracat Ortağı",
+      "company_profile": "Şirket Profili",
+      "similar_discoveries": "Benzer Keşifler",
+      "loading_error": "Ürün detayları yüklenemedi.",
+      "product_not_found": "Ürün bulunamadı",
+      "return_to_products": "Ürünlere dön"
+    },
+    "grid": {
+      "prev": "Önceki",
+      "next": "Sonraki",
+      "page_info": "Sayfa {{current}} / {{total}}",
+      "loading": "Ürünler yükleniyor...",
+      "error_title": "Hata!",
+      "no_results": "Aramanızla eşleşen ürün bulunamadı.",
+      "reset": "Sıfırla"
+    },
+    "card": {
+      "exclusive_collection": "Özel Koleksiyon",
+      "partner": "Ortak",
+      "more_images": "+{{count}}",
+      "request_quote": "Teklif İste"
+    },
+    "modal": {
+      "description": "Açıklama",
+      "specifications": "Özellikler",
+      "video": "Video",
+      "desc_quality": "Olağanüstü ihracat kalitesi.",
+      "desc_protocols": "Ürünlerimiz, eşsiz tazelik ve lezzet sağlamak için sıkı protokollere uygundur.",
+      "language": "Dil",
+      "origin": "Menşei",
+      "availability": "Stok Durumu",
+      "in_stock": "Stokta var",
+      "on_order": "Sipariş üzerine",
+      "download_catalog": "Kataloğu İndir (PDF)",
+      "tech_sheet": "Teknik Föy (PDF)",
+      "cert_verified": "Onaylanmış Belge",
+      "certificate": "Sertifika",
+      "available": "Mevcut",
+      "business_stats": {
+        "indicative_price": "Gösterge fiyat",
+        "quote_disclamer": "Teklife tabidir",
+        "moq": "MOQ",
+        "units": "Birim",
+        "logistic_delay": "Lojistik Süre",
+        "logistic_delay_fallback": "15-20 Gün"
+      },
+      "documents": "Belgeler",
+      "quality": "Kalite",
+      "producer_fallback": "Sertifikalı Üretici",
+      "certified": "Sertifikalı",
+      "product_fallback": "Ürün"
+    },
+    "export_section": {
+      "title": "Ürün İhracatı",
+      "subtitle": "Mükemmel Cezayir ürünlerinin orijinalliğini keşfedin",
+      "read_less": "Daha az oku",
+      "read_more": "Daha fazla oku",
+      "discover": "Keşfet →",
+      "view_all": "Tüm ürünleri gör"
+    },
+    "search": {
+      "showroom": "Mükemmellik Showroomu",
+      "title": "Cezayir'den Premium Ürünler",
+      "subtitle": "İhracat için tasarlanmış premium Cezayir üretiminin en iyilerini keşfedin.",
+      "placeholder": "Ürün, lezzet, menşei ara...",
+      "search_btn": "Ara",
+      "certified_categories": "Sertifikalı Kategoriler",
+      "traceability": "Garantili İzlenebilirlik",
+      "direct_export": "Doğrudan İhracat"
+    },
+    "categories_list": {
+      "view_all": "Hepsini gör"
+    },
+    "errors": {
+      "critical": "Kritik bir hata oluştu",
+      "reload": "Sayfayı yenile"
+    },
+    "items": {
+      "solar_panel": {
+        "name": "Yüksek Performanslı Güneş Panelleri"
+      },
+      "olive_oil_premium": {
+        "name": "Premium Sızma Zeytinyağı"
+      },
+      "industrial_valve": {
+        "name": "Endüstriyel Hassas Vana"
+      }
+    },
+    "about_page": {
+      "hero": {
+        "badge": "Elite Vizyon",
+        "subtitle_start": "Cezayir üretimi için ",
+        "subtitle_end": " İhracat Mükemmelliği.",
+        "az": "A'dan Z'ye"
+      },
+      "ecosystem": {
+        "badge": "Ekosistemimiz",
+        "title_start": "Tam ",
+        "title_italic": "Hâkimiyet",
+        "desc": "Uluslararası genişlemenizin her kritik adımını kapsayacak şekilde teklifimizi yapılandırdık. Stratejiden nihai teslimata kadar.",
+        "quote": "Cezayir'in hidrokarbon dışı ihracatı için referans B2B platformuna hoş geldiniz."
+      },
+      "services": {
+        "a": "Stratejik Destek",
+        "b": "Küresel B2B Ağ Oluşturma",
+        "c": "Sertifikasyon ve Uyumluluk",
+        "d": "Gümrük ve Lojistik",
+        "e": "Operasyonel Mükemmellik",
+        "f": "Ticaret Kolaylaştırma",
+        "g": "Kalite Yönetimi",
+        "h": "Dijital İhracat Merkezi",
+        "i": "Pazar İstihbaratı",
+        "j": "Hukuk ve Güvenlik",
+        "l": "Uluslararası Teslimat",
+        "m": "Doğrudan Bağlantı",
+        "n": "Kolaylaştırılmış Müzakere",
+        "o": "Akış Optimizasyonu",
+        "p": "Güvenilir Ortaklıklar",
+        "s": "İşlem Güvenliği",
+        "t": "Tam İzlenebilirlik",
+        "x": "İhracat Uzmanlığı"
+      },
+      "expansion": {
+        "badge": "Global Genişleme",
+        "title": "Fırsatlar ve ",
+        "title_italic": "Ortaklıklar",
+        "p1": "Kleer Infini, Cezayir ihracatının merkezi katalizörü olarak kendini kanıtlamaktadır. Ortaklarımızı küresel pazara taşımak için stratejik çözümler ve uluslararası ittifaklar kuruyoruz.",
+        "p2": "Platformumuz, mükemmellik ve güvenilirlik arayan yabancı müşteriler, uluslararası kurumlar ve ticaret odaları için ayrıcalıklı bir merkez oluşturmaktadır.",
+        "button": "Bize Ulaşın"
+      },
+      "trust": {
+        "security": "GÜVENLİK",
+        "traceability": "İZLENEBİLİRLİK",
+        "compliance": "UYUMLULUK",
+        "excellence": "MÜKEMMELLİK"
+      }
+    },
+    "events_page": {
+      "hero": {
+        "badge": "2026 Özel Sürüm",
+        "title_part1": "Fırsatlar ve",
+        "title_part2": "2026 İhracat Gündemleri",
+        "subtitle": "Cezayirli ihracatçılar için elit stratejik takvim. İnşaat, Sanayi, Teknoloji ve Gıda.",
+        "button": "2026 Gündemini Keşfedin"
+      },
+      "ai": {
+        "badge": "Hassas Analiz",
+        "title_part1": "Ekonomik",
+        "title_part2": "İstihbarat",
+        "desc": "Özel algoritmamız ihracatçı profilinizi analiz eder ve sektörünüz için en alakalı uluslararası fuarları belirler. ROI'nizi maksimize etmek için size özel seçimlerden yararlanın.",
+        "data_label": "KleerAI Verileri",
+        "data_status": "Gerçek zamanlı güncellenir",
+        "vip_badge": "Sadece VIP",
+        "vip_access": "Özel Erişim"
+      },
+      "card": {
+        "elite_match": "Elit Eşleşme",
+        "reserve": "Stand Ayırt",
+        "no_events": "Şu an için belirlenmiş stratejik bir etkinlik yok. Yakında tekrar kontrol edin."
+      },
+      "slideshow": {
+        "title_part1": "Gelecek Randevular",
+        "title_part2": "Elit İhracat",
+        "remaining_time": "Kalan Süre"
+      },
+      "modal": {
+        "match_score": "Eşleşme Skoru",
+        "accompagnement": "Bu büyük stratejik etkinliğe katılın. KleerInfini, gelişmiş endüstriyel istihbarat araçları ve karar vericilerle doğrudan bağlantı kurmanızı sağlayarak ihracat sürecinizde size eşlik eder.",
+        "status_label": "Durum",
+        "status_value": "Kayıtlar Açık",
+        "support_label": "Refakat",
+        "support_value": "KleerAI Tarafından Dahil",
+        "close": "Kapat"
+      }
+    },
+    "export_facilitation": {
+      "header": {
+        "home": "Anasayfa",
+        "platform": "Platform",
+        "intelligence": "İstihbarat",
+        "security": "Güvenlik"
+      },
+      "hero": {
+        "badge": "Stratejik Egemen Merkez 2026",
+        "title_italic": "Kolaylaştırma",
+        "title_main": "İHRACAT",
+        "desc": "Ulusun hizmetinde operasyonel mükemmellik. Cezayir 2026: Eşi görülmemiş küresel genişleme için egemen bir veri altyapısı.",
+        "button_primary": "İhracatı Yönet",
+        "button_secondary": "Daha Fazla Bilgi",
+        "connectivity": "Küresel Bağlantı",
+        "network": "Network Alpha 2026"
+      },
+      "scroll": "GENİŞLEME",
+      "hub": {
+        "badge": "Güç Mimarisi",
+        "title_main": "EGEMEN",
+        "title_gradient": "MERKEZ.",
+        "desc": "Cezayir ihracat performansına adanmış ilk algoritmik ekosistem. Vizyon 2026: Yaratıcı ve ticari potansiyelinizi özgürleştirmek için karmaşık uyumluluğu otomatikleştiriyoruz.",
+        "cloud_title": "VERİ MERKEZİ BULUTU",
+        "cloud_desc": "ASKERİ GÜVENLİK YEREL BARINDIRMA",
+        "ai_title": "YAPAY ZEKA",
+        "ai_desc": "AKIŞ TAHMİNİ PAZAR ANALİZİ",
+        "ecosystem_tag": "Ekosistem Alpha v.2.6"
+      },
+      "program": {
+        "badge": "ENTEGRE PROGRAM 2026",
+        "title_main": "SINIRSIZ",
+        "title_italic": "kolaylaştırma.",
+        "desc": "Sınırları silmek için tasarlanmış bir dizi yüksek hassasiyetli araç. Biz karmaşıklığı yönetiyoruz, siz küresel büyümeyi yönetiyorsunuz.",
+        "items": {
+          "fspe": {
+            "title": "FSPE 2026 Simülatörü",
+            "desc": "Getirilerinizi maksimize etmek için 2026'nın en son yasal değişikliklerine göre mali yardımlarınızın anında hesaplanması.",
+            "tag": "YÖNETİŞİM"
+          },
+          "zlecaf": {
+            "title": "ZLECAF Ağı",
+            "desc": "Tarife ve tarife dışı engellerin gerçek zamanlı analizi ile pan-Afrika ticaret koridorlarının kilidini açın.",
+            "tag": "PAN-AFRİKA"
+          },
+          "legal": {
+            "title": "Profesyonel Hukuki Takip",
+            "desc": "Kusursuz uyum için 120'den fazla uluslararası yargı bölgesini kapsayan otomatikleştirilmiş düzenleyici istihbarat.",
+            "tag": "HUKUK VE UYUM"
+          },
+          "logistics": {
+            "title": "Öngörücü Lojistik",
+            "desc": "Öncelikli koridorlarımız ve multimodal taşımacılık için müzakere edilmiş tarifelerimiz aracılığıyla tedarik zincirinizin optimizasyonu.",
+            "tag": "ELİT LOJİSTİK"
+          }
+        }
+      },
+      "vision": {
+        "elite_badge": "KLEER INFINI ELITE",
+        "badge": "Mutlak Hassasiyet",
+        "title_main": "Etki",
+        "title_italic": "Sanatı.",
+        "desc": "Yardımın ötesinde, endüstriyel hakimiyet yörüngeleri oluşturuyoruz. Kleer Infini 2026, prestij, teknoloji ve stratejik cesareti birleştiren yeni Cezayir ekonomik çağının katalizörüdür.",
+        "button": "Stratejik Manifesto"
+      },
+      "final": {
+        "title_main": "HÜKMET",
+        "title_italic": "Sonsuzluğa.",
+        "desc": "Referans egemen platformu ile uluslararası kaderinizin kontrolünü eline alın. Genişlemeniz burada, Kleer Infini mükemmelliği ile başlıyor.",
+        "button": "GENİŞLEMEYİ BAŞLAT 2026"
+      },
+      "footer": {
+        "desc": "Cezayir ihracat kolaylaştırmasının elitleri. Stratejik istihbarat ve Egemenlik.",
+        "platform": "Platform",
+        "resources": "Kaynaklar",
+        "sovereignty": "Egemenlik",
+        "links": {
+          "dashboard": "Kontrol Paneli",
+          "fspe": "FSPE Simülatörü",
+          "zlecaf": "ZLECAF Analizi",
+          "docs": "Dokümantasyon",
+          "api": "API Referansı",
+          "network": "Küresel Ağ",
+          "privacy": "Gizlilik Politikası",
+          "terms": "Hizmet Şartları",
+          "legal": "Hukuki Takip"
+        },
+        "copyright": "© 2026 KLEER INFINI EGEMENLİK. TÜM HAKLARI SAKLIDIR.",
+        "algeria": "CEZAYİR",
+        "international": "ULUSLARARASI"
+      }
+    }
+  },
+  "producer_profile": {
+    "loading": "Profil yükleniyor...",
+    "not_found": {
+      "title": "Profil Bulunamadı",
+      "desc": "Aradığınız üretici mevcut değil veya henüz uluslararası vitrinini yapılandırmadı.",
+      "back_home": "Ana Sayfaya Dön"
+    },
+    "tabs": {
+      "products": "Ürünler",
+      "videos": "Videolar",
+      "performance": "Performans",
+      "documents": "BELGELER",
+      "logistics": "Lojistik"
+    },
+    "sidebar": {
+      "website": "Web Sitesi",
+      "type": "Tür",
+      "message": "Mesaj",
+      "public_space": "Kamuya Açık Alanınız",
+      "about": "Şirket Hakkında",
+      "capacity": "Kapasite",
+      "leader": "Sorumlu",
+      "role": "Genel Müdür",
+      "no_desc": "Açıklama belirtilmedi."
+    },
+    "performance": {
+      "details": "Şirket Detayları",
+      "nif": "Vergi Kimlik Numarası (NIF)",
+      "year": "Kuruluş Yılı",
+      "prod_capacity": "Üretim Kapasitesi",
+      "headquarters": "Genel Merkez",
+      "visitors": "Ziyaretçi Kökenleri",
+      "visibility": "Profil Görünürlüğü",
+      "partners": "Stratejik Ortaklar",
+      "activity": "Faaliyet Defteri",
+      "markets": "Hedef Pazarlar",
+      "global_coverage": "Küresel Kapsama"
+    },
+    "products": {
+      "details": "Detaylar",
+      "fob": "FOB",
+      "contact": "İletişim",
+      "no_products": "Ürün listelenmedi."
+    },
+    "videos": {
+      "no_videos": "Bu ürünler için video mevcut değil."
+    },
+    "documents": {
+      "title": "Teknik Föyler ve Kataloglar",
+      "company_doc": "Şirket Belgesi",
+      "spec": "Ürün Spesifikasyonu",
+      "catalog": "Ürün Kataloğu",
+      "no_docs": "Belge mevcut değil (Teknik föy veya Katalog)."
+    },
+    "logistics": {
+      "title": "Lojistik Altyapı",
+      "lead_time": "İşlem Süresi",
+      "moq": "Min. Sipariş Miktarı (MOQ)",
+      "incoterms": "Kabul Edilen Incoterms",
+      "points": "Altyapı ve Güçlü Yönler",
+      "no_info": "Üretici tarafından ek lojistik bilgi sağlanmadı."
+    },
+    "messaging": {
+      "title": "Mesaj Gönder",
+      "subject": "Konu",
+      "message": "Mesaj",
+      "cancel": "İptal",
+      "send": "Gönder",
+      "success": "Mesaj başarıyla gönderildi!",
+      "sending": "Gönderiliyor..."
+    }
+  },
+  "client_dashboard": {
+    "sidebar": {
+      "dashboard": "Kontrol Paneli",
+      "search": "Üretici Ara",
+      "requests": "İsteklerim",
+      "messages": "Mesajlar",
+      "documents": "Alınan Belgeler",
+      "hub": "Stratejik Merkez",
+      "profile": "Profilim"
+    },
+    "home": {
+      "sentRequests": "Gönderilen İstekler",
+      "receivedResponses": "Alınan Yanıtlar",
+      "conversations": "Görüşmeler",
+      "documents": "Belgeler",
+      "contactedProducers": "İletişime Geçilen Üreticiler",
+      "premiumAccount": "Premium Hesap",
+      "welcome": "Merhaba",
+      "readyToExplore": "En iyi Afrikalı üreticileri keşfetmeye hazır mısınız?",
+      "lastActivity": "Son etkinlik: 2d önce",
+      "newRequest": "+ Yeni İstek",
+      "recentActivities": "Son Etkinlikler",
+      "viewAll": "TÜMÜNÜ GÖR",
+      "noRecentActivity": "Son etkinlik yok.",
+      "specificProduct": "Belirli bir ürüne mi ihtiyacınız var?",
+      "sourcingTeam": "Uzman satın alma ekibimiz, en iyi sertifikalı Afrikalı üreticileri bulmanıza yardımcı olur.",
+      "contactSupport": "Destek ile iletişime geçin",
+      "details": "Detaylar"
+    }
+  }
+}
