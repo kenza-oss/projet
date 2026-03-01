@@ -54,3 +54,4 @@ django-storages
 cloudinary
 django-cloudinary-storage
 pyotp
+django-rest-passwordreset
