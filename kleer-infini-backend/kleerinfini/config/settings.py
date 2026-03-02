@@ -158,8 +158,8 @@ UNFOLD = {
         "BACKGROUND_COLOR": "#111827",
     },
     "THEME": {
-        "PRIMARY_COLOR": "#2563eb",
-        "ACCENT_COLOR": "#f59e42",
+        "PRIMARY_COLOR": "#db2777",  # pink-600
+        "ACCENT_COLOR": "#be185d",   # pink-700
         "DARK_MODE": True,
     },
     "DASHBOARD": {
@@ -257,7 +257,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'  # Where collectstatic outputs on Render
 STATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 
