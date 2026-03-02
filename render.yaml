@@ -58,7 +58,7 @@ services:
   - type: static
     name: kleerinfini-frontend
     rootDir: kleerinfini-b2b-platform/kleerinfini-ui
-    buildCommand: "npm ci && npm run build"
+    buildCommand: "npm ci --legacy-peer-deps && npm run build"
     staticPublishPath: "dist"
     envVars:
       - key: NODE_VERSION
