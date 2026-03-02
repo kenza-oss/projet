@@ -14,7 +14,4 @@ python manage.py collectstatic --noinput
 echo "==> Creating admin users if they don't exist..."
 python manage.py create_admin_users
 
-echo "==> Restoring initial categories and products..."
-python create_initial_products.py
-
 echo "==> Build complete!"
