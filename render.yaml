@@ -22,9 +22,7 @@ services:
       - key: ALLOWED_HOSTS
         value: ".onrender.com"
       - key: DATABASE_URL
-        fromDatabase:
-          name: kleerinfini-db
-          property: connectionString
+        sync: false   # À renseigner avec ton lien Supabase dans le dashboard Render
       - key: CORS_ALLOWED_ORIGINS
         value: "https://kleerinfini-frontend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com"
       - key: CSRF_TRUSTED_ORIGINS
@@ -71,11 +69,4 @@ services:
         source: /*
         destination: /index.html
 
-# ─────────────────────────────────────────
-# 3. BASE DE DONNÉES POSTGRESQL
-# ─────────────────────────────────────────
-databases:
-  - name: kleerinfini-db
-    plan: free
-    databaseName: kleerinfini
-    user: kleerinfini_admin
+# DATABASE_URL est maintenant géré manuellement pour se connecter à Supabase
