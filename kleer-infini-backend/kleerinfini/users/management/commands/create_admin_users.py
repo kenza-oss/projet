@@ -17,7 +17,7 @@ class Command(BaseCommand):
         admin_accounts = [
             {
                 'email': 'admin@kleerinfini.com',
-                'password': config('ADMIN_PASSWORD_1', default='50SnFK-{|7H<$E<qER5NY0Q8*h(N,%CI'),
+                'password': config('ADMIN_PASSWORD_1', default='KleerAdmin2025!'),
                 'first_name': 'Admin',
                 'last_name': 'Principal',
             },
