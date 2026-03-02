@@ -26,3 +26,9 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Large Files (Excluded to avoid LFS/Quota issues)
+*.mp4
+*.mov
+*.avi
+*.wmv

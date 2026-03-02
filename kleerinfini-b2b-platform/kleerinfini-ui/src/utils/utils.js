@@ -66,9 +66,9 @@ export const getProductImage = (imageField, index = 0, product = {}) => {
         source = source[index] || source[0];
     }
 
-    // 3. Handle object with 'image' property
-    if (source && typeof source === 'object' && source.image) {
-        source = source.image;
+    // 3. Handle object with 'image' or 'image_url' property
+    if (source && typeof source === 'object') {
+        source = source.image_url || source.image;
     }
 
     if (!source || typeof source !== 'string') return FALLBACK_IMAGE;

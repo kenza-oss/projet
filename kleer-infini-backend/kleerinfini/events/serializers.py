@@ -14,6 +14,7 @@ class EventSerializer(serializers.ModelSerializer):
     date = serializers.SerializerMethodField()
     dateStart = serializers.SerializerMethodField()
     color = serializers.SerializerMethodField()
+    image_url = serializers.SerializerMethodField()
     
     class Meta:
         model = Event
@@ -31,6 +32,7 @@ class EventSerializer(serializers.ModelSerializer):
             'description',
             'url',
             'image',
+            'image_url',
             'icon',
             'color',
             'is_upcoming',
@@ -61,6 +63,14 @@ class EventSerializer(serializers.ModelSerializer):
         else:
             return "from-[#D4AF37] to-[#B8860B]"
 
+    def get_image_url(self, obj):
+        if obj.image:
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(obj.image.url)
+            return obj.image.url
+        return None
+
 
 class EventListSerializer(serializers.ModelSerializer):
     """Lightweight serializer for list views"""
@@ -79,4 +89,5 @@ class EventListSerializer(serializers.ModelSerializer):
             'icon',
             'days_until',
             'image',
+            'image_url',
         ]

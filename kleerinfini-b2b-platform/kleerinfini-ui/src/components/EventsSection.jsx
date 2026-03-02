@@ -303,7 +303,7 @@ export default function EventsSection() {
                         ...event,
                         type: event.event_type,
                         dateStart: new Date(event.dateStart || event.start_date),
-                        image: event.image || getRelevantImage(event.name, event.id || idx)
+                        image: event.image_url || event.image || getRelevantImage(event.name, event.id || idx)
                     }));
                     setEvents(transformedEvents);
                 } else {

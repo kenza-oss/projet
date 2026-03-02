@@ -29,7 +29,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,kleerinfini-backend.onrender.com,kleer-infini-backend.onrender.com,kleerinfini-backend-xo0t.onrender.com', cast=lambda v: [s.strip() for s in v.split(',')])
 
 
 # Application definition
@@ -75,8 +75,14 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+# Render/Load Balancer HTTPS detection
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=not DEBUG, cast=bool)
+# CSRF Settings
+CSRF_COOKIE_SECURE = not DEBUG
+SESSION_COOKIE_SECURE = not DEBUG
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://*.onrender.com,https://kleer-infini.netlify.app', cast=lambda v: [s.strip() for s in v.split(',')])
 
 ROOT_URLCONF = 'config.urls'
 
@@ -279,12 +285,14 @@ WHITENOISE_USE_FINDERS = True
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 
 # Media Storage Configuration (Cloudinary for Production)
-if not DEBUG or config('USE_CLOUDINARY', default='False', cast=bool):
+# Force Cloudinary on Render even if env var is missing
+IS_ON_RENDER = 'RENDER' in os.environ
+if IS_ON_RENDER or not DEBUG or config('USE_CLOUDINARY', default='False', cast=bool):
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
     CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default=''),
-        'API_KEY': config('CLOUDINARY_API_KEY', default=''),
-        'API_SECRET': config('CLOUDINARY_API_SECRET', default=''),
+        'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='dptb2m02i'),
+        'API_KEY': config('CLOUDINARY_API_KEY', default='432596188994381'),
+        'API_SECRET': config('CLOUDINARY_API_SECRET', default='dHTbwxJTQ8DgiqzHhvt1P2mpLNY'),
     }
 
 # Celery configuration (uses REDIS_URL in production if set)
@@ -300,7 +308,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='http://localhost:5173', cast=lambda v: [s.strip() for s in v.split(',')])
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleer-infini-backend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,http://localhost:5173', cast=lambda v: [s.strip() for s in v.split(',')])
 
 CORS_ALLOW_ALL_ORIGINS = False
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='http://localhost:5173', cast=lambda v: [s.strip() for s in v.split(',')])

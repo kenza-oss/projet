@@ -23,10 +23,12 @@ services:
         value: ".onrender.com"
       - key: DATABASE_URL
         sync: false   # À renseigner avec ton lien Supabase dans le dashboard Render
+      - key: GIT_LFS_SKIP_SMUDGE
+        value: "1"
       - key: CORS_ALLOWED_ORIGINS
-        value: "https://kleerinfini-frontend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com"
+        value: "https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app,https://kleer-infini.onrender.com"
       - key: CSRF_TRUSTED_ORIGINS
-        value: "https://kleerinfini-frontend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com"
+        value: "https://kleerinfini-backend.onrender.com,https://kleer-infini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,https://kleerinfini-frontend.onrender.com"
       - key: USE_CLOUDINARY
         value: "True"
       - key: CLOUDINARY_CLOUD_NAME
@@ -62,7 +64,9 @@ services:
       - key: NODE_VERSION
         value: "20.10.0"
       - key: VITE_API_URL
-        value: "https://kleerinfini-backend-xo0t.onrender.com"
+        value: "https://kleerinfini-backend.onrender.com"
+      - key: GIT_LFS_SKIP_SMUDGE
+        value: "1"
     routes:
       # React SPA: all routes serve index.html
       - type: rewrite
