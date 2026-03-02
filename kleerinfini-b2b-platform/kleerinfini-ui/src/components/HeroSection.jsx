@@ -18,6 +18,7 @@ import heroBg3 from "../assets/hero-bg-3.png";
 import heroBg4 from "../assets/hero-bg-4.png";
 import heroBg5 from "../assets/hero-bg-5.png";
 import heroVideoNew from "../assets/hero_video_new.mp4";
+import blueTexture from "../assets/blue_magic_texture.png";
 
 export default function HeroSection({ onOpenMap }) {
   const { t } = useTranslation();
@@ -88,12 +89,26 @@ export default function HeroSection({ onOpenMap }) {
           transition={{ duration: 0.8, delay: 0.5 }}
           className="space-y-6 md:space-y-10 w-full"
         >
-          <div className="flex items-center justify-center gap-6 mb-4">
-            <div className="w-12 h-[1px] bg-[#FF6600]"></div>
-            <span className="text-[#FF6600] font-black uppercase tracking-[0.6em] text-[10px]">
-              {t("home.hero.group_label")}
-            </span>
-            <div className="w-12 h-[1px] bg-[#FF6600]"></div>
+          <div className="flex flex-col items-center justify-center gap-4 mb-4">
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 1.2, duration: 1 }}
+              className="relative px-8 py-2 overflow-hidden rounded-full border border-[#0055FF]/30 backdrop-blur-xl group"
+            >
+              <div className="absolute inset-0 z-0">
+                <img
+                  src={blueTexture}
+                  alt="Magic Texture"
+                  className="w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:scale-110 transition-transform duration-1000"
+                />
+              </div>
+              <span className="relative z-10 text-[#00E0FF] font-black uppercase tracking-[0.8em] text-[12px] drop-shadow-[0_0_15px_rgba(0,224,255,0.8)]">
+                Excellence Algérienne
+              </span>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#0055FF]/20 to-transparent translate-x-[-100%] animate-shimmer"></div>
+            </motion.div>
+            <div className="w-24 h-[1px] bg-gradient-to-r from-transparent via-[#0055FF] to-transparent"></div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display-luxury text-white leading-tight tracking-tight mb-4 md:mb-8 text-shadow-premium px-2">
