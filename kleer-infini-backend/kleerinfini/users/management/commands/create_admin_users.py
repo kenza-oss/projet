@@ -17,25 +17,25 @@ class Command(BaseCommand):
         admin_accounts = [
             {
                 'email': 'admin@kleerinfini.com',
-                'password': config('ADMIN_PASSWORD_1', default='admin123456'),
+                'password': 'admin123456',
                 'first_name': 'Admin',
                 'last_name': 'Principal',
             },
             {
                 'email': 'kleernetinfini@gmail.com',
-                'password': config('ADMIN_PASSWORD_2', default='|5m$-8ums_q2*ZZ1FbVD\\2mv{+uLK}%p'),
+                'password': 'admin123456',
                 'first_name': 'Admin',
                 'last_name': 'Secours1',
             },
             {
                 'email': 'kleerlogistics@gmail.com',
-                'password': config('ADMIN_PASSWORD_3', default='_-9U}8RU-GyToosi;!k;vbVRcFZEg7eR'),
+                'password': 'admin123456',
                 'first_name': 'Admin',
                 'last_name': 'Secours2',
             },
             {
                 'email': 'admin2@kleerinfini.com',
-                'password': config('ADMIN_PASSWORD_4', default='i#^GW,SP+47T{LQ<XY;aS)9M$Q5h%2n|'),
+                'password': 'admin123456',
                 'first_name': 'Admin',
                 'last_name': 'Secours3',
             },
