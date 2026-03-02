@@ -55,9 +55,8 @@ services:
   # ─────────────────────────────────────────
   # 2. FRONTEND REACT (Static Site)
   # ─────────────────────────────────────────
-  - type: web
+  - type: static
     name: kleerinfini-frontend
-    runtime: static
     rootDir: kleerinfini-b2b-platform/kleerinfini-ui
     buildCommand: "npm ci && npm run build"
     staticPublishPath: "dist"
