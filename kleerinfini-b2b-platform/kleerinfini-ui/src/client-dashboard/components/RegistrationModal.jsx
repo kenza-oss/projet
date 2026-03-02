@@ -7,7 +7,7 @@ import {
   FaPhone, FaGlobe, FaLanguage, FaIndustry, FaLink
 } from "react-icons/fa";
 import toast from "react-hot-toast";
-import backgroundVideo from "../../assets/video2.mp4";
+import registerBg from "../../assets/register_bg_1.png";
 import "../../App.css";
 import { useTranslation } from "react-i18next";
 import { useAuth } from "../../context/AuthContext";
@@ -68,16 +68,11 @@ export default function RegistrationModal() {
 
   return (
     <div className="registration-container">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="background-video fixed"
-      >
-        <source src={backgroundVideo} type="video/mp4" />
-        {t("form.noVideoSupport")}
-      </video>
+      <img
+        src={registerBg}
+        alt="Registration Background"
+        className="background-video fixed object-cover opacity-30"
+      />
 
       <div className="form-wrapper">
         <h2 className="form-title">{t("form.registerTitle")}</h2>

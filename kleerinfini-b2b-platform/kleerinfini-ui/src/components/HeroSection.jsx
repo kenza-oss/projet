@@ -4,20 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-import video1 from "../assets/video3.mp4";
-import video2 from "../assets/videoC.mp4";
-import background from "../assets/background.mp4";
-import olives from "../assets/olives_hero.png";
-import soap from "../assets/soap_hero.png";
 import luxuryHero from "../assets/luxury_hero.png";
-import heroGreenGold from "../assets/hero_green_gold.png";
-import heroLeavesGold from "../assets/hero_leaves_gold.png";
-import heroBg1 from "../assets/hero-bg-1.jpg";
-import heroBg2 from "../assets/hero-bg-2.png";
-import heroBg3 from "../assets/hero-bg-3.png";
-import heroBg4 from "../assets/hero-bg-4.png";
-import heroBg5 from "../assets/hero-bg-5.png";
-import heroVideoNew from "../assets/hero_video_new.mp4";
 
 export default function HeroSection({ onOpenMap }) {
   const { t } = useTranslation();
@@ -35,13 +22,10 @@ export default function HeroSection({ onOpenMap }) {
       {/* Background Media Wrapper */}
       <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
-          <video
-            src={heroVideoNew}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover scale-105 opacity-60"
+          <img
+            src={backgroundImage}
+            alt="Luxury Background"
+            className="w-full h-full object-cover scale-105 opacity-60 animate-slow-zoom"
             style={{ filter: 'brightness(0.7) contrast(1.2)' }}
           />
           {/* Luminous Overlay */}

@@ -7,7 +7,6 @@ import { Eye, EyeOff, Building2, Lock, Mail, ChevronRight, Rocket, PlusIcon } fr
 import { motion } from 'framer-motion';
 import LanguageSelector from '../components/LanguageSelector';
 import registrationBg from '../assets/register_bg_1.png';
-import producerLoginVideo from '../assets/videos/producer_login_bg.mp4';
 import algeriaFlag from '../assets/algeria_flag_sphere.png';
 
 const ProducerLogin = () => {
@@ -51,15 +50,11 @@ const ProducerLogin = () => {
         <div className="min-h-screen bg-white font-inter relative selection:bg-[#FF6600] selection:text-white flex overflow-hidden">
             {/* Left Panel - Video with Overlay */}
             <div className="hidden lg:flex lg:w-1/2 relative bg-[#1a1410] overflow-hidden">
-                <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
+                <img
+                    src={registrationBg}
+                    alt="Producer Login Background"
                     className="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none"
-                >
-                    <source src={producerLoginVideo} type="video/mp4" />
-                </video>
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#FF6600]/90 via-[#2d1f17]/80 to-transparent"></div>
 
                 <div className="relative z-10 flex flex-col justify-end p-20 w-full">

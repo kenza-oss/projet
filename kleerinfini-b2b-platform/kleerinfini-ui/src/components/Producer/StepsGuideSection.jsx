@@ -1,6 +1,6 @@
 import React from "react";
 import { Lock, Search, Send, Package } from "lucide-react";
-import backgroundVideo from "../../assets/comment ca marche.mp4";
+import excellenceBg from "../../assets/excellence_bg.jpg";
 
 export default function StepsGuideSection() {
   const steps = [
@@ -28,19 +28,14 @@ export default function StepsGuideSection() {
 
   return (
     <section className="bg-black py-28 px-6 md:px-24 relative z-10">
-   
+
       <div className="absolute inset-0 w-full h-full z-0 flex justify-center items-center pointer-events-none">
         <div className="w-[80%] h-[80%] md:h-[80%] overflow-hidden rounded-[2.5rem] shadow-2xl">
-          <video
-            className="w-full h-full object-cover object-bottom" 
-            autoPlay
-            muted
-            loop
-            playsInline
-          >
-            <source src={backgroundVideo} type="video/mp4" />
-            Votre navigateur ne supporte pas la vidéo HTML5.
-          </video>
+          <img
+            src={excellenceBg}
+            alt="Process Background"
+            className="w-full h-full object-cover object-bottom"
+          />
         </div>
       </div>
 

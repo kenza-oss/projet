@@ -6,9 +6,9 @@ import {
   FaUser, FaEnvelope, FaLock, FaBuilding,
   FaPhone, FaGlobe, FaLanguage, FaIndustry, FaLink
 } from "react-icons/fa";
-import backgroundVideo from "../../assets/video2.mp4";
+import registerBg from "../../assets/register_bg_1.png";
 import "../../App.css";
- // Import du fichier CSS personnalisé
+// Import du fichier CSS personnalisé
 
 const schema = yup.object().shape({
   nom: yup.string().required("Nom requis"),
@@ -35,16 +35,11 @@ export default function RegistrationModal() {
 
   return (
     <div className="registration-container">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="background-video fixed"
-      >
-        <source src={backgroundVideo} type="video/mp4" />
-        Votre navigateur ne supporte pas la vidéo.
-      </video>
+      <img
+        src={registerBg}
+        alt="Registration Background"
+        className="background-video fixed object-cover opacity-30"
+      />
 
       <div className="form-wrapper">
         <h2 className="form-title">Inscrivez-vous</h2>

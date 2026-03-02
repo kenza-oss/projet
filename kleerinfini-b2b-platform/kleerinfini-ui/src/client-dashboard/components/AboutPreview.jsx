@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
-import aboutVideo from "../../assets/video1.mp4"; // remplace par ton fichier réel
+import aboutImg from "../../assets/about.jpg";
 
 export default function AboutPreview() {
   return (
@@ -29,16 +29,11 @@ export default function AboutPreview() {
 
         {/* Vidéo à droite */}
         <div className="flex-1">
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        
-      >
-            <source src={aboutVideo} type="video/mp4" />
-            Votre navigateur ne prend pas en charge la lecture de vidéos.
-          </video>
+          <img
+            src={aboutImg}
+            alt="About Preview"
+            className="w-full h-48 md:h-64 object-cover rounded-lg shadow-lg"
+          />
         </div>
       </div>
     </section>

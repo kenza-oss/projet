@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import clientAvatar from '../../assets/avatar.png';
 import { useTranslation } from 'react-i18next';
-import backgroundVideo from '../../assets/videoC.mp4';
+import cardProfileBg from '../../assets/card_profile_bg.png';
 
 const MyProfile = () => {
   const { t } = useTranslation();
@@ -44,15 +44,11 @@ const MyProfile = () => {
 
   return (
     <div className="relative w-full h-full text-black">
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className=" top-0  w-full h-full object-cover -z-10 fixed  left-64 right-0 bottom-0 bg-cover bg-center bg-no-repeat "
-      >
-        <source src={backgroundVideo} type="video/mp4" />
-      </video>
+      <img
+        src={cardProfileBg}
+        alt="Profile Background"
+        className=" top-0  w-full h-full object-cover -z-10 fixed  left-64 right-0 bottom-0 bg-cover bg-center bg-no-repeat opacity-40"
+      />
 
       <div className=" min-h-screen flex items-center justify-center px-6">
         <div className="w-full">

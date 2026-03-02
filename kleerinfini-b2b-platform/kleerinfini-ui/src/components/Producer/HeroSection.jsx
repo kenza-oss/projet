@@ -1,143 +1,53 @@
 import React, { useEffect, useState, useRef } from "react";
 import { Users, Globe, Package, Map } from "lucide-react";
-import first from "../../assets/first.mp4";
-import second from "../../assets/second.mp4";
+import luxHero from "../../assets/luxury_hero.png";
+import hero1 from "../../assets/hero-bg-1.jpg";
 import labo from "../../assets/labo.jpeg";
 
 export default function HeroSection() {
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
-  const videoRef = useRef(null);
   const timeoutRef = useRef(null);
 
-
   const mediaItems = [
-    { type: "image", src: labo, alt: "Labo", duration: 3000 },
-    { type: "video", src: first, alt: "First Video" },
-    { type: "video", src: second, alt: "Second Video" },
+    { type: "image", src: labo, alt: "Labo", duration: 4000 },
+    { type: "image", src: luxHero, alt: "Luxury Hero", duration: 4000 },
+    { type: "image", src: hero1, alt: "Hero 1", duration: 4000 },
   ];
 
   const currentMedia = mediaItems[currentMediaIndex];
 
   const goToNextMedia = () => {
-    console.log('Going to next media from current index:', currentMediaIndex);
     setIsVisible(false);
     setTimeout(() => {
-      setCurrentMediaIndex((prev) => {
-        const nextIndex = prev === mediaItems.length - 1 ? 0 : prev + 1;
-        console.log('Moving from index', prev, 'to index:', nextIndex, 'Media:', mediaItems[nextIndex]);
-        return nextIndex;
-      });
+      setCurrentMediaIndex((prev) => (prev === mediaItems.length - 1 ? 0 : prev + 1));
       setIsVisible(true);
     }, 500);
   };
 
-  const clearExistingTimeout = () => {
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-      timeoutRef.current = null;
-    }
-  };
-
   useEffect(() => {
-    console.log('Effect running for index:', currentMediaIndex, 'Type:', currentMedia.type, 'Alt:', currentMedia.alt);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
-    clearExistingTimeout();
-
-    if (currentMedia.type === "image") {
-      console.log('Setting timeout for image:', currentMedia.alt, 'Duration:', currentMedia.duration);
-      timeoutRef.current = setTimeout(() => {
-        console.log('Image timeout triggered for:', currentMedia.alt);
-        goToNextMedia();
-      }, currentMedia.duration || 3000);
-    } else if (currentMedia.type === "video") {
-      console.log('Setting up video:', currentMedia.alt);
-
-      const setupVideo = () => {
-        if (videoRef.current) {
-          const video = videoRef.current;
-          console.log('Video element ready for:', currentMedia.alt);
-
-          const handleVideoError = (e) => {
-            console.log('Video error for:', currentMedia.alt, e);
-            setCurrentMediaIndex((prev) => {
-              const nextIndex = prev === mediaItems.length - 1 ? 0 : prev + 1;
-              console.log('Error - Moving from index', prev, 'to index:', nextIndex);
-              return nextIndex;
-            });
-          };
-
-          const handleVideoEnded = () => {
-            console.log('Video ended:', currentMedia.alt);
-            setCurrentMediaIndex((prev) => {
-              const nextIndex = prev === mediaItems.length - 1 ? 0 : prev + 1;
-              console.log('Video ended - Moving from index', prev, 'to index:', nextIndex);
-              return nextIndex;
-            });
-          };
-
-          video.onended = null;
-          video.onerror = null;
-
-          video.onended = handleVideoEnded;
-          video.onerror = handleVideoError;
-
-          video.currentTime = 0;
-          video.play().then(() => {
-            console.log('Video started playing:', currentMedia.alt);
-          }).catch((err) => {
-            console.warn("Video play error for:", currentMedia.alt, err);
-            timeoutRef.current = setTimeout(() => {
-              setCurrentMediaIndex((prev) => {
-                const nextIndex = prev === mediaItems.length - 1 ? 0 : prev + 1;
-                console.log('Fallback - Moving from index', prev, 'to index:', nextIndex);
-                return nextIndex;
-              });
-            }, 5000);
-          });
-        }
-      };
-
-      setTimeout(setupVideo, 100);
-    }
+    timeoutRef.current = setTimeout(() => {
+      goToNextMedia();
+    }, currentMedia.duration || 4000);
 
     return () => {
-      clearExistingTimeout();
-      if (videoRef.current) {
-        videoRef.current.onended = null;
-        videoRef.current.onerror = null;
-      }
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
-  }, [currentMediaIndex, currentMedia]);
+  }, [currentMediaIndex]);
 
-  console.log('Current render - Index:', currentMediaIndex, 'Media:', currentMedia.alt, 'Type:', currentMedia.type);
 
   return (
     <section className="relative h-[90vh] text-white flex items-center justify-center text-center overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-full z-0">
-        {currentMedia.type === "video" ? (
-          <video
-            ref={videoRef}
-            className={`absolute w-full h-full object-cover transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"
-              }`}
-            autoPlay
-            muted
-            playsInline
-            loop={false}
-            key={`video-${currentMediaIndex}`}
-          >
-            <source src={currentMedia.src} type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        ) : (
-          <img
-            src={currentMedia.src}
-            alt={currentMedia.alt}
-            className={`absolute w-full h-full object-cover transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"
-              }`}
-            key={`image-${currentMediaIndex}`}
-          />
-        )}
+        <img
+          src={currentMedia.src}
+          alt={currentMedia.alt}
+          className={`absolute w-full h-full object-cover transition-opacity duration-500 ${isVisible ? "opacity-100" : "opacity-0"
+            }`}
+          key={`image-${currentMediaIndex}`}
+        />
       </div>
 
       <div className="relative z-10 px-6">

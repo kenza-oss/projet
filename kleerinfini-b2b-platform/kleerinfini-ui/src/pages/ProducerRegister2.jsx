@@ -21,7 +21,6 @@ import LanguageSelector from '../components/LanguageSelector';
 import "../App.css";
 
 // Dynamic Backgrounds
-import producerBgVideo from '../assets/producer_bg_video.mp4';
 import registrationBg1 from '../assets/register_bg_1.png';
 import registrationBg2 from '../assets/register_bg_2.png';
 import registrationBg3 from '../assets/register_bg_3.png';
@@ -299,37 +298,16 @@ const ProducerRegister2 = () => {
       <div className="hidden md:flex md:w-[35%] relative flex-col justify-between p-16 overflow-hidden">
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">
-            {step === 0 ? (
-              <motion.div
-                key="video-bg"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                className="w-full h-full absolute inset-0"
-              >
-                <video
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                >
-                  <source src={producerBgVideo} type="video/mp4" />
-                </video>
-              </motion.div>
-            ) : (
-              <motion.img
-                key={`image-bg-${step}`}
-                src={bgImages[step % bgImages.length]}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
-                className="w-full h-full object-cover absolute inset-0"
-                alt="B2B Premium"
-              />
-            )}
+            <motion.img
+              key={`image-bg-${step}`}
+              src={bgImages[step % bgImages.length]}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.8 }}
+              className="w-full h-full object-cover absolute inset-0"
+              alt="B2B Premium"
+            />
           </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
         </div>

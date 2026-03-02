@@ -10,7 +10,6 @@ import { ChevronDown, Minus, Plus, Star } from 'lucide-react';
 import { motion } from 'framer-motion';
 import axios from '../api/axios';
 import ProductModal from '../components/ProductModal';
-import background from '../assets/background.mp4';
 import luxuryHero from '../assets/luxury_hero.png';
 import heroBg1 from '../assets/hero-bg-1.jpg';
 import heroBg2 from '../assets/hero-bg-2.png';
@@ -80,13 +79,13 @@ const Products = () => {
   // Premium Carousel Background System
   const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
   const backgroundMedia = [
-    { type: 'video', src: 'https://www.pexels.com/fr-fr/download/video/4177432/', fallback: background },
     { type: 'image', src: heroBg1 },
     { type: 'image', src: heroBg2 },
     { type: 'image', src: heroBg3 },
     { type: 'image', src: heroBg4 },
     { type: 'image', src: heroBg5 }
   ];
+
 
   useEffect(() => {
     const interval = setInterval(() => {

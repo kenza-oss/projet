@@ -3,7 +3,7 @@ import {
   FaRocket, FaSearch, FaHandshake, FaChartLine,
   FaCloud, FaCogs, FaCode, FaGlobe, FaUserTie, FaDatabase, FaEye, FaLightbulb
 } from "react-icons/fa";
-import backgroundVideo from "../../assets/video6.mp4";
+import aboutHero from "../../assets/about_hero_new.jpg";
 import bgBlurred from "../../assets/back.jpeg";
 import partner1 from "../../assets/back.jpeg";
 import partner2 from "../../assets/back.jpeg";
@@ -22,13 +22,11 @@ export default function AboutPage() {
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
         <div className="absolute inset-0 w-full h-full z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <img
+            src={aboutHero}
+            alt="About Background"
             className="w-full h-full object-cover"
-            style={{ 
+            style={{
               position: 'absolute',
               top: '0',
               left: '0',
@@ -38,11 +36,9 @@ export default function AboutPage() {
               minWidth: '100vw',
               minHeight: '100vh'
             }}
-          >
-            <source src={backgroundVideo} type="video/mp4" />
-          </video>
+          />
         </div>
-        
+
         <div className="relative z-10 flex items-center justify-center h-full">
           <div className="w-full max-w-5xl px-4 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white  drop-shadow-lg">
