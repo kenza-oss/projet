@@ -17,7 +17,7 @@ class Command(BaseCommand):
         admin_accounts = [
             {
                 'email': 'admin@kleerinfini.com',
-                'password': config('ADMIN_PASSWORD_1', default='KleerAdmin2025!'),
+                'password': config('ADMIN_PASSWORD_1', default='admin123456'),
                 'first_name': 'Admin',
                 'last_name': 'Principal',
             },
@@ -51,7 +51,7 @@ class Command(BaseCommand):
                 user.is_superuser = True
                 user.role = 'admin'
                 user.save()
-                self.stdout.write(self.style.SUCCESS(f'[OK] Mot de passe mis à jour: {email}'))
+                self.stdout.write(self.style.SUCCESS(f'[OK] Password updated for: {email} to {account["password"]}'))
             except User.DoesNotExist:
                 user = User.objects.create_user(
                     email=email,
