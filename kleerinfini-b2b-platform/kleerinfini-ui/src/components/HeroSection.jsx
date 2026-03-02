@@ -99,7 +99,7 @@ export default function HeroSection({ onOpenMap }) {
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display-luxury text-white leading-tight tracking-tight mb-4 md:mb-8 text-shadow-premium px-2">
             {t("home.hero.title")}
           </h1>
-          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#2B6CB0] font-serif-luxury italic mb-8 md:mb-12 drop-shadow-[0_0_20px_rgba(43,108,176,0.5)] tracking-wide brightness-125 saturate-200 px-2 luxury-text-shimmer-blue">
+          <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#FFD700] font-serif-luxury italic mb-8 md:mb-12 drop-shadow-[0_0_30px_rgba(255,215,0,0.6)] tracking-wide brightness-125 saturate-150 px-2">
             {t("home.hero.subtitle")}
           </h2>
 

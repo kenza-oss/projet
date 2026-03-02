@@ -24,21 +24,21 @@ services:
       - key: DATABASE_URL
         sync: false   # À renseigner avec ton lien Supabase dans le dashboard Render
       - key: CORS_ALLOWED_ORIGINS
-        value: "https://kleerinfini-frontend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com"
+        value: "https://kleerinfini-frontend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com"
       - key: CSRF_TRUSTED_ORIGINS
-        value: "https://kleerinfini-frontend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com"
+        value: "https://kleerinfini-frontend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com"
       - key: USE_CLOUDINARY
         value: "True"
       - key: CLOUDINARY_CLOUD_NAME
-        sync: false   # À renseigner manuellement dans Render dashboard
+        sync: false   # À configurer dans le dashboard Render (onglet Environment)
       - key: CLOUDINARY_API_KEY
-        sync: false   # À renseigner manuellement dans Render dashboard
+        sync: false   # À configurer dans le dashboard Render (onglet Environment)
       - key: CLOUDINARY_API_SECRET
-        sync: false   # À renseigner manuellement dans Render dashboard
+        sync: false   # À configurer dans le dashboard Render (onglet Environment)
       - key: EMAIL_HOST_USER
         value: "kleernetinfini@gmail.com"
       - key: EMAIL_HOST_PASSWORD
-        sync: false   # À renseigner manuellement dans Render dashboard
+        sync: false   # À configurer dans le dashboard Render (onglet Environment)
       - key: DEFAULT_FROM_EMAIL
         value: "kleernetinfini@gmail.com"
       - key: ADMIN_PASSWORD_1

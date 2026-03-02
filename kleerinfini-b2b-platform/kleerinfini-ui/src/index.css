@@ -229,16 +229,6 @@ h4,
   }
 }
 
-.luxury-text-shimmer-blue {
-  background: linear-gradient(to right, #0055FF 20%, #00E0FF 40%, #00E0FF 60%, #0055FF 80%);
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 4s linear infinite;
-  filter: drop-shadow(0 0 10px rgba(0, 85, 255, 0.3));
-}
-
 @keyframes marquee {
   0% {
     transform: translateX(0);
