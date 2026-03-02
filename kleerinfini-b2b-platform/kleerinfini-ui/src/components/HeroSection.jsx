@@ -17,6 +17,7 @@ import heroBg2 from "../assets/hero-bg-2.png";
 import heroBg3 from "../assets/hero-bg-3.png";
 import heroBg4 from "../assets/hero-bg-4.png";
 import heroBg5 from "../assets/hero-bg-5.png";
+import heroVideoNew from "../assets/hero_video_new.mp4";
 
 export default function HeroSection({ onOpenMap }) {
   const { t } = useTranslation();
@@ -34,16 +35,19 @@ export default function HeroSection({ onOpenMap }) {
       {/* Background Media Wrapper */}
       <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
         <div className="absolute inset-0 w-full h-full">
-          <img
-            src={backgroundImage}
-            alt={t("home.hero.img_alt")}
+          <video
+            src={heroVideoNew}
+            autoPlay
+            loop
+            muted
+            playsInline
             className="w-full h-full object-cover scale-105 opacity-60"
-            style={{ filter: 'brightness(0.8) contrast(1.1)' }}
+            style={{ filter: 'brightness(0.7) contrast(1.2)' }}
           />
           {/* Luminous Overlay */}
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
           {/* Luminous Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/60 via-transparent to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-transparent to-transparent"></div>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
       </div>
