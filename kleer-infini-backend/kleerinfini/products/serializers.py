@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Product, Category, Region, Type, ProductImage, ProductCertification
 
 class CategorySerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
     image_url = serializers.SerializerMethodField()
     certifications = serializers.SerializerMethodField()
 
@@ -9,34 +10,47 @@ class CategorySerializer(serializers.ModelSerializer):
         model = Category
         fields = ['id', 'name', 'description', 'type', 'specific_fields', 'image', 'image_url', 'certifications']
 
-    def get_image_url(self, obj):
+    def get_image(self, obj):
         if not obj.image:
             return None
-        url = obj.image.url
-        if url.startswith('http'):
-            return url
-        request = self.context.get('request')
-        if request:
-            return request.build_absolute_uri(url)
+        raw_name = obj.image.name
+        if raw_name.startswith('http'):
+            return raw_name
+        return obj.image.url
+
+    def get_image_url(self, obj):
+        url = self.get_image(obj)
+        if url and not url.startswith('http'):
+            request = self.context.get('request')
+            if request:
+                return request.build_absolute_uri(url)
         return url
 
     def get_certifications(self, obj):
         from producers.serializers import CertificationSerializer
         return CertificationSerializer(obj.certifications.all(), many=True, context=self.context).data
 
-class ProductImageSerializer(serializers.ModelSerializer):
+    image = serializers.SerializerMethodField()
     image_url = serializers.SerializerMethodField()
     class Meta:
         model = ProductImage
         fields = ['id', 'image', 'image_url']
 
+    def get_image(self, obj):
+        if not obj.image:
+            return None
+        raw_name = obj.image.name
+        if raw_name.startswith('http'):
+            return raw_name
+        return obj.image.url
+
     def get_image_url(self, obj):
-        if obj.image:
+        url = self.get_image(obj)
+        if url and not url.startswith('http'):
             request = self.context.get('request')
             if request:
-                return request.build_absolute_uri(obj.image.url)
-            return obj.image.url
-        return None
+                return request.build_absolute_uri(url)
+        return url
 
 class ProductCertificationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -65,29 +79,26 @@ class ProductSerializer(serializers.ModelSerializer):
     catalogue_url = serializers.SerializerMethodField()
     certification_file_url = serializers.SerializerMethodField()
 
+    def _get_file_url(self, field_file):
+        if not field_file:
+            return None
+        raw_name = field_file.name
+        if raw_name.startswith('http'):
+            return raw_name
+        url = field_file.url
+        request = self.context.get('request')
+        if request and not url.startswith('http'):
+            return request.build_absolute_uri(url)
+        return url
+
     def get_fiche_tech_url(self, obj):
-        if obj.fiche_tech:
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(obj.fiche_tech.url)
-            return obj.fiche_tech.url
-        return None
+        return self._get_file_url(obj.fiche_tech)
 
     def get_catalogue_url(self, obj):
-        if obj.catalogue:
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(obj.catalogue.url)
-            return obj.catalogue.url
-        return None
+        return self._get_file_url(obj.catalogue)
 
     def get_certification_file_url(self, obj):
-        if obj.certification_file:
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(obj.certification_file.url)
-            return obj.certification_file.url
-        return None
+        return self._get_file_url(obj.certification_file)
 
     def validate_fiche_tech(self, value):
         if value and not value.name.lower().endswith('.pdf'):
