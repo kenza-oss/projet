@@ -13,18 +13,15 @@ class CategorySerializer(serializers.ModelSerializer):
     def get_image(self, obj):
         if not obj.image:
             return None
-        raw_name = obj.image.name
-        if raw_name.startswith('http'):
-            return raw_name
-        return obj.image.url
+        name = obj.image.name
+        if name and name.startswith('http'):
+            return name
+        # Force Cloudinary URL
+        filename = name.split('/')[-1] if '/' in name else name
+        return f"https://res.cloudinary.com/dptb2m02i/image/upload/v1/products_images/{filename}"
 
     def get_image_url(self, obj):
-        url = self.get_image(obj)
-        if url and not url.startswith('http'):
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(url)
-        return url
+        return self.get_image(obj)
 
     def get_certifications(self, obj):
         from producers.serializers import CertificationSerializer
@@ -40,18 +37,15 @@ class ProductImageSerializer(serializers.ModelSerializer):
     def get_image(self, obj):
         if not obj.image:
             return None
-        raw_name = obj.image.name
-        if raw_name.startswith('http'):
-            return raw_name
-        return obj.image.url
+        name = obj.image.name
+        if name and name.startswith('http'):
+            return name
+        # Force Cloudinary URL
+        filename = name.split('/')[-1] if '/' in name else name
+        return f"https://res.cloudinary.com/dptb2m02i/image/upload/v1/products_images/{filename}"
 
     def get_image_url(self, obj):
-        url = self.get_image(obj)
-        if url and not url.startswith('http'):
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(url)
-        return url
+        return self.get_image(obj)
 
 class ProductCertificationSerializer(serializers.ModelSerializer):
     class Meta:
@@ -83,14 +77,12 @@ class ProductSerializer(serializers.ModelSerializer):
     def _get_file_url(self, field_file):
         if not field_file:
             return None
-        raw_name = field_file.name
-        if raw_name.startswith('http'):
-            return raw_name
-        url = field_file.url
-        request = self.context.get('request')
-        if request and not url.startswith('http'):
-            return request.build_absolute_uri(url)
-        return url
+        name = field_file.name
+        if name and name.startswith('http'):
+            return name
+        # Force Cloudinary URL for consistency if it's an image/file in products_images
+        filename = name.split('/')[-1] if '/' in name else name
+        return f"https://res.cloudinary.com/dptb2m02i/image/upload/v1/products_images/{filename}"
 
     def get_fiche_tech_url(self, obj):
         return self._get_file_url(obj.fiche_tech)
