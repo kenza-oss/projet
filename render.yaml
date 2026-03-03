@@ -64,7 +64,7 @@ services:
       - key: NODE_VERSION
         value: "20.10.0"
       - key: VITE_API_URL
-        value: "https://kleerinfini-backend.onrender.com"
+        value: "https://kleerinfini-backend-xo0t.onrender.com"
       - key: GIT_LFS_SKIP_SMUDGE
         value: "1"
     routes:
