@@ -10,12 +10,15 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'description', 'type', 'specific_fields', 'image', 'image_url', 'certifications']
 
     def get_image_url(self, obj):
-        if obj.image:
-            request = self.context.get('request')
-            if request:
-                return request.build_absolute_uri(obj.image.url)
-            return obj.image.url
-        return None
+        if not obj.image:
+            return None
+        url = obj.image.url
+        if url.startswith('http'):
+            return url
+        request = self.context.get('request')
+        if request:
+            return request.build_absolute_uri(url)
+        return url
 
     def get_certifications(self, obj):
         from producers.serializers import CertificationSerializer
