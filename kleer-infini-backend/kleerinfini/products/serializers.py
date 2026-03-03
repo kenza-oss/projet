@@ -1,3 +1,4 @@
+import urllib.parse
 from rest_framework import serializers
 from .models import Product, Category, Region, Type, ProductImage, ProductCertification
 
@@ -16,9 +17,10 @@ class CategorySerializer(serializers.ModelSerializer):
         name = obj.image.name
         if name and name.startswith('http'):
             return name
-        # Force Cloudinary URL
+        # Force Cloudinary URL with encoding and correct prefix
         filename = name.split('/')[-1] if '/' in name else name
-        return f"https://res.cloudinary.com/dptb2m02i/image/upload/v1/products_images/{filename}"
+        encoded_filename = urllib.parse.quote(filename)
+        return f"https://res.cloudinary.com/dptb2m02i/image/upload/products/{encoded_filename}"
 
     def get_image_url(self, obj):
         return self.get_image(obj)
@@ -40,9 +42,10 @@ class ProductImageSerializer(serializers.ModelSerializer):
         name = obj.image.name
         if name and name.startswith('http'):
             return name
-        # Force Cloudinary URL
+        # Force Cloudinary URL with encoding and correct prefix
         filename = name.split('/')[-1] if '/' in name else name
-        return f"https://res.cloudinary.com/dptb2m02i/image/upload/v1/products_images/{filename}"
+        encoded_filename = urllib.parse.quote(filename)
+        return f"https://res.cloudinary.com/dptb2m02i/image/upload/products/{encoded_filename}"
 
     def get_image_url(self, obj):
         return self.get_image(obj)
@@ -80,9 +83,10 @@ class ProductSerializer(serializers.ModelSerializer):
         name = field_file.name
         if name and name.startswith('http'):
             return name
-        # Force Cloudinary URL for consistency if it's an image/file in products_images
+        # Force Cloudinary URL with encoding and correct prefix
         filename = name.split('/')[-1] if '/' in name else name
-        return f"https://res.cloudinary.com/dptb2m02i/image/upload/v1/products_images/{filename}"
+        encoded_filename = urllib.parse.quote(filename)
+        return f"https://res.cloudinary.com/dptb2m02i/image/upload/products/{encoded_filename}"
 
     def get_fiche_tech_url(self, obj):
         return self._get_file_url(obj.fiche_tech)
