@@ -30,6 +30,7 @@ class CategorySerializer(serializers.ModelSerializer):
         from producers.serializers import CertificationSerializer
         return CertificationSerializer(obj.certifications.all(), many=True, context=self.context).data
 
+class ProductImageSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
     image_url = serializers.SerializerMethodField()
     class Meta:
