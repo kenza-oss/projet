@@ -314,7 +314,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleer-infini-backend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,http://localhost:5173', cast=lambda v: [s.strip() for s in v.split(',')])
 
 CORS_ALLOW_ALL_ORIGINS = False
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='http://localhost:5173', cast=lambda v: [s.strip() for s in v.split(',')])
+CORS_ALLOWED_ORIGINS = config(
+    'CORS_ALLOWED_ORIGINS', 
+    default='http://localhost:5173,https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app', 
+    cast=lambda v: [s.strip() for s in v.split(',')]
+)
 CORS_SUPPORTS_CREDENTIALS = True
 
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
