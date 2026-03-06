@@ -331,7 +331,7 @@ CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS', 
-    default='https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app,http://localhost:5173,http://127.0.0.1:5173', 
+    default='https://projet-1.onrender.com,https://projet-1-y2ku.onrender.com,https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app,http://localhost:5173,http://127.0.0.1:5173', 
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
 
