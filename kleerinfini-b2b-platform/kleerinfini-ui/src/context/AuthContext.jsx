@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useContext, useState, useEffect, useMemo } from "react";
 import axios from "../api/axios";
 import realTimeService from "../services/RealTimeService";
 
@@ -7,53 +7,104 @@ const AuthContext = createContext();
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState(null);
+    // SYNCHRONOUS INITIALIZATION: Read both user object AND explicit role
+    const [user, setUser] = useState(() => {
+        const storedUser = localStorage.getItem("user");
+        const storedRole = localStorage.getItem("user_role");
+
+        if (storedUser) {
+            try {
+                const parsed = JSON.parse(storedUser);
+                // Ensure role is present if we have it explicitly
+                if (!parsed.role && storedRole) {
+                    parsed.role = storedRole;
+                }
+
+                const storedToken = localStorage.getItem("token");
+                if (storedToken) {
+                    axios.defaults.headers.common["Authorization"] = `Bearer ${storedToken}`;
+                }
+                return parsed;
+            } catch (e) {
+                console.error("Failed to parse stored user", e);
+                return null;
+            }
+        }
+        return null;
+    });
+
     const [token, setToken] = useState(localStorage.getItem("token") || null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const initAuth = async () => {
             const storedToken = localStorage.getItem("token");
-            const storedUser = localStorage.getItem("user");
-
-            if (storedUser) {
-                try {
-                    setUser(JSON.parse(storedUser));
-                } catch (e) {
-                    console.error("Failed to parse stored user", e);
-                }
-            }
+            const storedUser = user;
 
             if (storedToken && storedUser) {
-                const parsedUser = JSON.parse(storedUser);
                 setToken(storedToken);
                 axios.defaults.headers.common["Authorization"] = `Bearer ${storedToken}`;
 
-                // Connect WebSocket using User UUID strictly
-                const connectionId = parsedUser.user_id || parsedUser.user || parsedUser.id;
+                const connectionId = storedUser.user_id || storedUser.user || storedUser.id;
                 if (connectionId) {
+                    // WebSocket is initialized independently from the profile fetch
                     realTimeService.connect(connectionId, storedToken);
                 }
 
                 try {
-                    const res = await axios.get("profiles/me/");
-                    setUser(res.data);
-                    localStorage.setItem("user", JSON.stringify(res.data));
+                    // 🚀 Endpoints match backend
+                    const isProducer = storedUser.role === 'producer';
+                    const isClient = storedUser.role === 'client';
+
+                    let endpoint = "profiles/me/"; // Default fallback
+                    if (isProducer) endpoint = "profiles/me/";
+                    else if (isClient) endpoint = "client-profiles/me/";
+
+                    console.log(`[Auth] Fetching ${storedUser.role} profile from: ${endpoint}`);
+                    const res = await axios.get(endpoint);
+
+                    // EXTREME CARE: Merge to preserve 'role'
+                    setUser(prev => {
+                        const updated = { ...prev, ...res.data };
+                        if (!updated.role && prev?.role) updated.role = prev.role;
+
+                        localStorage.setItem("user", JSON.stringify(updated));
+                        if (updated.role) localStorage.setItem("user_role", updated.role);
+                        return updated;
+                    });
+
                     if (res.data.user_email) {
                         localStorage.setItem("user_email", res.data.user_email);
                     }
                 } catch (err) {
-                    console.error("Auth init failed to fetch fresh user", err);
-                    // If 401, refresh failed in axios interceptor already
-                    // Only log out on true 401s (expired session), not 500s or network errors
-                    if (err.response?.status === 401) {
-                        console.warn("Session expired and refresh failed, logging out");
+                    console.error("Auth init verify failed", err);
+                    // If it's a 404, the endpoint might be wrong or profile missing, 
+                    // but don't logout if we already have local data to avoid ejection.
+                    if (err.response?.status === 404) {
+                        console.warn("Profile endpoint 404, creating default local session fallback.");
+                        // 🔥 CRITICAL: Force a fallback profile to keep the app alive
+                        setUser(prev => {
+                            if (!prev) return prev;
+                            const fallback = {
+                                ...prev,
+                                company_name: prev.company_name || 'En attente de profil',
+                                is_verified: false,
+                            };
+                            localStorage.setItem("user", JSON.stringify(fallback));
+                            return fallback;
+                        });
+                        // Keep loading = false to allow entry with local data
+                    } else if (err.response?.status === 401) {
                         logout();
-                    } else {
-                        console.warn("Server unavailable or other error, keeping local user state for now");
+                        return; // Exit early
                     }
                 }
+            } else {
+                // Clear any partial data if token is missing
+                setToken(null);
+                setUser(null);
             }
+            // CRITICAL: Loading is false ONLY after we tried to verify
             setLoading(false);
         };
         initAuth();
@@ -145,7 +196,7 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const value = {
+    const value = useMemo(() => ({
         user,
         token,
         loading,
@@ -153,7 +204,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         registerClient,
         isAuthenticated: !!user,
-    };
+    }), [user, token, loading]);
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

@@ -11,13 +11,6 @@ import { motion } from "framer-motion";
 
 const transactions = [
     {
-        provider: "Chargily Pay",
-        description: "Abonnement mensuel",
-        amount: -1500,
-        time: "Aujourd'hui - 08:30 AM",
-        icon: <CreditCard className="text-blue-500" size={20} />,
-    },
-    {
         provider: "CCP Transfer",
         description: "Paiement client",
         amount: 12500,

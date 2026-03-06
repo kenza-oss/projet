@@ -21,11 +21,9 @@ import LanguageSelector from '../components/LanguageSelector';
 import "../App.css";
 
 // Dynamic Backgrounds
-import registrationBg1 from '../assets/register_bg_1.png';
-import registrationBg2 from '../assets/register_bg_2.png';
-import registrationBg3 from '../assets/register_bg_3.png';
+import registrationBanner from '../assets/registration_banner_v2.jpg';
 
-const bgImages = [registrationBg1, registrationBg2, registrationBg3];
+const bgImages = [registrationBanner];
 
 const PASSWORD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
 
@@ -288,14 +286,14 @@ const ProducerRegister2 = () => {
     setStep(s => Math.min(s + 1, steps.length - 1));
   };
 
-  const labelClass = "block text-[11px] font-bold text-[#1A1A1A] uppercase tracking-wider mb-2 font-inter";
-  const inputClass = "w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-[#1A1A1A] placeholder-gray-400 focus:border-[#FF6600] focus:ring-1 focus:ring-[#FF6600] transition-all duration-300 outline-none font-inter text-sm shadow-sm";
+  const labelClass = "block text-[10px] md:text-[11px] font-black text-[#1A1A1A] uppercase tracking-[0.15em] mb-3 font-inter";
+  const inputClass = "w-full bg-white border border-gray-200/80 rounded-xl px-5 py-4 text-[#1A1A1A] placeholder-gray-400 focus:border-[#FF6600] focus:ring-4 focus:ring-[#FF6600]/5 transition-all duration-500 outline-none font-inter text-sm shadow-[0_2px_10px_rgba(0,0,0,0.02)] hover:border-gray-300";
 
   return (
     <div className="min-h-screen bg-[#FBFBFB] flex flex-col md:flex-row overflow-hidden selection:bg-[#FF6600]/20">
 
       {/* 🧭 LEFT BRAND PANEL (35%) */}
-      <div className="hidden md:flex md:w-[35%] relative flex-col justify-between p-16 overflow-hidden">
+      <div className="w-full h-48 md:h-auto md:w-[40%] lg:w-[35%] relative flex flex-col justify-between p-8 md:p-16 overflow-hidden min-h-[250px] md:min-h-screen">
         <div className="absolute inset-0">
           <AnimatePresence mode="wait">
             <motion.img
@@ -305,77 +303,135 @@ const ProducerRegister2 = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.8 }}
-              className="w-full h-full object-cover absolute inset-0"
+              className="w-full h-full object-cover absolute inset-0 filter contrast-[1.15] brightness-[1.05] saturate-[1.4]"
               alt="B2B Premium"
             />
           </AnimatePresence>
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent z-10" />
         </div>
 
-        <div className="relative z-10">
-          <div className="w-16 h-16 bg-white/90 backdrop-blur-xl border border-white/20 rounded-2xl flex items-center justify-center mb-12 shadow-2xl">
-            <span className="text-[#FF6600] font-black text-3xl">K</span>
-          </div>
-          <div className="space-y-6">
-            <div className="w-12 h-1 bg-[#D4AF37] rounded-full"></div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-white leading-[1.1] tracking-tight font-inter">
-              {t('producerRegister.leftTitle1', "L'Excellence")} <br /> <span className="text-[#D4AF37]">{t('producerRegister.leftTitle2', "Naturelle.")}</span>
-            </h2>
-            <p className="text-white/90 font-medium text-lg opacity-80 max-w-xs leading-relaxed font-inter">
-              {t('producerRegister.leftSubtitle', "Rejoignez le réseau leader de l'exportation internationale.")}
-            </p>
+        <div className="relative z-10 flex flex-col justify-start pt-12 md:pt-20 flex-1">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="w-12 h-12 md:w-16 md:h-16 bg-white border border-white/20 rounded-2xl flex items-center justify-center mb-10 md:mb-16 shadow-xl"
+          >
+            <span className="text-[#FF6600] font-black text-2xl md:text-3xl">K</span>
+          </motion.div>
+
+          <div className="space-y-8 md:space-y-12">
+            <div className="space-y-4 md:space-y-6">
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-4xl md:text-5xl lg:text-5xl font-black text-white leading-tight tracking-tight font-inter uppercase"
+              >
+                {t('producerRegister.leftTitle1', "L'Excellence")} <br />
+                {t('producerRegister.leftTitle2', "Naturelle.")}
+              </motion.h2>
+
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "4rem" }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="h-1.5 bg-[#FF6600] rounded-full"
+              ></motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="hidden md:block text-white font-bold text-xl md:text-2xl max-w-sm leading-relaxed font-inter opacity-90"
+              >
+                {t('producerRegister.leftSubtitle', "Rejoignez le réseau leader de l'exportation internationale.")}
+              </motion.p>
+            </div>
           </div>
         </div>
 
-        <div className="relative z-10 pt-12 border-t border-white/20 space-y-8">
-          <div className="flex items-center gap-6 group">
-            <div className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-[#D4AF37] transition-all duration-500">
-              <Globe size={18} className="text-white" />
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.2 }}
+          className="relative z-10 pt-8 md:pt-12 border-t border-white/10 space-y-6 md:space-y-8 hidden sm:block"
+        >
+          <div className="flex items-center gap-5 group cursor-default">
+            <div className="w-12 h-12 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:border-[#FF6600]/40 group-hover:bg-[#FF6600]/5 transition-all duration-500 shadow-lg">
+              <Globe size={20} className="text-white/70 group-hover:text-[#FF6600] transition-colors" />
             </div>
-            <div>
-              <span className="block text-white text-[11px] font-bold uppercase tracking-widest mb-1">Impact Global</span>
-              <span className="text-white/60 text-[10px] uppercase font-inter">Accréditation Kleer Infini</span>
+            <div className="space-y-1">
+              <span className="block text-white/90 text-[11px] font-black uppercase tracking-[0.2em] group-hover:text-white transition-colors">
+                Rayonner · Exporter · Bâtir l'Avenir
+              </span>
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rounded-full bg-[#D4AF37] animate-pulse"></div>
+                <span className="text-[#D4AF37] text-[10px] font-bold uppercase tracking-wider opacity-80">
+                  Accréditation Officielle Kleer Infini
+                </span>
+              </div>
             </div>
           </div>
-          <p className="text-[10px] text-white/40 uppercase tracking-[0.3em] font-medium font-inter">© 2024 Kleer Infini • Excellence Export</p>
-        </div>
+          <div className="flex items-center justify-between">
+            <p className="text-[10px] text-white/30 uppercase tracking-[0.4em] font-bold font-inter">© 2026 Kleer Infini</p>
+            <div className="flex gap-4 opacity-30 hover:opacity-100 transition-opacity">
+              <div className="w-1 h-1 rounded-full bg-white"></div>
+              <div className="w-1 h-1 rounded-full bg-white"></div>
+              <div className="w-1 h-1 rounded-full bg-white"></div>
+            </div>
+          </div>
+        </motion.div>
       </div>
 
       {/* 🧭 RIGHT FORM PANEL (65%) */}
-      <div className="flex-1 flex items-center justify-center relative p-6 pt-28 md:p-20 overflow-y-auto bg-[#FBFBFB]">
+      <div className="flex-1 flex items-start md:items-center justify-center relative p-6 pt-10 md:p-20 overflow-y-auto bg-[#FBFBFB]">
         <div className="absolute top-4 right-4 md:top-10 md:right-10 z-20 flex flex-col sm:flex-row items-end sm:items-center gap-3 md:gap-4">
           <LanguageSelector />
           <button
             onClick={() => navigate('/producer-login')}
-            className="text-[#15803d] font-bold text-xs md:text-lg bg-[#dcfce7] px-4 md:px-8 py-2 md:py-4 rounded-full shadow-sm border border-[#bbf7d0] hover:bg-[#bbf7d0] transition-all duration-300 whitespace-nowrap"
+            className="group flex items-center gap-3 px-6 md:px-8 py-3 md:py-4 bg-white border border-gray-100 rounded-full shadow-xl shadow-gray-200/50 hover:shadow-2xl hover:shadow-[#FF6600]/10 hover:border-[#FF6600]/30 transition-all duration-500"
           >
-            {t('producerRegister.alreadyAccount', "Déjà un compte ? Connexion")}
+            <div className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300">
+              <Users size={14} />
+            </div>
+            <span className="text-[#1A1A1A] font-black text-xs md:text-sm uppercase tracking-wider">
+              {t('producerRegister.alreadyAccount', "Connexion")}
+            </span>
           </button>
         </div>
 
         <div className="relative w-full max-w-4xl pt-4 md:pt-0">
 
           {/* Header & Mini Stepper */}
-          <div className="mb-14">
-            <div className="flex items-center gap-4 mb-6">
-              <span className="text-[#FF6600] font-bold text-[10px] uppercase tracking-widest px-3 py-1 bg-[#FF6600]/10 rounded-full">
-                {t('producerRegister.stepIndicator', { current: step + 1, total: steps.length })}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-16 md:mb-20"
+          >
+            <div className="flex items-center gap-6 mb-8">
+              <span className="text-white font-black text-[10px] uppercase tracking-[0.2em] px-4 py-2 bg-[#1A1A1A] rounded-full shadow-lg">
+                Phase 0{step + 1} <span className="text-gray-500 mx-1">/</span> 0{steps.length}
               </span>
-              <div className="flex-1 h-[2px] bg-gray-100 rounded-full overflow-hidden">
+              <div className="flex-1 h-[3px] bg-gray-100 rounded-full overflow-hidden">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${((step + 1) / steps.length) * 100}%` }}
-                  className="h-full bg-[#FF6600]"
+                  className="h-full bg-gradient-to-r from-[#FF6600] to-[#D4AF37]"
                 />
               </div>
             </div>
-            <h1 className="text-4xl md:text-5xl font-black text-[#1A1A1A] tracking-tight mb-4 font-inter">
-              {t('producerRegister.title', "REJOIGNEZ LE RÉSEAU EXPORT")}
+            <h1 className="text-3xl md:text-5xl font-black text-[#1A1A1A] tracking-tight mb-6 font-inter leading-[0.95] selection:bg-[#FF6600]/30 uppercase">
+              {t('producerRegister.title_line1', "REJOIGNEZ LE RÉSEAU EXPORT")}
             </h1>
-            <p className="text-gray-500 font-medium text-lg font-inter">
-              {t('producerRegister.subtitle', "Intégrez l’écosystème de partenaires certifiés Kleer Infini.")}
-            </p>
-          </div>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-[1px] bg-[#FF6600]"></div>
+              <p className="text-[#1A1A1A] font-bold text-lg md:text-xl font-inter tracking-tight">
+                {t('producerRegister.subtitle', "Intégrez l’écosystème de partenaires certifiés Kleer Infini.")}
+              </p>
+            </div>
+          </motion.div>
 
           <form onSubmit={handleSubmit(onSubmit, onValidationError)} className="space-y-10">
 
@@ -449,7 +505,7 @@ const ProducerRegister2 = () => {
                       </div>
                     </div>
                     <div className="md:col-span-2 mt-2">
-                      <p className={labelClass}>{t('producerRegister.locationPrecise', "Localisation Précise")}</p>
+                      <p className="text-[10px] md:text-[11px] font-black text-black uppercase tracking-[0.15em] mb-3 font-inter">{t('producerRegister.locationPrecise', "Localisation Précise")}</p>
                       <div className="h-56 border border-gray-200 rounded-xl overflow-hidden shadow-inner">
                         <MapContainer center={[36.75, 3.05]} zoom={6} style={{ height: "100%", width: "100%" }}>
                           <TileLayer
@@ -597,14 +653,17 @@ const ProducerRegister2 = () => {
               ) : <div />}
 
               <motion.button
-                whileHover={{ scale: 1.02 }}
+                whileHover={{ scale: 1.02, boxShadow: "0 20px 40px rgba(255, 102, 0, 0.2)" }}
                 whileTap={{ scale: 0.98 }}
                 type={step < steps.length - 1 ? "button" : "submit"}
                 onClick={step < steps.length - 1 ? handleNext : undefined}
-                className="bg-[#FF6600] text-white px-10 py-4 rounded-xl font-bold text-sm flex items-center gap-4 hover:shadow-lg hover:shadow-[#FF6600]/20 transition-all duration-300"
+                className="relative overflow-hidden group bg-gradient-to-r from-[#FF6600] to-[#D4AF37] text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest flex items-center gap-4 transition-all duration-500 shadow-[0_10px_30px_rgba(255,102,0,0.3)]"
               >
-                {step < steps.length - 1 ? t('producerRegister.continue', 'Continuer') : (submitting ? t('producerRegister.processing', 'Traitement...') : t('producerRegister.finalize', 'Finaliser'))}
-                <ChevronRight size={18} />
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                <span className="relative z-10 flex items-center gap-4">
+                  {step < steps.length - 1 ? t('producerRegister.continue', 'Continuer') : (submitting ? t('producerRegister.processing', 'Traitement...') : t('producerRegister.finalize', 'Finaliser'))}
+                  <ChevronRight size={18} />
+                </span>
               </motion.button>
             </div>
 

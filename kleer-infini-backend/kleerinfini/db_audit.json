@@ -1,0 +1,192 @@
+{
+  "categories": [
+    {
+      "id": 195,
+      "name": "Bijoux & Accessoires de Mode — L’Éclat de l’Algérie, Porté avec Orgueil"
+    },
+    {
+      "id": 193,
+      "name": "Bois & Produits Dérivés d’Origine Algérienne"
+    },
+    {
+      "id": 191,
+      "name": "Carrelage & Dalles de Sol — Élégance Algérienne, Durabilité Mondiale"
+    },
+    {
+      "id": 182,
+      "name": "Carton & Papier — Emballages Durables et Professionnel, Made in Algeria"
+    },
+    {
+      "id": 178,
+      "name": "Eau Minérale Naturelle d’Origine — La Pureté Profonde de l’Algérie"
+    },
+    {
+      "id": 174,
+      "name": "Épices & Thés — Les Saveurs Authentiques de l’Algérie, Récoltées avec Soin"
+    },
+    {
+      "id": 157,
+      "name": "Équipement & Matériel Électrique"
+    },
+    {
+      "id": 196,
+      "name": "Équipement & Systèmes Hydrauliques"
+    },
+    {
+      "id": 170,
+      "name": "Équipements et Machines Zootechniques"
+    },
+    {
+      "id": 177,
+      "name": "Jus & Boissons"
+    },
+    {
+      "id": 188,
+      "name": "Licences Commerciales & Franchise Internationale"
+    },
+    {
+      "id": 165,
+      "name": "Machine & Équipement Industriel"
+    },
+    {
+      "id": 183,
+      "name": "Main-d’œuvre & Sous-traitance Internationale"
+    },
+    {
+      "id": 158,
+      "name": "Matériaux et Équipements de Construction :"
+    },
+    {
+      "id": 184,
+      "name": "Matériaux Industriels pour la Construction — Inox, Aluminium, PVC"
+    },
+    {
+      "id": 173,
+      "name": "Matériel Informatique — Innovation Locale, Performance Mondiale"
+    },
+    {
+      "id": 163,
+      "name": "Meubles & Décoration"
+    },
+    {
+      "id": 194,
+      "name": "Organisation d’Événements & Salons Professionnels à l’International"
+    },
+    {
+      "id": 175,
+      "name": "Panneaux Solaires & Solutions Énergétiques — L’Énergie du Soleil, Made in Algeria"
+    },
+    {
+      "id": 168,
+      "name": "Parfums & Eaux de Parfum"
+    },
+    {
+      "id": 180,
+      "name": "Pierres Naturelles d’Exception & Décoratives — Les Trésors Invisibles de l’Algérie"
+    },
+    {
+      "id": 169,
+      "name": "Pneus & Accessoires"
+    },
+    {
+      "id": 190,
+      "name": "Produits Agricoles Non Transformés"
+    },
+    {
+      "id": 189,
+      "name": "Produits Agroalimentaires Transformés"
+    },
+    {
+      "id": 192,
+      "name": "Produits Artisanaux & Créations Faites à la Main — L’Âme de l’Algérie, Tissée avec Passion"
+    },
+    {
+      "id": 161,
+      "name": "Produits chimiques & Dérivés :"
+    },
+    {
+      "id": 166,
+      "name": "Produits Cosmétiques"
+    },
+    {
+      "id": 198,
+      "name": "Produits de Beauté Naturels"
+    },
+    {
+      "id": 171,
+      "name": "Produits de l’Industrie Mécanique"
+    },
+    {
+      "id": 160,
+      "name": "Produits de la pêche & Aquaculture"
+    },
+    {
+      "id": 164,
+      "name": "Produits Électroménager & Électronique"
+    },
+    {
+      "id": 179,
+      "name": "Produits Laitiers & Dérivés — Tradition Fraîche, Qualité Contrôlée"
+    },
+    {
+      "id": 167,
+      "name": "Produits ménagers & ustensiles"
+    },
+    {
+      "id": 199,
+      "name": "Produits miniers & métallurgiques :"
+    },
+    {
+      "id": 200,
+      "name": "Produits Pharmaceutiques & Médicaux"
+    },
+    {
+      "id": 162,
+      "name": "Produits Plastiques & PPE"
+    },
+    {
+      "id": 172,
+      "name": "Produits Recyclés & Écologiques"
+    },
+    {
+      "id": 181,
+      "name": "Produits Textile & Habillement"
+    },
+    {
+      "id": 159,
+      "name": "Produits Zootechniques & Animaux Vivants"
+    },
+    {
+      "id": 197,
+      "name": "Produits, Équipements & Machines Agricoles"
+    },
+    {
+      "id": 186,
+      "name": "Projets d’Investissement & Opportunités Commerciales"
+    },
+    {
+      "id": 187,
+      "name": "Services Immobiliers Certifiés — Acheter en Algérie, en Toute Sérénité"
+    },
+    {
+      "id": 202,
+      "name": "Services Numériques & Solutions Informatiques"
+    },
+    {
+      "id": 185,
+      "name": "Services Professionnels & Prestations Intellectuelles"
+    },
+    {
+      "id": 176,
+      "name": "Téléphones & Appareils Mobiles — Connectivité Fiable, Technologie Locale"
+    },
+    {
+      "id": 201,
+      "name": "Vitre & Verre de Construction — Transparence, Sécurité, Performance"
+    }
+  ],
+  "sample_64": {
+    "name": "Zellige Iridescent dAlgérie  Alchimie Lumineuse | Effet Or Rose, Cuivre ou Argent | Pià¨ce Unique Fait Main",
+    "description": "Le Zellige Iridescent dâAlgÃ©rie est lâun des matÃ©riaux les plus rares et poÃ©tiques que puisse offrir lâartisanat maghrÃ©bin. MaÃ®trisÃ© par seulement quelques familles dâartisans Ã  Tlemcen, ce zellige utilise une technique sÃ©culaire : Ã  la fin de la cuisson, des oxydes mÃ©talliques naturels (cuivre, argent, or rose) sont introduits dans le four, crÃ©ant une rÃ©action chimique qui dÃ©pose une fine pellicule irisÃ©e sur lâÃ©mail.\r\n\r\nLe rÃ©sultat ? Une surface qui change dâapparence selon la lumiÃ¨re :\r\n\r\nOr Rose : chaud, romantique, Ã©voque le soleil couchant sur les murailles andalouses\r\nCuivre : profond, organique, sâharmonise avec le cuir, le bois foncÃ© et le bÃ©ton brut\r\nArgent : froid mais vivant, parfait pour les ambiances futuristes ou scandinaves luxe\r\nChaque carreau (10x10 cm) est unique. Lâiridescence nâest jamais uniforme â elle crÃ©e des ondulations de lumiÃ¨re, des reflets mÃ©talliques subtils, impossibles Ã  reproduire industriellement.\r\n\r\nUtilisÃ© en dosseret de bar, mur dâaccent derriÃ¨re un lit, faÃ§ade de cheminÃ©e ou dÃ©coration de spa, ce zellige devient lâÃ©lÃ©ment central dâun espace. Il est particuliÃ¨rement recherchÃ© Ã  DubaÃ¯, Miami, Paris, Milan et Riyad pour des projets oÃ¹ lâÃ©motion prime sur la fonction."
+  }
+}

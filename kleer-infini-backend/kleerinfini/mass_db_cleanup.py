@@ -15,9 +15,13 @@ DB_CONFIG = {
     'port': '5432'
 }
 
-# --- UNICODE CORRECTION DICTIONARY ---
+# --- UNICODE CORRECTION DICTIONARY (Hex based for precision) ---
 CORRECTIONS = {
-    # Sequences found in current output
+    chr(0x80) + chr(0x99): "'",  # Mangled apostrophe
+    chr(0x80) + chr(0x93): "–",  # En-dash
+    chr(0x80) + chr(0x94): "—",  # Em-dash
+    chr(0x80) + chr(0x9c): '"',  # Left quote
+    chr(0x80) + chr(0x9d): '"',  # Right quote
     "dAlgérie": "d'Algérie",
     "lun ": "l'un ",
     "lartisanat": "l'artisanat",
@@ -29,25 +33,25 @@ CORRECTIONS = {
     "lémotion": "l'émotion",
     "oà¹": "où",
     "Dubaà¯": "Dubaï",
-    "dâ€™": "d'",
-    "lâ€™": "l'",
-    "sâ€™": "s'",
-    "nâ€™": "n'",
-    "jâ€™": "j'",
+    "à©": "é", "à ": "à", "à¨": "è", "à¢": "â",
     "Ã©": "é", "Ã ": "à", "Ãª": "ê", "Ã®": "î", "Ã´": "ô", "Ã»": "û", "Ã¨": "è", "Ã§": "ç",
     "Ã‰": "É", "Ã¢": "â", "Ã": "à", 
     "â€“": "–", "â€™": "'", "â€”": "—", "â€œ": '"', "â€\x9d": '"',
-    "à©": "é", "à ": "à", "à¨": "è", "à¢": "â",
     "€™": "'", "€“": "–", "€œ": '"',
 }
 
 def fix_text(text):
     if not text: return ""
+    # 1. Apply specific mappings
     for mangled, fixed in CORRECTIONS.items():
         text = text.replace(mangled, fixed)
-    # Remove trash chars often found at ends
-    text = text.replace("â", "") 
+    
+    # 2. Aggressive char cleanup for remaining artifacts
+    text = text.replace(chr(0x80), "")
+    text = text.replace(chr(0x99), "")
+    text = text.replace("â", "")
     text = text.replace("Â", "")
+    
     return text
 
 def normalize_path(path):

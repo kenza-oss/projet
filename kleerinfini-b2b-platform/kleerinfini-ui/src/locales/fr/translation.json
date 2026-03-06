@@ -1206,8 +1206,9 @@
       "industrial_valve": {
         "name": "Vanne Industrielle de Précision"
       }
-    },
-    "about_page": {
+    }
+  },
+  "about_page": {
       "hero": {
         "badge": "Vision Elite",
         "subtitle_start": "L'Excellence Export de ",
@@ -1385,8 +1386,7 @@
         "algeria": "ALGERIA",
         "international": "INTERNATIONAL"
       }
-    }
-  },
+    },
   "producer_profile": {
     "loading": "Chargement du profil...",
     "not_found": {

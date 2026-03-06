@@ -228,14 +228,7 @@ export default function PaymentStatusCard({ documents = [], setDocuments, subscr
                     </div>
                   </motion.div>
                 )}
-                <motion.div whileHover={{ y: -5 }} className="bg-[#050B18] p-8 rounded-[2.5rem] shadow-xl group overflow-hidden relative">
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl -mr-16 -mt-16"></div>
-                  <div className="relative z-10 space-y-6">
-                    <div className="flex justify-between items-start"><div className="w-14 h-14 bg-white/10 rounded-2xl flex items-center justify-center text-blue-400"><CreditCard size={28} /></div><span className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-[10px] font-black uppercase tracking-widest">Instantanné</span></div>
-                    <div><h4 className="text-lg font-black text-white">Chargily Pay</h4><p className="text-blue-100/50 text-xs mt-1">Paiement par carte (EDAHABIA / CIB)</p></div>
-                    <button onClick={() => toast.loading("Redirection vers Chargily...")} className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 rounded-2xl font-black text-[11px] uppercase tracking-widest shadow-xl shadow-blue-500/20 transition-all hover:scale-[1.02] flex items-center justify-center gap-2">Payer maintenant <ArrowRight size={14} /></button>
-                  </div>
-                </motion.div>
+
               </div>
             </div>
 

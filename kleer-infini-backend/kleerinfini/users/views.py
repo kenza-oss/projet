@@ -77,21 +77,40 @@ class RegisterClientView(APIView):
     authentication_classes = []
     
     def post(self, request):
+        import logging
+        import traceback
+        logger = logging.getLogger(__name__)
+        
         from .serializers import RegisterClientSerializer
         from clients.models import Invitation
         try:
+            logger.info(f"Registration Attempt - Data: {request.data}")
+            
             invitation_token = request.data.get('invitation_token')
+            invitation = None
             if invitation_token:
-                invitation = Invitation.objects.get(token=invitation_token)
-                if not invitation.is_valid() or request.data.get('email') != invitation.email:
-                    return Response({'error': 'Invitation invalide'}, status=status.HTTP_400_BAD_REQUEST)
+                try:
+                    invitation = Invitation.objects.get(token=invitation_token)
+                    if not invitation.is_valid() or request.data.get('email') != invitation.email:
+                        logger.warning(f"Invalid invitation token: {invitation_token}")
+                        return Response({'error': 'Invitation invalide ou expirée'}, status=status.HTTP_400_BAD_REQUEST)
+                except Invitation.DoesNotExist:
+                    logger.warning(f"Invitation token not found: {invitation_token}")
+                    return Response({'error': 'Invitation non trouvée'}, status=status.HTTP_400_BAD_REQUEST)
 
             serializer = RegisterClientSerializer(data=request.data)
             if serializer.is_valid():
+                logger.info("Serializer is valid, saving...")
                 user = serializer.save()
-                if invitation_token:
+                
+                if invitation:
                     invitation.used = True
                     invitation.save()
+                    logger.info("Invitation marked as used.")
+                
+                from subscriptions.models import Subscription
+                from django.utils import timezone
+                from datetime import timedelta
                 
                 Subscription.objects.get_or_create(
                     user=user,
@@ -101,6 +120,9 @@ class RegisterClientView(APIView):
                         'end_date': (timezone.now() + timedelta(days=365)).date()
                     }
                 )
+                logger.info("Subscription created.")
+                
+                from rest_framework_simplejwt.tokens import RefreshToken
                 refresh = RefreshToken.for_user(user)
                 return Response({
                     'status': 'success',
@@ -109,9 +131,18 @@ class RegisterClientView(APIView):
                     'refresh': str(refresh),
                     'user': {'id': str(user.id), 'email': user.email, 'role': user.role}
                 }, status=status.HTTP_201_CREATED)
-            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+            
+            logger.warning(f"Serializer validation failed: {serializer.errors}")
+            return Response({'error': 'Erreur de validation', 'details': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
         except Exception as e:
-            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            logger.error(f"CRITICAL Registration Error: {str(e)}")
+            logger.error(traceback.format_exc())
+            # Return a cleaner error message but keep traceback for debugging in development
+            return Response({
+                'error': str(e),
+                'details': 'Une erreur serveur est survenue. Veuillez contacter l\'administrateur.',
+                'traceback': traceback.format_exc() if settings.DEBUG else None
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class TwoFactorSetupView(APIView):
     permission_classes = [permissions.IsAuthenticated]

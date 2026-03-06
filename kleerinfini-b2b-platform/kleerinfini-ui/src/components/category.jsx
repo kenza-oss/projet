@@ -61,7 +61,13 @@ export default function CategorySection() {
 
   // Image URL helper using centralized logic
   const getImageUrl = (category, index) => {
-    return getProductImage(category.image || category.image_url, index, category) || eliteFallbacks[index % eliteFallbacks.length];
+    if (category && (category.image_url || category.image)) {
+      const url = getProductImage(category.image_url || category.image, 0, category);
+      if (url && !url.includes('placeholder.png')) {
+        return url;
+      }
+    }
+    return eliteFallbacks[index % eliteFallbacks.length];
   };
 
   return (

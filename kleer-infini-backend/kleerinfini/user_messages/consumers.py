@@ -13,15 +13,20 @@ logger = logging.getLogger(__name__)
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         try:
+            logger.info(f"[WS] Connection attempt for user_id: {self.scope['url_route']['kwargs'].get('user_id')}")
+            
             query_params = parse_qs(self.scope['query_string'].decode())
             token = query_params.get('token', [None])[0]
             
             if not token:
+                logger.warning("[WS] Connection rejected: No token provided")
                 await self.close()
                 return
 
             self.user = await self.get_user(token)
             if not self.user or self.user.is_anonymous:
+                token_preview = token[:10] + "..." if token else "None"
+                logger.warning(f"[WS] Connection rejected: Invalid token or anonymous user. Token starts with: {token_preview}")
                 await self.close()
                 return
 
@@ -33,7 +38,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 self.channel_name
             )
             await self.accept()
-            logger.info(f"User {self.user_id} connected to WebSocket")
+            logger.info(f"[WS] User {self.user_id} connected successfully")
 
         except Exception as e:
             logger.error(f"Connection error: {str(e)}")

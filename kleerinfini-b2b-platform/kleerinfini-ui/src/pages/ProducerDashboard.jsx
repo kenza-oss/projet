@@ -43,6 +43,126 @@ import profileBg from '../assets/card_profile_bg.png';
 import productsBg from '../assets/card_products_bg.png';
 import companyProfileBg from '../assets/company_profile_bg.png';
 
+// --- SUB-COMPONENTS (Moved outside to prevent remounting) ---
+
+const HomeView = ({ documents, producerProfile, products, messages, demands, navigate, t, setEditingProduct, setIsProductFormOpen }) => (
+  <div className="space-y-10 animate-in fade-in duration-700">
+    <DashboardHeader
+      documents={documents}
+      producerProfile={producerProfile}
+      onAddProductClick={() => { setEditingProduct(null); setIsProductFormOpen(true); }}
+    />
+
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
+      {/* Row 1: Actionable Cards */}
+      <div className="lg:col-span-2 group relative bg-[#111827] rounded-[3rem] p-12 shadow-xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden min-h-[300px]"
+        onClick={() => navigate('/producer-dashboard/profile')}>
+        <img src={companyProfileBg} alt="Profile" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div className="relative z-20 h-full flex flex-col justify-end">
+          <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20">
+            <User size={28} />
+          </div>
+          <h3 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight truncate mb-4">
+            {producerProfile?.company_name || t('producer_dashboard.profile.companyName', 'Profil Entreprise')}
+          </h3>
+          <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4 w-fit">
+            <p className="text-white font-bold text-sm">{t('producer_dashboard.home.completeProfile', 'Compléter votre profil')}</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="lg:col-span-2 group relative bg-[#0B1221] rounded-[3rem] p-12 shadow-xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden min-h-[300px]"
+        onClick={() => navigate('/producer-dashboard/products')}>
+        <img src={productsBg} alt="Products" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+        <div className="relative z-20 h-full flex flex-col justify-end">
+          <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20">
+            <Package size={28} />
+          </div>
+          <h3 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight mb-4">
+            {t('producer_dashboard.sidebar.products', 'Gestion des Produits')}
+          </h3>
+          <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4 w-fit">
+            <p className="text-white font-bold text-sm">{t('producer_dashboard.home.manageCatalog', 'Gérez votre catalogue export')}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Pulse: Vital Stats (Integrated in grid) */}
+      <div className="lg:col-span-4 py-4">
+        <StatsBox
+          products={products}
+          messages={messages}
+          demands={demands}
+          producerProfile={producerProfile}
+          setActiveTab={() => { }}
+        />
+      </div>
+    </div>
+  </div>
+);
+
+const ProductsView = ({ products, producerProfile, t, handleEditProduct, handleDeleteProduct, setEditingProduct, setIsProductFormOpen }) => (
+  <div className="space-y-10 animate-in fade-in duration-500">
+    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+      <div>
+        <h1 className="text-4xl font-black text-[#1A1D23] tracking-tighter uppercase mb-2">
+          {t('producer_dashboard.products.title', 'Inventaire International')}
+        </h1>
+        <p className="text-gray-500 font-bold text-sm tracking-tight uppercase">
+          {t('producer_dashboard.products.subtitle', "Gérez votre catalogue d'exportation")}
+        </p>
+      </div>
+      <button
+        onClick={() => {
+          if (!producerProfile?.is_approved) {
+            return alert(t('producer_dashboard.products.approvalRequired', "Votre compte doit être validé par un administrateur avant de pouvoir ajouter des produits."));
+          }
+          setEditingProduct(null);
+          setIsProductFormOpen(true);
+        }}
+        className={`flex items-center gap-3 px-8 py-4 ${producerProfile?.is_approved ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-blue-600/20 transition-all active:scale-95`}
+      >
+        <PlusCircle size={18} /> {t('producer_dashboard.products.addProduct', 'Ajouter un produit')}
+      </button>
+    </div>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      {products.map(product => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          isOwner={true}
+          onEdit={() => handleEditProduct(product.id)}
+          onDelete={() => handleDeleteProduct(product.id)}
+        />
+      ))}
+      {products.length === 0 && (
+        <div className="col-span-full py-24 bg-slate-50 rounded-[3rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
+          <div className="w-20 h-20 bg-white rounded-3xl border border-slate-200 flex items-center justify-center text-blue-400 mb-6 shadow-sm">
+            <Plus size={40} />
+          </div>
+          <p className="text-xl font-extrabold text-[#050B18] tracking-tight">{t('producer_dashboard.home.noProducts', 'Aucun produit au catalogue')}</p>
+          <p className="text-base text-gray-600 font-medium mt-2 max-w-sm">{t('producer_dashboard.home.noProductsDesc', "Commencez par ajouter votre premier produit pour devenir visible à l'international.")}</p>
+          <button
+            onClick={() => {
+              if (!producerProfile?.is_approved) {
+                return alert(t('producer_dashboard.products.approvalRequired', "Votre compte doit être validé par un administrateur avant de pouvoir ajouter des produits."));
+              }
+              setEditingProduct(null);
+              setIsProductFormOpen(true);
+            }}
+            className={`mt-8 px-8 py-3.5 ${producerProfile?.is_approved ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all shadow-xl shadow-blue-500/20`}
+          >
+            {t('producer_dashboard.products.addProduct', 'Ajouter un produit')}
+          </button>
+        </div>
+      )}
+    </div>
+  </div>
+);
+
 const ProducerDashboard = () => {
   const { t } = useTranslation();
   const { user, isAuthenticated, loading: authLoading } = useAuth();
@@ -239,126 +359,6 @@ const ProducerDashboard = () => {
   };
 
 
-  // --- VIEWS ---
-
-  const HomeView = () => (
-    <div className="space-y-10 animate-in fade-in duration-700">
-      <DashboardHeader
-        documents={documents}
-        producerProfile={producerProfile}
-        onAddProductClick={() => { setEditingProduct(null); setIsProductFormOpen(true); }}
-      />
-
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-10">
-        {/* Row 1: Actionable Cards */}
-        <div className="lg:col-span-2 group relative bg-[#111827] rounded-[3rem] p-12 shadow-xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden min-h-[300px]"
-          onClick={() => navigate('/producer-dashboard/profile')}>
-          <img src={companyProfileBg} alt="Profile" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-          <div className="relative z-20 h-full flex flex-col justify-end">
-            <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20">
-              <User size={28} />
-            </div>
-            <h3 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight truncate mb-4">
-              {producerProfile?.company_name || t('producer_dashboard.profile.companyName', 'Profil Entreprise')}
-            </h3>
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4 w-fit">
-              <p className="text-white font-bold text-sm">{t('producer_dashboard.home.completeProfile', 'Compléter votre profil')}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="lg:col-span-2 group relative bg-[#0B1221] rounded-[3rem] p-12 shadow-xl hover:shadow-2xl transition-all cursor-pointer overflow-hidden min-h-[300px]"
-          onClick={() => navigate('/producer-dashboard/products')}>
-          <img src={productsBg} alt="Products" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-          <div className="relative z-20 h-full flex flex-col justify-end">
-            <div className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-white mb-6 border border-white/20">
-              <Package size={28} />
-            </div>
-            <h3 className="text-3xl lg:text-4xl font-black text-white uppercase tracking-tighter leading-tight mb-4">
-              {t('producer_dashboard.sidebar.products', 'Gestion des Produits')}
-            </h3>
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl p-4 w-fit">
-              <p className="text-white font-bold text-sm">{t('producer_dashboard.home.manageCatalog', 'Gérez votre catalogue export')}</p>
-            </div>
-          </div>
-        </div>
-
-        {/* Pulse: Vital Stats (Integrated in grid) */}
-        <div className="lg:col-span-4 py-4">
-          <StatsBox
-            products={products}
-            messages={messages}
-            demands={demands}
-            producerProfile={producerProfile}
-            setActiveTab={() => { }}
-          />
-        </div>
-      </div>
-    </div>
-  );
-
-  const ProductsView = () => (
-    <div className="space-y-10 animate-in fade-in duration-500">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-        <div>
-          <h1 className="text-4xl font-black text-[#1A1D23] tracking-tighter uppercase mb-2">
-            {t('producer_dashboard.products.title', 'Inventaire International')}
-          </h1>
-          <p className="text-gray-500 font-bold text-sm tracking-tight uppercase">
-            {t('producer_dashboard.products.subtitle', "Gérez votre catalogue d'exportation")}
-          </p>
-        </div>
-        <button
-          onClick={() => {
-            if (!producerProfile?.is_approved) {
-              return alert(t('producer_dashboard.products.approvalRequired', "Votre compte doit être validé par un administrateur avant de pouvoir ajouter des produits."));
-            }
-            setEditingProduct(null);
-            setIsProductFormOpen(true);
-          }}
-          className={`flex items-center gap-3 px-8 py-4 ${producerProfile?.is_approved ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-2xl font-black text-[10px] uppercase tracking-widest shadow-xl shadow-blue-600/20 transition-all active:scale-95`}
-        >
-          <PlusCircle size={18} /> {t('producer_dashboard.products.addProduct', 'Ajouter un produit')}
-        </button>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-        {products.map(product => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            isOwner={true}
-            onEdit={() => handleEditProduct(product.id)}
-            onDelete={() => handleDeleteProduct(product.id)}
-          />
-        ))}
-        {products.length === 0 && (
-          <div className="col-span-full py-24 bg-slate-50 rounded-[3rem] border-2 border-dashed border-slate-200 flex flex-col items-center justify-center text-center">
-            <div className="w-20 h-20 bg-white rounded-3xl border border-slate-200 flex items-center justify-center text-blue-400 mb-6 shadow-sm">
-              <Plus size={40} />
-            </div>
-            <p className="text-xl font-extrabold text-[#050B18] tracking-tight">{t('producer_dashboard.home.noProducts', 'Aucun produit au catalogue')}</p>
-            <p className="text-base text-gray-600 font-medium mt-2 max-w-sm">{t('producer_dashboard.home.noProductsDesc', "Commencez par ajouter votre premier produit pour devenir visible à l'international.")}</p>
-            <button
-              onClick={() => {
-                if (!producerProfile?.is_approved) {
-                  return alert(t('producer_dashboard.products.approvalRequired', "Votre compte doit être validé par un administrateur avant de pouvoir ajouter des produits."));
-                }
-                setEditingProduct(null);
-                setIsProductFormOpen(true);
-              }}
-              className={`mt-8 px-8 py-3.5 ${producerProfile?.is_approved ? 'bg-blue-600 hover:bg-blue-700' : 'bg-gray-400 cursor-not-allowed'} text-white rounded-xl font-bold text-sm uppercase tracking-widest transition-all shadow-xl shadow-blue-500/20`}
-            >
-              {t('producer_dashboard.products.addProduct', 'Ajouter un produit')}
-            </button>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-
   return (
     <div className="flex min-h-screen bg-white font-inter relative selection:bg-blue-100 selection:text-blue-900 overflow-x-hidden">
       {/* Mobile Sidebar Overlay */}
@@ -383,10 +383,48 @@ const ProducerDashboard = () => {
 
             <main className="flex-1 p-4 md:p-8 lg:p-10 w-full overflow-x-hidden">
               <Routes>
-                <Route index element={<HomeView />} />
-                <Route path="home" element={<HomeView />} />
-                <Route path="dashboard" element={<HomeView />} />
-                <Route path="products" element={<ProductsView />} />
+                <Route index element={<HomeView
+                  documents={documents}
+                  producerProfile={producerProfile}
+                  products={products}
+                  messages={messages}
+                  demands={demands}
+                  navigate={navigate}
+                  t={t}
+                  setEditingProduct={setEditingProduct}
+                  setIsProductFormOpen={setIsProductFormOpen}
+                />} />
+                <Route path="home" element={<HomeView
+                  documents={documents}
+                  producerProfile={producerProfile}
+                  products={products}
+                  messages={messages}
+                  demands={demands}
+                  navigate={navigate}
+                  t={t}
+                  setEditingProduct={setEditingProduct}
+                  setIsProductFormOpen={setIsProductFormOpen}
+                />} />
+                <Route path="dashboard" element={<HomeView
+                  documents={documents}
+                  producerProfile={producerProfile}
+                  products={products}
+                  messages={messages}
+                  demands={demands}
+                  navigate={navigate}
+                  t={t}
+                  setEditingProduct={setEditingProduct}
+                  setIsProductFormOpen={setIsProductFormOpen}
+                />} />
+                <Route path="products" element={<ProductsView
+                  products={products}
+                  producerProfile={producerProfile}
+                  t={t}
+                  handleEditProduct={handleEditProduct}
+                  handleDeleteProduct={handleDeleteProduct}
+                  setEditingProduct={setEditingProduct}
+                  setIsProductFormOpen={setIsProductFormOpen}
+                />} />
                 <Route path="profile" element={<ProducerProfile profileData={producerProfile} onSave={(data) => setProducerProfile(data)} />} />
                 <Route path="demands" element={<QuoteRequests demands={demands} setDemands={setDemands} />} />
                 <Route path="messages" element={<Messages messages={messages} setMessages={setMessages} />} />

@@ -3,8 +3,10 @@ import { MapContainer, TileLayer, Marker, Popup, Tooltip, useMap } from 'react-l
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import api from '../api/axios';
-import { Search, X, MapPin, Loader, Phone, Mail, Award, BarChart3, FileText, ArrowRight } from 'lucide-react';
+import { Search, X, MapPin, Loader, Phone, Mail, Award, BarChart3, FileText, ArrowRight, Lock, UserPlus, LogIn } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 // Fix default Leaflet marker icons with custom orange markers
 delete L.Icon.Default.prototype._getIconUrl;
@@ -53,6 +55,8 @@ const MapUpdater = ({ center }) => {
 
 export default function Carte({ onClose }) {
   const { t } = useTranslation();
+  const { user, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   const [allProducers, setAllProducers] = useState([]);
   const [producersWithCoords, setProducersWithCoords] = useState([]);
   const [filteredProducers, setFilteredProducers] = useState([]);
@@ -60,6 +64,8 @@ export default function Carte({ onClose }) {
   const [mapCenter, setMapCenter] = useState([36.7538, 3.0588]); // Algeria center
   const [loading, setLoading] = useState(true);
   const [debugInfo, setDebugInfo] = useState('');
+  const [showAuthModal, setShowAuthModal] = useState(false);
+  const [authTargetId, setAuthTargetId] = useState(null);
 
 
 
@@ -89,7 +95,7 @@ export default function Carte({ onClose }) {
 
         const response = await api.get('profiles/');
         const producersData = response.data.results || response.data || [];
-
+        console.log("[DEBUG] Map Producers from Backend:", producersData);
 
         setAllProducers(producersData);
         setDebugInfo(`Fetched ${producersData.length} producers from API`);
@@ -287,9 +293,14 @@ export default function Carte({ onClose }) {
                         )}
                       </div>
                       <button
-                        className="ml-2 p-1 hover:bg-white hover:bg-opacity-20 rounded-full transition-all duration-200 hover:scale-110 flex-shrink-0"
+                        className="ml-2 p-1.5 bg-orange-500 hover:bg-orange-600 rounded-full transition-all duration-300 hover:scale-110 flex-shrink-0 shadow-lg"
                         onClick={() => {
-                          console.log('Navigate to producer profile:', producer.id);
+                          if (isAuthenticated) {
+                            navigate(`/producer/${producer.id}`);
+                          } else {
+                            setAuthTargetId(producer.id);
+                            setShowAuthModal(true);
+                          }
                         }}
                         title={t("home.map.view_profile")}
                       >
@@ -298,40 +309,41 @@ export default function Carte({ onClose }) {
                     </div>
                   </div>
 
-                  {/* Coordinates Debug Info */}
-                  <div className="p-2 bg-gray-100 text-xs">
-                    <strong>Coordinates:</strong> {producer.latitude}, {producer.longitude}
-                  </div>
-
                   {/* Content */}
                   <div className="p-3 space-y-2 text-sm">
                     {(producer.email || producer.user_email) && (
-                      <div className="border-b border-gray-100 pb-2">
-                        <p className="text-gray-500 font-medium text-xs">{t("home.map.email")}</p>
-                        <p className="text-gray-800 break-all">{producer.email || producer.user_email}</p>
+                      <div className="border-b border-gray-100 pb-2 flex items-center gap-2">
+                        <Mail className="w-3 h-3 text-orange-500 shrink-0" />
+                        <div className="min-w-0">
+                          <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">{t("home.map.email")}</p>
+                          <p className="text-gray-800 break-all text-[11px] font-medium">{producer.email || producer.user_email}</p>
+                        </div>
                       </div>
                     )}
 
                     {producer.phone && producer.phone.trim() !== '' && (
-                      <div className="border-b border-gray-100 pb-2">
-                        <p className="text-gray-500 font-medium text-xs">{t("home.map.phone")}</p>
-                        <p className="text-gray-800">{producer.phone}</p>
+                      <div className="border-b border-gray-100 pb-2 flex items-center gap-2">
+                        <Phone className="w-3 h-3 text-orange-500 shrink-0" />
+                        <div>
+                          <p className="text-gray-400 text-[10px] font-bold uppercase tracking-wider">{t("home.map.phone")}</p>
+                          <p className="text-gray-800 text-[11px] font-medium">{producer.phone}</p>
+                        </div>
                       </div>
                     )}
 
-                    {producer.address && producer.address.trim() !== '' && (
-                      <div className="border-b border-gray-100 pb-2">
-                        <p className="text-gray-500 font-medium text-xs">{t("home.map.address")}</p>
-                        <p className="text-gray-800 break-words">{producer.address}</p>
-                      </div>
-                    )}
-
-                    {producer.city && producer.city.trim() !== '' && (
-                      <div className="border-b border-gray-100 pb-2">
-                        <p className="text-gray-500 font-medium text-xs">{t("home.map.ville")}</p>
-                        <p className="text-gray-800">{producer.city}</p>
-                      </div>
-                    )}
+                    <button
+                      onClick={() => {
+                        if (isAuthenticated) {
+                          navigate(`/producer/${producer.id}`);
+                        } else {
+                          setAuthTargetId(producer.id);
+                          setShowAuthModal(true);
+                        }
+                      }}
+                      className="w-full mt-3 py-2.5 bg-gray-900 hover:bg-black text-white rounded-xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg hover:shadow-gray-200"
+                    >
+                      {t("home.map.view_profile")}
+                    </button>
                   </div>
                 </div>
               </Popup>
@@ -339,6 +351,48 @@ export default function Carte({ onClose }) {
           ))}
         </MapContainer>
       </div>
+
+      {/* Auth Guard Modal */}
+      {showAuthModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-in fade-in duration-300">
+          <div className="bg-white rounded-[32px] p-8 md:p-12 max-w-lg w-full shadow-2xl relative overflow-hidden text-center">
+            <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-orange-500 to-rose-500"></div>
+
+            <button
+              onClick={() => setShowAuthModal(false)}
+              className="absolute top-6 right-6 p-2 hover:bg-gray-100 rounded-full transition-colors"
+            >
+              <X className="w-5 h-5 text-gray-400" />
+            </button>
+
+            <div className="w-20 h-20 bg-orange-50 rounded-full flex items-center justify-center mx-auto mb-8 animate-bounce whitespace-nowrap">
+              <Lock className="w-10 h-10 text-orange-500" />
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-4 tracking-tight">Accès Réservé</h3>
+            <p className="text-gray-500 mb-10 leading-relaxed font-medium">
+              Veuillez vous connecter en tant que client pour accéder à l'expérience complète et découvrir les profils détaillés de nos producteurs certifiés.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <button
+                onClick={() => navigate('/login')}
+                className="flex items-center justify-center gap-3 py-4 bg-gray-900 hover:bg-black text-white rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-xl hover:scale-[1.02]"
+              >
+                <LogIn className="w-4 h-4 text-orange-400" />
+                Connexion
+              </button>
+              <button
+                onClick={() => navigate('/register')}
+                className="flex items-center justify-center gap-3 py-4 bg-white border-2 border-gray-100 hover:border-orange-500 text-gray-900 rounded-2xl font-black text-xs uppercase tracking-widest transition-all shadow-sm hover:scale-[1.02]"
+              >
+                <UserPlus className="w-4 h-4 text-orange-500" />
+                Inscription
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

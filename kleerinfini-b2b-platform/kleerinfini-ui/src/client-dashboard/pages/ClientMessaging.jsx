@@ -224,7 +224,7 @@ const ClientMessaging = () => {
                             <div>
                                 <h3 className="font-black text-gray-900 uppercase tracking-tighter truncate max-w-[120px] md:max-w-none">{activeChat.name}</h3>
                                 <p className="text-[10px] text-green-500 font-black uppercase tracking-widest flex items-center gap-1.5">
-                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" />
+                                    <span className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></span>
                                     En ligne
                                 </p>
                             </div>

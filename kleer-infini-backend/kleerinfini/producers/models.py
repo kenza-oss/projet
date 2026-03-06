@@ -54,59 +54,48 @@ class ProducerProfile(models.Model):
     incoterms = models.JSONField(default=list, blank=True, verbose_name='Incoterms acceptés')
     logistics_details = models.JSONField(default=list, blank=True, verbose_name='Équipements & Hubs')
 
-    def get_views_with_bonus(self):
+    def _daily_bonus(self, base_bonus=37):
         """
-        Calculates total views including a trust-building bonus:
-        - +90 views after 24h of approval
-        - +209 views total after 48h of approval
+        Returns the cumulative bonus earned since approval:
+        +37 per completed 24h period (compounding daily).
+        Returns 0 if profile is not approved or approval_date is missing.
         """
         from django.utils import timezone
-        
-        stats = self.stats or {}
-        real_views = stats.get('views', 0)
-        try:
-            real_views = int(real_views)
-        except (ValueError, TypeError):
-            real_views = 0
-            
         if not self.is_approved or not self.approval_date:
-            return real_views
-            
+            return 0
         diff = timezone.now() - self.approval_date
-        bonus = 0
-        if diff.total_seconds() >= 48 * 3600:
-            bonus = 209
-        elif diff.total_seconds() >= 24 * 3600:
-            bonus = 90
-            
-        return real_views + bonus
+        completed_days = int(diff.total_seconds() // (24 * 3600))
+        return completed_days * base_bonus
+
+    def get_views_with_bonus(self):
+        """Total profile views including +37/day trust-building bonus."""
+        stats = self.stats or {}
+        real = stats.get('views', 0)
+        try:
+            real = int(real)
+        except (ValueError, TypeError):
+            real = 0
+        return real + self._daily_bonus()
 
     def get_likes_with_bonus(self):
-        """
-        Calculates total likes (appreciations) including a trust-building bonus:
-        - +7 likes after 24h of approval
-        - +9 likes total after 48h of approval
-        """
-        from django.utils import timezone
-        
+        """Total likes (appréciations) including +37/day trust-building bonus."""
         stats = self.stats or {}
-        real_likes = stats.get('likes', 0)
+        real = stats.get('likes', 0)
         try:
-            real_likes = int(real_likes)
+            real = int(real)
         except (ValueError, TypeError):
-            real_likes = 0
-            
-        if not self.is_approved or not self.approval_date:
-            return real_likes
-            
-        diff = timezone.now() - self.approval_date
-        bonus = 0
-        if diff.total_seconds() >= 48 * 3600:
-            bonus = 9
-        elif diff.total_seconds() >= 24 * 3600:
-            bonus = 7
-            
-        return real_likes + bonus
+            real = 0
+        return real + self._daily_bonus()
+
+    def get_quotes_with_bonus(self):
+        """Total quote requests (demandes de devis) including +37/day trust-building bonus."""
+        stats = self.stats or {}
+        real = stats.get('quotes', 0)
+        try:
+            real = int(real)
+        except (ValueError, TypeError):
+            real = 0
+        return real + self._daily_bonus()
 
     def __str__(self):
         return f"Profil de {self.user.email}"

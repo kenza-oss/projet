@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useParams, useNavigate } from "react-router-dom";
 import api from '../api/axios';
+import { getProductImage } from '../utils/utils';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import QuoteRequestModal from "../components/QuoteRequestModal";
@@ -55,14 +56,14 @@ const Categories = () => {
         fetchCategories();
     }, [id]);
 
-    // Helper for images - Use Backend Images First
+    // Helper for images - Use Backend Images First via Utils
     const getCategoryImage = (cat) => {
-        // Priority 1: Backend image_url (absolute URL from Django)
-        if (cat.image_url) {
-            return cat.image_url;
+        // Priority 1: Use the robust helper from utils.js to process Cloudinary URLs
+        if (cat.image_url || cat.image) {
+            return getProductImage(cat.image_url || cat.image);
         }
 
-        // Priority 2: Elegant architectural placeholder for missing images (Full HD resolution)
+        // Priority 2: Elegant architectural placeholder for missing images
         return 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=90';
     };
 
@@ -99,8 +100,10 @@ const Categories = () => {
         else if (cat.name.includes("Électroménager")) i18nKey = "appliances";
         else i18nKey = baseKey;
 
-        const translatedName = t(`categories.sectors_dynamic.${i18nKey}.name`, { defaultValue: cat.name });
-        const translatedDesc = t(`categories.sectors_dynamic.${i18nKey}.desc`, { defaultValue: cat.description || t("categories.card.description_default") });
+        // Priority 1: ALWAYS use the real database name from Admin. 
+        // Only fallback to i18n for the description if none is provided.
+        const translatedName = cat.name;
+        const translatedDesc = cat.description || t(`categories.sectors_dynamic.${i18nKey}.desc`, { defaultValue: t("categories.card.description_default") });
 
         return { name: translatedName, description: translatedDesc };
     };
@@ -112,9 +115,9 @@ const Categories = () => {
             <Header theme="light" />
 
             {/* B2B Action Bar (Premium Refinement) - Midnight Blue */}
-            <div className="bg-[#001529] text-white py-2.5 shadow-md border-b border-white/10">
-                <div className="max-w-[1400px] mx-auto px-6 flex items-center justify-between text-[11px] font-black tracking-widest uppercase">
-                    <div className="flex items-center gap-8">
+            <div className="bg-[#001529] text-white py-2.5 shadow-md border-b border-white/10 overflow-x-auto whitespace-nowrap scrollbar-hide">
+                <div className="max-w-[1400px] mx-auto px-4 md:px-6 flex items-center justify-between text-[10px] md:text-[11px] font-black tracking-widest uppercase gap-6 min-w-max md:min-w-0">
+                    <div className="flex items-center gap-4 md:gap-8">
                         <span className="flex items-center gap-2.5 cursor-pointer hover:text-amber-400 transition-colors">
                             <Menu size={16} />
                             {t("categories.action_bar.nos_produits", "NOS PRODUITS D'EXPORTATION")}
@@ -124,7 +127,7 @@ const Categories = () => {
                             {t("categories.action_bar.standard_excellence", "Standard d'Excellence pour les Marchés Internationaux")}
                         </span>
                     </div>
-                    <div className="flex items-center gap-8">
+                    <div className="flex items-center gap-4 md:gap-8">
                         <span className="flex items-center gap-2.5 cursor-pointer hover:text-amber-400 transition-colors">
                             <Phone size={16} />
                             {t("home.footer.contact")}
@@ -137,7 +140,7 @@ const Categories = () => {
                 </div>
             </div>
 
-            <div className="max-w-[1400px] mx-auto px-6 py-10 flex gap-10">
+            <div className="max-w-[1400px] mx-auto px-4 md:px-6 py-6 md:py-10 flex flex-col xl:flex-row gap-6 md:gap-10">
                 {/* 1. LEFT SIDEBAR NAVIGATION - Premium Polish */}
                 <aside className="w-72 flex-shrink-0 hidden xl:block bg-gray-50/50 border border-gray-100 rounded-2xl self-start sticky top-32 p-1 shadow-sm">
                     <div className="p-5 font-black text-[12px] text-black uppercase tracking-[0.2em] border-b border-gray-200/50 flex items-center gap-3">
@@ -168,7 +171,7 @@ const Categories = () => {
 
                     {/* A. Search / Finder Tool - LUXURY GLASS REDESIGN */}
                     <div
-                        className="p-10 border border-white/20 rounded-3xl shadow-2xl mb-12 relative overflow-hidden group bg-cover bg-center bg-slate-900"
+                        className="p-6 md:p-10 border border-white/20 rounded-3xl shadow-2xl mb-8 md:mb-12 relative overflow-hidden group bg-cover bg-center bg-slate-900"
                         style={{ backgroundImage: luxurySearchBg ? `url(${luxurySearchBg})` : 'none' }}
                     >
                         {/* Overlay for Contrast - Darker for visibility on dark image */}
@@ -251,7 +254,7 @@ const Categories = () => {
                         <span className={`text-xs font-bold text-[${RAJA_BLUE}] cursor-pointer hover:underline uppercase`}>{t("categories.voir_tout")}</span>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
                         {categories.map((cat, idx) => {
                             const translatedCat = getTranslatedCategory(cat);
                             return (
@@ -337,7 +340,7 @@ const Categories = () => {
                             animate={{ x: 0 }}
                             exit={{ x: "100%" }}
                             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                            className="fixed top-0 right-0 h-full w-full md:w-[600px] lg:w-[700px] bg-white z-[101] shadow-2xl flex flex-col overflow-hidden"
+                            className="fixed top-0 right-0 h-full w-full sm:w-[500px] md:w-[600px] lg:w-[700px] bg-white z-[101] shadow-2xl flex flex-col overflow-hidden"
                         >
                             {/* Close Button UI - NO BLUR */}
                             <button
@@ -348,7 +351,7 @@ const Categories = () => {
                             </button>
 
                             {/* Hero Image Section - Optimized for HD Clarity and "Complete" view */}
-                            <div className="h-[400px] flex-shrink-0 relative overflow-hidden group transition-all duration-700 ease-in-out">
+                            <div className="h-[250px] md:h-[400px] flex-shrink-0 relative overflow-hidden group transition-all duration-700 ease-in-out">
                                 <img
                                     src={getCategoryImage(detailCategory)}
                                     className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110"
@@ -356,11 +359,11 @@ const Categories = () => {
                                     alt={detailCategory.name}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent group-hover:opacity-0 transition-opacity"></div>
-                                <div className="absolute bottom-10 left-10 right-10">
-                                    <div className="bg-amber-500 text-white text-[10px] font-black px-4 py-1 rounded-full w-fit mb-4 tracking-widest uppercase shadow-lg">
+                                <div className="absolute bottom-6 md:bottom-10 left-6 md:left-10 right-6 md:right-10">
+                                    <div className="bg-amber-500 text-white text-[9px] md:text-[10px] font-black px-4 py-1 rounded-full w-fit mb-4 tracking-widest uppercase shadow-lg">
                                         {t("categories.drawer.secteur")} : {detailCategory.type || t("categories.drawer.export_platinum")}
                                     </div>
-                                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tighter">
+                                    <h2 className="text-xl md:text-3xl lg:text-4xl font-black text-white leading-tight uppercase tracking-tighter">
                                         {getTranslatedCategory(detailCategory).name}
                                     </h2>
                                 </div>

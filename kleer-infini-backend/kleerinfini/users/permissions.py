@@ -24,7 +24,7 @@ class HasActiveSubscription(BasePermission):
         sub = Subscription.objects.filter(user=request.user).order_by('-end_date').first()
         if not sub:
             return False
-        if sub.status != 'actif':
+        if sub.status != 'active':
             return False
         if sub.end_date < timezone.now():
             return False

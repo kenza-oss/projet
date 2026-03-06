@@ -3,7 +3,8 @@ import { Facebook, Twitter, Linkedin, Instagram, Globe, ChevronDown, ShieldCheck
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 import wiseLogo from "../assets/images/wise-logo.svg";
-import visaLogo from "../assets/images/visa-logo.svg";
+import visaBrand from "../assets/images/visa_brand.png";
+import paymentExtra from "../assets/images/payment_extra.png";
 import mastercardLogo from "../assets/images/mastercard-logo.svg";
 import brandLogo from "../assets/logo.png";
 
@@ -198,16 +199,10 @@ export default function Footer() {
                   </div>
                 </div>
                 {/* Visa & Mastercard - Official Standard */}
-                <div className="flex items-center gap-4 px-4 py-3 bg-white/5 rounded-2xl border border-white/10 group cursor-default hover:border-[#1A1F71]/30 transition-all duration-300 backdrop-blur-sm">
-                  <div className="flex items-center gap-2">
-                    {/* Visa Official */}
-                    <div className="w-12 h-8 rounded bg-white flex items-center justify-center border border-white/10 shadow-sm p-1">
-                      <img src={visaLogo} alt="Visa" className="w-full h-full object-contain" />
-                    </div>
-                    {/* Mastercard Official */}
-                    <div className="w-12 h-8 rounded bg-white flex items-center justify-center border border-white/10 shadow-sm p-1">
-                      <img src={mastercardLogo} alt="Mastercard" className="w-full h-full object-contain" />
-                    </div>
+                <div className="flex items-center gap-4 px-4 py-3 bg-white/5 rounded-2xl border border-white/10 group cursor-default hover:border-orange-500/30 transition-all duration-300 backdrop-blur-sm">
+                  <div className="flex items-center gap-2 h-8">
+                    <img src={visaBrand} alt="Visa & Mastercard" className="h-8 w-auto object-contain rounded-lg" />
+                    <img src={paymentExtra} alt="Payment Method" className="h-8 w-auto object-contain rounded-lg border border-white/10" />
                   </div>
                   <div className="space-y-0.5">
                     <p className="text-sm font-bold text-white uppercase tracking-wider leading-none">{t("home.footer.payments.cards")}</p>
@@ -246,7 +241,7 @@ export default function Footer() {
                 { key: "univers", link: "#" },
                 { key: "showroom", link: "/products" },
                 { key: "carte", link: "/producers" },
-                { key: "partenaire", link: "/signup" },
+                { key: "partenaire", link: "/producer-inscription" },
                 { key: "producerLogin", link: "/producer-login", isSpecial: true },
                 { key: "sitemap", link: "#" },
                 { key: "faq", link: "#" }
@@ -419,7 +414,7 @@ export default function Footer() {
               </p>
             </div>
             <p className="text-white text-[11px] tracking-[0.2em] uppercase font-medium">
-              © {currentYear} <a href="#" className="text-white hover:text-[#FF6600] transition-colors">KLEER INFINI EXPORT</a>. {t("home.footer.rights")}
+              © {currentYear} <a href="/privacy" className="text-white hover:text-[#FF6600] transition-colors">KLEER INFINI EXPORT</a>. {t("home.footer.rights")}
             </p>
           </div>
           <div className="flex flex-wrap justify-center gap-4 md:gap-8 lg:gap-12 w-full lg:w-auto">

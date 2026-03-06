@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { Eye, EyeOff, Building2, Lock, Mail, ChevronRight, Rocket, PlusIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import LanguageSelector from '../components/LanguageSelector';
-import registrationBg from '../assets/register_bg_1.png';
+import registrationBg from '../assets/registration_banner_new.jpg';
 import algeriaFlag from '../assets/algeria_flag_sphere.png';
 
 const ProducerLogin = () => {
@@ -47,40 +47,40 @@ const ProducerLogin = () => {
     };
 
     return (
-        <div className="min-h-screen bg-white font-inter relative selection:bg-[#FF6600] selection:text-white flex overflow-hidden">
-            {/* Left Panel - Video with Overlay */}
-            <div className="hidden lg:flex lg:w-1/2 relative bg-[#1a1410] overflow-hidden">
+        <div className="min-h-screen bg-white font-inter relative selection:bg-[#FF6600] selection:text-white flex flex-col lg:flex-row overflow-y-auto lg:overflow-hidden">
+            {/* Left Panel - Image with Overlay */}
+            <div className="w-full h-64 md:h-[40vh] lg:h-auto lg:w-1/2 relative bg-[#1a1410] overflow-hidden shrink-0">
                 <img
                     src={registrationBg}
                     alt="Producer Login Background"
-                    className="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none"
+                    className="absolute inset-0 w-full h-full object-cover pointer-events-none"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#FF6600]/90 via-[#2d1f17]/80 to-transparent"></div>
 
-                <div className="relative z-10 flex flex-col justify-end p-20 w-full">
-                    <div className="mb-8">
-                        <div className="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-6">
-                            <Rocket className="text-white" size={32} />
+                <div className="relative z-10 flex flex-col justify-end p-8 md:p-16 lg:p-20 w-full h-full">
+                    <div className="mb-4 md:mb-8">
+                        <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 md:mb-6">
+                            <Rocket className="text-white" size={24} />
                         </div>
-                        <h1 className="text-5xl font-black text-white leading-none mb-4 uppercase tracking-tighter">
+                        <h1 className="text-3xl md:text-5xl font-black text-white leading-none mb-2 md:mb-4 uppercase tracking-tighter">
                             KLEER <br /><span className="text-amber-400">INFINI</span>
                         </h1>
-                        <p className="text-xl text-amber-50 font-medium max-w-md leading-relaxed opacity-90">
+                        <p className="text-sm md:text-xl text-amber-50 font-medium max-w-md leading-relaxed opacity-90 hidden sm:block">
                             {t('producerLogin.leftSubtitle')}
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-6 pt-10 border-t border-white/20">
-                        <div className="flex -space-x-3">
+                    <div className="flex items-center gap-4 md:gap-6 pt-4 md:pt-10 border-t border-white/20">
+                        <div className="flex -space-x-2 md:-space-x-3">
                             {[1, 2, 3, 4].map((i) => (
-                                <div key={i} className="w-10 h-10 rounded-full border-2 border-[#1a1410] bg-slate-200 overflow-hidden">
+                                <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-[#1a1410] bg-slate-200 overflow-hidden">
                                     <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" />
                                 </div>
                             ))}
                         </div>
                         <div className="flex items-center gap-2">
-                            <img src={algeriaFlag} alt="Algerie" className="w-6 h-6 object-contain shadow-sm rounded-full" />
-                            <p className="text-sm font-bold text-white tracking-wide uppercase">
+                            <img src={algeriaFlag} alt="Algerie" className="w-5 h-5 md:w-6 md:h-6 object-contain shadow-sm rounded-full" />
+                            <p className="text-[10px] md:text-sm font-bold text-white tracking-wide uppercase">
                                 {t('producerLogin.activeProducers')}
                             </p>
                         </div>
@@ -89,7 +89,7 @@ const ProducerLogin = () => {
             </div>
 
             {/* Right Panel - Form */}
-            <div className="w-full lg:w-1/2 overflow-y-auto bg-slate-50 flex items-center justify-center p-8 pt-24 md:p-20 relative">
+            <div className="w-full lg:w-1/2 overflow-y-auto bg-slate-50 flex items-center justify-center p-6 md:p-12 lg:p-20 relative">
                 {/* Language Selector placed at absolute top right */}
                 <div className="absolute top-6 right-6 md:top-10 md:right-10 z-20">
                     <LanguageSelector />

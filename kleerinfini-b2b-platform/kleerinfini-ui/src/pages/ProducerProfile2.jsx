@@ -147,18 +147,43 @@ const ProducerProfile2 = () => {
         </div>
     );
 
-    if (!producer) return (
-        <div className="min-h-screen bg-white flex items-center justify-center text-[#111] p-6 text-center">
-            <div className="max-w-md">
-                <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-300">
-                    <User size={40} />
+    if (!producer) {
+        // Fallback pour le producteur lui-même si son profil n'est pas encore créé
+        if (id === 'me' || String(id) === String(user?.id) || String(id) === String(user?.user_id)) {
+            return (
+                <div className="min-h-screen bg-[#FAFAFA] flex items-center justify-center text-[#111] p-6 text-center font-inter mt-10">
+                    <div className="max-w-md bg-white p-10 rounded-[2.5rem] shadow-xl border border-gray-100">
+                        <div className="w-20 h-20 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6 text-blue-600 shadow-inner">
+                            <Settings size={40} />
+                        </div>
+                        <h2 className="text-3xl font-black mb-4 tracking-tight">Profil Incomplet</h2>
+                        <p className="text-gray-500 mb-8 font-medium leading-relaxed">
+                            Votre vitrine internationale n'est pas encore configurée. Veuillez remplir les informations de votre entreprise dans votre tableau de bord.
+                        </p>
+                        <button
+                            onClick={() => navigate('/producer-dashboard/profile')}
+                            className="px-10 py-4 w-full bg-blue-600 text-white font-black text-xs uppercase tracking-widest rounded-xl shadow-xl shadow-blue-600/30 hover:bg-blue-700 hover:-translate-y-1 transition-all"
+                        >
+                            Configurer Mon Profil
+                        </button>
+                    </div>
                 </div>
-                <h2 className="text-3xl font-black mb-4">{t("producer_profile.not_found.title")}</h2>
-                <p className="text-gray-500 mb-8 font-medium">{t("producer_profile.not_found.desc")}</p>
-                <button onClick={() => navigate('/')} className="px-10 py-4 bg-[#E31E24] text-white font-black text-xs uppercase tracking-widest rounded-xl shadow-xl shadow-red-500/20">{t("producer_profile.not_found.back_home")}</button>
+            );
+        }
+
+        return (
+            <div className="min-h-screen bg-white flex items-center justify-center text-[#111] p-6 text-center">
+                <div className="max-w-md">
+                    <div className="w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center mx-auto mb-6 text-gray-300">
+                        <User size={40} />
+                    </div>
+                    <h2 className="text-3xl font-black mb-4">{t("producer_profile.not_found.title")}</h2>
+                    <p className="text-gray-500 mb-8 font-medium">{t("producer_profile.not_found.desc")}</p>
+                    <button onClick={() => navigate('/')} className="px-10 py-4 bg-[#E31E24] text-white font-black text-xs uppercase tracking-widest rounded-xl shadow-xl shadow-red-500/20">{t("producer_profile.not_found.back_home")}</button>
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 
     // Derived Data
     const displayCover = producer.cover_image_url || producer.cover_image || executiveCover;

@@ -9,6 +9,9 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
+import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+import { Lock, LogIn, UserPlus } from 'lucide-react';
 
 // Fix for default marker icon in React Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -53,6 +56,8 @@ const MapController = ({ center, zoom }) => {
 
 const Producers = () => {
     const { t } = useTranslation();
+    const navigate = useNavigate();
+    const { isAuthenticated } = useAuth();
     const [producers, setProducers] = useState([]);
     const [filteredProducers, setFilteredProducers] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -63,90 +68,61 @@ const Producers = () => {
     const [zoomLevel, setZoomLevel] = useState(6);
     const [selectedProducerId, setSelectedProducerId] = useState(null);
     const [sidebarOpen, setSidebarOpen] = useState(true);
+    const [showAuthModal, setShowAuthModal] = useState(false);
 
     useEffect(() => {
         const fetchProducers = async () => {
             try {
                 const data = await getProfiles();
-                let producersData = (data && data.length > 0) ? data : [
-                    {
-                        id: 'mock-1',
-                        name: "Sphinx International",
-                        city: "Alger",
-                        verified: true,
-                        cover_image: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=200&h=200&fit=crop",
-                        address: "Cité Alioua Fodil, N°26 Lamara, Ilot De Propriété 1771, Cheraga",
-                        phone: "+213 770 303 567",
-                        website: "www.sphinx-international.net"
-                    },
-                    {
-                        id: 'mock-2',
-                        name: "Boulangerie Traditionnelle Oran",
-                        city: "Oran",
-                        verified: true,
-                        cover_image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=200&fit=crop",
-                        address: "Boulevard de l'ALN, Oran",
-                        phone: "+213 41 23 45 67",
-                        website: "www.artisans-oran.dz"
-                    },
-                    {
-                        id: 'mock-3',
-                        name: "Sourcing Constantine",
-                        city: "Constantine",
-                        verified: false,
-                        cover_image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=200&h=200&fit=crop",
-                        address: "Place des Martyrs, Constantine",
-                        phone: "+213 31 99 88 77",
-                        website: "www.trade-constantine.dz"
-                    }
-                ];
+                console.log("[DEBUG] Producers from Backend:", data);
 
-                const augmentedData = producersData.map(p => {
+                if (!data || data.length === 0) {
+                    setProducers([]);
+                    setFilteredProducers([]);
+                    setLoading(false);
+                    return;
+                }
+
+                const augmentedData = data.map(p => {
                     const region = p.city || p.location || 'Alger';
                     const baseCoords = REGION_COORDINATES[region] || REGION_COORDINATES['default'];
 
-                    // Standardize coordinate fields from backend (latitude/longitude) or mock (lat/lng)
-                    let lat = parseFloat(p.latitude || p.lat);
-                    let lng = parseFloat(p.longitude || p.lng);
+                    // Standardize coordinate fields from backend (latitude/longitude)
+                    let lat = parseFloat(p.latitude);
+                    let lng = parseFloat(p.longitude);
 
                     // If coordinates are missing or invalid (0,0), use base coords + jitter
-                    if (!lat || !lng || (lat === 0 && lng === 0)) {
+                    if (isNaN(lat) || isNaN(lng) || (lat === 0 && lng === 0)) {
                         lat = baseCoords[0];
                         lng = baseCoords[1];
-                        const jitter = 0.02; // Reduced from 0.1 to stay close to city center
+                        const jitter = 0.02;
                         lat += (Math.random() - 0.5) * jitter;
                         lng += (Math.random() - 0.5) * jitter;
-
-                        // Coastal fix: if the jitter pushes markers into the water (north of city centers on the coast)
-                        // For Algiers, Annaba, Oran, etc., Mediterranea is to the North.
-                        const coastalCities = ['Alger', 'Oran', 'Annaba', 'Béjaïa', 'Mostaganem', 'Skikda', 'Jijel'];
-                        if (coastalCities.includes(region) && lat > baseCoords[0] + 0.005) {
-                            lat -= Math.random() * jitter; // Push south
-                        }
                     }
 
                     return {
                         ...p,
                         lat,
                         lng,
-                        // Engagement metrics
-                        likes: Math.floor(Math.random() * 500) + 100,
-                        rating: (Math.random() * 1.5 + 3.5).toFixed(1),
-                        views: Math.floor(Math.random() * 5000) + 1000,
+                        // Engagement metrics (Random for UI feel if not in DB)
+                        likes: p.likes || Math.floor(Math.random() * 500) + 100,
+                        rating: p.rating || (Math.random() * 1.5 + 3.5).toFixed(1),
+                        views: p.views || Math.floor(Math.random() * 5000) + 1000,
                         // Ensure all items have details
                         address: p.address || t("home.map.no_address", "Adresse non spécifiée"),
                         phone: p.phone || "+213 000 000 000",
                         website: p.website || "www.kleer-infini.com",
                         name: p.company_name || p.name || t("home.map.fallback_name", "Entreprise"),
+                        cover_image: p.cover_image || p.image || null
                     };
                 });
 
                 setProducers(augmentedData);
                 setFilteredProducers(augmentedData);
-                const uniqueRegions = [...new Set(producersData.map(p => p.city || p.location).filter(Boolean))];
+                const uniqueRegions = [...new Set(data.map(p => p.city || p.location).filter(Boolean))];
                 setRegions(uniqueRegions);
             } catch (err) {
-                console.error("Failed to load producers", err);
+                console.error("❌ Failed to load producers", err);
             } finally {
                 setLoading(false);
             }
@@ -194,7 +170,7 @@ const Producers = () => {
         <div className="relative min-h-screen bg-black flex flex-col overflow-x-hidden pt-14">
             <Header theme="dark" />
 
-            <div className="flex-1 relative min-h-[700px] h-[85vh] w-full overflow-hidden">
+            <div className="flex-1 relative min-h-[600px] h-[80vh] w-full overflow-hidden">
                 {/* Full Screen Map */}
                 <div className="absolute inset-0 z-0">
                     <MapContainer
@@ -248,12 +224,18 @@ const Producers = () => {
                                                 </div>
                                             </div>
                                         </div>
-                                        <Link
-                                            to={`/producer/${producer.id}`}
-                                            className="block w-full py-2.5 bg-[#e11d48] !text-white text-[11px] font-black rounded-xl hover:bg-[#be123c] transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest shadow-lg shadow-rose-500/20 text-center"
+                                        <button
+                                            onClick={() => {
+                                                if (isAuthenticated) {
+                                                    navigate(`/producer/${producer.id}`);
+                                                } else {
+                                                    setShowAuthModal(true);
+                                                }
+                                            }}
+                                            className="block w-full py-2.5 bg-[#e11d48] text-white text-[11px] font-black rounded-xl hover:bg-[#be123c] transition-all transform hover:scale-[1.02] active:scale-[0.98] uppercase tracking-widest shadow-lg shadow-rose-500/20 text-center"
                                         >
                                             {t("home.map.view_profile", "Voir le profil")}
-                                        </Link>
+                                        </button>
                                     </div>
                                 </Popup>
                             </Marker>
@@ -334,11 +316,21 @@ const Producers = () => {
                                                 </div>
                                                 <div className="flex-1 min-w-0 flex flex-col justify-start pt-1">
                                                     <div className="flex items-center justify-between mb-2">
-                                                        <Link to={`/producer/${p.id}`} className="hover:underline">
+                                                        <button
+                                                            onClick={(e) => {
+                                                                e.stopPropagation();
+                                                                if (isAuthenticated) {
+                                                                    navigate(`/producer/${p.id}`);
+                                                                } else {
+                                                                    setShowAuthModal(true);
+                                                                }
+                                                            }}
+                                                            className="hover:underline text-left"
+                                                        >
                                                             <h3 className="text-white font-bold text-lg tracking-tight leading-tight uppercase">
                                                                 {p.name}
                                                             </h3>
-                                                        </Link>
+                                                        </button>
                                                         {p.verified && <CheckCircle className="text-[#e11d48] w-4 h-4 flex-shrink-0 ml-2" />}
                                                     </div>
 

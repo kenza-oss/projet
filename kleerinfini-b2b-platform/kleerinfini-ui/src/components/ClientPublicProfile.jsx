@@ -98,7 +98,7 @@ const ClientPublicProfile = ({ profile, isOpen, onClose }) => {
                                     )}
                                 </div>
                                 <p className="text-sm font-medium text-gray-400 flex items-center gap-2">
-                                    <span className="w-6 h-px bg-gray-200" />
+                                    <span className="w-6 h-px bg-gray-200"></span>
                                     Identité Business Vérifiée
                                 </p>
                             </div>

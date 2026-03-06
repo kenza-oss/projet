@@ -57,6 +57,14 @@ const ProducerProfile = ({ profileData, onSave }) => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
+  // --- SIMPLE LOCAL STATE FOR IMAGES (As requested to block backend refreshes) ---
+  const [logoFile, setLogoFile] = useState(null);
+  const [logoPreview, setLogoPreview] = useState(null);
+  const [profilePhotoFile, setProfilePhotoFile] = useState(null);
+  const [profilePhotoPreview, setProfilePhotoPreview] = useState(null);
+  const [coverImageFile, setCoverImageFile] = useState(null);
+  const [coverImagePreview, setCoverImagePreview] = useState(null);
+
   // Local state for lists
   const [newMarket, setNewMarket] = useState("");
   const [newIncoterm, setNewIncoterm] = useState("");
@@ -96,17 +104,16 @@ const ProducerProfile = ({ profileData, onSave }) => {
   const activities = ["Producteur", "Exportateur", "Producteur & Exportateur", "Service"];
 
   const setProfileFromData = (data) => {
-    setProfile({
+    // We only update the text fields from backend data
+    setProfile(prev => ({
+      ...prev,
       id: data.id,
       activity: data.activity || "",
       whatsapp: data.whatsapp || "",
       website: data.website || "",
       profilePhoto: data.profile_photo || null,
-      profilePhotoPreview: null,
       logo: data.logo || null,
-      logoPreview: null,
       coverImage: data.cover_image || null,
-      coverImagePreview: null,
       country: data.country || "Algérie",
       city: data.city || "",
       address: data.address || "",
@@ -129,41 +136,64 @@ const ProducerProfile = ({ profileData, onSave }) => {
       leadTime: data.lead_time || "",
       incoterms: Array.isArray(data.incoterms) ? data.incoterms : [],
       logisticsDetails: Array.isArray(data.logistics_details) ? data.logistics_details : [],
-    });
+    }));
+
+    // For images, we only set them if we DON'T have a local preview/file already
+    // This blocks updates from backend once user has selected a file
+    setLogoPreview(prev => prev || null); // Preserve local preview if it exists
+    setProfilePhotoPreview(prev => prev || null);
+    setCoverImagePreview(prev => prev || null);
   };
 
+
+  // Track if we've initialized the state to avoid overwriting local changes
+  const isInitialized = React.useRef(false);
+
   useEffect(() => {
-    const fetchProfile = async () => {
-      if (profileData) {
+    // This strictly runs once on mount to setup the initialization logic
+    const attemptInit = async () => {
+      // If we already have data in props, use it
+      if (profileData && !isInitialized.current) {
         setProfileFromData(profileData);
         setLoading(false);
+        isInitialized.current = true;
         return;
       }
 
-      if (!user) {
-        setLoading(false);
-        return;
-      }
-      try {
-        const data = await getProducerProfile('me');
-        if (data) {
-          setProfileFromData(data);
-        } else {
-          setProfile(prev => ({
-            ...prev,
-            email: user.email || "",
-            companyName: user.company_name || user.name || "",
-          }));
+      // Fallback: wait a bit or fetch if user is ready
+      if (!isInitialized.current && user) {
+        try {
+          const data = await getProducerProfile('me');
+          if (data) {
+            setProfileFromData(data);
+            isInitialized.current = true;
+          } else {
+            setProfile(prev => ({
+              ...prev,
+              email: user.email || "",
+              companyName: user.company_name || user.name || "",
+            }));
+          }
+        } catch (err) {
+          console.error("❌ Erreur chargement profil:", err);
+        } finally {
+          setLoading(false);
         }
-      } catch (err) {
-        console.error("❌ Erreur chargement profil:", err);
-      } finally {
-        setLoading(false);
       }
     };
 
-    fetchProfile();
-  }, [user, profileData]);
+    attemptInit();
+    // We poll briefly if props weren't ready immediately, but ONLY until initialized
+    const timer = setInterval(() => {
+      if (!isInitialized.current) {
+        attemptInit();
+      } else {
+        clearInterval(timer);
+      }
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []); // STRICTLY EMPTY as requested to block all refreshes
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -174,16 +204,29 @@ const ProducerProfile = ({ profileData, onSave }) => {
     const file = e.target.files[0];
     if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      setProfile((prev) => ({
-        ...prev,
-        [`${type}File`]: file,
-        [`${type}Preview`]: reader.result
-      }));
+    // Create a local URL for immediate synchronous preview
+    const previewUrl = URL.createObjectURL(file);
+
+    if (type === 'logo') {
+      setLogoFile(file);
+      setLogoPreview(previewUrl);
+    } else if (type === 'profilePhoto') {
+      setProfilePhotoFile(file);
+      setProfilePhotoPreview(previewUrl);
+    } else if (type === 'coverImage') {
+      setCoverImageFile(file);
+      setCoverImagePreview(previewUrl);
     }
-    reader.readAsDataURL(file);
   };
+
+  // Cleanup Object URLs to avoid memory leaks
+  useEffect(() => {
+    return () => {
+      if (logoPreview?.startsWith('blob:')) URL.revokeObjectURL(logoPreview);
+      if (profilePhotoPreview?.startsWith('blob:')) URL.revokeObjectURL(profilePhotoPreview);
+      if (coverImagePreview?.startsWith('blob:')) URL.revokeObjectURL(coverImagePreview);
+    };
+  }, [logoPreview, profilePhotoPreview, coverImagePreview]);
 
   const handleAddMarket = () => {
     if (newMarket && !profile.targetMarkets.includes(newMarket)) {
@@ -290,14 +333,18 @@ const ProducerProfile = ({ profileData, onSave }) => {
       formData.append("logistics_details", JSON.stringify(profile.logisticsDetails || []));
       formData.append("lead_time", profile.leadTime || "");
 
-      // Files
-      if (profile.logoFile) formData.append("logo", profile.logoFile);
-      if (profile.profilePhotoFile) formData.append("profile_photo", profile.profilePhotoFile);
-      if (profile.coverImageFile) formData.append("cover_image", profile.coverImageFile);
+      // Files (Using local state strictly)
+      if (logoFile) formData.append("logo", logoFile);
+      if (profilePhotoFile) formData.append("profile_photo", profilePhotoFile);
+      if (coverImageFile) formData.append("cover_image", coverImageFile);
 
       const res = await updateProducerProfile(formData);
       if (res && res.data) {
         setProfileFromData(res.data);
+        // Clear local files after success since they are now in the backend
+        setLogoFile(null);
+        setProfilePhotoFile(null);
+        setCoverImageFile(null);
         if (onSave) onSave(res.data);
         alert("✅ Profil enregistré avec succès !");
       }
@@ -315,7 +362,7 @@ const ProducerProfile = ({ profileData, onSave }) => {
     const filled = mandatoryFields.filter(f => profile[f] && profile[f].toString().trim() !== "").length;
     let score = (filled / mandatoryFields.length) * 70;
     if (profile.certifications?.length > 0) score += 20;
-    if (profile.logo || profile.profilePhoto) score += 10;
+    if (logoPreview || logoFile || profile.logo || profilePhotoPreview || profilePhotoFile || profile.profilePhoto) score += 10;
     return Math.min(Math.round(score), 100);
   };
 
@@ -351,8 +398,8 @@ const ProducerProfile = ({ profileData, onSave }) => {
       {/* --- SECTION 1: IDENTITY --- */}
       <div className="bg-white rounded-[2.5rem] overflow-hidden border border-gray-100 shadow-sm">
         <div className="relative h-64 bg-gray-100 group">
-          {profile.coverImagePreview || profile.coverImage ? (
-            <img src={profile.coverImagePreview || getProductImage(profile.coverImage)} alt="Cover" className="w-full h-full object-cover" />
+          {coverImagePreview || profile.coverImage ? (
+            <img src={coverImagePreview || getProductImage(profile.coverImage)} alt="Cover" className="w-full h-full object-cover" />
           ) : (
             <div className="w-full h-full flex items-center justify-center text-gray-300"><Plus size={48} /></div>
           )}
@@ -367,8 +414,8 @@ const ProducerProfile = ({ profileData, onSave }) => {
           <div className="flex flex-col md:flex-row items-end gap-8 mb-10">
             <div className="relative group">
               <div className="w-40 h-40 bg-white rounded-full p-2 shadow-xl border border-gray-100 overflow-hidden">
-                {profile.profilePhotoPreview || profile.profilePhoto ? (
-                  <img src={profile.profilePhotoPreview || getProductImage(profile.profilePhoto)} alt="Profile" className="w-full h-full object-cover rounded-full" />
+                {profilePhotoPreview || profile.profilePhoto ? (
+                  <img src={profilePhotoPreview || getProductImage(profile.profilePhoto)} alt="Profile" className="w-full h-full object-cover rounded-full" />
                 ) : (
                   <div className="w-full h-full bg-gray-50 flex items-center justify-center text-gray-200"><User size={64} /></div>
                 )}
@@ -380,8 +427,8 @@ const ProducerProfile = ({ profileData, onSave }) => {
 
             <div className="relative group">
               <div className="w-24 h-24 bg-white rounded-2xl p-1 shadow-lg border border-gray-100 overflow-hidden">
-                {profile.logoPreview || profile.logo ? (
-                  <img src={profile.logoPreview || getProductImage(profile.logo)} alt="Logo" className="w-full h-full object-contain" />
+                {logoPreview || profile.logo ? (
+                  <img src={logoPreview || getProductImage(profile.logo)} alt="Logo" className="w-full h-full object-contain" />
                 ) : (
                   <div className="w-full h-full bg-gray-50 flex flex-col items-center justify-center text-gray-200"><Building2 size={24} /><span className="text-[8px] font-bold mt-1">Logo</span></div>
                 )}

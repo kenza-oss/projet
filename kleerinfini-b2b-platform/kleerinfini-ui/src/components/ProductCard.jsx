@@ -126,7 +126,7 @@ const ProductCard = ({ product, categories = {} }) => {
         <div className="p-8 flex flex-col flex-1 bg-white rounded-b-[2rem]">
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-4">
-              <span className="h-[2px] w-8 bg-gradient-to-r from-red-600 to-transparent flex-shrink-0" />
+              <span className="h-[2px] w-8 bg-gradient-to-r from-red-600 to-transparent flex-shrink-0"></span>
               <span className="text-[10px] font-black text-red-600 uppercase tracking-[0.2em] leading-tight">
                 {categoryName.split('—')[0].trim()}
               </span>

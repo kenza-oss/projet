@@ -18,7 +18,7 @@ export const getChargilyPayments = async () => {
 
 // Upload a manual payment proof
 export const uploadPaymentProof = async (formData) => {
-  const { data } = await api.post("upload-proof/", formData, {
+  const { data } = await api.post("subscriptions/upload-proof/", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },

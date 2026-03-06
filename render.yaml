@@ -26,9 +26,9 @@ services:
       - key: GIT_LFS_SKIP_SMUDGE
         value: "1"
       - key: CORS_ALLOWED_ORIGINS
-        value: "https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app,https://kleer-infini.onrender.com"
+        value: "https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app"
       - key: CSRF_TRUSTED_ORIGINS
-        value: "https://kleerinfini-backend.onrender.com,https://kleer-infini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,https://kleerinfini-frontend.onrender.com"
+        value: "https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app"
       - key: USE_CLOUDINARY
         value: "True"
       - key: CLOUDINARY_CLOUD_NAME

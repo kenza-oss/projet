@@ -1143,185 +1143,6 @@
       "industrial_valve": {
         "name": "Valvola Industriale di Precisione"
       }
-    },
-    "about_page": {
-      "hero": {
-        "badge": "Vision Elite",
-        "subtitle_start": "Eccellenza nell'Esportazione dalla ",
-        "subtitle_end": " per la produzione algerina.",
-        "az": "A alla Z"
-      },
-      "ecosystem": {
-        "badge": "Il Nostro Ecosistema",
-        "title_start": "Padronanza ",
-        "title_italic": "Totale",
-        "desc": "Abbiamo strutturato la nostra offerta per coprire ogni fase critica della vostra espansione internazionale. Dalla strategia alla consegna finale.",
-        "quote": "Benvenuti sulla piattaforma B2B di riferimento per l'esportazione algerina extra-idrocarburi."
-      },
-      "services": {
-        "a": "Accompagnamento Strategico",
-        "b": "Networking B2B Globale",
-        "c": "Certificazione e Conformità",
-        "d": "Dogana e Logistica",
-        "e": "Eccellenza Operativa",
-        "f": "Facilitazione del Commercio",
-        "g": "Gestione della Qualità",
-        "h": "Hub di Esportazione Digitale",
-        "i": "Market Intelligence",
-        "j": "Legale e Sicurezza",
-        "l": "Consegna Internazionale",
-        "m": "Connessione Diretta",
-        "n": "Negoziazione Facilitata",
-        "o": "Ottimizzazione dei Flussi",
-        "p": "Partnership di Fiducia",
-        "s": "Sicurezza delle Transazioni",
-        "t": "Tracciabilità Totale",
-        "x": "Esperienza nell'Esportazione"
-      },
-      "expansion": {
-        "badge": "Espansione Globale",
-        "title": "Opportunità e ",
-        "title_italic": "Partnership",
-        "p1": "Kleer Infini si afferma come il catalizzatore centrale dell'esportazione algerina. Implementiamo soluzioni strategiche e alleanze internazionali per spingere i nostri partner sul mercato mondiale.",
-        "p2": "La nostra piattaforma costituisce l'hub privilegiato per i clienti stranieri, le istituzioni internazionali e le camere di commercio alla ricerca di eccellenza e affidabilità.",
-        "button": "Contattaci"
-      },
-      "trust": {
-        "security": "SICUREZZA",
-        "traceability": "TRACCIABILITÀ",
-        "compliance": "CONFORMITÀ",
-        "excellence": "ECCELLENZA"
-      }
-    },
-    "events_page": {
-      "hero": {
-        "badge": "Edizione Speciale 2026",
-        "title_part1": "Opportunità &",
-        "title_part2": "Agende Export 2026",
-        "subtitle": "Il calendario strategico d'élite per gli esportatori algerini. Edilizia, Industria, Tech e Agroalimentare.",
-        "button": "Scopri l'Agenda 2026"
-      },
-      "ai": {
-        "badge": "Analisi di Precisione",
-        "title_part1": "Intelligence",
-        "title_part2": "Economica",
-        "desc": "Il nostro algoritmo esclusivo analizza il vostro profilo esportatore e identifica le fiere internazionali più pertinenti per il vostro settore. Approfittate di una selezione su misura per massimizzare il vostro ROI.",
-        "data_label": "Dati KleerAI",
-        "data_status": "Aggiornato in tempo reale",
-        "vip_badge": "Solo VIP",
-        "vip_access": "Accesso Esclusivo"
-      },
-      "card": {
-        "elite_match": "Elite Match",
-        "reserve": "Prenota un Stand",
-        "no_events": "Nessun evento strategico identificato al momento. Torna presto."
-      },
-      "slideshow": {
-        "title_part1": "Prossimi Appuntamenti",
-        "title_part2": "Export Elite",
-        "remaining_time": "Tempo Rimanente"
-      },
-      "modal": {
-        "match_score": "Match Score",
-        "accompagnement": "Partecipate a questo grande evento strategico. KleerInfini vi accompagna nel vostro processo di esportazione con strumenti avanzati di intelligence industriale e connessione diretta con i decisori.",
-        "status_label": "Stato",
-        "status_value": "Iscrizioni Aperte",
-        "support_label": "Accompagnamento",
-        "support_value": "Incluso da KleerAI",
-        "close": "Chiudi"
-      }
-    },
-    "export_facilitation": {
-      "header": {
-        "home": "Home",
-        "platform": "Piattaforma",
-        "intelligence": "Intelligence",
-        "security": "Sicurezza"
-      },
-      "hero": {
-        "badge": "Strategic Sovereign Hub 2026",
-        "title_italic": "Facilitazione",
-        "title_main": "EXPORT",
-        "desc": "Eccellenza operativa al servizio della nazione. Algeria 2026: Un'infrastruttura di dati sovrana per un'espansione globale senza precedenti.",
-        "button_primary": "Gestire l'Esportazione",
-        "button_secondary": "Saperne di più",
-        "connectivity": "Connettività Globale",
-        "network": "Network Alpha 2026"
-      },
-      "scroll": "ESPANSIONE",
-      "hub": {
-        "badge": "Architettura di Potenza",
-        "title_main": "HUB",
-        "title_gradient": "SOVRANO.",
-        "desc": "Il primo ecosistema algoritmico dedicato alle prestazioni dell'export algerino. Visione 2026: Automatiamo la conformità complessa per liberare il vostro potenziale creativo e commerciale.",
-        "cloud_title": "DATA CORE CLOUD",
-        "cloud_desc": "SICUREZZA MILITARE HOSTING LOCALE",
-        "ai_title": "INTELLIGENZA IA",
-        "ai_desc": "PREVISIONE DEI FLUSSI ANALISI DI MERCATO",
-        "ecosystem_tag": "Ecosistema Alpha v.2.6"
-      },
-      "program": {
-        "badge": "PROGRAMMA INTEGRATO 2026",
-        "title_main": "FACILITAZIONE",
-        "title_italic": "senza limiti.",
-        "desc": "Un insieme di strumenti di alta precisione progettati per eliminare le frontiere. Noi gestiamo la complessità, voi gestite la crescita globale.",
-        "items": {
-          "fspe": {
-            "title": "Simulatore FSPE 2026",
-            "desc": "Calcolo istantaneo dei vostri aiuti finanziari secondo gli ultimi emendamenti legislativi del 2026 per massimizzare i vostri ritorni.",
-            "tag": "GOVERNANCE"
-          },
-          "zlecaf": {
-            "title": "Network ZLECAF",
-            "desc": "Sbloccate i corridoi commerciali panafricani con analisi in tempo reale delle barriere tariffarie e non tariffarie.",
-            "tag": "PAN-AFRICA"
-          },
-          "legal": {
-            "title": "Osservatorio Legale Pro",
-            "desc": "Intelligence normativa automatizzata che copre oltre 120 giurisdizioni internazionali per una conformità impeccabile.",
-            "tag": "LEGALE & COMPLIANCE"
-          },
-          "logistics": {
-            "title": "Logistica Predittiva",
-            "desc": "Ottimizzazione della vostra supply chain attraverso i nostri corridoi prioritari e tariffe negoziate per il trasporto multimodale.",
-            "tag": "LOGISTICA ELITE"
-          }
-        }
-      },
-      "vision": {
-        "elite_badge": "KLEER INFINI ELITE",
-        "badge": "Precisione Assoluta",
-        "title_main": "L'Arte dell'",
-        "title_italic": "Impatto.",
-        "desc": "Oltre l'assistenza, creiamo traiettorie de dominazione industriale. Kleer Infini 2026 è il catalizzatore della nuova era economica algerina, fondendo prestigio, tecnologia e audacia strategica.",
-        "button": "Il Manifesto Strategico"
-      },
-      "final": {
-        "title_main": "REGNA",
-        "title_italic": "sull'Infinito.",
-        "desc": "Prendete il controllo del vostro destino internazionale con la piattaforma sovrana di riferimento. La vostra espansione inizia qui, alimentata dall'eccellenza Kleer Infini.",
-        "button": "LANCIA ESPANSIONE 2026"
-      },
-      "footer": {
-        "desc": "L'élite della facilitazione all'esportazione algerina. Intelligence strategica & Sovranità.",
-        "platform": "Piattaforma",
-        "resources": "Risorse",
-        "sovereignty": "Sovranità",
-        "links": {
-          "dashboard": "Dashboard",
-          "fspe": "Simulatore FSPE",
-          "zlecaf": "Analisi ZLECAF",
-          "docs": "Documentazione",
-          "api": "Riferimento API",
-          "network": "Rete Globale",
-          "privacy": "Politica sulla Privacy",
-          "terms": "Termini di Servizio",
-          "legal": "Osservatorio Legale"
-        },
-        "copyright": "© 2026 KLEER INFINI SOVRANITÀ. TUTTI I DIRITTI RISERVATI.",
-        "algeria": "ALGERIA",
-        "international": "INTERNAZIONALE"
-      }
     }
   },
   "producer_profile": {
@@ -1424,6 +1245,185 @@
       "sourcingTeam": "Il nostro team dedicato ti aiuta a trovare i migliori produttori africani certificati.",
       "contactSupport": "Contatta il supporto",
       "details": "Dettagli"
+    }
+  },
+  "about_page": {
+    "hero": {
+      "badge": "Vision Elite",
+      "subtitle_start": "Eccellenza nell'Esportazione dalla ",
+      "subtitle_end": " per la produzione algerina.",
+      "az": "A alla Z"
+    },
+    "ecosystem": {
+      "badge": "Il Nostro Ecosistema",
+      "title_start": "Padronanza ",
+      "title_italic": "Totale",
+      "desc": "Abbiamo strutturato la nostra offerta per coprire ogni fase critica della vostra espansione internazionale. Dalla strategia alla consegna finale.",
+      "quote": "Benvenuti sulla piattaforma B2B di riferimento per l'esportazione algerina extra-idrocarburi."
+    },
+    "services": {
+      "a": "Accompagnamento Strategico",
+      "b": "Networking B2B Globale",
+      "c": "Certificazione e Conformità",
+      "d": "Dogana e Logistica",
+      "e": "Eccellenza Operativa",
+      "f": "Facilitazione del Commercio",
+      "g": "Gestione della Qualità",
+      "h": "Hub di Esportazione Digitale",
+      "i": "Market Intelligence",
+      "j": "Legale e Sicurezza",
+      "l": "Consegna Internazionale",
+      "m": "Connessione Diretta",
+      "n": "Negoziazione Facilitata",
+      "o": "Ottimizzazione dei Flussi",
+      "p": "Partnership di Fiducia",
+      "s": "Sicurezza delle Transazioni",
+      "t": "Tracciabilità Totale",
+      "x": "Esperienza nell'Esportazione"
+    },
+    "expansion": {
+      "badge": "Espansione Globale",
+      "title": "Opportunità e ",
+      "title_italic": "Partnership",
+      "p1": "Kleer Infini si afferma come il catalizzatore centrale dell'esportazione algerina. Implementiamo soluzioni strategiche e alleanze internazionali per spingere i nostri partner sul mercato mondiale.",
+      "p2": "La nostra piattaforma costituisce l'hub privilegiato per i clienti stranieri, le istituzioni internazionali e le camere di commercio alla ricerca di eccellenza e affidabilità.",
+      "button": "Contattaci"
+    },
+    "trust": {
+      "security": "SICUREZZA",
+      "traceability": "TRACCIABILITÀ",
+      "compliance": "CONFORMITÀ",
+      "excellence": "ECCELLENZA"
+    }
+  },
+  "events_page": {
+    "hero": {
+      "badge": "Edizione Speciale 2026",
+      "title_part1": "Opportunità &",
+      "title_part2": "Agende Export 2026",
+      "subtitle": "Il calendario strategico d'élite per gli esportatori algerini. Edilizia, Industria, Tech e Agroalimentare.",
+      "button": "Scopri l'Agenda 2026"
+    },
+    "ai": {
+      "badge": "Analisi di Precisione",
+      "title_part1": "Intelligence",
+      "title_part2": "Economica",
+      "desc": "Il nostro algoritmo esclusivo analizza il vostro profilo esportatore e identifica le fiere internazionali più pertinenti per il vostro settore. Approfittate di una selezione su misura per massimizzare il vostro ROI.",
+      "data_label": "Dati KleerAI",
+      "data_status": "Aggiornato in tempo reale",
+      "vip_badge": "Solo VIP",
+      "vip_access": "Accesso Esclusivo"
+    },
+    "card": {
+      "elite_match": "Elite Match",
+      "reserve": "Prenota un Stand",
+      "no_events": "Nessun evento strategico identificato al momento. Torna presto."
+    },
+    "slideshow": {
+      "title_part1": "Prossimi Appuntamenti",
+      "title_part2": "Export Elite",
+      "remaining_time": "Tempo Rimanente"
+    },
+    "modal": {
+      "match_score": "Match Score",
+      "accompagnement": "Partecipate a questo grande evento strategico. KleerInfini vi accompagna nel vostro processo di esportazione con strumenti avanzati di intelligence industriale e connessione diretta con i decisori.",
+      "status_label": "Stato",
+      "status_value": "Iscrizioni Aperte",
+      "support_label": "Accompagnamento",
+      "support_value": "Incluso da KleerAI",
+      "close": "Chiudi"
+    }
+  },
+  "export_facilitation": {
+    "header": {
+      "home": "Home",
+      "platform": "Piattaforma",
+      "intelligence": "Intelligence",
+      "security": "Sicurezza"
+    },
+    "hero": {
+      "badge": "Strategic Sovereign Hub 2026",
+      "title_italic": "Facilitazione",
+      "title_main": "EXPORT",
+      "desc": "Eccellenza operativa al servizio della nazione. Algeria 2026: Un'infrastruttura di dati sovrana per un'espansione globale senza precedenti.",
+      "button_primary": "Gestire l'Esportazione",
+      "button_secondary": "Saperne di più",
+      "connectivity": "Connettività Globale",
+      "network": "Network Alpha 2026"
+    },
+    "scroll": "ESPANSIONE",
+    "hub": {
+      "badge": "Architettura di Potenza",
+      "title_main": "HUB",
+      "title_gradient": "SOVRANO.",
+      "desc": "Il primo ecosistema algoritmico dedicato alle prestazioni dell'export algerino. Visione 2026: Automatiamo la conformità complessa per liberare il vostro potenziale creativo e commerciale.",
+      "cloud_title": "DATA CORE CLOUD",
+      "cloud_desc": "SICUREZZA MILITARE HOSTING LOCALE",
+      "ai_title": "INTELLIGENZA IA",
+      "ai_desc": "PREVISIONE DEI FLUSSI ANALISI DI MERCATO",
+      "ecosystem_tag": "Ecosistema Alpha v.2.6"
+    },
+    "program": {
+      "badge": "PROGRAMMA INTEGRATO 2026",
+      "title_main": "FACILITAZIONE",
+      "title_italic": "senza limiti.",
+      "desc": "Un insieme di strumenti di alta precisione progettati per eliminare le frontiere. Noi gestiamo la complessità, voi gestite la crescita globale.",
+      "items": {
+        "fspe": {
+          "title": "Simulatore FSPE 2026",
+          "desc": "Calcolo istantaneo dei vostri aiuti finanziari secondo gli ultimi emendamenti legislativi del 2026 per massimizzare i vostri ritorni.",
+          "tag": "GOVERNANCE"
+        },
+        "zlecaf": {
+          "title": "Network ZLECAF",
+          "desc": "Sbloccate i corridoi commerciali panafricani con analisi in tempo reale delle barriere tariffarie e non tariffarie.",
+          "tag": "PAN-AFRICA"
+        },
+        "legal": {
+          "title": "Osservatorio Legale Pro",
+          "desc": "Intelligence normativa automatizzata che copre oltre 120 giurisdizioni internazionali per una conformità impeccabile.",
+          "tag": "LEGALE & COMPLIANCE"
+        },
+        "logistics": {
+          "title": "Logistica Predittiva",
+          "desc": "Ottimizzazione della vostra supply chain attraverso i nostri corridoi prioritari e tariffe negoziate per il trasporto multimodale.",
+          "tag": "LOGISTICA ELITE"
+        }
+      }
+    },
+    "vision": {
+      "elite_badge": "KLEER INFINI ELITE",
+      "badge": "Precisione Assoluta",
+      "title_main": "L'Arte dell'",
+      "title_italic": "Impatto.",
+      "desc": "Oltre l'assistenza, creiamo traiettorie de dominazione industriale. Kleer Infini 2026 è il catalizzatore della nuova era economica algerina, fondendo prestigio, tecnologia e audacia strategica.",
+      "button": "Il Manifesto Strategico"
+    },
+    "final": {
+      "title_main": "REGNA",
+      "title_italic": "sull'Infinito.",
+      "desc": "Prendete il controllo del vostro destino internazionale con la piattaforma sovrana di riferimento. La vostra espansione inizia qui, alimentata dall'eccellenza Kleer Infini.",
+      "button": "LANCIA ESPANSIONE 2026"
+    },
+    "footer": {
+      "desc": "L'élite della facilitazione all'esportazione algerina. Intelligence strategica & Sovranità.",
+      "platform": "Piattaforma",
+      "resources": "Risorse",
+      "sovereignty": "Sovranità",
+      "links": {
+        "dashboard": "Dashboard",
+        "fspe": "Simulatore FSPE",
+        "zlecaf": "Analisi ZLECAF",
+        "docs": "Documentazione",
+        "api": "Riferimento API",
+        "network": "Rete Globale",
+        "privacy": "Politica sulla Privacy",
+        "terms": "Termini di Servizio",
+        "legal": "Osservatorio Legale"
+      },
+      "copyright": "© 2026 KLEER INFINI SOVRANITÀ. TUTTI I DIRITTI RISERVATI.",
+      "algeria": "ALGERIA",
+      "international": "INTERNAZIONALE"
     }
   }
 }

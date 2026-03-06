@@ -15,13 +15,15 @@ import {
 
 const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }) => {
   const navigate = useNavigate();
-  const views = producerProfile?.views_with_bonus || producerProfile?.stats?.views || 0;
+  const views = Math.max(37, producerProfile?.views_with_bonus || producerProfile?.stats?.views || 0);
+  const likes = Math.max(37, producerProfile?.likes_with_bonus || producerProfile?.stats?.likes || 0);
+  const quotes = Math.max(37, producerProfile?.quotes_with_bonus || demands.length || 0);
 
   const stats = [
     {
       title: 'Vues du profil',
-      value: views.toString(),
-      trend: views > 0 ? "Activité croissante" : "Début",
+      value: views.toLocaleString(),
+      trend: views > 37 ? "Activité croissante" : "Lancement",
       trendUp: true,
       icon: <Eye size={20} />,
       accent: 'bg-indigo-600',
@@ -29,18 +31,18 @@ const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }
       targetTab: 'statistics'
     },
     {
-      title: 'Produits Actifs',
-      value: products.filter(p => !p.archived).length.toString(),
-      trend: `${products.length} au total`,
+      title: 'Appréciations',
+      value: likes.toLocaleString(),
+      trend: likes > 37 ? "Nouveaux likes" : "Visibilité active",
       trendUp: true,
-      icon: <Package size={20} />,
-      accent: 'bg-blue-600',
-      textAccent: 'text-blue-600',
-      targetTab: 'products'
+      icon: <Star size={20} />,
+      accent: 'bg-amber-500',
+      textAccent: 'text-amber-500',
+      targetTab: 'statistics'
     },
     {
       title: 'Demandes de devis',
-      value: demands.length.toString(),
+      value: quotes.toLocaleString(),
       trend: demands.filter(d => d.status === 'pending').length > 0
         ? `${demands.filter(d => d.status === 'pending').length} en attente`
         : 'À jour',
@@ -51,14 +53,14 @@ const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }
       targetTab: 'demands'
     },
     {
-      title: 'Messages non lus',
-      value: messages.filter(m => !m.read).length.toString(),
-      trend: messages.length > 0 ? `${messages.length} messages reçus` : 'Boîte vide',
-      trendUp: messages.filter(m => !m.read).length > 0,
-      icon: <MessageSquare size={20} />,
-      accent: 'bg-red-600',
-      textAccent: 'text-red-600',
-      targetTab: 'messages'
+      title: 'Produits Actifs',
+      value: products.filter(p => !p.archived).length.toString(),
+      trend: `${products.length} au total`,
+      trendUp: true,
+      icon: <Package size={20} />,
+      accent: 'bg-blue-600',
+      textAccent: 'text-blue-600',
+      targetTab: 'products'
     }
   ];
 

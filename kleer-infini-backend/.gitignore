@@ -3,3 +3,34 @@
 *.pyc
 */.idea
 */.env
+
+# Debug & Temp Scripts
+*.log
+audit_*.py
+check_*.py
+debug_*.py
+fix_*.py
+inspect_*.py
+test_*.py
+verify_*.py
+simulate_*.py
+create_test_*.py
+clear_messages.py
+apply_sql_fix.py
+mass_db_cleanup*.py
+restore_supabase_data.py
+seed_*.py
+silent_db_push.py
+temp_*.txt
+*.json
+!package.json
+!composer.json
+!manifest.json
+!event_audit.json
+!db_audit.json
+
+# Media
+media/
+media_root/
+static_root/
+db.sqlite3

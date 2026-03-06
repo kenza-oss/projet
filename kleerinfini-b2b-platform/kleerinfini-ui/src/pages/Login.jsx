@@ -6,6 +6,7 @@ import { Eye, EyeOff, Mail, Lock, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../components/LanguageSelector';
+import clientAuthBanner from '../assets/client_auth_banner.jpg';
 
 const Login = () => {
     const { login } = useAuth();
@@ -56,65 +57,54 @@ const Login = () => {
     const iconClass = "absolute left-4 text-gray-400";
 
     return (
-        <div className="min-h-screen flex flex-col md:flex-row bg-white overflow-hidden">
+        <div className="min-h-screen flex flex-col lg:flex-row bg-white overflow-hidden">
 
-            {/* 📱 MOBILE TOP BANNER (visible only on mobile) */}
-            <div className="md:hidden bg-black text-white px-6 py-8 text-center">
-                <div className="w-10 h-10 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center mx-auto mb-3 border border-white/20">
-                    <span className="text-white font-heavy text-lg tracking-tighter">K.</span>
-                </div>
-                <h2 className="text-2xl font-black text-white">{t('clientLogin.welcomeBack', 'Bon Retour')} <span className="text-blue-300">{t('clientLogin.partner', 'Partenaire.')}</span></h2>
-            </div>
-
-            {/* 🎥 LEFT BRAND PANEL (45%) WITH VIDEO - Matching Registration2.jsx */}
-            <div className="hidden md:flex md:w-[45%] relative flex-col justify-between p-12 lg:p-16 overflow-hidden bg-black">
+            {/* 🖼️ LEFT BRAND PANEL (45%) WITH IMAGE */}
+            <div className="w-full h-64 md:h-[40vh] lg:h-auto lg:w-[45%] relative flex flex-col justify-between p-8 md:p-12 lg:p-16 overflow-hidden bg-black shrink-0">
                 <div className="absolute inset-0 z-0">
-                    <video
-                        className="w-full h-full object-cover opacity-60"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        src="https://cdn.pixabay.com/video/2025/07/06/289849_large.mp4"
+                    <img
+                        className="w-full h-full object-cover opacity-70"
+                        src={clientAuthBanner}
+                        alt="Client Login Background"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
                 </div>
 
-                <div className="relative z-10">
+                <div className="relative z-10 flex h-full flex-col justify-end lg:justify-start lg:pt-0">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="w-14 h-14 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center mb-10 border border-white/20"
+                        className="w-12 h-12 md:w-14 md:h-14 bg-white/10 backdrop-blur-md rounded-xl flex items-center justify-center mb-6 md:mb-10 border border-white/20"
                     >
-                        <span className="text-white font-heavy text-2xl tracking-tighter">K.</span>
+                        <span className="text-white font-heavy text-xl md:text-2xl tracking-tighter">K.</span>
                     </motion.div>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.2 }}
-                        className="space-y-6"
+                        className="space-y-4 md:space-y-6"
                     >
-                        <h2 className="text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight font-inter">
+                        <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight font-inter">
                             {t('clientLogin.welcomeBack', 'Bon Retour')} <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-300 to-white">{t('clientLogin.partner', 'Partenaire.')}</span>
                         </h2>
-                        <p className="text-gray-300 text-lg leading-relaxed max-w-md font-light">
+                        <p className="text-gray-300 text-sm md:text-lg leading-relaxed max-w-md font-light hidden sm:block">
                             {t('clientLogin.subtitle', 'Connectez-vous pour accéder à votre dashboard et gérer vos demandes d\'exportation.')}
                         </p>
                     </motion.div>
                 </div>
 
-                <div className="relative z-10 pt-10">
+                <div className="relative z-10 pt-6 md:pt-10 hidden sm:block">
                     <div className="flex items-center gap-3">
-                        <div className="h-[1px] w-12 bg-white/30" />
-                        <span className="text-white/60 text-xs uppercase tracking-widest font-medium">{t('clientLogin.network', 'Kleer Infini Global Network')}</span>
+                        <div className="h-[1px] w-8 md:w-12 bg-white/30" />
+                        <span className="text-white/60 text-[10px] md:text-xs uppercase tracking-widest font-medium">{t('clientLogin.network', 'Kleer Infini Global Network')}</span>
                     </div>
                 </div>
             </div>
 
             {/* 📝 RIGHT FORM PANEL (55%) - Matching Registration2.jsx */}
-            <div className="flex-1 flex flex-col relative bg-white">
+            <div className="flex-1 flex flex-col relative bg-white overflow-y-auto">
 
                 {/* Top Navigation */}
                 <div className="flex justify-between items-center p-5 md:p-8 md:pb-4">

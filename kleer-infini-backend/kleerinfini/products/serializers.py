@@ -1,6 +1,7 @@
 import urllib.parse
 from rest_framework import serializers
 from .models import Product, Category, Region, Type, ProductImage, ProductCertification
+from .utils import get_cloudinary_url
 
 class CategorySerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
@@ -15,12 +16,23 @@ class CategorySerializer(serializers.ModelSerializer):
         if not obj.image:
             return None
         name = obj.image.name
-        if name and name.startswith('http'):
+        if not name:
+            return None
+        if name.startswith('http'):
             return name
-        # Force Cloudinary URL with encoding and correct prefix
-        filename = name.split('/')[-1] if '/' in name else name
-        encoded_filename = urllib.parse.quote(filename)
-        return f"https://res.cloudinary.com/dptb2m02i/image/upload/products/{encoded_filename}"
+        
+        # Nettoyage de l'URL pour correspondre à la structure Cloudinary
+        # On gère les cas avec ou sans 'media/' et avec ou sans slash initial
+        clean_name = name.replace('/media/products_images/', 'products/')
+        clean_name = clean_name.replace('media/products_images/', 'products/')
+        clean_name = clean_name.replace('products_images/', 'products/')
+        
+        # Supprimer le slash initial si présent pour éviter les doubles slashes dans l'URL finale
+        if clean_name.startswith('/'):
+            clean_name = clean_name[1:]
+        
+        encoded_name = urllib.parse.quote(clean_name, safe='/')
+        return f"https://res.cloudinary.com/dptb2m02i/image/upload/{encoded_name}"
 
     def get_image_url(self, obj):
         return self.get_image(obj)
@@ -39,13 +51,7 @@ class ProductImageSerializer(serializers.ModelSerializer):
     def get_image(self, obj):
         if not obj.image:
             return None
-        name = obj.image.name
-        if name and name.startswith('http'):
-            return name
-        # Force Cloudinary URL with encoding and correct prefix
-        filename = name.split('/')[-1] if '/' in name else name
-        encoded_filename = urllib.parse.quote(filename)
-        return f"https://res.cloudinary.com/dptb2m02i/image/upload/products/{encoded_filename}"
+        return get_cloudinary_url(obj.image.name)
 
     def get_image_url(self, obj):
         return self.get_image(obj)
@@ -80,13 +86,7 @@ class ProductSerializer(serializers.ModelSerializer):
     def _get_file_url(self, field_file):
         if not field_file:
             return None
-        name = field_file.name
-        if name and name.startswith('http'):
-            return name
-        # Force Cloudinary URL with encoding and correct prefix
-        filename = name.split('/')[-1] if '/' in name else name
-        encoded_filename = urllib.parse.quote(filename)
-        return f"https://res.cloudinary.com/dptb2m02i/image/upload/products/{encoded_filename}"
+        return get_cloudinary_url(field_file.name)
 
     def get_fiche_tech_url(self, obj):
         return self._get_file_url(obj.fiche_tech)

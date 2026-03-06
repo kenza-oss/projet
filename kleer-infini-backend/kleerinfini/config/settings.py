@@ -85,7 +85,7 @@ SECURE_SSL_REDIRECT = config('SECURE_SSL_REDIRECT', default=not DEBUG, cast=bool
 # CSRF Settings
 CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_SECURE = not DEBUG
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://*.onrender.com,https://kleer-infini.netlify.app', cast=lambda v: [s.strip() for s in v.split(',')])
+# NOTE: CSRF_TRUSTED_ORIGINS est défini plus bas (ligne ~314) via config() — NE PAS dupliquer ici
 
 ROOT_URLCONF = 'config.urls'
 
@@ -281,22 +281,32 @@ MEDIA_ROOT = BASE_DIR / 'media'
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_DIRS = [BASE_DIR / 'static'] if (BASE_DIR / 'static').exists() else []
-STATICFILES_STORAGE = 'whitenoise.storage.StaticFilesStorage'
+# NOTE: STATICFILES_STORAGE est maintenant géré via la clé "staticfiles" dans STORAGES (plus bas)
 WHITENOISE_MANIFEST_STRICT = False
 WHITENOISE_USE_FINDERS = True
 
 TEMPLATES[0]['DIRS'] = [BASE_DIR / 'templates']
 
 # Media Storage Configuration (Cloudinary for Production)
-# Force Cloudinary on Render even if env var is missing
+# Media Storage Configuration (Cloudinary for Production)
 IS_ON_RENDER = 'RENDER' in os.environ
-if IS_ON_RENDER or not DEBUG or config('USE_CLOUDINARY', default='False', cast=bool):
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+USE_CLOUDINARY_BOOL = IS_ON_RENDER or not DEBUG or config('USE_CLOUDINARY', default='False', cast=bool)
+
+if USE_CLOUDINARY_BOOL:
     CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME', default='dptb2m02i'),
-        'API_KEY': config('CLOUDINARY_API_KEY', default='432596188994381'),
-        'API_SECRET': config('CLOUDINARY_API_SECRET', default='dHTbwxJTQ8DgiqzHhvt1P2mpLNY'),
+        'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
+        'API_KEY': config('CLOUDINARY_API_KEY'),
+        'API_SECRET': config('CLOUDINARY_API_SECRET'),
     }
+
+STORAGES = {
+    "default": {
+        "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage" if USE_CLOUDINARY_BOOL else "django.core.files.storage.FileSystemStorage",
+    },
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage" if not DEBUG else "django.contrib.staticfiles.storage.StaticFilesStorage",
+    },
+}
 
 # Celery configuration (uses REDIS_URL in production if set)
 _celery_redis = REDIS_URL or 'redis://localhost:6379/0'
@@ -311,13 +321,13 @@ CELERY_RESULT_SERIALIZER = 'json'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleer-infini-backend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,http://localhost:5173', cast=lambda v: [s.strip() for s in v.split(',')])
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleer-infini-backend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,http://localhost:5173,http://127.0.0.1:5173', cast=lambda v: [s.strip() for s in v.split(',')])
 
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS', 
-    default='https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app', 
+    default='https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app,http://localhost:5173,http://127.0.0.1:5173', 
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
 

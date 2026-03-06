@@ -20,7 +20,8 @@ import {
     Share2,
     Globe,
     Building2,
-    MessageSquare
+    MessageSquare,
+    X
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useAuth } from "../../context/AuthContext";
@@ -61,6 +62,11 @@ const Messages = ({ messages: initialMessages = [] }) => {
         }
     }, [initialMessages]);
 
+    // STRICT ROLE GUARD (Requested by User)
+    if (user && user.role !== 'producer' && user.role !== 'admin') {
+        return null;
+    }
+
     // WebSocket Listener
     useEffect(() => {
         const unsubscribe = realTimeService.addListener((data) => {
@@ -89,20 +95,15 @@ const Messages = ({ messages: initialMessages = [] }) => {
         const normId = (id) => String(id || '').replace(/-/g, '').toLowerCase();
         const myUuid = normId(user.user_id || user.user || user.id);
 
-        console.log("[DEBUG AUTH] Current User:", user);
-        console.log("[DEBUG AUTH] My UUID (norm):", myUuid);
-
         apiMessages.forEach(msg => {
             const cid = msg.conversation_id;
             if (!cid) return;
 
             const partnerUuid = msg.partner_uuid;
 
-            // DEBUG IDENTITY
+
             const senderUuid = normId(msg.sender_uuid);
             const isMe = senderUuid === myUuid;
-
-            console.log(`[DEBUG MSG] ID: ${msg.id} | Sender: ${senderUuid} | Me: ${myUuid} | IsMe: ${isMe} | Partner: ${partnerUuid}`);
 
             // SKIP SELF-MESSAGING GUARD
 
@@ -171,7 +172,6 @@ const Messages = ({ messages: initialMessages = [] }) => {
         });
 
         const result = Object.values(groups).sort((a, b) => b.timestamp - a.timestamp);
-        console.log("✅ Final producer conversations:", result);
         return result;
     }, [apiMessages, user]);
 
@@ -209,37 +209,27 @@ const Messages = ({ messages: initialMessages = [] }) => {
     );
 
     const sendMessage = async (e) => {
-        e.preventDefault();
+        if (e && e.preventDefault) e.preventDefault();
         if (!input && !file) return;
-
-        console.log("🚀 Sending message...");
-        console.log("Selected conversation:", selectedConversation);
-        console.log("Partner ID:", selectedConversation?.partnerId);
-        console.log("Message content:", input);
 
         if (!selectedConversation?.partnerId) {
             console.error("❌ No partner ID found!");
-            alert("Erreur: Impossible d'identifier le destinataire");
             return;
         }
 
         try {
             setLoading(true);
-            // Send via API
+            // Send via API - strictly NO redirects here
             await createMessage({
                 receiver: selectedConversation.partnerId,
                 content: input
             });
 
             console.log("✅ Message sent successfully");
-
-            // Removed local state update, WebSocket will handle it
-
             setInput("");
             setFile(null);
         } catch (error) {
             console.error("❌ Failed to send message:", error);
-            alert("Erreur lors de l'envoi du message");
         } finally {
             setLoading(false);
         }

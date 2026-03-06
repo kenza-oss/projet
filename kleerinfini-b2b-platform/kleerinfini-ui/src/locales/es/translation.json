@@ -1164,185 +1164,6 @@
       "industrial_valve": {
         "name": "Válvula Industrial de Precisión"
       }
-    },
-    "about_page": {
-      "hero": {
-        "badge": "Visión Élite",
-        "subtitle_start": "Excelencia en Exportación de la ",
-        "subtitle_end": " para la producción argelina.",
-        "az": "A a la Z"
-      },
-      "ecosystem": {
-        "badge": "Nuestro Ecosistema",
-        "title_start": "Dominio ",
-        "title_italic": "Total",
-        "desc": "Hemos estructurado nuestra oferta para cubrir cada etapa crítica de su expansión internacional. Desde la estrategia hasta la entrega final.",
-        "quote": "Bienvenido a la plataforma B2B de referencia para la exportación argelina no hidrocarburífera."
-      },
-      "services": {
-        "a": "Acompañamiento Estratégico",
-        "b": "Networking B2B Global",
-        "c": "Certificación y Conformidad",
-        "d": "Aduanas y Logística",
-        "e": "Excelencia Operativa",
-        "f": "Facilitación del Comercio",
-        "g": "Gestión de Calidad",
-        "h": "Hub de Exportación Digital",
-        "i": "Inteligencia Comercial",
-        "j": "Legal y Seguridad",
-        "l": "Entrega Internacional",
-        "m": "Conexión Directa",
-        "n": "Negociación Facilitada",
-        "o": "Optimización de Flujos",
-        "p": "Alianzas de Confianza",
-        "s": "Seguridad de Transacciones",
-        "t": "Trazabilidad Total",
-        "x": "Experiencia en Exportación"
-      },
-      "expansion": {
-        "badge": "Expansión Global",
-        "title": "Oportunidades y ",
-        "title_italic": "Alianzas",
-        "p1": "Kleer Infini se afirma como el catalizador central de la exportación argelina. Desplegamos soluciones estratégicas y alianzas internacionales para impulsar a nuestros socios en el mercado mundial.",
-        "p2": "Nuestra plataforma constituye el hub privilegiado para clientes extranjeros, instituciones internacionales y cámaras de comercio que buscan excelencia y fiabilidad.",
-        "button": "Contáctenos"
-      },
-      "trust": {
-        "security": "SEGURIDAD",
-        "traceability": "TRAZABILIDAD",
-        "compliance": "CONFORMIDAD",
-        "excellence": "EXCELENCIA"
-      }
-    },
-    "events_page": {
-      "hero": {
-        "badge": "Edición Especial 2026",
-        "title_part1": "Oportunidades &",
-        "title_part2": "Agendas Export 2026",
-        "subtitle": "El calendario estratégico de élite para los exportadores argelinos. Construcción, Industria, Tech y Agroindustria.",
-        "button": "Descubrir la Agenda 2026"
-      },
-      "ai": {
-        "badge": "Análisis de Precisión",
-        "title_part1": "Inteligencia",
-        "title_part2": "Económica",
-        "desc": "Nuestro algoritmo exclusivo analiza su perfil exportador e identifica las ferias internacionales más relevantes para su sector. Disfrute de una selección a medida para maximizar su ROI.",
-        "data_label": "KleerAI Data",
-        "data_status": "Actualizado en tiempo real",
-        "vip_badge": "Solo VIP",
-        "vip_access": "Acceso Exclusivo"
-      },
-      "card": {
-        "elite_match": "Elite Match",
-        "reserve": "Reservar un Stand",
-        "no_events": "No se han identificado eventos estratégicos por el momento. Vuelva pronto."
-      },
-      "slideshow": {
-        "title_part1": "Próximas Citas",
-        "title_part2": "Export Elite",
-        "remaining_time": "Tiempo Restante"
-      },
-      "modal": {
-        "match_score": "Match Score",
-        "accompagnement": "Participe en este gran evento estratégico. KleerInfini le acompaña en su proceso de exportación con herramientas avanzadas de inteligencia industrial y conexión directa con los tomadores de decisiones.",
-        "status_label": "Estado",
-        "status_value": "Inscripciones Abiertas",
-        "support_label": "Acompañamiento",
-        "support_value": "Incluido por KleerAI",
-        "close": "Cerrar"
-      }
-    },
-    "export_facilitation": {
-      "header": {
-        "home": "Inicio",
-        "platform": "Plataforma",
-        "intelligence": "Inteligencia",
-        "security": "Seguridad"
-      },
-      "hero": {
-        "badge": "Centro Soberano Estratégico 2026",
-        "title_italic": "Facilitación",
-        "title_main": "EXPORTACIÓN",
-        "desc": "Excelencia operativa al servicio de la nación. Argelia 2026: Una infraestructura de datos soberanos para una expansión global sin precedentes.",
-        "button_primary": "Gestionar Exportación",
-        "button_secondary": "Saber más",
-        "connectivity": "Conectividad Global",
-        "network": "Red Alfa 2026"
-      },
-      "scroll": "EXPANSIÓN",
-      "hub": {
-        "badge": "Arquitectura de Poder",
-        "title_main": "HUB",
-        "title_gradient": "SOBERANO.",
-        "desc": "El premier ecosistema algorítmico dedicado al rendimiento de las exportaciones argelinas. Visión 2026: Automatizamos el cumplimiento complejo para liberar su potencial creativo y comercial.",
-        "cloud_title": "DATA CORE CLOUD",
-        "cloud_desc": "SEGURIDAD MILITAR ALOJAMIENTO LOCAL",
-        "ai_title": "INTELIGENCIA IA",
-        "ai_desc": "PREDICCIÓN DE FLUJOS ANÁLISIS DE MERCADO",
-        "ecosystem_tag": "Ecosistema Alfa v.2.6"
-      },
-      "program": {
-        "badge": "PROGRAMME INTÉGRÉ 2026",
-        "title_main": "FACILITACIÓN",
-        "title_italic": "sin límites.",
-        "desc": "Un conjunto de herramientas de alta precisión diseñadas para borrar fronteras. Nosotros manejamos la complejidad, usted gestiona el crecimiento global.",
-        "items": {
-          "fspe": {
-            "title": "Simulador FSPE 2026",
-            "desc": "Cálculo instantáneo de sus ayudas financieras según las últimas enmiendas legislativas de 2026 para maximizar sus retornos.",
-            "tag": "GOBERNANZA"
-          },
-          "zlecaf": {
-            "title": "Red ZLECAF",
-            "desc": "Desbloquee corredores comerciales panafricanos con análisis en tiempo real de barreras arancelarias y no arancelarias.",
-            "tag": "PANAFRICANISMO"
-          },
-          "legal": {
-            "title": "Vigilancia Jurídica Pro",
-            "desc": "Inteligencia regulatoria automatizada que cubre más de 120 jurisdicciones internationales para un cumplimiento impecable.",
-            "tag": "LEGAL Y CUMPLIMIENTO"
-          },
-          "logistics": {
-            "title": "Logística Predictiva",
-            "desc": "Optimización de su cadena de suministro a través de nuestros corredores prioritarios y tarifas negociadas para el transporte multimodal.",
-            "tag": "LOGÍSTICA ELITE"
-          }
-        }
-      },
-      "vision": {
-        "elite_badge": "KLEER INFINI ELITE",
-        "badge": "Precisión Absoluta",
-        "title_main": "El Arte del",
-        "title_italic": "Impacto.",
-        "desc": "Más allá de la asistencia, creamos trayectorias de dominación industrial. Kleer Infini 2026 es el catalizador de la nueva era económica argelina, fusionando prestigio, tecnología y audacia estratégica.",
-        "button": "El Manifiesto Estratégico"
-      },
-      "final": {
-        "title_main": "REINE",
-        "title_italic": "sobre el Infinito.",
-        "desc": "Tome el control de su destino internacional con la plataforma soberana de referencia. Su expansión comienza aquí, impulsada por la excelencia de Kleer Infini.",
-        "button": "LANZAR EXPANSIÓN 2026"
-      },
-      "footer": {
-        "desc": "La élite de la facilitación de exportaciones argelinas. Inteligencia estratégica y Soberanía.",
-        "platform": "Plataforma",
-        "resources": "Recursos",
-        "sovereignty": "Soberanía",
-        "links": {
-          "dashboard": "Panel de Control",
-          "fspe": "Simulador FSPE",
-          "zlecaf": "Análisis ZLECAF",
-          "docs": "Documentación",
-          "api": "Referencia API",
-          "network": "Red Global",
-          "privacy": "Política de Privacidad",
-          "terms": "Términos de Servicio",
-          "legal": "Vigilancia Legal"
-        },
-        "copyright": "© 2026 KLEER INFINI SOBERANÍA. TODOS LOS DERECHOS RESERVADOS.",
-        "algeria": "ARGELIA",
-        "international": "INTERNACIONAL"
-      }
     }
   },
   "producer_profile": {
@@ -1445,6 +1266,185 @@
       "sourcingTeam": "Nuestro equipo dedicado te ayuda a encontrar los mejores productores africanos certificados.",
       "contactSupport": "Contactar soporte",
       "details": "Detalles"
+    }
+  },
+  "about_page": {
+    "hero": {
+      "badge": "Visión Élite",
+      "subtitle_start": "Excelencia en Exportación de la ",
+      "subtitle_end": " para la producción argelina.",
+      "az": "A a la Z"
+    },
+    "ecosystem": {
+      "badge": "Nuestro Ecosistema",
+      "title_start": "Dominio ",
+      "title_italic": "Total",
+      "desc": "Hemos estructurado nuestra oferta para cubrir cada etapa crítica de su expansión internacional. Desde la estrategia hasta la entrega final.",
+      "quote": "Bienvenido a la plataforma B2B de referencia para la exportación argelina no hidrocarburífera."
+    },
+    "services": {
+      "a": "Acompañamiento Estratégico",
+      "b": "Networking B2B Global",
+      "c": "Certificación y Conformidad",
+      "d": "Aduanas y Logística",
+      "e": "Excelencia Operativa",
+      "f": "Facilitación del Comercio",
+      "g": "Gestión de Calidad",
+      "h": "Hub de Exportación Digital",
+      "i": "Inteligencia Comercial",
+      "j": "Legal y Seguridad",
+      "l": "Entrega Internacional",
+      "m": "Conexión Directa",
+      "n": "Negociación Facilitada",
+      "o": "Optimización de Flujos",
+      "p": "Alianzas de Confianza",
+      "s": "Seguridad de Transacciones",
+      "t": "Trazabilidad Total",
+      "x": "Experiencia en Exportación"
+    },
+    "expansion": {
+      "badge": "Expansión Global",
+      "title": "Oportunidades y ",
+      "title_italic": "Alianzas",
+      "p1": "Kleer Infini se afirma como el catalizador central de la exportación argelina. Desplegamos soluciones estratégicas y alianzas internacionales para impulsar a nuestros socios en el mercado mundial.",
+      "p2": "Nuestra plataforma constituye el hub privilegiado para clientes extranjeros, instituciones internacionales y cámaras de comercio que buscan excelencia y fiabilidad.",
+      "button": "Contáctenos"
+    },
+    "trust": {
+      "security": "SEGURIDAD",
+      "traceability": "TRAZABILIDAD",
+      "compliance": "CONFORMIDAD",
+      "excellence": "EXCELENCIA"
+    }
+  },
+  "events_page": {
+    "hero": {
+      "badge": "Edición Especial 2026",
+      "title_part1": "Oportunidades &",
+      "title_part2": "Agendas Export 2026",
+      "subtitle": "El calendario estratégico de élite para los exportadores argelinos. Construcción, Industria, Tech y Agroindustria.",
+      "button": "Descubrir la Agenda 2026"
+    },
+    "ai": {
+      "badge": "Análisis de Precisión",
+      "title_part1": "Inteligencia",
+      "title_part2": "Económica",
+      "desc": "Nuestro algoritmo exclusivo analiza su perfil exportador e identifica las ferias internacionales más relevantes para su sector. Disfrute de una selección a medida para maximizar su ROI.",
+      "data_label": "KleerAI Data",
+      "data_status": "Actualizado en tiempo real",
+      "vip_badge": "Solo VIP",
+      "vip_access": "Acceso Exclusivo"
+    },
+    "card": {
+      "elite_match": "Elite Match",
+      "reserve": "Reservar un Stand",
+      "no_events": "No se han identificado eventos estratégicos por el momento. Vuelva pronto."
+    },
+    "slideshow": {
+      "title_part1": "Próximas Citas",
+      "title_part2": "Export Elite",
+      "remaining_time": "Tiempo Restante"
+    },
+    "modal": {
+      "match_score": "Match Score",
+      "accompagnement": "Participe en este gran evento estratégico. KleerInfini le acompaña en su proceso de exportación con herramientas avanzadas de inteligencia industrial y conexión directa con los tomadores de decisiones.",
+      "status_label": "Estado",
+      "status_value": "Inscripciones Abiertas",
+      "support_label": "Acompañamiento",
+      "support_value": "Incluido por KleerAI",
+      "close": "Cerrar"
+    }
+  },
+  "export_facilitation": {
+    "header": {
+      "home": "Inicio",
+      "platform": "Plataforma",
+      "intelligence": "Inteligencia",
+      "security": "Seguridad"
+    },
+    "hero": {
+      "badge": "Centro Soberano Estratégico 2026",
+      "title_italic": "Facilitación",
+      "title_main": "EXPORTACIÓN",
+      "desc": "Excelencia operativa al servicio de la nación. Argelia 2026: Una infraestructura de datos soberanos para una expansión global sin precedentes.",
+      "button_primary": "Gestionar Exportación",
+      "button_secondary": "Saber más",
+      "connectivity": "Conectividad Global",
+      "network": "Red Alfa 2026"
+    },
+    "scroll": "EXPANSIÓN",
+    "hub": {
+      "badge": "Arquitectura de Poder",
+      "title_main": "HUB",
+      "title_gradient": "SOBERANO.",
+      "desc": "El premier ecosistema algorítmico dedicado al rendimiento de las exportaciones argelinas. Visión 2026: Automatizamos el cumplimiento complejo para liberar su potencial creativo y comercial.",
+      "cloud_title": "DATA CORE CLOUD",
+      "cloud_desc": "SEGURIDAD MILITAR ALOJAMIENTO LOCAL",
+      "ai_title": "INTELIGENCIA IA",
+      "ai_desc": "PREDICCIÓN DE FLUJOS ANÁLISIS DE MERCADO",
+      "ecosystem_tag": "Ecosistema Alfa v.2.6"
+    },
+    "program": {
+      "badge": "PROGRAMME INTÉGRÉ 2026",
+      "title_main": "FACILITACIÓN",
+      "title_italic": "sin límites.",
+      "desc": "Un conjunto de herramientas de alta precisión diseñadas para borrar fronteras. Nosotros manejamos la complejidad, usted gestiona el crecimiento global.",
+      "items": {
+        "fspe": {
+          "title": "Simulador FSPE 2026",
+          "desc": "Cálculo instantáneo de sus ayudas financieras según las últimas enmiendas legislativas de 2026 para maximizar sus retornos.",
+          "tag": "GOBERNANZA"
+        },
+        "zlecaf": {
+          "title": "Red ZLECAF",
+          "desc": "Desbloquee corredores comerciales panafricanos con análisis en tiempo real de barreras arancelarias y no arancelarias.",
+          "tag": "PANAFRICANISMO"
+        },
+        "legal": {
+          "title": "Vigilancia Jurídica Pro",
+          "desc": "Inteligencia regulatoria automatizada que cubre más de 120 jurisdicciones internationales para un cumplimiento impecable.",
+          "tag": "LEGAL Y CUMPLIMIENTO"
+        },
+        "logistics": {
+          "title": "Logística Predictiva",
+          "desc": "Optimización de su cadena de suministro a través de nuestros corredores prioritarios y tarifas negociadas para el transporte multimodal.",
+          "tag": "LOGÍSTICA ELITE"
+        }
+      }
+    },
+    "vision": {
+      "elite_badge": "KLEER INFINI ELITE",
+      "badge": "Precisión Absoluta",
+      "title_main": "El Arte del",
+      "title_italic": "Impacto.",
+      "desc": "Más allá de la asistencia, creamos trayectorias de dominación industrial. Kleer Infini 2026 es el catalizador de la nueva era económica argelina, fusionando prestigio, tecnología y audacia estratégica.",
+      "button": "El Manifiesto Estratégico"
+    },
+    "final": {
+      "title_main": "REINE",
+      "title_italic": "sobre el Infinito.",
+      "desc": "Tome el control de su destino internacional con la plataforma soberana de referencia. Su expansión comienza aquí, impulsada por la excelencia de Kleer Infini.",
+      "button": "LANZAR EXPANSIÓN 2026"
+    },
+    "footer": {
+      "desc": "La élite de la facilitación de exportaciones argelinas. Inteligencia estratégica y Soberanía.",
+      "platform": "Plataforma",
+      "resources": "Recursos",
+      "sovereignty": "Soberanía",
+      "links": {
+        "dashboard": "Panel de Control",
+        "fspe": "Simulador FSPE",
+        "zlecaf": "Análisis ZLECAF",
+        "docs": "Documentación",
+        "api": "Referencia API",
+        "network": "Red Global",
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Servicio",
+        "legal": "Vigilancia Legal"
+      },
+      "copyright": "© 2026 KLEER INFINI SOBERANÍA. TODOS LOS DERECHOS RESERVADOS.",
+      "algeria": "ARGELIA",
+      "international": "INTERNACIONAL"
     }
   }
 }

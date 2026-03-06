@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, ArrowLeft, Send, CheckCircle2 } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import api from '../api/axios';
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState('');
@@ -17,7 +17,7 @@ const ForgotPassword = () => {
         setError('');
 
         try {
-            await axios.post('http://localhost:8000/api/password_reset/', { email });
+            await api.post('password_reset/', { email });
             setIsSent(true);
         } catch (err) {
             // Point 2: Generic message even on error if configured in backend, 

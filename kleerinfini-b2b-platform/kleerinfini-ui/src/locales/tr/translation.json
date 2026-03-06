@@ -1161,185 +1161,6 @@
       "industrial_valve": {
         "name": "Endüstriyel Hassas Vana"
       }
-    },
-    "about_page": {
-      "hero": {
-        "badge": "Elite Vizyon",
-        "subtitle_start": "Cezayir üretimi için ",
-        "subtitle_end": " İhracat Mükemmelliği.",
-        "az": "A'dan Z'ye"
-      },
-      "ecosystem": {
-        "badge": "Ekosistemimiz",
-        "title_start": "Tam ",
-        "title_italic": "Hâkimiyet",
-        "desc": "Uluslararası genişlemenizin her kritik adımını kapsayacak şekilde teklifimizi yapılandırdık. Stratejiden nihai teslimata kadar.",
-        "quote": "Cezayir'in hidrokarbon dışı ihracatı için referans B2B platformuna hoş geldiniz."
-      },
-      "services": {
-        "a": "Stratejik Destek",
-        "b": "Küresel B2B Ağ Oluşturma",
-        "c": "Sertifikasyon ve Uyumluluk",
-        "d": "Gümrük ve Lojistik",
-        "e": "Operasyonel Mükemmellik",
-        "f": "Ticaret Kolaylaştırma",
-        "g": "Kalite Yönetimi",
-        "h": "Dijital İhracat Merkezi",
-        "i": "Pazar İstihbaratı",
-        "j": "Hukuk ve Güvenlik",
-        "l": "Uluslararası Teslimat",
-        "m": "Doğrudan Bağlantı",
-        "n": "Kolaylaştırılmış Müzakere",
-        "o": "Akış Optimizasyonu",
-        "p": "Güvenilir Ortaklıklar",
-        "s": "İşlem Güvenliği",
-        "t": "Tam İzlenebilirlik",
-        "x": "İhracat Uzmanlığı"
-      },
-      "expansion": {
-        "badge": "Global Genişleme",
-        "title": "Fırsatlar ve ",
-        "title_italic": "Ortaklıklar",
-        "p1": "Kleer Infini, Cezayir ihracatının merkezi katalizörü olarak kendini kanıtlamaktadır. Ortaklarımızı küresel pazara taşımak için stratejik çözümler ve uluslararası ittifaklar kuruyoruz.",
-        "p2": "Platformumuz, mükemmellik ve güvenilirlik arayan yabancı müşteriler, uluslararası kurumlar ve ticaret odaları için ayrıcalıklı bir merkez oluşturmaktadır.",
-        "button": "Bize Ulaşın"
-      },
-      "trust": {
-        "security": "GÜVENLİK",
-        "traceability": "İZLENEBİLİRLİK",
-        "compliance": "UYUMLULUK",
-        "excellence": "MÜKEMMELLİK"
-      }
-    },
-    "events_page": {
-      "hero": {
-        "badge": "2026 Özel Sürüm",
-        "title_part1": "Fırsatlar ve",
-        "title_part2": "2026 İhracat Gündemleri",
-        "subtitle": "Cezayirli ihracatçılar için elit stratejik takvim. İnşaat, Sanayi, Teknoloji ve Gıda.",
-        "button": "2026 Gündemini Keşfedin"
-      },
-      "ai": {
-        "badge": "Hassas Analiz",
-        "title_part1": "Ekonomik",
-        "title_part2": "İstihbarat",
-        "desc": "Özel algoritmamız ihracatçı profilinizi analiz eder ve sektörünüz için en alakalı uluslararası fuarları belirler. ROI'nizi maksimize etmek için size özel seçimlerden yararlanın.",
-        "data_label": "KleerAI Verileri",
-        "data_status": "Gerçek zamanlı güncellenir",
-        "vip_badge": "Sadece VIP",
-        "vip_access": "Özel Erişim"
-      },
-      "card": {
-        "elite_match": "Elit Eşleşme",
-        "reserve": "Stand Ayırt",
-        "no_events": "Şu an için belirlenmiş stratejik bir etkinlik yok. Yakında tekrar kontrol edin."
-      },
-      "slideshow": {
-        "title_part1": "Gelecek Randevular",
-        "title_part2": "Elit İhracat",
-        "remaining_time": "Kalan Süre"
-      },
-      "modal": {
-        "match_score": "Eşleşme Skoru",
-        "accompagnement": "Bu büyük stratejik etkinliğe katılın. KleerInfini, gelişmiş endüstriyel istihbarat araçları ve karar vericilerle doğrudan bağlantı kurmanızı sağlayarak ihracat sürecinizde size eşlik eder.",
-        "status_label": "Durum",
-        "status_value": "Kayıtlar Açık",
-        "support_label": "Refakat",
-        "support_value": "KleerAI Tarafından Dahil",
-        "close": "Kapat"
-      }
-    },
-    "export_facilitation": {
-      "header": {
-        "home": "Anasayfa",
-        "platform": "Platform",
-        "intelligence": "İstihbarat",
-        "security": "Güvenlik"
-      },
-      "hero": {
-        "badge": "Stratejik Egemen Merkez 2026",
-        "title_italic": "Kolaylaştırma",
-        "title_main": "İHRACAT",
-        "desc": "Ulusun hizmetinde operasyonel mükemmellik. Cezayir 2026: Eşi görülmemiş küresel genişleme için egemen bir veri altyapısı.",
-        "button_primary": "İhracatı Yönet",
-        "button_secondary": "Daha Fazla Bilgi",
-        "connectivity": "Küresel Bağlantı",
-        "network": "Network Alpha 2026"
-      },
-      "scroll": "GENİŞLEME",
-      "hub": {
-        "badge": "Güç Mimarisi",
-        "title_main": "EGEMEN",
-        "title_gradient": "MERKEZ.",
-        "desc": "Cezayir ihracat performansına adanmış ilk algoritmik ekosistem. Vizyon 2026: Yaratıcı ve ticari potansiyelinizi özgürleştirmek için karmaşık uyumluluğu otomatikleştiriyoruz.",
-        "cloud_title": "VERİ MERKEZİ BULUTU",
-        "cloud_desc": "ASKERİ GÜVENLİK YEREL BARINDIRMA",
-        "ai_title": "YAPAY ZEKA",
-        "ai_desc": "AKIŞ TAHMİNİ PAZAR ANALİZİ",
-        "ecosystem_tag": "Ekosistem Alpha v.2.6"
-      },
-      "program": {
-        "badge": "ENTEGRE PROGRAM 2026",
-        "title_main": "SINIRSIZ",
-        "title_italic": "kolaylaştırma.",
-        "desc": "Sınırları silmek için tasarlanmış bir dizi yüksek hassasiyetli araç. Biz karmaşıklığı yönetiyoruz, siz küresel büyümeyi yönetiyorsunuz.",
-        "items": {
-          "fspe": {
-            "title": "FSPE 2026 Simülatörü",
-            "desc": "Getirilerinizi maksimize etmek için 2026'nın en son yasal değişikliklerine göre mali yardımlarınızın anında hesaplanması.",
-            "tag": "YÖNETİŞİM"
-          },
-          "zlecaf": {
-            "title": "ZLECAF Ağı",
-            "desc": "Tarife ve tarife dışı engellerin gerçek zamanlı analizi ile pan-Afrika ticaret koridorlarının kilidini açın.",
-            "tag": "PAN-AFRİKA"
-          },
-          "legal": {
-            "title": "Profesyonel Hukuki Takip",
-            "desc": "Kusursuz uyum için 120'den fazla uluslararası yargı bölgesini kapsayan otomatikleştirilmiş düzenleyici istihbarat.",
-            "tag": "HUKUK VE UYUM"
-          },
-          "logistics": {
-            "title": "Öngörücü Lojistik",
-            "desc": "Öncelikli koridorlarımız ve multimodal taşımacılık için müzakere edilmiş tarifelerimiz aracılığıyla tedarik zincirinizin optimizasyonu.",
-            "tag": "ELİT LOJİSTİK"
-          }
-        }
-      },
-      "vision": {
-        "elite_badge": "KLEER INFINI ELITE",
-        "badge": "Mutlak Hassasiyet",
-        "title_main": "Etki",
-        "title_italic": "Sanatı.",
-        "desc": "Yardımın ötesinde, endüstriyel hakimiyet yörüngeleri oluşturuyoruz. Kleer Infini 2026, prestij, teknoloji ve stratejik cesareti birleştiren yeni Cezayir ekonomik çağının katalizörüdür.",
-        "button": "Stratejik Manifesto"
-      },
-      "final": {
-        "title_main": "HÜKMET",
-        "title_italic": "Sonsuzluğa.",
-        "desc": "Referans egemen platformu ile uluslararası kaderinizin kontrolünü eline alın. Genişlemeniz burada, Kleer Infini mükemmelliği ile başlıyor.",
-        "button": "GENİŞLEMEYİ BAŞLAT 2026"
-      },
-      "footer": {
-        "desc": "Cezayir ihracat kolaylaştırmasının elitleri. Stratejik istihbarat ve Egemenlik.",
-        "platform": "Platform",
-        "resources": "Kaynaklar",
-        "sovereignty": "Egemenlik",
-        "links": {
-          "dashboard": "Kontrol Paneli",
-          "fspe": "FSPE Simülatörü",
-          "zlecaf": "ZLECAF Analizi",
-          "docs": "Dokümantasyon",
-          "api": "API Referansı",
-          "network": "Küresel Ağ",
-          "privacy": "Gizlilik Politikası",
-          "terms": "Hizmet Şartları",
-          "legal": "Hukuki Takip"
-        },
-        "copyright": "© 2026 KLEER INFINI EGEMENLİK. TÜM HAKLARI SAKLIDIR.",
-        "algeria": "CEZAYİR",
-        "international": "ULUSLARARASI"
-      }
     }
   },
   "producer_profile": {
@@ -1442,6 +1263,185 @@
       "sourcingTeam": "Uzman satın alma ekibimiz, en iyi sertifikalı Afrikalı üreticileri bulmanıza yardımcı olur.",
       "contactSupport": "Destek ile iletişime geçin",
       "details": "Detaylar"
+    }
+  },
+  "about_page": {
+    "hero": {
+      "badge": "Elite Vizyon",
+      "subtitle_start": "Cezayir üretimi için ",
+      "subtitle_end": " İhracat Mükemmelliği.",
+      "az": "A'dan Z'ye"
+    },
+    "ecosystem": {
+      "badge": "Ekosistemimiz",
+      "title_start": "Tam ",
+      "title_italic": "Hâkimiyet",
+      "desc": "Uluslararası genişlemenizin her kritik adımını kapsayacak şekilde teklifimizi yapılandırdık. Stratejiden nihai teslimata kadar.",
+      "quote": "Cezayir'in hidrokarbon dışı ihracatı için referans B2B platformuna hoş geldiniz."
+    },
+    "services": {
+      "a": "Stratejik Destek",
+      "b": "Küresel B2B Ağ Oluşturma",
+      "c": "Sertifikasyon ve Uyumluluk",
+      "d": "Gümrük ve Lojistik",
+      "e": "Operasyonel Mükemmellik",
+      "f": "Ticaret Kolaylaştırma",
+      "g": "Kalite Yönetimi",
+      "h": "Dijital İhracat Merkezi",
+      "i": "Pazar İstihbaratı",
+      "j": "Hukuk ve Güvenlik",
+      "l": "Uluslararası Teslimat",
+      "m": "Doğrudan Bağlantı",
+      "n": "Kolaylaştırılmış Müzakere",
+      "o": "Akış Optimizasyonu",
+      "p": "Güvenilir Ortaklıklar",
+      "s": "İşlem Güvenliği",
+      "t": "Tam İzlenebilirlik",
+      "x": "İhracat Uzmanlığı"
+    },
+    "expansion": {
+      "badge": "Global Genişleme",
+      "title": "Fırsatlar ve ",
+      "title_italic": "Ortaklıklar",
+      "p1": "Kleer Infini, Cezayir ihracatının merkezi katalizörü olarak kendini kanıtlamaktadır. Ortaklarımızı küresel pazara taşımak için stratejik çözümler ve uluslararası ittifaklar kuruyoruz.",
+      "p2": "Platformumuz, mükemmellik ve güvenilirlik arayan yabancı müşteriler, uluslararası kurumlar ve ticaret odaları için ayrıcalıklı bir merkez oluşturmaktadır.",
+      "button": "Bize Ulaşın"
+    },
+    "trust": {
+      "security": "GÜVENLİK",
+      "traceability": "İZLENEBİLİRLİK",
+      "compliance": "UYUMLULUK",
+      "excellence": "MÜKEMMELLİK"
+    }
+  },
+  "events_page": {
+    "hero": {
+      "badge": "2026 Özel Sürüm",
+      "title_part1": "Fırsatlar ve",
+      "title_part2": "2026 İhracat Gündemleri",
+      "subtitle": "Cezayirli ihracatçılar için elit stratejik takvim. İnşaat, Sanayi, Teknoloji ve Gıda.",
+      "button": "2026 Gündemini Keşfedin"
+    },
+    "ai": {
+      "badge": "Hassas Analiz",
+      "title_part1": "Ekonomik",
+      "title_part2": "İstihbarat",
+      "desc": "Özel algoritmamız ihracatçı profilinizi analiz eder ve sektörünüz için en alakalı uluslararası fuarları belirler. ROI'nizi maksimize etmek için size özel seçimlerden yararlanın.",
+      "data_label": "KleerAI Verileri",
+      "data_status": "Gerçek zamanlı güncellenir",
+      "vip_badge": "Sadece VIP",
+      "vip_access": "Özel Erişim"
+    },
+    "card": {
+      "elite_match": "Elit Eşleşme",
+      "reserve": "Stand Ayırt",
+      "no_events": "Şu an için belirlenmiş stratejik bir etkinlik yok. Yakında tekrar kontrol edin."
+    },
+    "slideshow": {
+      "title_part1": "Gelecek Randevular",
+      "title_part2": "Elit İhracat",
+      "remaining_time": "Kalan Süre"
+    },
+    "modal": {
+      "match_score": "Eşleşme Skoru",
+      "accompagnement": "Bu büyük stratejik etkinliğe katılın. KleerInfini, gelişmiş endüstriyel istihbarat araçları ve karar vericilerle doğrudan bağlantı kurmanızı sağlayarak ihracat sürecinizde size eşlik eder.",
+      "status_label": "Durum",
+      "status_value": "Kayıtlar Açık",
+      "support_label": "Refakat",
+      "support_value": "KleerAI Tarafından Dahil",
+      "close": "Kapat"
+    }
+  },
+  "export_facilitation": {
+    "header": {
+      "home": "Anasayfa",
+      "platform": "Platform",
+      "intelligence": "İstihbarat",
+      "security": "Güvenlik"
+    },
+    "hero": {
+      "badge": "Stratejik Egemen Merkez 2026",
+      "title_italic": "Kolaylaştırma",
+      "title_main": "İHRACAT",
+      "desc": "Ulusun hizmetinde operasyonel mükemmellik. Cezayir 2026: Eşi görülmemiş küresel genişleme için egemen bir veri altyapısı.",
+      "button_primary": "İhracatı Yönet",
+      "button_secondary": "Daha Fazla Bilgi",
+      "connectivity": "Küresel Bağlantı",
+      "network": "Network Alpha 2026"
+    },
+    "scroll": "GENİŞLEME",
+    "hub": {
+      "badge": "Güç Mimarisi",
+      "title_main": "EGEMEN",
+      "title_gradient": "MERKEZ.",
+      "desc": "Cezayir ihracat performansına adanmış ilk algoritmik ekosistem. Vizyon 2026: Yaratıcı ve ticari potansiyelinizi özgürleştirmek için karmaşık uyumluluğu otomatikleştiriyoruz.",
+      "cloud_title": "VERİ MERKEZİ BULUTU",
+      "cloud_desc": "ASKERİ GÜVENLİK YEREL BARINDIRMA",
+      "ai_title": "YAPAY ZEKA",
+      "ai_desc": "AKIŞ TAHMİNİ PAZAR ANALİZİ",
+      "ecosystem_tag": "Ekosistem Alpha v.2.6"
+    },
+    "program": {
+      "badge": "ENTEGRE PROGRAM 2026",
+      "title_main": "SINIRSIZ",
+      "title_italic": "kolaylaştırma.",
+      "desc": "Sınırları silmek için tasarlanmış bir dizi yüksek hassasiyetli araç. Biz karmaşıklığı yönetiyoruz, siz küresel büyümeyi yönetiyorsunuz.",
+      "items": {
+        "fspe": {
+          "title": "FSPE 2026 Simülatörü",
+          "desc": "Getirilerinizi maksimize etmek için 2026'nın en son yasal değişikliklerine göre mali yardımlarınızın anında hesaplanması.",
+          "tag": "YÖNETİŞİM"
+        },
+        "zlecaf": {
+          "title": "ZLECAF Ağı",
+          "desc": "Tarife ve tarife dışı engellerin gerçek zamanlı analizi ile pan-Afrika ticaret koridorlarının kilidini açın.",
+          "tag": "PAN-AFRİKA"
+        },
+        "legal": {
+          "title": "Profesyonel Hukuki Takip",
+          "desc": "Kusursuz uyum için 120'den fazla uluslararası yargı bölgesini kapsayan otomatikleştirilmiş düzenleyici istihbarat.",
+          "tag": "HUKUK VE UYUM"
+        },
+        "logistics": {
+          "title": "Öngörücü Lojistik",
+          "desc": "Öncelikli koridorlarımız ve multimodal taşımacılık için müzakere edilmiş tarifelerimiz aracılığıyla tedarik zincirinizin optimizasyonu.",
+          "tag": "ELİT LOJİSTİK"
+        }
+      }
+    },
+    "vision": {
+      "elite_badge": "KLEER INFINI ELITE",
+      "badge": "Mutlak Hassasiyet",
+      "title_main": "Etki",
+      "title_italic": "Sanatı.",
+      "desc": "Yardımın ötesinde, endüstriyel hakimiyet yörüngeleri oluşturuyoruz. Kleer Infini 2026, prestij, teknoloji ve stratejik cesareti birleştiren yeni Cezayir ekonomik çağının katalizörüdür.",
+      "button": "Stratejik Manifesto"
+    },
+    "final": {
+      "title_main": "HÜKMET",
+      "title_italic": "Sonsuzluğa.",
+      "desc": "Referans egemen platformu ile uluslararası kaderinizin kontrolünü eline alın. Genişlemeniz burada, Kleer Infini mükemmelliği ile başlıyor.",
+      "button": "GENİŞLEMEYİ BAŞLAT 2026"
+    },
+    "footer": {
+      "desc": "Cezayir ihracat kolaylaştırmasının elitleri. Stratejik istihbarat ve Egemenlik.",
+      "platform": "Platform",
+      "resources": "Kaynaklar",
+      "sovereignty": "Egemenlik",
+      "links": {
+        "dashboard": "Kontrol Paneli",
+        "fspe": "FSPE Simülatörü",
+        "zlecaf": "ZLECAF Analizi",
+        "docs": "Dokümantasyon",
+        "api": "API Referansı",
+        "network": "Küresel Ağ",
+        "privacy": "Gizlilik Politikası",
+        "terms": "Hizmet Şartları",
+        "legal": "Hukuki Takip"
+      },
+      "copyright": "© 2026 KLEER INFINI EGEMENLİK. TÜM HAKLARI SAKLIDIR.",
+      "algeria": "CEZAYİR",
+      "international": "ULUSLARARASI"
     }
   }
 }

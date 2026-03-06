@@ -90,18 +90,21 @@ class ProducerProfileSerializer(serializers.ModelSerializer):
     
     def to_representation(self, instance):
         ret = super().to_representation(instance)
-        # Inject bonus values both in stats and as top-level fields for maximum compatibility
+        # Inject all 3 bonus values for maximum compatibility
         views = instance.get_views_with_bonus()
         likes = instance.get_likes_with_bonus()
+        quotes = instance.get_quotes_with_bonus()
         
         if 'stats' in ret:
             if not isinstance(ret['stats'], dict):
                 ret['stats'] = {}
             ret['stats']['views'] = views
             ret['stats']['likes'] = likes
+            ret['stats']['quotes'] = quotes
             
         ret['views_with_bonus'] = views
         ret['likes_with_bonus'] = likes
+        ret['quotes_with_bonus'] = quotes
         return ret
 
     def get_country_display(self, obj):

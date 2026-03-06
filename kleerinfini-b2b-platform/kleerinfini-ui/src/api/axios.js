@@ -7,7 +7,7 @@ const apiUrl = import.meta.env.VITE_API_URL;
 
 const getBaseHost = () => {
   if (apiUrl) return apiUrl.replace(/\/+$/, '');
-  return 'http://127.0.0.1:8001';
+  return 'http://127.0.0.1:8000';
 };
 
 export const BASE_HOST = getBaseHost();

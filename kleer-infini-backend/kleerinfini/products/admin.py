@@ -7,13 +7,22 @@ from admin_panel.admin_mixins import EditToggleAdminMixin
 from admin_panel.widgets import AdminImagePreviewWidget
 
 from products.models import Product, Category, Region, Type, ProductImage
+from products.utils import get_cloudinary_url
 
 
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     extra = 1
-    fields = ['image']
+    fields = ['image', 'cloudinary_link']
+    readonly_fields = ['cloudinary_link']
     can_delete = True
+
+    def cloudinary_link(self, obj):
+        if obj.image:
+            url = get_cloudinary_url(obj.image.name)
+            return mark_safe(f'<a href="{url}" target="_blank" style="color: #2563eb; font-weight: bold; text-decoration: underline;">🔗 Ouvrir dans Cloudinary</a>')
+        return "Pas d'image"
+    cloudinary_link.short_description = "Lien Cloudinary"
 
 
 @admin.register(Product)
@@ -74,14 +83,23 @@ class CategoryAdmin(EditToggleAdminMixin, ModelAdmin):
     ordering = ('name',)
     unfold_icon = "fa-solid fa-layer-group"
     unfold_section = "Catalogue"
-    readonly_fields = ('image_preview', 'certifications_count', 'certifications_list')
+    readonly_fields = ('image_preview', 'cloudinary_link', 'certifications_count', 'certifications_list')
     filter_horizontal = ('certifications',)
 
     def image_preview(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="{obj.image.url}" width="120" style="border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.15);" />')
+            url = get_cloudinary_url(obj.image.name)
+            return mark_safe(f'<img src="{url}" width="120" style="border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.15);" />')
         return "Pas d'image"
     image_preview.short_description = 'Aperçu'
+
+    def cloudinary_link(self, obj):
+        if obj.image:
+            url = get_cloudinary_url(obj.image.name)
+            return mark_safe(f'<a href="{url}" target="_blank" style="color: #2563eb; font-weight: bold; text-decoration: underline;">🔗 Ouvrir dans Cloudinary</a>')
+        return "Pas d'image"
+    cloudinary_link.short_description = "Lien Cloudinary"
+
 
     def certifications_count(self, obj):
         return obj.certifications.count()
@@ -127,7 +145,7 @@ class CategoryAdmin(EditToggleAdminMixin, ModelAdmin):
             'description': 'Informations générales de la catégorie'
         }),
         ('Image', {
-            'fields': ('image', 'image_preview'),
+            'fields': ('image', 'image_preview', 'cloudinary_link'),
             'description': 'Image de la catégorie (formats supportés : JPG, PNG)',
             'classes': ('wide',),
         }),
@@ -157,6 +175,7 @@ class ProductImageAdmin(ModelAdmin):
     
     def image_preview(self, obj):
         if obj.image:
-            return mark_safe(f'<img src="{obj.image.url}" width="100" style="border-radius: 6px;" />')
+            url = get_cloudinary_url(obj.image.name)
+            return mark_safe(f'<img src="{url}" width="100" style="border-radius: 6px;" />')
         return "Pas d'image"
     image_preview.short_description = "Aperçu"

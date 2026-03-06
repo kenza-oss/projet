@@ -6,23 +6,51 @@ class RealTimeService {
         this.listeners = new Set();
         this.reconnectAttempts = 0;
         this.maxReconnectAttempts = 5;
+        this._userId = null;
+        this._token = null;
     }
 
+    _isTokenExpired(token) {
+        try {
+            const payload = JSON.parse(atob(token.split('.')[1]));
+            return payload.exp * 1000 < Date.now();
+        } catch {
+            return true;
+        }
+    }
     connect(userId, token) {
+        if (!userId || !token) {
+            console.warn("[WS] connect() called without userId or token — skipping.");
+            return;
+        }
+
+        if (this._isTokenExpired(token)) {
+            console.warn("[WS] Token is already expired — skipping WebSocket connection.");
+            return;
+        }
+
+        this._userId = userId;
+        this._token = token;
+
         if (this.socket) {
             this.socket.onclose = null; // Prevent reconnect loop
             this.socket.close();
         }
 
         const wsProtocol = window.location.protocol === "https:" ? "wss:" : "ws:";
-        const wsHost = BASE_HOST.replace(/^https?:\/\//, "");
+        const wsHost = window.location.host;
         const wsUrl = `${wsProtocol}//${wsHost}/ws/chat/${userId}/?token=${token}`;
 
-        // console.log(`[WS] Connecting to ${wsUrl}`);
-        this.socket = new WebSocket(wsUrl);
+        console.log(`[WS] Attempting connection to: ${wsUrl}`);
+        try {
+            this.socket = new WebSocket(wsUrl);
+        } catch (e) {
+            console.error("[WS] Failed to construct WebSocket:", e);
+            return;
+        }
 
         this.socket.onopen = () => {
-            // console.log("[WS] Connected");
+            console.log("[WS] Connected successfully.");
             this.reconnectAttempts = 0;
         };
 
@@ -39,19 +67,39 @@ class RealTimeService {
         };
 
         this.socket.onclose = (e) => {
-            console.log(`[WS] Disconnected (Code: ${e.code})`);
-            if (this.reconnectAttempts < this.maxReconnectAttempts) {
-                this.reconnectAttempts++;
-                const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempts), 30000);
-                console.log(`[WS] Reconnecting in ${delay}ms...`);
-                setTimeout(() => this.connect(userId, token), delay);
+            // 1000 is normal closure
+            if (e.code === 1000) {
+                console.log(`[WS] Disconnected cleanly.`);
+                return;
+            }
+            console.warn(`[WS] Disconnected abnormally (Code: ${e.code}).`);
+
+            // Codes 4001, 4003, 4008 usually denote auth failure
+            const tokenRejected = e.code === 4001 || e.code === 4003 || e.code === 4008;
+            if (!tokenRejected) {
+                if (this.reconnectAttempts < this.maxReconnectAttempts) {
+                    this.reconnectAttempts++;
+                    const delay = Math.min(1000 * Math.pow(2, this.reconnectAttempts), 10000); // Max 10s between retries
+                    console.log(`[WS] Reconnecting in ${delay}ms... (Attempt ${this.reconnectAttempts}/${this.maxReconnectAttempts})`);
+                    setTimeout(() => {
+                        // Check if we haven't manually closed before reconnecting
+                        if (!this.socket || this.socket.readyState === WebSocket.CLOSED) {
+                            this.connect(this._userId, this._token);
+                        }
+                    }, delay);
+                } else {
+                    console.error("[WS] Max reconnect attempts reached. Giving up.");
+                }
+            } else {
+                console.warn("[WS] Token rejected by server — not reconnecting.");
             }
         };
 
         this.socket.onerror = (err) => {
-            console.error("[WS] Error:", err);
-            this.socket.close();
+            console.error("[WS] WebSocket Error occurred. See Network tab for details.");
+            try { this.socket.close(); } catch (e) { }
         };
+
     }
 
     playNotificationSound() {

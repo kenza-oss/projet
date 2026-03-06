@@ -22,7 +22,7 @@ logger = logging.getLogger(__name__)
 
 class MessageListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = MessageSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAuthenticated]
 
     @swagger_auto_schema(operation_summary="List all messages related to the authenticated user")
 
@@ -43,8 +43,6 @@ class MessageListCreateAPIView(generics.ListCreateAPIView):
     )
     def perform_create(self, serializer):
         try:
-            print(f"[DEBUG] perform_create starting for request user: {self.request.user}")
-            
             # Use request.user strictly
             sender = self.request.user
             if not sender or sender.is_anonymous:
@@ -86,7 +84,6 @@ class MessageListCreateAPIView(generics.ListCreateAPIView):
                     notification_type='message',
                     related_id=str(message.id)
                 )
-                print("[SUCCESS] Notification created:", notification.id)
                 logger.info(f"Notification created: {notification.id}")
 
                 # Send notification via WebSocket
@@ -108,7 +105,6 @@ class MessageListCreateAPIView(generics.ListCreateAPIView):
                 )
             except Exception as e:
                 logger.error(f"[ERROR] Failed to create or send notification: {str(e)}")
-                print("[ERROR] Notification creation error:", str(e))
 
             logger.info(f"Message and notification sent: {message.id}")
 
@@ -117,9 +113,7 @@ class MessageListCreateAPIView(generics.ListCreateAPIView):
             raise
 
     def create(self, request, *args, **kwargs):
-        """Override create to handle errors properly and log headers for debugging"""
-        auth_header = request.headers.get('Authorization', 'MISSING')
-        print(f"[DEBUG] POST /api/messages/ | Auth Header: {auth_header[:25]}...")
+        """Override create to handle errors properly"""
         try:
             return super().create(request, *args, **kwargs)
         except Exception as e:

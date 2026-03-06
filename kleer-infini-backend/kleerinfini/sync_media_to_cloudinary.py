@@ -7,11 +7,6 @@ import cloudinary.uploader
 from pathlib import Path
 import urllib.parse
 
-# For Windows console encoding issues
-if sys.platform == 'win32':
-    import codecs
-    sys.stdout = codecs.getwriter('utf-8')(sys.stdout.buffer)
-
 # 1. Setup Django
 BASE_DIR = Path(__file__).resolve().parent
 sys.path.append(str(BASE_DIR))
@@ -37,36 +32,44 @@ def sync_categories():
          return
 
      try:
-         with open(categories_path, 'r', encoding='utf-16') as f:
-             data = json.load(f)
-             for item in data:
-                 name = item.get('name')
-                 remote_path = item.get('image_url')
-                 if not remote_path: continue
+         # Try to load with multiple encodings
+         content = categories_path.read_bytes()
+         try:
+             data = json.loads(content.decode('utf-16'))
+         except:
+             data = json.loads(content.decode('utf-8', errors='ignore'))
 
-                 # Filename might be URL quoted: Capture_d%C3%A9cran
-                 quoted_filename = os.path.basename(remote_path)
-                 filename = urllib.parse.unquote(quoted_filename)
-                 
-                 local_file = BASE_DIR / 'media' / 'categories' / filename
-                 
-                 if local_file.exists():
-                     print(f"Uploading category image for {name} ({filename})...")
-                     upload_result = cloudinary.uploader.upload(
-                         str(local_file),
-                         folder="categories",
-                         public_id=filename.split('.')[0]
-                     )
-                     
-                     cat = Category.objects.filter(name=name).first()
-                     if cat:
-                         cat.image = upload_result['public_id']
-                         cat.save()
-                         print(f"  Successfully synced {name}")
-                 else:
-                     print(f"  Local file not found for {name}: {local_file}")
+         for item in data:
+             name = item.get('name')
+             remote_path = item.get('image_url')
+             if not remote_path: continue
+
+             quoted_filename = os.path.basename(remote_path)
+             filename = urllib.parse.unquote(quoted_filename)
+             
+             local_file = BASE_DIR / 'media' / 'categories' / filename
+             
+             if local_file.exists():
+                 try:
+                    print(f"Uploading category image for {name}...")
+                    with open(local_file, 'rb') as f:
+                        upload_result = cloudinary.uploader.upload(
+                            f,
+                            folder="categories",
+                            public_id=filename.split('.')[0]
+                        )
+                    
+                    cat = Category.objects.filter(name=name).first()
+                    if cat:
+                        cat.image = upload_result['public_id']
+                        cat.save()
+                        print(f"  Successfully synced {name}")
+                 except Exception as upload_err:
+                    print(f"  Upload failed for {name}: {upload_err}")
+             else:
+                 print(f"  Local file not found for {name}: {local_file}")
      except Exception as e:
-         print(f"Error in sync_categories: {str(e).encode('ascii', 'ignore')}")
+         print(f"Error in sync_categories: {e}")
 
 def sync_products():
     print("\n--- Syncing Product Images ---")
@@ -76,44 +79,45 @@ def sync_products():
         return
 
     try:
-        with open(products_path, 'r', encoding='utf-16') as f:
-            full_data = json.load(f)
-            items = full_data.get('value', [])
-            for item in items:
-                name = item.get('name')
-                images_list = item.get('images', []) 
-                
-                if not images_list and 'image' in item:
-                    img = item['image']
-                    images_list = [img] if isinstance(img, str) else img
+        content = products_path.read_bytes()
+        try:
+            full_data = json.loads(content.decode('utf-16'))
+        except:
+            full_data = json.loads(content.decode('utf-8', errors='ignore'))
+            
+        items = full_data.get('value', [])
+        for item in items:
+            name = item.get('name')
+            images_list = item.get('images', []) 
+            
+            if not images_list and 'image' in item:
+                img = item['image']
+                images_list = [img] if isinstance(img, str) else img
 
-                product = Product.objects.filter(name=name).first()
-                if not product: continue
+            product = Product.objects.filter(name=name).first()
+            if not product: continue
 
-                # Dedup check to avoid duplicate images
-                existing_images = list(product.images.values_list('image', flat=True))
+            existing_images = list(product.images.values_list('image', flat=True))
 
-                for img_data in images_list:
-                    url = img_data if isinstance(img_data, str) else img_data.get('image')
-                    if not url: continue
+            for img_data in images_list:
+                url = img_data if isinstance(img_data, str) else img_data.get('image')
+                if not url: continue
 
-                    quoted_filename = os.path.basename(url)
-                    filename = urllib.parse.unquote(quoted_filename)
-                    local_file = BASE_DIR / 'media' / 'products' / filename
+                quoted_filename = os.path.basename(url)
+                filename = urllib.parse.unquote(quoted_filename)
+                local_file = BASE_DIR / 'media' / 'products' / filename
 
-                    if local_file.exists():
-                        print(f"Uploading product image for {name} ({filename})...")
-                        upload_result = cloudinary.uploader.upload(
-                            str(local_file),
-                            folder="products",
-                            public_id=filename.split('.')[0]
-                        )
+                if local_file.exists():
+                    try:
+                        print(f"Uploading product image for {name}...")
+                        with open(local_file, 'rb') as f:
+                            upload_result = cloudinary.uploader.upload(
+                                f,
+                                folder="products",
+                                public_id=filename.split('.')[0]
+                            )
                         
-                        # Use public_id as the 'image' field value for Cloudinary storage
                         public_id = upload_result['public_id']
-                        
-                        # Basic check to avoid duplicates in ProductImage
-                        # Note: we compare filename part because public_id might have a random suffix if not specified
                         if not any(f in public_id for f in existing_images):
                             ProductImage.objects.create(
                                 product=product,
@@ -122,10 +126,12 @@ def sync_products():
                             print(f"  Successfully synced image for {name}")
                         else:
                             print(f"  Image already exists in DB for {name}")
-                    else:
-                        print(f"  Local file not found for {name}: {local_file}")
+                    except Exception as upload_err:
+                        print(f"  Upload failed for {name}: {upload_err}")
+                else:
+                    print(f"  Local file not found for {name}: {local_file}")
     except Exception as e:
-         print(f"Error in sync_products: {str(e).encode('ascii', 'ignore')}")
+         print(f"Error in sync_products: {e}")
 
 if __name__ == "__main__":
     sync_categories()

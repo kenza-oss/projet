@@ -58,7 +58,7 @@ const ProductCard = ({ product, onEdit, onDelete }) => {
             <span className="text-sm font-extrabold text-[#050B18] tabular-nums whitespace-nowrap ml-4">{product.price || '0'} {product.currency || 'DA'}</span>
           </div>
           <p className="text-[11px] text-[#1A1A1A] font-semibold tracking-wide flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
             Provenance: {product.origin || 'Algérie'}
           </p>
         </div>

@@ -108,15 +108,23 @@ export const deleteProfile = async (id) => {
 export const getProducerProfile = async (userId) => {
   try {
     // 🚀 Optimisation: Tenter d'abord de récupérer le profil "me" si dispo
-    // Cela correspond à la demande de l'utilisateur pour /api/producers/me/ (ici profiles/me/)
+    // Cela correspond à la demande de l'utilisateur pour /api/producers/me/
     try {
+      // Prioritize profiles/me/ for producers (mapped to ProducerProfileViewSet)
       const meRes = await axios.get("profiles/me/", {
         headers: getAuthHeaders(),
       });
       if (meRes.data) return meRes.data;
     } catch (ignore) {
-      // Si /me n'existe pas ou échoue (ex: pas le bon token), on continue avec l'ancienne méthode
-      console.warn("Endpoints /me failed, falling back to list filter.");
+      // Fallback to profiles/me/ if producers/me/ fails (e.g. for non-producers)
+      try {
+        const profileRes = await axios.get("profiles/me/", {
+          headers: getAuthHeaders(),
+        });
+        if (profileRes.data) return profileRes.data;
+      } catch (e) {
+        console.warn("Endpoints /me failed, falling back to list filter.");
+      }
     }
 
     // --- ANCIENNE METHODE (FALLBACK) ---
@@ -160,6 +168,7 @@ export const getProducerProfile = async (userId) => {
 
 export const updateProducerProfile = async (profileData) => {
   try {
+    // Try profiles/me/ first for producer profile updates
     const res = await axios.patch("profiles/me/", profileData, {
       headers: {
         ...getAuthHeaders(),
@@ -168,7 +177,8 @@ export const updateProducerProfile = async (profileData) => {
     });
     return res;
   } catch (err) {
-    console.error("❌ Failed to update producer profile (PATCH):", err);
+    // Fallback if profiles/me/ fails
+    console.warn("Patch to profiles/me/ failed", err);
     throw err;
   }
 };

@@ -17,10 +17,11 @@ const DetailedStatistics = ({ products = [], profile }) => {
   const [showGuide, setShowGuide] = useState(false);
   const [globalSettings, setGlobalSettings] = useState({});
 
-  // Extract real stats from profile
-  const views = profile?.views_with_bonus || 0;
-  const likes = profile?.likes_with_bonus || 0;
-  const quotesCount = profile?.demands?.length || 0; // If demands are added to profile by backend
+  // Extract real stats from profile (all three include the +37/day backend bonus)
+  // Force a baseline of 37 as requested by user
+  const views = Math.max(37, profile?.views_with_bonus || 0);
+  const likes = Math.max(37, profile?.likes_with_bonus || 0);
+  const quotesCount = Math.max(37, profile?.quotes_with_bonus ?? profile?.demands?.length ?? 0);
 
   const handleDownload = () => {
     setIsDownloading(true);
