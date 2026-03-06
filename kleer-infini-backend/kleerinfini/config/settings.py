@@ -308,6 +308,10 @@ STORAGES = {
     },
 }
 
+# Legacy compatibility for older libraries (Django < 4.2 style)
+DEFAULT_FILE_STORAGE = STORAGES["default"]["BACKEND"]
+STATICFILES_STORAGE = STORAGES["staticfiles"]["BACKEND"]
+
 # Celery configuration (uses REDIS_URL in production if set)
 _celery_redis = REDIS_URL or 'redis://localhost:6379/0'
 CELERY_BROKER_URL = _celery_redis
