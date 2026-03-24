@@ -37,7 +37,7 @@ export default function HeroSection({ onOpenMap }) {
           <motion.div
             key={currentBgIndex}
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.6 }}
+            animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
@@ -45,15 +45,15 @@ export default function HeroSection({ onOpenMap }) {
             <img
               src={backgroundImages[currentBgIndex]}
               alt={`Luxury Background ${currentBgIndex + 1}`}
-              className="w-full h-full object-cover scale-105 animate-slow-zoom"
-              style={{ filter: 'brightness(0.7) contrast(1.2)' }}
+              className="w-full h-full object-cover"
+              style={{ filter: 'brightness(0.8) contrast(1.1)' }}
             />
           </motion.div>
         </AnimatePresence>
         
-        {/* Luminous Overlays */}
-        <div className="absolute inset-0 bg-black/30 bg-opacity-40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-transparent to-transparent"></div>
+        {/* Luminous Overlays - Adjusted for better contrast over HD images */}
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
       </div>
 

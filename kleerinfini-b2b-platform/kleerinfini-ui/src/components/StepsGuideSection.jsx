@@ -123,7 +123,7 @@ export default function StepsGuideSection() {
             <img
               src={excellenceBg}
               alt="Excellence Background"
-              className="w-full h-full object-cover brightness-[0.8] contrast-[1.0] group-hover:scale-105 transition-transform duration-[5000ms] ease-out"
+              className="w-full h-full object-cover transition-transform duration-[5000ms] ease-out"
             />
 
             {/* Sophisticated Gradient Overlays */}
