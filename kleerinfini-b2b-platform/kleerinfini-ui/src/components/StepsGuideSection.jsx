@@ -3,7 +3,7 @@ import { UserPlus, Search, FileText, CheckCircle, ArrowRight, Play, Globe } from
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import excellenceBg from "@/assets/excellence_bg.jpg";
+import excellenceBg from "@/assets/import_request_bg.jpg";
 
 export default function StepsGuideSection() {
   const { t, i18n } = useTranslation();

@@ -4,12 +4,24 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-import luxuryHero from "../assets/luxury_hero.png";
+import heroBg1 from "../assets/hero_bg_1.jpg";
+import heroBg2 from "../assets/hero_bg_2.jpg";
+import heroBg3 from "../assets/hero_bg_3.jpg";
+import heroBg4 from "../assets/hero_bg_4.jpg";
+
+const backgroundImages = [heroBg1, heroBg2, heroBg3, heroBg4];
 
 export default function HeroSection({ onOpenMap }) {
   const { t } = useTranslation();
   const navigate = useNavigate();
-  const backgroundImage = luxuryHero;
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
+    }, 5000); // 5 seconds interval
+    return () => clearInterval(timer);
+  }, []);
 
   const stats = [
     { icon: Users, label: "home.hero.stats.verified", value: "850+" },
@@ -21,18 +33,27 @@ export default function HeroSection({ onOpenMap }) {
     <section className="relative min-h-screen bg-[#0A0A0A] overflow-hidden flex items-center justify-center grainy-texture">
       {/* Background Media Wrapper */}
       <div className="absolute inset-0 z-0 h-full w-full overflow-hidden">
-        <div className="absolute inset-0 w-full h-full">
-          <img
-            src={backgroundImage}
-            alt="Luxury Background"
-            className="w-full h-full object-cover scale-105 opacity-60 animate-slow-zoom"
-            style={{ filter: 'brightness(0.7) contrast(1.2)' }}
-          />
-          {/* Luminous Overlay */}
-          <div className="absolute inset-0 bg-black/30"></div>
-          {/* Luminous Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/80 via-transparent to-transparent"></div>
-        </div>
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentBgIndex}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.6 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <img
+              src={backgroundImages[currentBgIndex]}
+              alt={`Luxury Background ${currentBgIndex + 1}`}
+              className="w-full h-full object-cover scale-105 animate-slow-zoom"
+              style={{ filter: 'brightness(0.7) contrast(1.2)' }}
+            />
+          </motion.div>
+        </AnimatePresence>
+        
+        {/* Luminous Overlays */}
+        <div className="absolute inset-0 bg-black/30 bg-opacity-40"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A]/90 via-transparent to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
       </div>
 
