@@ -126,10 +126,6 @@ export default function StepsGuideSection() {
               className="w-full h-full object-cover transition-transform duration-[5000ms] ease-out"
             />
 
-            {/* Sophisticated Gradient Overlays */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent"></div>
-            <div className="absolute inset-0 bg-gradient-to-br from-[#D4AF37]/10 via-transparent to-[#FF6600]/10 mix-blend-overlay"></div>
-
             {/* Luxury Shine Effect */}
             <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 

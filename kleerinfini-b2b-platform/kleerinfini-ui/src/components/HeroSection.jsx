@@ -6,10 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import heroBg1 from "../assets/hero_bg_1.jpg";
 import heroBg2 from "../assets/hero_bg_2.jpg";
-import heroBg3 from "../assets/hero_bg_3.jpg";
 import heroBg4 from "../assets/hero_bg_4.jpg";
 
-const backgroundImages = [heroBg1, heroBg2, heroBg3, heroBg4];
+const backgroundImages = [heroBg1, heroBg2, heroBg4];
 
 export default function HeroSection({ onOpenMap }) {
   const { t } = useTranslation();
@@ -39,21 +38,19 @@ export default function HeroSection({ onOpenMap }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
+            transition={{ duration: 0.8, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
           >
             <img
               src={backgroundImages[currentBgIndex]}
               alt={`Luxury Background ${currentBgIndex + 1}`}
               className="w-full h-full object-cover"
-              style={{ filter: 'brightness(0.8) contrast(1.1)' }}
             />
           </motion.div>
         </AnimatePresence>
         
-        {/* Luminous Overlays - Adjusted for better contrast over HD images */}
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent"></div>
+        {/* Adjusted Overlays for absolute HD Clarity */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent opacity-60"></div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
       </div>
 
