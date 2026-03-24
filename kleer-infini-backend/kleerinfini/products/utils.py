@@ -52,15 +52,22 @@ def get_cloudinary_url(name):
     # ── Cas 4 : Chemin relatif ou public ID → construire l'URL Cloudinary ─────
     clean = name
 
-    # Supprimer les préfixes media/products* variés
+    # Normalisation vers le préfixe "media/products/" qui est celui en place sur Cloudinary
+    found_prefix = False
     for prefix in ['/media/products_images/', 'media/products_images/',
                    '/media/products/', 'media/products/',
-                   'products_images/', '/products_images/']:
+                   'products_images/', '/products_images/',
+                   '/products/', 'products/']:
         if clean.startswith(prefix):
-            clean = 'products/' + clean[len(prefix):]
+            clean = 'media/products/' + clean[len(prefix):]
+            found_prefix = True
             break
 
-    # Supprimer le slash initial restant
+    # Si aucun préfixe connu n'est trouvé et que c'est un ID court (sans slash), on ajoute le préfixe par défaut
+    if not found_prefix and '/' not in clean:
+        clean = 'media/products/' + clean
+
+    # Supprimer le slash initial restant au cas où
     if clean.startswith('/'):
         clean = clean[1:]
 
