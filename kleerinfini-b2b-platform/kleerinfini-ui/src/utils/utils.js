@@ -78,12 +78,27 @@ export const getProductImage = (imageField, index = 0, product = {}) => {
         return FALLBACK_IMAGE;
     }
 
-    // A. Handle Cloudinary images
+    // A. Handle Cloudinary images (Complete URLs or partial paths)
     if (source.includes('/media/image/upload/')) {
         const parts = source.split('/media/image/upload/');
         const path = parts[parts.length - 1];
-        // Updated to match backend Cloudinary account 'dptb2m02i'
         return `https://res.cloudinary.com/dptb2m02i/image/upload/f_auto,q_auto,e_sharpen:100,dpr_auto/${path}`;
+    }
+
+    // New: Handle direct Cloudinary paths from backend (like media/products/xxx or products/xxx)
+    if (!source.startsWith('http') && (source.includes('products/') || source.match(/^\d+_/))) {
+        let cleanPath = source;
+        if (cleanPath.startsWith('/')) cleanPath = cleanPath.substring(1);
+        
+        // Ensure it has the full path expected by the account
+        if (!cleanPath.startsWith('media/')) {
+            if (cleanPath.startsWith('products/')) {
+                cleanPath = 'media/' + cleanPath;
+            } else {
+                cleanPath = 'media/products/' + cleanPath;
+            }
+        }
+        return `https://res.cloudinary.com/dptb2m02i/image/upload/f_auto,q_auto,e_sharpen:100,dpr_auto/${cleanPath}`;
     }
 
     // B. Handle Local Media & Absolute URLs
@@ -100,6 +115,7 @@ export const getProductImage = (imageField, index = 0, product = {}) => {
 
     // Check if it already has /media/ prefix
     if (path.startsWith('/media/')) {
+        // Fallback for real local media if not a Cloudinary ID
         return `${BASE_HOST}${path}`;
     }
 
