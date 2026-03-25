@@ -25,8 +25,9 @@ const ProducerLogin = () => {
         try {
             await login(data.email, data.password);
             const loggedUser = JSON.parse(localStorage.getItem('user'));
+            const allowedRoles = ['producer', 'admin'];
 
-            if (loggedUser?.role !== 'producer') {
+            if (!allowedRoles.includes(loggedUser?.role)) {
                 setError(t('producerLogin.errors.notProducer'));
                 localStorage.clear();
                 return;
