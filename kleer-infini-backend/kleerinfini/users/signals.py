@@ -11,8 +11,9 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
     When a token is created, an e-mail needs to be sent to the user
     """
     # URL pointing to the frontend reset password page
-    frontend_url = "http://localhost:5173/reset-password"
-    reset_password_url = f"{frontend_url}/{reset_password_token.key}"
+    from decouple import config
+    frontend_url = config('FRONTEND_URL', default='https://projet-1-y2ku.onrender.com').rstrip('/')
+    reset_password_url = f"{frontend_url}/reset-password/{reset_password_token.key}"
 
     # context of the email
     context = {
@@ -33,7 +34,17 @@ def password_reset_token_created(sender, instance, reset_password_token, *args, 
         [reset_password_token.user.email]
     )
     msg.attach_alternative(email_html_message, "text/html")
-    msg.send()
+    
+    # Send email asynchronously to prevent blocking the main thread and hanging the API request
+    import threading
+    def send_email_async(message):
+        try:
+            message.send()
+        except Exception as e:
+            import logging
+            logging.getLogger(__name__).error(f"Failed to send password reset email: {e}")
+
+    threading.Thread(target=send_email_async, args=(msg,)).start()
 
 from django.db.models.signals import post_delete
 from clients.models import ClientProfile
