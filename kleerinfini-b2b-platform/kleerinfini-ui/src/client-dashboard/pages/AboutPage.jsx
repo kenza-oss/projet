@@ -10,7 +10,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import { Helmet } from "react-helmet-async";
 import IMAGE_HERO_OLD from "../../assets/essence_1.png";
-import IMAGE_HERO_NEW from "../../assets/about_hero_new.jpg";
+import IMAGE_HERO_NEW from "../../assets/images/hero-about-bg.jpg";
 
 export default function AboutPage() {
     const { t } = useTranslation();
@@ -46,16 +46,17 @@ export default function AboutPage() {
 
             {/* INDUSTRIAL HERO SECTION */}
             <div className="relative h-[60vh] md:h-[75vh] min-h-[500px] flex items-center overflow-hidden bg-[#0a0a0a]">
-                {/* Background Image - Sharp and Vivid */}
-                <div className="absolute inset-0 z-0">
+                {/* Background Image - Sharp and Vivid with Professional Filters */}
+                <div className="absolute inset-0 z-0 bg-[#0a0a0a]">
                     <img
                         src={IMAGE_HERO_NEW}
                         onError={(e) => { e.target.src = IMAGE_HERO_OLD }}
                         alt="Kleer Infini Excellence"
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover saturate-[1.15] contrast-[1.05] brightness-[0.85] transition-transform duration-[20s] hover:scale-105"
                     />
-                    {/* Professional gradient overlay for text readability without blurring the image */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-[#050B18] via-[#050B18]/60 to-transparent z-10"></div>
+                    {/* Premium dark gradient overlay for optimal text contrast and sleek aesthetics */}
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a] via-[#0a0a0a]/60 to-transparent z-10"></div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-transparent to-[#0a0a0a]/30 z-10"></div>
                 </div>
 
                 <div className="relative z-20 px-6 sm:px-12 max-w-7xl mx-auto w-full">
