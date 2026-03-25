@@ -143,7 +143,7 @@ const ProductCard = ({ product, categories = {} }) => {
               onClick={(e) => {
                 e.stopPropagation();
                 if (isAuthenticated) {
-                  navigate(`/producers/${producer.id || 1}`);
+                  navigate(`/producer/${producer.id || 1}`);
                 } else {
                   setIsAuthModalOpen(true);
                 }

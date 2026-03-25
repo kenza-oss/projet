@@ -12,6 +12,7 @@ import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { Lock, LogIn, UserPlus } from 'lucide-react';
+import AuthRequiredModal from '../components/AuthRequiredModal';
 
 // Fix for default marker icon in React Leaflet
 delete L.Icon.Default.prototype._getIconUrl;
@@ -407,6 +408,11 @@ const Producers = () => {
                     </p>
                 </div>
             </div>
+
+            <AuthRequiredModal
+                isOpen={showAuthModal}
+                onClose={() => setShowAuthModal(false)}
+            />
 
             <Footer />
 

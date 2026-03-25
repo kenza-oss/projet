@@ -15,7 +15,7 @@ const ProducerMiniCard = ({ producer, categoryName }) => {
     const handleMessageClick = (e) => {
         e.stopPropagation(); // Prevents clicking the underlying card
         if (isAuthenticated) {
-            navigate(`/producers/${producer.id || 1}`); // Fallback ID if none provided
+            navigate(`/producer/${producer.id || 1}`); // Fallback ID if none provided
         } else {
             setIsAuthModalOpen(true);
         }
