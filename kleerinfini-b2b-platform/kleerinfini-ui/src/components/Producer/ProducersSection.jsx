@@ -12,6 +12,7 @@ import {
   X,
   ChevronDown,
 } from "lucide-react";
+import api from "../../api/axios";
 
 export default function ProducersSection() {
   const [producers, setProducers] = useState([]);
@@ -21,9 +22,8 @@ export default function ProducersSection() {
   useEffect(() => {
     const fetchProducers = async () => {
       try {
-        const res = await fetch("/api/producers/"); 
-        if (!res.ok) throw new Error("Failed to fetch producers");
-        const data = await res.json();
+        const res = await api.get("profiles/"); 
+        const data = res.data.results || res.data || [];
         setProducers(data);
       } catch (err) {
         console.error(err);
@@ -69,16 +69,16 @@ export default function ProducersSection() {
               className="bg-gray-900 rounded-xl p-6 shadow-md border-2 border-[#D2B48C] hover:shadow-[0_8px_32px_rgba(210,180,140,0.3)] transition-all duration-300"
             >
               <img
-                src={producer.logo || "/placeholder.png"}
-                alt={producer.name}
-                className="h-32 mx-auto object-contain mb-4"
+                src={producer.logo_url || "/placeholder.png"}
+                alt={producer.company_name}
+                className="h-32 mx-auto object-contain mb-4 rounded-lg"
               />
-              <h3 className="text-xl font-semibold mb-2">{producer.name}</h3>
+              <h3 className="text-xl font-semibold mb-2">{producer.company_name || "Producteur"}</h3>
               <p className="text-sm text-[#D2B48C]">
-                {producer.location || "Non spécifié"}
+                {producer.city || "Algérie"}
               </p>
               <p className="text-sm text-yellow-400 font-medium">
-                {producer.category || "—"}
+                {producer.activity || "—"}
               </p>
             </div>
           ))}

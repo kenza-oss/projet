@@ -310,7 +310,34 @@ export default function Carte({ onClose }) {
                   </div>
 
                   {/* Content */}
-                  <div className="p-3 space-y-2 text-sm">
+                  <div className="p-3 space-y-3 text-sm">
+                    {/* Engagement Metrics - Matching the Producers page design */}
+                    <div className="flex items-center justify-around py-2 px-1 bg-gray-50 rounded-xl border border-gray-100 shadow-inner">
+                      <div className="flex flex-col items-center gap-0.5">
+                        <div className="flex items-center gap-1">
+                          <BarChart3 className="w-3 h-3 text-blue-500" />
+                          <span className="text-[11px] font-black text-gray-800">{producer.views_with_bonus || producer.stats?.views || 0}</span>
+                        </div>
+                        <span className="text-[8px] text-gray-400 font-bold uppercase tracking-tighter">Vues</span>
+                      </div>
+                      <div className="w-px h-6 bg-gray-200"></div>
+                      <div className="flex flex-col items-center gap-0.5">
+                        <div className="flex items-center gap-1">
+                          <Award className="w-3 h-3 text-amber-500" />
+                          <span className="text-[11px] font-black text-gray-800">{producer.rating || "4.5"}</span>
+                        </div>
+                        <span className="text-[8px] text-gray-400 font-bold uppercase tracking-tighter">Note</span>
+                      </div>
+                      <div className="w-px h-6 bg-gray-200"></div>
+                      <div className="flex flex-col items-center gap-0.5">
+                        <div className="flex items-center gap-1">
+                          <FileText className="w-3 h-3 text-rose-500" />
+                          <span className="text-[11px] font-black text-gray-800">{producer.likes_with_bonus || producer.stats?.likes || 0}</span>
+                        </div>
+                        <span className="text-[8px] text-gray-400 font-bold uppercase tracking-tighter">Likes</span>
+                      </div>
+                    </div>
+
                     {(producer.email || producer.user_email) && (
                       <div className="border-b border-gray-100 pb-2 flex items-center gap-2">
                         <Mail className="w-3 h-3 text-orange-500 shrink-0" />

@@ -105,10 +105,10 @@ const Producers = () => {
                         ...p,
                         lat,
                         lng,
-                        // Engagement metrics (Random for UI feel if not in DB)
-                        likes: p.likes || Math.floor(Math.random() * 500) + 100,
-                        rating: p.rating || (Math.random() * 1.5 + 3.5).toFixed(1),
-                        views: p.views || Math.floor(Math.random() * 5000) + 1000,
+                        // Engagement metrics - Use backend bonus stats (+37/day) as planned
+                        likes: p.likes_with_bonus || p.stats?.likes || 0,
+                        rating: p.rating || "4.5",
+                        views: p.views_with_bonus || p.stats?.views || 0,
                         // Ensure all items have details
                         address: p.address || t("home.map.no_address", "Adresse non spécifiée"),
                         phone: p.phone || "+213 000 000 000",

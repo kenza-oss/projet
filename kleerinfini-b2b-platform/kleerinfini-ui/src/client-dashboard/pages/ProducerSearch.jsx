@@ -293,8 +293,8 @@ const ProducerSearch = () => {
 
   const fetchProducers = async () => {
     try {
-      const response = await api.get('/producers/');
-      setProducers(response.data);
+      const response = await api.get('profiles/');
+      setProducers(response.data.results || response.data || []);
     } catch (error) {
       console.error('❌ Erreur producteurs:', error);
     }
