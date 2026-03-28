@@ -3,6 +3,7 @@ import { Search, Filter, MapPin, Award, ArrowRight, Loader, Package, Grid3x3, Bu
 import { motion } from 'framer-motion';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { globalSearch } from '../../api/search';
+import { getProductImage } from '../../utils/utils';
 
 const ClientProducerSearch = () => {
     const [searchParams] = useSearchParams();
@@ -144,9 +145,9 @@ const ClientProducerSearch = () => {
                                         className="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-blue-50/50 transition-all duration-300 cursor-pointer"
                                     >
                                         <div className="h-40 overflow-hidden relative bg-gray-100">
-                                            {product.image || product.images?.[0] ? (
+                                            {(product.image || product.images?.[0]) ? (
                                                 <img
-                                                    src={product.image || product.images[0]}
+                                                    src={getProductImage(product.image || product.images?.[0], 0, product)}
                                                     alt={product.name}
                                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                 />
@@ -182,9 +183,9 @@ const ClientProducerSearch = () => {
                                         className="group bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-xl hover:shadow-green-50/50 transition-all duration-300 cursor-pointer"
                                     >
                                         <div className="h-32 overflow-hidden relative bg-gray-100">
-                                            {producer.cover_image_url || producer.logo_url ? (
+                                            {(producer.cover_image_url || producer.logo_url || producer.logo || producer.cover_image) ? (
                                                 <img
-                                                    src={producer.cover_image_url || producer.logo_url}
+                                                    src={getProductImage(producer.cover_image_url || producer.logo_url || producer.logo || producer.cover_image, 0, producer)}
                                                     alt={producer.company_name}
                                                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                                 />

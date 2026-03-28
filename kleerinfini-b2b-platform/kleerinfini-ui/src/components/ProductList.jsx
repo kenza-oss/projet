@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api/axios';
+import { getProductImage } from '../utils/utils';
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -39,10 +40,10 @@ const ProductList = () => {
               backgroundColor: '#f9f9f9'
             }}>
               <h3 style={{ margin: '0 0 10px 0', color: '#333' }}>{product.name}</h3>
-              {product.images && product.images.length > 0 && (
+              {(product.images && product.images.length > 0) || product.image ? (
                 <div style={{ margin: '10px 0' }}>
                   <img
-                    src={product.images[0]}
+                    src={getProductImage(product.images?.[0] || product.image, 0, product)}
                     alt={product.name}
                     style={{
                       width: '200px',
@@ -51,6 +52,20 @@ const ProductList = () => {
                       borderRadius: '4px'
                     }}
                   />
+                </div>
+              ) : (
+                <div style={{ 
+                  width: '200px', 
+                  height: '150px', 
+                  backgroundColor: '#eee', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  borderRadius: '4px',
+                  color: '#999',
+                  fontSize: '12px'
+                }}>
+                  No Image
                 </div>
               )}
               <p style={{ margin: '5px 0' }}>{product.desc_courte}</p>
