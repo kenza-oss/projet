@@ -5,7 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import {
   FaGlobe, FaBrain, FaCalendarAlt, FaMapMarkerAlt,
-  FaExternalLinkAlt, FaStar, FaRobot, FaCheckCircle
+  FaExternalLinkAlt, FaStar, FaRobot, FaCheckCircle, FaTimes
 } from 'react-icons/fa';
 import { Sparkles, Zap, Award, ArrowUpRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -28,6 +28,18 @@ const DjazagroPage = () => {
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedEvent, setSelectedEvent] = useState(null);
+
+  // Lock body scroll when modal is open to ensure clean interaction
+  useEffect(() => {
+    if (selectedEvent) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedEvent]);
 
   const handleImageError = (e) => {
     e.target.src = 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1920';
@@ -661,14 +673,13 @@ const DjazagroPage = () => {
               initial={{ scale: 0.9, opacity: 0, y: 30 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.9, opacity: 0, y: 30 }}
-              className="relative w-full max-w-5xl bg-white rounded-2xl md:rounded-[2rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] flex flex-col lg:flex-row max-h-[95vh] lg:max-h-[90vh] overflow-y-auto lg:overflow-visible"
+              className="relative w-full max-w-5xl bg-white rounded-2xl md:rounded-[2rem] shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] flex flex-col lg:flex-row max-h-[95vh] lg:max-h-[90vh] overflow-y-auto"
             >
-              {/* Close Button */}
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 bg-black/20 hover:bg-black/40 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all border border-white/10"
+                className="absolute top-4 right-4 md:top-6 md:right-6 z-[110] w-10 h-10 md:w-12 md:h-12 bg-black/60 hover:bg-black/80 backdrop-blur-md rounded-full flex items-center justify-center text-white transition-all border border-white/20 shadow-xl"
               >
-                <div className="text-xl md:text-2xl">×</div>
+                <FaTimes className="w-5 h-5 md:w-6 md:h-6" />
               </button>
 
               {/* Modal Left: Visual */}
