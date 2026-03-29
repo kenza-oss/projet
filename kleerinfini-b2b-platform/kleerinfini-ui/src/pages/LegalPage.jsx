@@ -64,8 +64,8 @@ const PrivacyContent = () => (
 
                 {/* Card 3 — Contact */}
                 <InfoCard icon={MessageCircle} iconColor="text-emerald-500" iconBg="bg-emerald-50" title="Support Direct">
-                    <Row icon={Mail}><a href="mailto:direction@kleerinfini-export.com" className="text-[#FF6600] hover:underline">direction@kleerinfini-export.com</a></Row>
-                    <Row icon={Mail}><a href="mailto:contact@kleerinfini-export.com" className="text-[#FF6600] hover:underline">contact@kleerinfini-export.com</a></Row>
+                    <Row icon={Mail}><a href="mailto:direction@kleer-Infini.dz" className="text-[#FF6600] hover:underline">direction@kleer-Infini.dz</a></Row>
+                    <Row icon={Mail}><a href="mailto:contact@kleer-Infini.dz" className="text-[#FF6600] hover:underline">contact@kleer-Infini.dz</a></Row>
                     <Row icon={Phone}><a href="https://wa.me/213540836321" target="_blank" rel="noreferrer" className="text-[#FF6600] hover:underline">WhatsApp : +213 540 836 321</a></Row>
                 </InfoCard>
             </div>
@@ -134,7 +134,7 @@ const PrivacyContent = () => (
                     <ul className="space-y-2 list-none">
                         <li className="flex gap-2 items-start"><CheckCircle2 size={15} className="text-[#FF6600] mt-0.5 shrink-0" /><span>Accéder, modifier ou supprimer vos données depuis votre Dashboard.</span></li>
                         <li className="flex gap-2 items-start"><CheckCircle2 size={15} className="text-[#FF6600] mt-0.5 shrink-0" /><span>Retirer votre consentement pour les communications marketing.</span></li>
-                        <li className="flex gap-2 items-start"><CheckCircle2 size={15} className="text-[#FF6600] mt-0.5 shrink-0" /><span>Contacter notre DPO à <a href="mailto:direction@kleerinfini-export.com" className="text-[#FF6600] hover:underline">direction@kleerinfini-export.com</a></span></li>
+                        <li className="flex gap-2 items-start"><CheckCircle2 size={15} className="text-[#FF6600] mt-0.5 shrink-0" /><span>Contacter notre DPO à <a href="mailto:direction@kleer-Infini.dz" className="text-[#FF6600] hover:underline">direction@kleer-Infini.dz</a></span></li>
                     </ul>
                 )
             },

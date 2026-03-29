@@ -67,7 +67,7 @@ export const generatePresentationPDF = (producerProfile, documents = []) => {
     // Contact
     doc.setFontSize(10);
     doc.setTextColor(120, 120, 120);
-    doc.text("Contact Stratégique : contact@kleerinfini-export.com", 20, 270);
+    doc.text("Contact Stratégique : contact@kleer-Infini.dz", 20, 270);
     doc.text(`Date : ${new Date().toLocaleDateString()}`, 160, 270);
 
     doc.save(`Presentation_KleerInfini_${company.replace(/\s+/g, '_')}.pdf`);
@@ -111,7 +111,7 @@ export const generateIdeaPDF = (producerProfile, ideaText) => {
     doc.setFontSize(10);
     doc.setTextColor(120, 120, 120);
     doc.text("Ce document a été généré via le Dashboard Kleer Infini.", 20, 270);
-    doc.text("Veuillez envoyer ce PDF à contact@kleerinfini-export.com", 20, 280);
+    doc.text("Veuillez envoyer ce PDF à contact@kleer-Infini.dz", 20, 280);
 
     doc.save(`Proposition_Collaboration_${company.replace(/\s+/g, '_')}.pdf`);
     return true;
