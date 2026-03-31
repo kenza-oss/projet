@@ -3,7 +3,7 @@ import { UserPlus, Search, FileText, CheckCircle, ArrowRight, Play, Globe } from
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
-import excellenceBg from "@/assets/import_request_bg.jpg";
+import excellenceBg from "@/assets/excellence_bg_new.png";
 
 export default function StepsGuideSection() {
   const { t, i18n } = useTranslation();
@@ -79,7 +79,7 @@ export default function StepsGuideSection() {
             className="flex flex-col items-center justify-center gap-4 mt-6 md:mt-8 px-4"
           >
             <div className="flex flex-col items-center gap-3">
-              <p className="!text-white text-base sm:text-lg md:text-xl font-luxury tracking-wide max-w-3xl text-center italic font-light">
+              <p className="!text-white text-xl md:text-2xl font-serif-luxury tracking-wider max-w-4xl text-center italic font-normal leading-relaxed drop-shadow-lg opacity-90">
                 {t("home.steps.items.guide_text")}
               </p>
             </div>
