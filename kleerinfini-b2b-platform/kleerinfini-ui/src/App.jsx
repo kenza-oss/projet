@@ -2,12 +2,14 @@ import React from "react";
 import AppRoutes from "./routes/AppRoutes";
 import './index.css';
 import { Toaster } from 'react-hot-toast';
+import CookieConsent from "./components/CookieConsent";
 
 function App() {
   return (
     <div>
       <Toaster position="top-right" reverseOrder={false} />
       <AppRoutes />
+      <CookieConsent />
 
       {/* WhatsApp Floating Button */}
       <a

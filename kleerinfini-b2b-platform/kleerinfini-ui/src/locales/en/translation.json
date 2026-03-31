@@ -1462,5 +1462,12 @@
       "contactSupport": "Contact support",
       "details": "Details"
     }
+  },
+  "cookies": {
+    "title": "We respect your privacy",
+    "description": "We use cookies to bring you the best possible experience on our website. Your cookie preferences will be stored in your browser's local memory. By continuing to browse, you accept our use of cookies.",
+    "accept": "Accept all cookies",
+    "reject": "Reject optional cookies",
+    "manage": "Manage preferences"
   }
 }

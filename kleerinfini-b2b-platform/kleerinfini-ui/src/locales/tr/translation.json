@@ -1443,5 +1443,12 @@
       "algeria": "CEZAYİR",
       "international": "ULUSLARARASI"
     }
+  },
+  "cookies": {
+    "title": "Gizliliğinize saygı duyuyoruz",
+    "description": "Web sitemizde size mümkün olan en iyi deneyimi sunmak için çerezleri kullanıyoruz. Çerez tercihleriniz tarayıcınızın yerel belleğinde saklanacaktır. Göz atmaya devam ederek çerez kullanımımızı kabul etmiş olursunuz.",
+    "accept": "Tüm çerezleri kabul et",
+    "reject": "İsteğe bağlı çerezleri reddet",
+    "manage": "Tercihleri yönet"
   }
 }

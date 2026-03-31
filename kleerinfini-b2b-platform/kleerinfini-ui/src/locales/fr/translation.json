@@ -1582,5 +1582,12 @@
       "normal": "Normal",
       "noInventory": "Aucun produit dans l'inventaire"
     }
+  },
+  "cookies": {
+    "title": "Nous respectons votre vie privée",
+    "description": "Nous utilisons des cookies pour vous apporter la meilleure expérience possible sur notre site Web. Vos préférences des cookies seront enregistrées dans la mémoire locale de votre navigateur. En continuant à naviguer, vous acceptez notre utilisation des cookies.",
+    "accept": "Accepter tous les cookies",
+    "reject": "Rejeter les cookies facultatifs",
+    "manage": "Modifier les préférences"
   }
 }

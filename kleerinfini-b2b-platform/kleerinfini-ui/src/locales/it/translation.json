@@ -1425,5 +1425,12 @@
       "algeria": "ALGERIA",
       "international": "INTERNAZIONALE"
     }
+  },
+  "cookies": {
+    "title": "Rispettiamo la tua privacy",
+    "description": "Utilizziamo i cookie per offrirti la migliore esperienza possibile sul nostro sito web. Le tue preferenze sui cookie inizieranno a essere memorizzate nella memoria locale del tuo browser. Continuando a navigare, accetti il nostro utilizzo dei cookie.",
+    "accept": "Accetta tutti i cookie",
+    "reject": "Rifiuta i cookie opzionali",
+    "manage": "Modifica preferenze"
   }
 }
