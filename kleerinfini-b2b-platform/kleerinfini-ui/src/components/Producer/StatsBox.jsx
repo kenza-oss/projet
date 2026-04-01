@@ -15,9 +15,9 @@ import {
 
 const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }) => {
   const navigate = useNavigate();
-  const views = Math.max(37, producerProfile?.views_with_bonus || producerProfile?.stats?.views || 0);
-  const likes = Math.max(37, producerProfile?.likes_with_bonus || producerProfile?.stats?.likes || 0);
-  const quotes = Math.max(37, producerProfile?.quotes_with_bonus || demands.length || 0);
+  const views = producerProfile?.stats?.views || producerProfile?.views || 12;
+  const likes = producerProfile?.stats?.likes || producerProfile?.likes || 4;
+  const quotes = demands?.length || 0;
 
   const stats = [
     {
