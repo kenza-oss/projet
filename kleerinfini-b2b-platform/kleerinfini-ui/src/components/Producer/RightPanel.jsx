@@ -5,7 +5,7 @@ import exportBg from '../../assets/export_port_background.png';
 
 const RightPanel = () => {
     return (
-        <aside className="w-72 shrink-0 hidden xl:flex flex-col border-l border-slate-100 bg-white h-fit shadow-2xl rounded-bl-[3.5rem] sticky top-30 z-20 m-4 ml-0 overflow-hidden transition-all duration-500">
+        <aside className="w-72 shrink-0 hidden xl:flex flex-col border-l border-slate-100 bg-white h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide shadow-2xl rounded-bl-[3.5rem] sticky top-4 z-20 m-4 ml-0 transition-all duration-500">
             {/* Top Color Section: Thematic Background (Lightened) */}
             <div
                 className="relative text-white p-6 space-y-8 overflow-hidden"

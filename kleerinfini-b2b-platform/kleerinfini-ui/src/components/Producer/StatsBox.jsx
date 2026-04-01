@@ -17,13 +17,13 @@ const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }
   const navigate = useNavigate();
   // Intercept mock '999' backend values with realistic small defaults for demo, while keeping real link
   const rawViews = producerProfile?.stats?.views ?? producerProfile?.views ?? 14;
-  const views = rawViews === 999 ? 14 : rawViews;
+  const views = Number(rawViews) === 999 ? 14 : rawViews;
 
   const rawLikes = producerProfile?.stats?.likes ?? producerProfile?.likes ?? 7;
-  const likes = rawLikes === 999 ? 7 : rawLikes;
+  const likes = Number(rawLikes) === 999 ? 7 : rawLikes;
 
   const rawQuotes = demands?.length || 0;
-  const quotes = rawQuotes === 999 ? 2 : rawQuotes;
+  const quotes = Number(rawQuotes) === 999 ? 2 : rawQuotes;
 
   const stats = [
     {
