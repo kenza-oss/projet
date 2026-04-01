@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import heroBg1 from "../assets/hero_bg_1_hd.png";
 import heroBg2 from "../assets/hero_bg_marina.jpg";
-import heroBg4 from "../assets/hero_bg_4.jpg";
+import heroBg4 from "../assets/hero_bg_3_breakfast.jpg";
 
 const backgroundImages = [heroBg1, heroBg2, heroBg4];
 
