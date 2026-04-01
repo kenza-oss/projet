@@ -16,6 +16,8 @@ export default function HeroSection({ onOpenMap }) {
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
   useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
     }, 8000); // 8 seconds interval
     return () => clearInterval(timer);
   }, []);
