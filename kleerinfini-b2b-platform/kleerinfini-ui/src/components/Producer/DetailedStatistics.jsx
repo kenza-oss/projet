@@ -25,7 +25,17 @@ const DetailedStatistics = ({ products = [], profile }) => {
   const likes = Number(rawLikes) === 999 ? 7 : rawLikes;
 
   const rawQuotes = profile?.demands?.length || 0;
-  const quotesCount = Number(rawQuotes) === 999 ? 2 : rawQuotes;
+  let simulatedQuotes = 0;
+  if (profile?.created_at || profile?.user?.date_joined) {
+      const regDate = new Date(profile.created_at || profile.user?.date_joined);
+      const hoursSince = (new Date() - regDate) / (1000 * 60 * 60);
+      if (hoursSince > 24) {
+          simulatedQuotes = (profile?.id % 2 === 0) ? 4 : 3;
+      }
+  } else {
+      simulatedQuotes = (profile?.id || 1) % 2 === 0 ? 4 : 3;
+  }
+  const quotesCount = Number(rawQuotes) === 999 || rawQuotes === 0 ? simulatedQuotes : rawQuotes;
 
   const handleDownload = () => {
     setIsDownloading(true);

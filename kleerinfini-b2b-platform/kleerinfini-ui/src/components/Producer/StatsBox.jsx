@@ -23,7 +23,19 @@ const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }
   const likes = Number(rawLikes) === 999 ? 7 : rawLikes;
 
   const rawQuotes = demands?.length || 0;
-  const quotes = Number(rawQuotes) === 999 ? 2 : rawQuotes;
+  let simulatedQuotes = 0;
+  if (producerProfile?.created_at || producerProfile?.user?.date_joined) {
+      const regDate = new Date(producerProfile.created_at || producerProfile.user?.date_joined);
+      const hoursSince = (new Date() - regDate) / (1000 * 60 * 60);
+      if (hoursSince > 24) {
+          simulatedQuotes = (producerProfile?.id % 2 === 0) ? 4 : 3;
+      }
+  } else {
+      // Fallback if no date is provided
+      simulatedQuotes = (producerProfile?.id || 1) % 2 === 0 ? 4 : 3;
+  }
+
+  const quotes = Number(rawQuotes) === 999 || rawQuotes === 0 ? simulatedQuotes : rawQuotes;
 
   const stats = [
     {
