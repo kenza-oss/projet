@@ -13,7 +13,7 @@ import {
     ArrowRight,
     ClipboardCheck
 } from "lucide-react";
-import premiumBg from "../assets/certifications_bg_premium.png";
+import premiumBg from "../assets/certifications_bg_new.png";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -43,8 +43,12 @@ export default function CertificationsSection() {
                 <img
                     src={premiumBg}
                     alt="Premium Background"
-                    className="w-full h-full object-cover opacity-100"
+                    className="w-full h-full object-cover"
+                    style={{ filter: 'brightness(0.55) contrast(1.05)' }}
                 />
+                {/* Luxury gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A]/80 via-transparent to-[#0A0A0A]/80" />
             </div>
 
             <div className="max-w-7xl mx-auto relative z-10">

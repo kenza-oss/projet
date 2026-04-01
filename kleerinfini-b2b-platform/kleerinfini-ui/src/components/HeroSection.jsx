@@ -45,7 +45,7 @@ export default function HeroSection({ onOpenMap }) {
               src={backgroundImages[currentBgIndex]}
               alt={`Luxury Background ${currentBgIndex + 1}`}
               className="w-full h-full object-cover"
-              style={{ filter: 'brightness(0.6) contrast(1.1)' }}
+              style={{ filter: 'brightness(0.72) contrast(1.05)' }}
             />
           </motion.div>
         </AnimatePresence>
