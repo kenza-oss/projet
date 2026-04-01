@@ -8,7 +8,7 @@ const RightPanel = () => {
         <aside className="w-72 shrink-0 hidden xl:flex flex-col border-l border-slate-100 bg-white h-[calc(100vh-2rem)] overflow-y-auto scrollbar-hide shadow-2xl rounded-bl-[3.5rem] sticky top-4 z-20 m-4 ml-0 transition-all duration-500">
             {/* Top Color Section: Thematic Background (Lightened) */}
             <div
-                className="relative text-white p-6 space-y-8 overflow-hidden"
+                className="relative text-white p-6 space-y-8 overflow-hidden shrink-0"
                 style={{
                     backgroundImage: `linear-gradient(to bottom, rgba(11, 18, 33, 0.3), rgba(11, 18, 33, 0.5)), url(${exportBg})`,
                     backgroundSize: 'cover',
@@ -80,7 +80,7 @@ const RightPanel = () => {
             </div>
 
             {/* Bottom Color Section: White */}
-            <div className="flex-1 text-black p-6 space-y-8">
+            <div className="flex-1 text-black p-6 space-y-8 shrink-0">
                 {/* Biggest Fans / Top Clients */}
                 <div>
                     <div className="flex items-center justify-between mb-8">
