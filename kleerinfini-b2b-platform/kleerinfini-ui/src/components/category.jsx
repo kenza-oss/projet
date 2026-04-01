@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import api from '../api/axios';
 import { getProductImage } from "../utils/utils";
 import { BASE_HOST } from "../api/axios";
+import industrialImg from "../assets/category_industrial.png";
+import constructionImg from "../assets/category_construction.png";
 
 export default function CategorySection() {
   const { t } = useTranslation();
@@ -204,10 +206,10 @@ export default function CategorySection() {
             {/* Secondary Categories Grid - Discrete & Elegant */}
             <div className="mt-10 md:mt-16 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6 px-2 md:px-4">
               {[
-                { key: "construction", keywords: ["construction"], icon: <HardHat size={20} /> },
+                { key: "construction", keywords: ["construction"], icon: <HardHat size={20} />, image: constructionImg },
                 { key: "mecanique", keywords: ["mécanique", "mechanical"], icon: <Wrench size={20} /> },
                 { key: "electro", keywords: ["électroménager", "électronique", "appliance", "electronic"], icon: <Tv size={20} /> },
-                { key: "industrial", keywords: ["machine", "industriel", "machinery"], icon: <Factory size={20} /> },
+                { key: "industrial", keywords: ["machine", "industriel", "machinery"], icon: <Factory size={20} />, image: industrialImg },
                 { key: "elec", keywords: ["électrique", "electrical"], icon: <Zap size={20} /> },
                 { key: "agri_raw", keywords: ["Agricoles Non Transformés", "unprocessed"], icon: <Leaf size={20} /> },
                 { key: "agri_processed", keywords: ["Agroalimentaires Transformés", "processed"], icon: <Utensils size={20} /> },
