@@ -55,3 +55,4 @@ cloudinary
 django-cloudinary-storage
 pyotp
 django-rest-passwordreset
+PyPDF2==3.0.1
