@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
 import heroBg1 from "../assets/hero_bg_1.jpg";
-import heroBg2 from "../assets/homepage_bg_2.jpg";
+import heroBg2 from "../assets/hero_bg_night_crane.jpg";
 import heroBg4 from "../assets/hero_bg_4.jpg";
 
 const backgroundImages = [heroBg1, heroBg2, heroBg4];
