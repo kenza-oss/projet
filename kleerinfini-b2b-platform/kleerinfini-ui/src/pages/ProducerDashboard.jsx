@@ -441,7 +441,7 @@ const ProducerDashboard = () => {
             </main>
           </div>
 
-          {/* <RightPanel /> */}
+          <RightPanel />
         </div>
       </div>
 
