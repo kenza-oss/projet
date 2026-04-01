@@ -147,7 +147,7 @@ export default function CategorySection() {
                           src={imageSrc}
                           alt={displayName}
                           className="absolute inset-0 w-full h-full object-cover transition-transform duration-[3000ms] ease-out group-hover:scale-110"
-                          style={{ filter: 'saturate(1.5)' }}
+                          style={{ filter: 'saturate(1.2)' }}
                         />
                         {/* Multi-layered Gradient for Depth */}
                         <div className="absolute inset-0 bg-gradient-to-t from-[#000] via-black/20 to-transparent opacity-90 transition-opacity duration-700"></div>
@@ -262,7 +262,7 @@ export default function CategorySection() {
                         src={imageSrc}
                         alt={catName}
                         className="w-full h-full object-cover opacity-100 group-hover:scale-110 transition-transform duration-700"
-                        style={{ filter: 'saturate(1.6)' }}
+                        style={{ filter: 'saturate(1.3)' }}
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                       <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
