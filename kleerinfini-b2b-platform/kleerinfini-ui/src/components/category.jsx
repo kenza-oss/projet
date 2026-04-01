@@ -8,6 +8,7 @@ import { getProductImage } from "../utils/utils";
 import { BASE_HOST } from "../api/axios";
 import industrialImg from "../assets/category_industrial.png";
 import constructionImg from "../assets/category_construction.png";
+import beautyImg from "../assets/category_beauty.png";
 
 export default function CategorySection() {
   const { t } = useTranslation();
@@ -213,7 +214,7 @@ export default function CategorySection() {
                 { key: "elec", keywords: ["électrique", "electrical"], icon: <Zap size={20} /> },
                 { key: "agri_raw", keywords: ["Agricoles Non Transformés", "unprocessed"], icon: <Leaf size={20} /> },
                 { key: "agri_processed", keywords: ["Agroalimentaires Transformés", "processed"], icon: <Utensils size={20} /> },
-                { key: "beauty", keywords: ["Beauté Naturels", "beauty"], icon: <Sparkles size={20} /> },
+                { key: "beauty", keywords: ["Beauté Naturels", "beauty"], icon: <Sparkles size={20} />, image: beautyImg },
                 { key: "spices", keywords: ["Épices", "Thés", "spices", "tea"], icon: <Coffee size={20} /> },
                 { key: "dairy", keywords: ["Laitiers", "dairy"], icon: <Droplets size={20} /> },
                 { key: "jewelry_fashion", keywords: ["Bijoux", "L’Éclat de l’Algérie", "jewelry"], icon: <Gem size={20} /> },
