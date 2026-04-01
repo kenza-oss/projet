@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-import heroBg1 from "../assets/hero_bg_1.jpg";
+import heroBg1 from "../assets/hero_bg_1_hd.png";
 import heroBg2 from "../assets/hero_bg_night_crane.jpg";
 import heroBg4 from "../assets/hero_bg_4.jpg";
 
@@ -16,9 +16,7 @@ export default function HeroSection({ onOpenMap }) {
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 5000); // 5 seconds interval
+    }, 8000); // 8 seconds interval
     return () => clearInterval(timer);
   }, []);
 
@@ -38,7 +36,7 @@ export default function HeroSection({ onOpenMap }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
           >
             <img
