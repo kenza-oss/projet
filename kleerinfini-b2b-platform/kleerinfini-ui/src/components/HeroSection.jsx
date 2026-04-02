@@ -4,11 +4,11 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-import heroBg1 from "../assets/hero_bg_1_hd.png";
+import heroBgNew from "../assets/hero_bg_new_main.png";
 import heroBg2 from "../assets/hero_bg_marina.jpg";
 import heroBg4 from "../assets/hero_bg_3_breakfast.jpg";
 
-const backgroundImages = [heroBg1, heroBg2, heroBg4];
+const backgroundImages = [heroBgNew, heroBg2, heroBg4];
 
 export default function HeroSection({ onOpenMap }) {
   const { t } = useTranslation();
