@@ -6,7 +6,7 @@ import {
 } from "lucide-react";
 import {
   ResponsiveContainer, AreaChart, Area, XAxis, YAxis,
-  CartesianGrid, Tooltip
+  CartesianGrid, Tooltip, PieChart, Pie, Cell
 } from 'recharts';
 import api from '../../api/axios';
 
@@ -246,23 +246,48 @@ const DetailedStatistics = ({ products = [], profile }) => {
             <ResponsiveContainer width="100%" height={350}>
               <AreaChart data={areaData}>
                 <defs>
-                  <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.15} />
+                  <linearGradient id="colorViews2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.3} />
                     <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
                   </linearGradient>
-                  <linearGradient id="colorQuotes" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#818cf8" stopOpacity={0.15} />
+                  <linearGradient id="colorQuotes2" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#818cf8" stopOpacity={0.3} />
                     <stop offset="95%" stopColor="#818cf8" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#E2E8F0" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#64748B', fontSize: 10, fontWeight: 700 }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fill: '#94A3B8', fontSize: 10, fontWeight: 700 }} />
-                <Tooltip
-                  contentStyle={{ borderRadius: '1rem', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                <XAxis
+                  dataKey="name"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: '#64748B', fontSize: 10, fontWeight: '900' }}
+                  dy={10}
                 />
-                <Area type="monotone" dataKey="views" stroke="#2563eb" strokeWidth={3} fillOpacity={1} fill="url(#colorViews)" />
-                <Area type="monotone" dataKey="quotes" stroke="#818cf8" strokeWidth={3} fillOpacity={1} fill="url(#colorQuotes)" />
+                <YAxis axisLine={false} tickLine={false} tick={{ fill: '#94A3B8', fontSize: 10, fontWeight: '700' }} />
+                <Tooltip
+                  contentStyle={{ borderRadius: '1.5rem', border: 'none', boxShadow: '0 20px 50px rgba(0,0,0,0.1)', padding: '1rem' }}
+                  itemStyle={{ fontWeight: '900', textTransform: 'uppercase', fontSize: '10px' }}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="views"
+                  stroke="#2563eb"
+                  strokeWidth={4}
+                  fillOpacity={1}
+                  fill="url(#colorViews2)"
+                  dot={{ r: 4, fill: '#2563eb', strokeWidth: 2, stroke: '#fff' }}
+                  activeDot={{ r: 6, strokeWidth: 0 }}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="quotes"
+                  stroke="#818cf8"
+                  strokeWidth={4}
+                  fillOpacity={1}
+                  fill="url(#colorQuotes2)"
+                  dot={{ r: 4, fill: '#818cf8', strokeWidth: 2, stroke: '#fff' }}
+                  activeDot={{ r: 6, strokeWidth: 0 }}
+                />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -317,25 +342,60 @@ const DetailedStatistics = ({ products = [], profile }) => {
               {t('producer_dashboard.stats.mixSubtitle', 'Répartition de votre offre par type de produit.')}
             </p>
 
-            <div className="relative flex justify-center py-4">
-              {/* Semi-Circle Graphic Mock */}
-              <div className="w-40 h-40 rounded-full border-[18px] border-slate-50 border-t-blue-600 border-r-blue-400 border-l-blue-300 rotate-45 flex items-center justify-center flex-col shadow-inner">
-                <span className="text-[8px] text-slate-400 font-black uppercase tracking-widest mt-2">{t('producer_dashboard.stats.total', 'Total')}</span>
-                <span className="text-3xl font-black text-slate-900">{products.length.toString().padStart(2, '0')}</span>
+            <div className="relative h-[220px] flex items-center justify-center -mt-4">
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={[
+                      { name: 'Premium', value: 35, color: '#2563eb' },
+                      { name: 'Standard', value: 40, color: '#60a5fa' },
+                      { name: 'Vrac', value: 15, color: '#93c5fd' },
+                      { name: 'Samples', value: 10, color: '#bfdbfe' },
+                    ]}
+                    cx="50%"
+                    cy="80%"
+                    startAngle={180}
+                    endAngle={0}
+                    innerRadius={70}
+                    outerRadius={100}
+                    paddingAngle={3}
+                    dataKey="value"
+                    stroke="none"
+                    cornerRadius={8}
+                  >
+                    {[
+                      { color: '#2563eb' },
+                      { color: '#60a5fa' },
+                      { color: '#93c5fd' },
+                      { color: '#bfdbfe' },
+                    ].map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    contentStyle={{ borderRadius: '1rem', border: 'none', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}
+                  />
+                </PieChart>
+              </ResponsiveContainer>
+              <div className="absolute bottom-[20%] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <span className="text-3xl font-black text-slate-900 tracking-tighter">{products.length.toString().padStart(2, '0')}</span>
+                <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest leading-none">Produits</span>
               </div>
-              <div className="absolute top-[60px] left-[60px] bg-blue-600 text-white px-3 py-1.5 rounded-lg text-[8px] font-black uppercase tracking-widest shadow-md shadow-blue-500/10">{t('producer_dashboard.sidebar.products', 'PRODUITS')}</div>
             </div>
 
-            <div className="grid grid-cols-2 gap-y-3 gap-x-4 mt-6">
+            <div className="grid grid-cols-2 gap-y-3 gap-x-4 mt-2">
               {[
-                { label: 'Premium', color: 'bg-blue-600' },
-                { label: 'Standard', color: 'bg-blue-400' },
-                { label: 'Vrac', color: 'bg-blue-300' },
-                { label: 'Samples', color: 'bg-blue-200' },
+                { label: 'Premium', color: 'bg-blue-600', val: '35%' },
+                { label: 'Standard', color: 'bg-blue-400', val: '40%' },
+                { label: 'Vrac', color: 'bg-blue-300', val: '15%' },
+                { label: 'Samples', color: 'bg-blue-200', val: '10%' },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 group cursor-pointer">
-                  <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
-                  <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-blue-600 transition-colors uppercase">{item.label}</span>
+                <div key={i} className="flex items-center justify-between group cursor-pointer hover:bg-slate-50 p-1.5 rounded-lg transition-all">
+                  <div className="flex items-center gap-2">
+                    <div className={`w-2.5 h-2.5 rounded-full ${item.color}`} />
+                    <span className="text-[10px] font-black text-slate-500 uppercase tracking-widest group-hover:text-blue-600 transition-colors">{item.label}</span>
+                  </div>
+                  <span className="text-[10px] font-black text-slate-900">{item.val}</span>
                 </div>
               ))}
             </div>

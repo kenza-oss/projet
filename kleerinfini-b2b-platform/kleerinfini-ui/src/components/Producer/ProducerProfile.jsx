@@ -700,34 +700,205 @@ const ProducerProfile = ({ profileData, onSave }) => {
 
       {/* 🚀 PERFORMANCE SECTION */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <div className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm">
-          <h3 className="flex items-center gap-3 text-lg font-black text-red-900 uppercase tracking-widest mb-8"><PieChart className="text-red-500" /> Top Locations</h3>
-          <div className="h-[200px]"><ResponsiveContainer width="100%" height="100%"><RePieChart><Pie data={topLocations} cx="50%" cy="50%" innerRadius={60} outerRadius={80} dataKey="value">{topLocations.map((entry, index) => <Cell key={index} fill={entry.color} />)}</Pie><ReTooltip /></RePieChart></ResponsiveContainer></div>
+        <div className="bg-white rounded-[2.5rem] p-10 border border-red-50 shadow-xl shadow-red-900/5 relative overflow-hidden group">
+          <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+            <PieChart size={120} />
+          </div>
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <h3 className="flex items-center gap-3 text-xl font-black text-slate-900 uppercase tracking-tighter">
+                <div className="w-2 h-8 bg-red-600 rounded-full" />
+                Origine des Visiteurs
+              </h3>
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 ml-5">Répartition géographique par ville</p>
+            </div>
+            <Globe className="text-red-500 animate-pulse" size={24} />
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="h-[250px] w-full md:w-1/2 relative">
+              <ResponsiveContainer width="100%" height="100%">
+                <RePieChart>
+                  <defs>
+                    <linearGradient id="gradAlger" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#E31E24" stopOpacity={1}/>
+                      <stop offset="95%" stopColor="#9b1317" stopOpacity={1}/>
+                    </linearGradient>
+                    <linearGradient id="gradOran" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#00c49f" stopOpacity={1}/>
+                      <stop offset="95%" stopColor="#008c72" stopOpacity={1}/>
+                    </linearGradient>
+                    <linearGradient id="gradConst" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#ffbb28" stopOpacity={1}/>
+                      <stop offset="95%" stopColor="#d49a21" stopOpacity={1}/>
+                    </linearGradient>
+                    <linearGradient id="gradSetif" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#ff8042" stopOpacity={1}/>
+                      <stop offset="95%" stopColor="#d46a37" stopOpacity={1}/>
+                    </linearGradient>
+                  </defs>
+                  <Pie
+                    data={topLocations}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={75}
+                    outerRadius={95}
+                    paddingAngle={8}
+                    cornerRadius={12}
+                    dataKey="value"
+                    stroke="none"
+                  >
+                    {topLocations.map((entry, index) => (
+                      <Cell key={index} fill={`url(#grad${entry.name.substring(0, 5)})`} />
+                    ))}
+                  </Pie>
+                  <ReTooltip
+                    contentStyle={{ borderRadius: '1.5rem', border: 'none', boxShadow: '0 20px 50px rgba(0,0,0,0.1)', padding: '1rem' }}
+                    itemStyle={{ fontWeight: '900', textTransform: 'uppercase', fontSize: '10px' }}
+                  />
+                </RePieChart>
+              </ResponsiveContainer>
+              <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                <span className="text-3xl font-black text-slate-900 tracking-tighter">100%</span>
+                <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Audience</span>
+              </div>
+            </div>
+
+            <div className="flex-1 w-full space-y-4">
+              {topLocations.map((loc, i) => (
+                <div key={i} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 transition-all group/item">
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full" style={{ backgroundColor: loc.color }} />
+                    <span className="text-xs font-black text-slate-700 uppercase tracking-tight">{loc.name}</span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden hidden sm:block">
+                      <div
+                        className="h-full rounded-full transition-all duration-1000"
+                        style={{ backgroundColor: loc.color, width: `${loc.value}%` }}
+                      />
+                    </div>
+                    <span className="text-xs font-black text-slate-900 tabular-nums">{loc.value}%</span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-        <div className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm">
-          <h3 className="flex items-center gap-3 text-lg font-black text-red-900 uppercase tracking-widest mb-8"><Activity className="text-red-500" /> Performance</h3>
-          <div className="h-[200px]"><ResponsiveContainer width="100%" height="100%"><AreaChart data={monthlyData}><CartesianGrid strokeDasharray="3 3" /><XAxis dataKey="month" /><YAxis hide /><ReTooltip /><Area type="monotone" dataKey="views" stroke="#E31E24" fill="#eef2ff" /></AreaChart></ResponsiveContainer></div>
+
+        <div className="bg-white rounded-[2.5rem] p-10 border border-red-50 shadow-xl shadow-red-900/5 relative group overflow-hidden">
+          <div className="flex items-center justify-between mb-10">
+            <div>
+              <h3 className="flex items-center gap-3 text-xl font-black text-slate-900 uppercase tracking-tighter">
+                <div className="w-2 h-8 bg-slate-900 rounded-full" />
+                Visibilité du Profil
+              </h3>
+              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 ml-5">Vues cumulées sur les 7 derniers mois</p>
+            </div>
+            <Activity className="text-red-500" size={24} />
+          </div>
+
+          <div className="h-[250px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <AreaChart data={monthlyData}>
+                <defs>
+                  <linearGradient id="colorViews" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor="#E31E24" stopOpacity={0.3}/>
+                    <stop offset="95%" stopColor="#E31E24" stopOpacity={0}/>
+                  </linearGradient>
+                </defs>
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                <XAxis
+                  dataKey="month"
+                  axisLine={false}
+                  tickLine={false}
+                  tick={{ fill: '#94a3b8', fontSize: 10, fontWeight: '900' }}
+                  dy={15}
+                />
+                <YAxis hide />
+                <ReTooltip
+                  contentStyle={{ borderRadius: '1.5rem', border: 'none', boxShadow: '0 20px 50px rgba(0,0,0,0.1)', padding: '1rem' }}
+                  itemStyle={{ fontWeight: '900', textTransform: 'uppercase', fontSize: '10px', color: '#E31E24' }}
+                />
+                <Area
+                  type="monotone"
+                  dataKey="views"
+                  stroke="#E31E24"
+                  strokeWidth={4}
+                  fillOpacity={1}
+                  fill="url(#colorViews)"
+                  dot={{ r: 6, fill: '#E31E24', strokeWidth: 3, stroke: '#fff' }}
+                  activeDot={{ r: 8, fill: '#E31E24', strokeWidth: 0 }}
+                />
+              </AreaChart>
+            </ResponsiveContainer>
+          </div>
+
+          <div className="mt-10 p-5 bg-red-50 rounded-[1.5rem] border border-red-100/50 flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-red-600 shadow-sm">
+                <TrendingUp size={20} />
+              </div>
+              <div>
+                <p className="text-[9px] font-black text-red-900/60 uppercase tracking-widest">Croissance Organique</p>
+                <p className="text-xs font-black text-red-900 uppercase">Évolution stable sur 6 mois</p>
+              </div>
+            </div>
+            <div className="text-right">
+              <p className="text-lg font-black text-red-600 tabular-nums">+24%</p>
+              <p className="text-[8px] font-bold text-red-400 uppercase tracking-widest text-right">vs Période Précédente</p>
+            </div>
+          </div>
         </div>
-        <div className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm">
-          <h3 className="flex items-center gap-3 text-lg font-black text-red-900 uppercase tracking-widest mb-8"><Users className="text-red-500" /> Partenaires</h3>
+
+        <div className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-sm relative group">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="flex items-center gap-3 text-lg font-black text-slate-900 uppercase tracking-tighter">
+              <div className="w-1.5 h-6 bg-blue-600 rounded-full" />
+              Partenaires Stratégiques
+            </h3>
+            <Users className="text-blue-500" size={20} />
+          </div>
           <div className="space-y-4">
             {partners.map(p => (
-              <div key={p.id} className="flex justify-between items-center bg-gray-50 p-4 rounded-2xl">
-                <span className="font-bold text-sm">{p.name}</span>
-                <span className="text-[10px] font-black uppercase text-red-600 bg-red-50 px-3 py-1 rounded-full">{p.status}</span>
+              <div key={p.id} className="flex justify-between items-center bg-slate-50 p-5 rounded-[1.5rem] hover:bg-white hover:shadow-lg transition-all cursor-pointer group/card border border-transparent hover:border-slate-100">
+                <div className="flex items-center gap-4">
+                  <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-xs font-black text-slate-900 shadow-sm group-hover/card:bg-blue-600 group-hover/card:text-white transition-all">
+                    {p.initial}
+                  </div>
+                  <div>
+                    <span className="font-black text-sm text-slate-900 uppercase tracking-tight block">{p.name}</span>
+                    <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{p.type}</span>
+                  </div>
+                </div>
+                <span className="text-[10px] font-black uppercase text-blue-600 bg-blue-50 px-4 py-2 rounded-xl group-hover/card:bg-blue-600 group-hover/card:text-white transition-all">{p.status}</span>
               </div>
             ))}
           </div>
         </div>
-        <div className="bg-white rounded-[2.5rem] p-8 border border-gray-100 shadow-sm">
-          <h3 className="flex items-center gap-3 text-lg font-black text-red-900 uppercase tracking-widest mb-8"><Activity className="text-red-500" /> Ledger</h3>
-          <div className="space-y-6">
+
+        <div className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-sm relative group">
+          <div className="flex items-center justify-between mb-8">
+            <h3 className="flex items-center gap-3 text-lg font-black text-slate-900 uppercase tracking-tighter">
+              <div className="w-1.5 h-6 bg-emerald-600 rounded-full" />
+              Historique d'Activité
+            </h3>
+            <Activity className="text-emerald-500" size={20} />
+          </div>
+          <div className="space-y-8 relative before:absolute before:left-[21px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-50">
             {activityLedger.map(a => {
               const Icon = a.icon;
               return (
-                <div key={a.id} className="flex items-center gap-4">
-                  <div className={`p-3 rounded-xl ${a.bg} ${a.color}`}><Icon size={16} /></div>
-                  <div className="flex-1"><h4 className="font-bold text-sm">{a.title}</h4><span className="text-[10px] text-gray-400 font-bold uppercase">{a.time}</span></div>
+                <div key={a.id} className="flex items-center gap-5 relative group/ledger cursor-pointer">
+                  <div className={`w-11 h-11 rounded-2xl ${a.bg} ${a.color} flex items-center justify-center shadow-sm relative z-10 border-4 border-white group-hover/ledger:scale-110 transition-transform`}><Icon size={18} /></div>
+                  <div className="flex-1">
+                    <h4 className="font-black text-sm text-slate-900 uppercase tracking-tight">{a.title}</h4>
+                    <div className="flex items-center gap-2 mt-1">
+                      <div className="w-1 h-1 rounded-full bg-slate-300" />
+                      <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">{a.time}</span>
+                    </div>
+                  </div>
+                  <ChevronRight size={14} className="text-slate-300 group-hover/ledger:translate-x-1 transition-transform" />
                 </div>
               );
             })}
