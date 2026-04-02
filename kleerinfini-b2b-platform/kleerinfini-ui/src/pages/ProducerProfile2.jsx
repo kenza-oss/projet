@@ -15,7 +15,7 @@ import { useAuth } from "../context/AuthContext";
 import { getProductImage } from "../utils/utils";
 import {
     PieChart as RePieChart, Pie, Cell, ResponsiveContainer,
-    XAxis, CartesianGrid, Tooltip as ReTooltip, AreaChart, Area
+    XAxis, YAxis, CartesianGrid, Tooltip as ReTooltip, AreaChart, Area
 } from 'recharts';
 
 // API
@@ -500,104 +500,209 @@ const ProducerProfile2 = () => {
                                         </div>
                                     </div>
 
+                                    {/* 🚀 PERFORMANCE SECTION */}
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                        <div className="bg-white rounded-xl p-6 md:p-8 border border-[#e8e8e8] shadow-sm">
-                                            <h3 className="flex items-center gap-3 text-base md:text-lg font-black text-[#111] uppercase tracking-widest mb-8">
-                                                <PieChart size={20} className="text-[#E31E24]" /> {t("producer_profile.performance.visitors")}
-                                            </h3>
-                                            <div className="h-[250px]">
-                                                <ResponsiveContainer width="100%" height="100%">
-                                                    <RePieChart>
-                                                        <Pie
-                                                            data={topLocations}
-                                                            cx="50%"
-                                                            cy="50%"
-                                                            innerRadius={60}
-                                                            outerRadius={80}
-                                                            dataKey="value"
-                                                        >
-                                                            {topLocations.map((entry, index) => (
-                                                                <Cell key={index} fill={entry.color} />
-                                                            ))}
-                                                        </Pie>
-                                                        <ReTooltip />
-                                                    </RePieChart>
-                                                </ResponsiveContainer>
+                                        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-xl shadow-slate-200/20 relative overflow-hidden group">
+                                            <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
+                                                <PieChart size={120} />
                                             </div>
-                                            <div className="grid grid-cols-2 gap-4 mt-8">
-                                                {topLocations.map((loc, i) => (
-                                                    <div key={i} className="flex items-center gap-2">
-                                                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: loc.color }} />
-                                                        <span className="text-xs font-bold text-gray-600">{loc.name}: {loc.value}%</span>
+                                            <div className="flex items-center justify-between mb-10">
+                                                <div>
+                                                    <h3 className="flex items-center gap-3 text-xl font-black text-slate-900 uppercase tracking-tighter">
+                                                        <div className="w-2 h-8 bg-blue-600 rounded-full" />
+                                                        Audience Géographique
+                                                    </h3>
+                                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 ml-5">Répartition par ville d'intérêt</p>
+                                                </div>
+                                                <Globe className="text-blue-500 animate-pulse" size={24} />
+                                            </div>
+
+                                            <div className="flex flex-col md:flex-row items-center gap-8">
+                                                <div className="h-[250px] w-full md:w-1/2 relative">
+                                                    <ResponsiveContainer width="100%" height="100%">
+                                                        <RePieChart>
+                                                            <defs>
+                                                                <linearGradient id="gradAlger2" x1="0" y1="0" x2="0" y2="1">
+                                                                    <stop offset="5%" stopColor="#2563eb" stopOpacity={1}/>
+                                                                    <stop offset="95%" stopColor="#1e40af" stopOpacity={1}/>
+                                                                </linearGradient>
+                                                                <linearGradient id="gradOran2" x1="0" y1="0" x2="0" y2="1">
+                                                                    <stop offset="5%" stopColor="#0ea5e9" stopOpacity={1}/>
+                                                                    <stop offset="95%" stopColor="#0369a1" stopOpacity={1}/>
+                                                                </linearGradient>
+                                                                <linearGradient id="gradConst2" x1="0" y1="0" x2="0" y2="1">
+                                                                    <stop offset="5%" stopColor="#38bdf8" stopOpacity={1}/>
+                                                                    <stop offset="95%" stopColor="#075985" stopOpacity={1}/>
+                                                                </linearGradient>
+                                                                <linearGradient id="gradSetif2" x1="0" y1="0" x2="0" y2="1">
+                                                                    <stop offset="5%" stopColor="#7dd3fc" stopOpacity={1}/>
+                                                                    <stop offset="95%" stopColor="#0c4a6e" stopOpacity={1}/>
+                                                                </linearGradient>
+                                                            </defs>
+                                                            <Pie
+                                                                data={topLocations}
+                                                                cx="50%"
+                                                                cy="50%"
+                                                                innerRadius={75}
+                                                                outerRadius={95}
+                                                                paddingAngle={8}
+                                                                cornerRadius={12}
+                                                                dataKey="value"
+                                                                stroke="none"
+                                                            >
+                                                                {topLocations.map((entry, index) => (
+                                                                    <Cell key={index} fill={`url(#grad${entry.name.substring(0, 5)}2)`} />
+                                                                ))}
+                                                            </Pie>
+                                                            <ReTooltip
+                                                                contentStyle={{ borderRadius: '1.5rem', border: 'none', boxShadow: '0 20px 50px rgba(0,0,0,0.1)', padding: '1rem' }}
+                                                                itemStyle={{ fontWeight: '900', textTransform: 'uppercase', fontSize: '10px' }}
+                                                            />
+                                                        </RePieChart>
+                                                    </ResponsiveContainer>
+                                                    <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+                                                        <span className="text-3xl font-black text-slate-900 tracking-tighter">100%</span>
+                                                        <span className="text-[8px] font-black text-slate-400 uppercase tracking-widest">Audience</span>
                                                     </div>
-                                                ))}
+                                                </div>
+
+                                                <div className="flex-1 w-full space-y-4">
+                                                    {topLocations.map((loc, i) => (
+                                                        <div key={i} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 hover:bg-white border border-transparent hover:border-slate-100 transition-all group/item">
+                                                            <div className="flex items-center gap-3">
+                                                                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: loc.color }} />
+                                                                <span className="text-xs font-black text-slate-700 uppercase tracking-tight">{loc.name}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-4">
+                                                                <div className="w-24 h-1.5 bg-slate-200 rounded-full overflow-hidden hidden sm:block">
+                                                                    <div
+                                                                        className="h-full rounded-full transition-all duration-1000"
+                                                                        style={{ backgroundColor: loc.color, width: `${loc.value}%` }}
+                                                                    />
+                                                                </div>
+                                                                <span className="text-xs font-black text-slate-900 tabular-nums">{loc.value}%</span>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
                                             </div>
                                         </div>
 
-                                        <div className="bg-white rounded-xl p-6 md:p-8 border border-[#e8e8e8] shadow-sm">
-                                            <h3 className="flex items-center gap-3 text-base md:text-lg font-black text-[#111] uppercase tracking-widest mb-8">
-                                                <Activity size={20} className="text-[#E31E24]" /> {t("producer_profile.performance.visibility")}
-                                            </h3>
-                                            <div className="h-[250px]">
+                                        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-xl shadow-slate-200/20 relative group overflow-hidden">
+                                            <div className="flex items-center justify-between mb-10">
+                                                <div>
+                                                    <h3 className="flex items-center gap-3 text-xl font-black text-slate-900 uppercase tracking-tighter">
+                                                        <div className="w-2 h-8 bg-emerald-500 rounded-full" />
+                                                        Impact & Visibilité
+                                                    </h3>
+                                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1 ml-5">Tendance des vues mensuelles</p>
+                                                </div>
+                                                <Activity className="text-emerald-500" size={24} />
+                                            </div>
+
+                                            <div className="h-[250px] w-full">
                                                 <ResponsiveContainer width="100%" height="100%">
                                                     <AreaChart data={monthlyData}>
-                                                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
-                                                        <XAxis dataKey="month" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 700, fill: '#999' }} />
-                                                        <ReTooltip />
-                                                        <Area type="monotone" dataKey="views" stroke="#E31E24" fill="#eef2ff" strokeWidth={4} />
+                                                        <defs>
+                                                            <linearGradient id="colorViewsPublic" x1="0" y1="0" x2="0" y2="1">
+                                                                <stop offset="5%" stopColor="#10b981" stopOpacity={0.3}/>
+                                                                <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                                                            </linearGradient>
+                                                        </defs>
+                                                        <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                                                        <XAxis
+                                                            dataKey="month"
+                                                            axisLine={false}
+                                                            tickLine={false}
+                                                            tick={{ fill: '#94a3b8', fontSize: 10, fontWeight: '900' }}
+                                                            dy={15}
+                                                        />
+                                                        <YAxis hide />
+                                                        <ReTooltip
+                                                            contentStyle={{ borderRadius: '1.5rem', border: 'none', boxShadow: '0 20px 50px rgba(0,0,0,0.1)', padding: '1rem' }}
+                                                            itemStyle={{ fontWeight: '900', textTransform: 'uppercase', fontSize: '10px', color: '#10b981' }}
+                                                        />
+                                                        <Area
+                                                            type="monotone"
+                                                            dataKey="views"
+                                                            stroke="#10b981"
+                                                            strokeWidth={4}
+                                                            fillOpacity={1}
+                                                            fill="url(#colorViewsPublic)"
+                                                            dot={{ r: 6, fill: '#10b981', strokeWidth: 3, stroke: '#fff' }}
+                                                            activeDot={{ r: 8, fill: '#10b981', strokeWidth: 0 }}
+                                                        />
                                                     </AreaChart>
                                                 </ResponsiveContainer>
                                             </div>
-                                            <div className="mt-8 p-4 bg-red-50 rounded-2xl border border-red-100 italic">
-                                                <p className="text-[10px] font-bold text-red-700">Evolution de la visibilité sur les 6 derniers mois. Croissance organique stable.</p>
+
+                                            <div className="mt-10 p-5 bg-emerald-50 rounded-[1.5rem] border border-emerald-100/50 flex items-center justify-between">
+                                                <div className="flex items-center gap-3">
+                                                    <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-emerald-600 shadow-sm">
+                                                        <Clock size={20} />
+                                                    </div>
+                                                    <div>
+                                                        <p className="text-[9px] font-black text-emerald-900/60 uppercase tracking-widest">Status de Visibilité</p>
+                                                        <p className="text-xs font-black text-emerald-900 uppercase">Croissance organique stable</p>
+                                                    </div>
+                                                </div>
+                                                <div className="text-right">
+                                                    <p className="text-lg font-black text-emerald-600 tabular-nums">OPTIMAL</p>
+                                                    <p className="text-[8px] font-bold text-emerald-400 uppercase tracking-widest text-right">Performance Export</p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                                        <div className="bg-white rounded-xl p-6 md:p-8 border border-[#e8e8e8] shadow-sm">
-                                            <h3 className="flex items-center gap-3 text-base md:text-lg font-black text-[#111] uppercase tracking-widest mb-8">
-                                                <Users size={20} className="text-[#E31E24]" /> {t("producer_profile.performance.partners")}
-                                            </h3>
+                                        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-xl shadow-slate-200/20 relative group">
+                                            <div className="flex items-center justify-between mb-8">
+                                                <h3 className="flex items-center gap-3 text-lg font-black text-slate-900 uppercase tracking-tighter">
+                                                    <div className="w-1.5 h-6 bg-slate-900 rounded-full" />
+                                                    Partenaires Stratégiques
+                                                </h3>
+                                                <Users className="text-slate-400" size={20} />
+                                            </div>
                                             <div className="space-y-4">
                                                 {partners.map(p => (
-                                                    <div key={p.id} className="flex justify-between items-center bg-gray-50 p-6 rounded-2xl hover:bg-white border border-transparent hover:border-gray-100 transition-all">
+                                                    <div key={p.id} className="flex justify-between items-center bg-slate-50 p-5 rounded-[1.5rem] hover:bg-white hover:shadow-lg transition-all cursor-pointer group/card border border-transparent hover:border-slate-100">
                                                         <div className="flex items-center gap-4">
-                                                            <div className="w-12 h-12 bg-[#050B18] text-white rounded-xl flex items-center justify-center font-black text-sm">
+                                                            <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-xs font-black text-slate-900 shadow-sm group-hover/card:bg-slate-900 group-hover/card:text-white transition-all">
                                                                 {p.initial}
                                                             </div>
                                                             <div>
-                                                                <h4 className="font-bold text-sm text-[#111]">{p.name}</h4>
-                                                                <p className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">{p.type}</p>
+                                                                <span className="font-black text-sm text-slate-900 uppercase tracking-tight block">{p.name}</span>
+                                                                <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest">{p.type}</span>
                                                             </div>
                                                         </div>
-                                                        <span className="text-[9px] font-black uppercase text-red-600 bg-red-50 px-4 py-2 rounded-full border border-red-100">
-                                                            {p.status}
-                                                        </span>
+                                                        <span className="text-[10px] font-black uppercase text-slate-900 bg-white px-4 py-2 rounded-xl group-hover/card:bg-slate-900 group-hover/card:text-white transition-all border border-slate-200">{p.status}</span>
                                                     </div>
                                                 ))}
                                             </div>
                                         </div>
 
-                                        <div className="bg-white rounded-xl p-6 md:p-8 border border-[#e8e8e8] shadow-sm">
-                                            <h3 className="flex items-center gap-3 text-base md:text-lg font-black text-[#111] uppercase tracking-widest mb-8">
-                                                <Activity size={20} className="text-[#E31E24]" /> {t("producer_profile.performance.activity")}
-                                            </h3>
-                                            <div className="space-y-6">
+                                        <div className="bg-white rounded-[2.5rem] p-10 border border-slate-100 shadow-xl shadow-slate-200/20 relative group">
+                                            <div className="flex items-center justify-between mb-8">
+                                                <h3 className="flex items-center gap-3 text-lg font-black text-slate-900 uppercase tracking-tighter">
+                                                    <div className="w-1.5 h-6 bg-blue-600 rounded-full" />
+                                                    Historique d'Activité
+                                                </h3>
+                                                <Activity className="text-blue-500" size={20} />
+                                            </div>
+                                            <div className="space-y-8 relative before:absolute before:left-[21px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-50">
                                                 {activityLedger.map(a => {
                                                     const Icon = a.icon;
                                                     return (
-                                                        <div key={a.id} className="flex items-center gap-5 p-2 rounded-2xl hover:bg-gray-50 transition-colors">
-                                                            <div className={`w-12 h-12 rounded-2xl flex items-center justify-center ${a.bg} ${a.color}`}>
-                                                                <Icon size={20} />
-                                                            </div>
+                                                        <div key={a.id} className="flex items-center gap-5 relative group/ledger cursor-pointer">
+                                                            <div className={`w-11 h-11 rounded-2xl ${a.bg} ${a.color} flex items-center justify-center shadow-sm relative z-10 border-4 border-white group-hover/ledger:scale-110 transition-transform`}><Icon size={18} /></div>
                                                             <div className="flex-1">
-                                                                <h4 className="font-bold text-sm text-[#111]">{a.title}</h4>
-                                                                <span className="text-[10px] text-gray-400 font-black uppercase tracking-widest">{a.time}</span>
+                                                                <h4 className="font-black text-sm text-slate-900 uppercase tracking-tight">{a.title}</h4>
+                                                                <div className="flex items-center gap-2 mt-1">
+                                                                    <div className="w-1 h-1 rounded-full bg-slate-300" />
+                                                                    <span className="text-[9px] text-slate-400 font-bold uppercase tracking-widest">{a.time}</span>
+                                                                </div>
                                                             </div>
-                                                            <div className="text-gray-300">
-                                                                <ChevronRight size={16} />
-                                                            </div>
+                                                            <ChevronRight size={14} className="text-slate-300 group-hover/ledger:translate-x-1 transition-transform" />
                                                         </div>
                                                     );
                                                 })}

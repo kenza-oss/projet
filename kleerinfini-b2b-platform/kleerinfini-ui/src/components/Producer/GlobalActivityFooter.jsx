@@ -1,5 +1,5 @@
 import React from 'react';
-import { Map, TrendingUp, Users, Activity, ChevronRight, Globe, Box, FileCheck, ShieldCheck, Zap } from 'lucide-react';
+import { Map, TrendingUp as TrendingUpIcon, Users, Activity, ChevronRight, Globe, Box, FileCheck, ShieldCheck, Zap } from 'lucide-react';
 import exportBg from '../../assets/export_port_background.png';
 
 const GlobalActivityFooter = () => {
@@ -45,7 +45,7 @@ const GlobalActivityFooter = () => {
             <div className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm h-full flex flex-col">
                 <div className="flex items-center justify-between mb-8">
                     <h3 className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">Growth Performance</h3>
-                    <TrendingUp size={16} className="text-blue-600" />
+                    <TrendingUpIcon size={16} className="text-blue-600" />
                 </div>
                 <div className="h-40 flex items-end gap-2 px-2">
                     {[30, 45, 25, 60, 40, 80, 55, 70, 90, 65, 85, 75].map((h, i) => (

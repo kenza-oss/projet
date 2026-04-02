@@ -5,13 +5,14 @@ import {
   Package,
   ClipboardList,
   MessageSquare,
-  TrendingUp,
+  TrendingUp as TrendingUpIcon,
   TrendingDown,
   Star,
   ChevronRight,
   ShieldCheck,
   Zap
 } from 'lucide-react';
+import { ResponsiveContainer, AreaChart, Area } from 'recharts';
 
 const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }) => {
   const navigate = useNavigate();
@@ -78,8 +79,22 @@ const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }
       icon: <Package size={20} />,
       accent: 'bg-blue-600',
       textAccent: 'text-blue-600',
-      targetTab: 'products'
+      targetTab: 'products',
+      chartData: [
+        { v: 10 }, { v: 15 }, { v: 12 }, { v: 20 }, { v: 18 }, { v: 25 }, { v: products.length || 20 }
+      ]
     }
+  ];
+
+  // Helper for specific chart data
+  stats[0].chartData = [
+    { v: views * 0.4 }, { v: views * 0.6 }, { v: views * 0.5 }, { v: views * 0.8 }, { v: views * 0.7 }, { v: views * 0.9 }, { v: views }
+  ];
+  stats[1].chartData = [
+    { v: likes * 0.3 }, { v: likes * 0.5 }, { v: likes * 0.4 }, { v: likes * 0.7 }, { v: likes * 0.6 }, { v: likes * 0.8 }, { v: likes }
+  ];
+  stats[2].chartData = [
+    { v: quotes * 0.2 }, { v: quotes * 0.4 }, { v: quotes * 0.3 }, { v: quotes * 0.6 }, { v: quotes * 0.5 }, { v: quotes * 0.7 }, { v: quotes }
   ];
 
   return (
@@ -107,10 +122,27 @@ const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }
               </div>
 
               <div className="space-y-1">
-                <p className="text-[11px] font-bold text-gray-500 uppercase tracking-widest">{stat.title}</p>
-                <h2 className="text-4xl font-extrabold text-[#050B18] tracking-tighter tabular-nums flex items-baseline gap-2">
-                  {stat.value}
-                </h2>
+                <p className="text-[11px] font-bold text-gray-400 uppercase tracking-widest">{stat.title}</p>
+                <div className="flex items-end justify-between gap-4">
+                  <h2 className="text-4xl font-black text-[#050B18] tracking-tighter tabular-nums">
+                    {stat.value}
+                  </h2>
+                  <div className="h-12 w-24">
+                    <ResponsiveContainer width="100%" height="100%">
+                      <AreaChart data={stat.chartData}>
+                        <Area
+                          type="monotone"
+                          dataKey="v"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                          fill="currentColor"
+                          fillOpacity={0.1}
+                          className={stat.textAccent}
+                        />
+                      </AreaChart>
+                    </ResponsiveContainer>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -144,7 +176,7 @@ const StatsBox = ({ products, messages, demands, producerProfile, setActiveTab }
             {
               title: "Calcul des Aides (FSPE)",
               desc: "Simulateur de subventions",
-              icon: <TrendingUp size={20} />,
+              icon: <TrendingUpIcon size={20} />,
               link: "/producer-dashboard/calculator",
               color: "bg-red-600",
               lightColor: "bg-red-50",

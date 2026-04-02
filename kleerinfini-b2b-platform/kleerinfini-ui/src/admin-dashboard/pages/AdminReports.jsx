@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardList, Download, TrendingUp, Users, Package, DollarSign, FileText, Calendar } from 'lucide-react';
+import { ClipboardList, Download, TrendingUp as TrendingUpIcon, Users, Package, DollarSign, FileText, Calendar } from 'lucide-react';
 import axios from '../../api/axios';
 
 const StatCard = ({ icon: Icon, label, value, color, delay }) => (
@@ -93,7 +93,7 @@ const AdminReports = () => {
                         <StatCard icon={Users} label="Total Clients" value={stats.total_clients} color="bg-blue-500" delay={0} />
                         <StatCard icon={Package} label="Total Producteurs" value={stats.total_producers} color="bg-[#26B99A]" delay={0.05} />
                         <StatCard icon={FileText} label="Total Invitations" value={stats.total_invitations} color="bg-violet-500" delay={0.1} />
-                        <StatCard icon={TrendingUp} label="Abonnements Actifs" value={stats.active_subscriptions} color="bg-emerald-500" delay={0.15} />
+                        <StatCard icon={TrendingUpIcon} label="Abonnements Actifs" value={stats.active_subscriptions} color="bg-emerald-500" delay={0.15} />
                     </div>
 
                     {/* Summary Table */}

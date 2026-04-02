@@ -8,7 +8,7 @@ import {
   Building2, CheckCircle, Briefcase, ShieldCheck, Award,
   FileText, Activity, Map, Navigation, UploadCloud, PieChart,
   MessageCircle, BarChart3, AlertTriangle, FileCheck, Landmark,
-  Clock, Check, UserPlus, Package, ChevronRight, Users
+  Clock, Check, UserPlus, Package, ChevronRight, Users, TrendingUp as TrendingUpIcon
 } from "lucide-react";
 import { getProductImage } from "../../utils/utils";
 import {
@@ -837,7 +837,7 @@ const ProducerProfile = ({ profileData, onSave }) => {
           <div className="mt-10 p-5 bg-red-50 rounded-[1.5rem] border border-red-100/50 flex items-center justify-between">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-red-600 shadow-sm">
-                <TrendingUp size={20} />
+                <TrendingUpIcon size={20} />
               </div>
               <div>
                 <p className="text-[9px] font-black text-red-900/60 uppercase tracking-widest">Croissance Organique</p>

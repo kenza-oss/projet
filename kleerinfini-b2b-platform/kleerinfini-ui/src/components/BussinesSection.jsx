@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Factory, Globe, TrendingUp } from "lucide-react";
+import { ArrowRight, Factory, Globe, TrendingUp as TrendingUpIcon } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import industryMain from "../assets/industry/main.png";
@@ -121,7 +121,7 @@ export default function EmpowerSection() {
                 {
                   title: t("home.empower.features.certified.title"),
                   desc: t("home.empower.features.certified.desc"),
-                  icon: TrendingUp
+                  icon: TrendingUpIcon
                 },
                 {
                   title: t("home.empower.features.export.title"),

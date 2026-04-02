@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, CheckCircle, TrendingUp, Globe, ShieldCheck } from 'lucide-react';
+import { X, CheckCircle, TrendingUp as TrendingUpIcon, Globe, ShieldCheck } from 'lucide-react';
 import { getProductImage } from '../utils/utils';
 
 const CategorySideDrawer = ({ isOpen, onClose, category }) => {
@@ -8,7 +8,7 @@ const CategorySideDrawer = ({ isOpen, onClose, category }) => {
 
     // Mock specs if not in backend yet
     const specs = [
-        { label: "Capacité d'Export", value: "5000 Tonnes / An", icon: <TrendingUp size={16} /> },
+        { label: "Capacité d'Export", value: "5000 Tonnes / An", icon: <TrendingUpIcon size={16} /> },
         { label: "Marchés Cibles", value: "UE, MENA, USA", icon: <Globe size={16} /> },
         { label: "Normes Qualité", value: "ISO 9001, HACCP", icon: <ShieldCheck size={16} /> },
     ];

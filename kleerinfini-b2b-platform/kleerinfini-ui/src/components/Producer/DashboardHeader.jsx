@@ -7,44 +7,50 @@ import {
   generateCollaborationTemplatePDF
 } from "../../utils/pdfProposals";
 
-const CircularProgress = ({ percentage, label, sublabel, color = "#2563eb" }) => {
+const CircularProgress = ({ percentage, label, sublabel, color = "#2563eb", gradId }) => {
   const radius = 35;
   const circumference = 2 * Math.PI * radius;
   const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col items-center gap-3 group/progress cursor-help">
       <div className="relative w-24 h-24 flex items-center justify-center">
         <svg className="w-full h-full transform -rotate-90">
+          <defs>
+            <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stopColor={color} />
+              <stop offset="100%" stopColor={`${color}CC`} />
+            </linearGradient>
+          </defs>
           <circle
             cx="48"
             cy="48"
             r={radius}
             stroke="currentColor"
-            strokeWidth="8"
+            strokeWidth="5"
             fill="transparent"
-            className="text-white/10"
+            className="text-white/5"
           />
           <circle
             cx="48"
             cy="48"
             r={radius}
-            stroke={color}
+            stroke={`url(#${gradId})`}
             strokeWidth="8"
             strokeDasharray={circumference}
             style={{ strokeDashoffset }}
             strokeLinecap="round"
             fill="transparent"
-            className="transition-all duration-1000 ease-out"
+            className="transition-all duration-1000 ease-out group-hover/progress:strokeWidth-[10px]"
           />
         </svg>
         <div className="absolute inset-0 flex flex-col items-center justify-center">
-          <span className="text-xl font-black text-white leading-none">{percentage}%</span>
+          <span className="text-2xl font-black text-white tracking-tighter leading-none">{percentage}%</span>
         </div>
       </div>
       <div className="text-center">
-        <p className="text-[10px] font-black uppercase tracking-widest text-white/50">{label}</p>
-        <p className="text-[9px] font-bold text-emerald-400">{sublabel}</p>
+        <p className="text-[10px] font-black uppercase tracking-[0.2em] text-white/40 group-hover/progress:text-white transition-colors">{label}</p>
+        <p className="text-[9px] font-bold text-emerald-400 uppercase tracking-widest mt-1">{sublabel}</p>
       </div>
     </div>
   );
@@ -119,8 +125,8 @@ export default function DashboardHeader({ activeTab, onAddProductClick, document
           </div>
 
           <div className="hidden sm:flex gap-6 md:gap-12 items-center md:mr-8 bg-black/20 backdrop-blur-sm p-4 rounded-3xl border border-white/5">
-            <CircularProgress percentage={87} label="Weekly Reach" sublabel="+12.4% Up" color="#2563eb" />
-            <CircularProgress percentage={64} label="Conversion" sublabel="+5.2% Up" color="#26B99A" />
+            <CircularProgress percentage={87} label="Weekly Reach" sublabel="+12.4% Up" color="#2563eb" gradId="gradReach" />
+            <CircularProgress percentage={64} label="Conversion" sublabel="+5.2% Up" color="#10b981" gradId="gradConv" />
           </div>
         </div>
       </div>

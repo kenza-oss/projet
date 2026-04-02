@@ -10,7 +10,7 @@ import {
   Inbox,
   ArrowUpRight,
   Sparkles,
-  TrendingUp,
+  TrendingUp as TrendingUpIcon,
   Clock,
   ExternalLink
 } from 'lucide-react';
@@ -32,7 +32,7 @@ const StatCard = ({ label, value, icon: Icon, color, trend }) => (
       {trend && (
         <div className="flex flex-col items-end">
           <span className="flex items-center gap-1 text-[11px] font-black text-green-600 bg-green-50 px-2.5 py-1 rounded-full border border-green-100 shadow-sm">
-            +{trend}% <TrendingUp size={12} />
+            +{trend}% <TrendingUpIcon size={12} />
           </span>
         </div>
       )}

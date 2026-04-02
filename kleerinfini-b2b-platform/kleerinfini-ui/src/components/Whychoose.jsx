@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Sparkles, TrendingUp, Handshake, ArrowRight } from 'lucide-react';
+import { Shield, Sparkles, TrendingUp as TrendingUpIcon, Handshake, ArrowRight } from 'lucide-react';
 import { useNavigate } from "react-router-dom";
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -22,7 +22,7 @@ export default function Whychoose() {
       image: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=1000" // Quality control
     },
     {
-      icon: <TrendingUp size={32} />,
+      icon: <TrendingUpIcon size={32} />,
       key: "vision",
       color: "#FF6600",
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1000" // Global trade

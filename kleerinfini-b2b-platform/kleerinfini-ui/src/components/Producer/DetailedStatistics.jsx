@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
-  Activity, TrendingUp, Lightbulb, ShieldCheck, Info,
+  Activity, TrendingUp as TrendingUpIcon, Lightbulb, ShieldCheck, Info,
   Eye, Archive, Globe, Loader2, Check, Package
 } from "lucide-react";
 import {
@@ -134,7 +134,7 @@ const DetailedStatistics = ({ products = [], profile }) => {
             ) : downloadSuccess ? (
               <Check size={16} />
             ) : (
-              <TrendingUp size={16} />
+              <TrendingUpIcon size={16} />
             )}
             {isDownloading ? t('producer_dashboard.stats.generating', 'Génération...') : downloadSuccess ? t('producer_dashboard.stats.reportReady', 'Rapport Prêt') : t('producer_dashboard.stats.download', 'Télécharger le Rapport')}
           </button>
@@ -308,7 +308,7 @@ const DetailedStatistics = ({ products = [], profile }) => {
           <div className="space-y-6">
             {[
               { label: t('markets.eastEurope', "Europe de l'Est"), val: '35.01%', prev: '51.18%', color: 'bg-blue-600', icon: <Globe size={18} />, hint: t('markets.strategicZone', 'Zone stratégique agroalimentaire.') },
-              { label: t('markets.asiaPacific', 'Asie Pacifique'), val: '15.31%', prev: '11.18%', color: 'bg-indigo-500', icon: <TrendingUp size={18} />, hint: t('markets.highDemand', 'Forte demande produits naturels.') },
+              { label: t('markets.asiaPacific', 'Asie Pacifique'), val: '15.31%', prev: '11.18%', color: 'bg-indigo-500', icon: <TrendingUpIcon size={18} />, hint: t('markets.highDemand', 'Forte demande produits naturels.') },
             ].map((market, i) => (
               <div key={i} className="flex items-center justify-between gap-4 group cursor-pointer hover:bg-slate-50 p-2 -mx-2 rounded-xl transition-all relative">
                 <div className="flex items-center gap-3 min-w-0 flex-1">
@@ -485,7 +485,7 @@ const DetailedStatistics = ({ products = [], profile }) => {
                       <td className="py-5">
                         <div className="flex justify-center gap-2">
                           <div title={t('producer_dashboard.stats.actions.details', 'Détails')} className="p-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-600 hover:text-white transition-all shadow-sm active:scale-95"><Eye size={14} /></div>
-                          <div title={t('producer_dashboard.stats.actions.stats', 'Stats')} className="p-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-600 hover:text-white transition-all shadow-sm active:scale-95"><TrendingUp size={14} /></div>
+                          <div title={t('producer_dashboard.stats.actions.stats', 'Stats')} className="p-2 bg-blue-50 text-blue-600 rounded-lg cursor-pointer hover:bg-blue-600 hover:text-white transition-all shadow-sm active:scale-95"><TrendingUpIcon size={14} /></div>
                           <div title={t('producer_dashboard.stats.actions.archive', 'Archive')} className="p-2 bg-slate-50 text-slate-400 rounded-lg cursor-pointer hover:bg-slate-200 transition-all active:scale-95"><Archive size={14} /></div>
                         </div>
                       </td>
