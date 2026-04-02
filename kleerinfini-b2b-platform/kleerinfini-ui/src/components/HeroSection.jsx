@@ -45,14 +45,14 @@ export default function HeroSection({ onOpenMap }) {
               src={backgroundImages[currentBgIndex]}
               alt={`Luxury Background ${currentBgIndex + 1}`}
               className="w-full h-full object-cover"
-              style={{ filter: 'brightness(0.72) contrast(1.05)' }}
+              style={{ filter: 'brightness(0.82) contrast(1.05)' }}
             />
           </motion.div>
         </AnimatePresence>
         
-        {/* Luminous Overlays - Restored for premium dark aesthetic and readability */}
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/40 to-transparent"></div>
+        {/* Luminous Overlays - Adjusted for better visibility */}
+        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/30 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
       </div>
 

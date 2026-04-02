@@ -44,8 +44,8 @@ export default function Whychoose() {
           alt="International Export"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/95 via-black/90 to-black/85"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/10 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/80 to-black/75"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/5 via-transparent to-transparent"></div>
       </div>
 
       {/* Decorative golden lines */}
@@ -111,11 +111,11 @@ export default function Whychoose() {
                   <img
                     src={item.image}
                     alt=""
-                    className="w-full h-full object-cover brightness-90 group-hover:scale-110 group-hover:brightness-100 transition-all duration-[2500ms]"
+                    className="w-full h-full object-cover brightness-95 group-hover:scale-110 group-hover:brightness-100 transition-all duration-[2500ms]"
                   />
                   {/* Overlay léger pour lisibilité du texte */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/20 via-transparent to-transparent"></div>
+                  <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/30 to-black/40"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#D4AF37]/15 via-transparent to-transparent"></div>
                 </div>
 
                 {/* Content */}

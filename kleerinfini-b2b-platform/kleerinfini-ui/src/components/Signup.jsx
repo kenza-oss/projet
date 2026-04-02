@@ -17,12 +17,13 @@ export default function CTASection() {
           backgroundImage: `url(${signup})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
+          filter: "brightness(0.5) contrast(1.1)"
         }}
       ></div>
 
       {/* Luxury Gradient Overlay - Radial focus */}
-      <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.6)_0%,_rgba(0,0,0,0.9)_100%)] mix-blend-multiply"></div>
-      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black via-black/80 to-transparent opacity-90"></div>
+      <div className="absolute inset-0 z-10 bg-[radial-gradient(circle_at_center,_rgba(0,0,0,0.3)_0%,_rgba(0,0,0,0.6)_100%)] mix-blend-multiply"></div>
+      <div className="absolute inset-0 z-10 bg-gradient-to-r from-black/60 via-black/40 to-transparent opacity-80"></div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-20 w-full">
         <div className="max-w-3xl space-y-10">
