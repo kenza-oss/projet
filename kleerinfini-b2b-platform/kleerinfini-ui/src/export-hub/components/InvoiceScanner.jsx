@@ -52,7 +52,7 @@ const InvoiceScanner = () => {
         formData.append('file', file);
 
         try {
-            const response = await api.post('analyze-invoice/', formData);
+            const response = await api.post('export-hub/analyze-invoice/', formData);
             setResult(response.data);
 
             // SAVE FOR FSPE CALCULATOR (Magic Feature)
@@ -61,18 +61,20 @@ const InvoiceScanner = () => {
             }
         } catch (error) {
             console.error("OCR Error:", error);
-            // Fallback to a realistic simulation if backend endpoint is unavailable on production/demo
+            const errorMsg = error.response?.data?.error || error.message || "Erreur de connexion";
+            
+            // Render the backend error message securely in the Invoice UI
             setResult({
                 filename: file.name,
-                nif: "000516091483569", 
-                ai: "1604",
-                incoterm: "FOB",
-                total_amount: 145000,
-                currency: "EUR",
-                retrocession_rate: 20,
+                nif: "DOCUMENT-INVALIDE", 
+                ai: "---------",
+                incoterm: "---",
+                total_amount: 0,
+                currency: "ERR",
+                retrocession_rate: 0,
                 issues: [
-                    { type: 'success', text: 'Document lisible. NIF et Article extraits avec succès' },
-                    { type: 'success', text: 'Conformité douanière approuvée pour exportation' }
+                    { type: 'warning', text: 'Analyse Échouée / Document Rejeté' },
+                    { type: 'warning', text: errorMsg }
                 ]
             });
         } finally {
