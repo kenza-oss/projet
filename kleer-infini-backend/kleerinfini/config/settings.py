@@ -30,8 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,kleerinfini-backend.onrender.com,kleer-infini-backend.onrender.com,kleerinfini-backend-xo0t.onrender.com', cast=lambda v: [s.strip() for s in v.split(',')])
-
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,kleerinfini-backend.onrender.com,kleer-infini-backend.onrender.com,kleerinfini-backend-xo0t.onrender.com,kleerinfini.dz,www.kleerinfini.dz', cast=lambda v: [s.strip() for s in v.split(',')])
 
 # Application definition
 INSTALLED_APPS = [
@@ -325,13 +324,11 @@ CELERY_RESULT_SERIALIZER = 'json'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleer-infini-backend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,http://localhost:5173,http://127.0.0.1:5173', cast=lambda v: [s.strip() for s in v.split(',')])
-
-CORS_ALLOW_CREDENTIALS = True
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleer-infini-backend.onrender.com,https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,http://localhost:5173,http://127.0.0.1:5173,https://kleerinfini.dz,https://www.kleerinfini.dz', cast=lambda v: [s.strip() for s in v.split(',')])
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = config(
     'CORS_ALLOWED_ORIGINS', 
-    default='https://projet-1.onrender.com,https://projet-1-y2ku.onrender.com,https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app,http://localhost:5173,http://127.0.0.1:5173', 
+    default='https://projet-1.onrender.com,https://projet-1-y2ku.onrender.com,https://kleerinfini-frontend.onrender.com,https://kleer-infini.netlify.app,http://localhost:5173,http://127.0.0.1:5173,https://kleerinfini.dz,https://www.kleerinfini.dz', 
     cast=lambda v: [s.strip() for s in v.split(',')]
 )
 
