@@ -112,7 +112,7 @@ const Producers = () => {
                         // Ensure all items have details
                         address: p.address || t("home.map.no_address", "Adresse non spécifiée"),
                         phone: p.phone || "+213 000 000 000",
-                        website: p.website || "www.kleer-infini.com",
+                        website: p.website || "www.kleerinfini.dz",
                         name: p.company_name || p.name || t("home.map.fallback_name", "Entreprise"),
                         cover_image: p.cover_image || p.image || null
                     };

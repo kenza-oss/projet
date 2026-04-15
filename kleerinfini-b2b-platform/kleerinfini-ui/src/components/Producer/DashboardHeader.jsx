@@ -84,7 +84,7 @@ export default function DashboardHeader({ activeTab, onAddProductClick, document
     // 2. Open Email Client
     const subject = encodeURIComponent(`Proposition de Collaboration - ${companyName}`);
     const body = encodeURIComponent(`Bonjour,\n\nVeuillez trouver ci-joint ma proposition de collaboration générée depuis mon Dashboard Kleer Infini.\n\nCordialement,\n${firstName} ${lastName}\n${companyName}`);
-    window.location.href = `mailto:contact@kleer-Infini.dz?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:contact@kleerinfini.dz?subject=${subject}&body=${body}`;
 
     // 3. Feedback
     setShowSuccess(true);
@@ -120,7 +120,7 @@ export default function DashboardHeader({ activeTab, onAddProductClick, document
               {t('producer_dashboard.home.manageCatalog', 'Gérez vos opérations B2B internationales avec précision et suivez votre croissance.')}
             </p>
             <p className="text-blue-400 text-[10px] md:text-sm font-bold tracking-widest uppercase">
-              Support : <a href="mailto:contact@kleer-Infini.dz" className="hover:underline">contact@kleer-Infini.dz</a>
+              Support : <a href="mailto:contact@kleerinfini.dz" className="hover:underline">contact@kleerinfini.dz</a>
             </p>
           </div>
 
@@ -199,7 +199,7 @@ export default function DashboardHeader({ activeTab, onAddProductClick, document
                     <span className="text-xs font-black uppercase tracking-widest">Aide Stratégique</span>
                   </div>
                   <p className="text-[10px] text-blue-600 font-bold leading-relaxed">
-                    Besoin d'aide ? Contactez-nous sur <span className="text-blue-600 font-black">contact@kleer-Infini.dz</span> ou Cliquez sur le "+" pour télécharger un modèle de document prêt à l'emploi.
+                    Besoin d'aide ? Contactez-nous sur <span className="text-blue-600 font-black">contact@kleerinfini.dz</span> ou Cliquez sur le "+" pour télécharger un modèle de document prêt à l'emploi.
                   </p>
                 </div>
                 <button

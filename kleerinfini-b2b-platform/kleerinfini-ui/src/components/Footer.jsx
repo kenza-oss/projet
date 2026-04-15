@@ -284,17 +284,17 @@ export default function Footer() {
             <div className="space-y-4 md:space-y-6">
               <p className="text-[10px] md:text-xs font-black text-[#FF6600] uppercase tracking-wider opacity-80">{t("home.footer.contact_title")}</p>
               <div className="flex flex-col gap-2 md:gap-2.5">
-                <a href="mailto:contact@kleer-Infini.dz" className="text-white hover:text-white transition-colors text-sm font-light flex items-center gap-2">
+                <a href="mailto:contact@kleerinfini.dz" className="text-white hover:text-white transition-colors text-sm font-light flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-[#FF6600]/30">@</span>
-                  contact@kleer-Infini.dz
+                  contact@kleerinfini.dz
                 </a>
-                <a href="mailto:commercial@kleer-Infini.dz" className="text-white hover:text-white transition-colors text-sm font-light flex items-center gap-2">
+                <a href="mailto:commercial@kleerinfini.dz" className="text-white hover:text-white transition-colors text-sm font-light flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-[#FF6600]/30">@</span>
-                  commercial@kleer-Infini.dz
+                  commercial@kleerinfini.dz
                 </a>
-                <a href="mailto:direction@kleer-Infini.dz" className="text-white hover:text-white transition-colors text-sm font-light flex items-center gap-2">
+                <a href="mailto:direction@kleerinfini.dz" className="text-white hover:text-white transition-colors text-sm font-light flex items-center gap-2">
                   <span className="w-4 h-4 rounded-full bg-white/5 flex items-center justify-center border border-white/5 group-hover:border-[#FF6600]/30">@</span>
-                  direction@kleer-Infini.dz
+                  direction@kleerinfini.dz
                 </a>
                 <div className="pt-2 flex flex-col gap-2">
                   <div className="text-white text-xs font-light flex items-start gap-2">
