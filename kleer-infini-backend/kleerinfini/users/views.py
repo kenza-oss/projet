@@ -16,6 +16,8 @@ from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
 from rest_framework.permissions import AllowAny
 from rest_framework.parsers import MultiPartParser, FormParser, JSONParser
+from django.core.mail import send_mail
+from django.conf import settings
 
 class RegisterProducerView(APIView):
     permission_classes = [AllowAny]
@@ -177,3 +179,35 @@ class TwoFactorVerifyView(APIView):
             user.save()
             return Response({"message": "2FA activé avec succès"})
         return Response({"error": "Code OTP invalide"}, status=status.HTTP_400_BAD_REQUEST)
+
+class AcademyRegistrationView(APIView):
+    permission_classes = [AllowAny]
+    authentication_classes = []
+
+    def post(self, request):
+        try:
+            data = request.data
+            name = data.get('name')
+            email = data.get('email')
+            level = data.get('level')
+            pack = data.get('pack')
+            link = data.get('link', 'Non fourni')
+
+            subject = f"🎓 Inscription Academy : {name}"
+            message = f"Une nouvelle inscription Academy a été reçue :\n\n" \
+                      f"• Nom : {name}\n" \
+                      f"• Email : {email}\n" \
+                      f"• Niveau : {level}\n" \
+                      f"• Pack : {pack}\n" \
+                      f"• CV : {link}"
+
+            send_mail(
+                subject,
+                message,
+                settings.DEFAULT_FROM_EMAIL,
+                [settings.EMAIL_HOST_USER, "kleerinfini@gmail.com"],
+                fail_silently=False,
+            )
+            return Response({'status': 'success'}, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
