@@ -74,7 +74,7 @@ export default function CategorySection() {
   };
 
   return (
-    <section className="py-16 md:py-32 bg-[#080808] relative overflow-hidden border-t border-white/5">
+    <section className="py-16 md:py-32 bg-[#FAF9F6] relative overflow-hidden border-t border-black/5">
       {/* Cinematic Auras */}
       <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#FF6600]/10 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#D4AF37]/5 rounded-full blur-[120px] pointer-events-none"></div>
@@ -89,20 +89,20 @@ export default function CategorySection() {
             className="flex flex-col items-center justify-center gap-6"
           >
             <div className="flex items-center gap-6 group">
-              <div className="w-12 h-[1px] bg-white/10 group-hover:w-20 group-hover:bg-[#FF6600] transition-all duration-700"></div>
-              <p className="text-white font-bold uppercase tracking-[0.8em] text-[11px] font-cinzel">
+              <div className="w-12 h-[1px] bg-black/10 group-hover:w-20 group-hover:bg-[#FF6600] transition-all duration-700"></div>
+              <p className="text-neutral-900 font-bold uppercase tracking-[0.8em] text-[11px] font-cinzel">
                 {t("home.categories.elite_sectors")}
               </p>
-              <div className="w-12 h-[1px] bg-white/10 group-hover:w-20 group-hover:bg-[#FF6600] transition-all duration-700"></div>
+              <div className="w-12 h-[1px] bg-black/10 group-hover:w-20 group-hover:bg-[#FF6600] transition-all duration-700"></div>
             </div>
 
-            <h2 className="text-5xl md:text-8xl font-display-luxury text-white leading-tight tracking-tighter">
+            <h2 className="text-5xl md:text-8xl font-display-luxury text-neutral-900 leading-tight tracking-tighter">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FF6600] to-[#D4AF37] font-serif-luxury italic font-light">{t("home.categories.subtitle")}</span>
             </h2>
 
             <div className="w-[100px] h-[1px] bg-gradient-to-r from-transparent via-[#FF6600]/50 to-transparent"></div>
 
-            <p className="!text-white font-serif-luxury italic max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
+            <p className="text-neutral-600 font-serif-luxury italic max-w-2xl mx-auto text-lg md:text-xl leading-relaxed">
               {t("home.categories.desc_excellence")}
             </p>
           </motion.div>
@@ -257,7 +257,7 @@ export default function CategorySection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.1 * idx, duration: 0.8, ease: "easeOut" }}
-                    className="group relative aspect-square bg-[#0A0A0A] border border-white/5 hover:border-[#D4AF37]/40 rounded-[1.5rem] overflow-hidden flex flex-col items-center justify-center p-6 text-center cursor-pointer transition-all duration-500 shadow-lg hover:shadow-[#D4AF37]/10"
+                    className="group relative aspect-square bg-white border border-black/5 hover:border-[#D4AF37]/40 rounded-[1.5rem] overflow-hidden flex flex-col items-center justify-center p-6 text-center cursor-pointer transition-all duration-500 shadow-lg hover:shadow-[#D4AF37]/10"
                   >
                     {/* Background Image with Overlay */}
                     <div className="absolute inset-0">

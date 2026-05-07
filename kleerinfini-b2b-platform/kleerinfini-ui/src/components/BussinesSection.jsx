@@ -18,7 +18,7 @@ export default function EmpowerSection() {
   ];
 
   return (
-    <section className="section-spacing bg-gradient-to-br from-[#FAF8F3] via-[#F5F1E8] to-[#FDFBF7] py-16 md:py-32 overflow-hidden relative">
+    <section className="section-spacing bg-white py-16 md:py-32 overflow-hidden relative">
       {/* Decorative Auras - Subtle beige tones */}
       <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-[#D4AF37]/5 rounded-full blur-[150px] pointer-events-none"></div>
       <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-[#FF6600]/5 rounded-full blur-[120px] pointer-events-none"></div>

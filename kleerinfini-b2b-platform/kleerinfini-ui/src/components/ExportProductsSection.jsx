@@ -102,7 +102,7 @@ export default function ExportProductsSection() {
           >
             <div className="flex items-center gap-6 group">
               <div className="w-12 h-[1px] bg-[#FF6600]/40 group-hover:w-20 group-hover:bg-[#FF6600] transition-all duration-700"></div>
-              <p className="text-[#634025] font-bold uppercase tracking-[0.6em] text-[12px] font-cinzel">
+              <p className="text-[#1A1A1A] font-bold uppercase tracking-[0.6em] text-[12px] font-cinzel">
                 {t("home.products.portfolio")}
               </p>
               <div className="w-12 h-[1px] bg-[#FF6600]/40 group-hover:w-20 group-hover:bg-[#FF6600] transition-all duration-700"></div>

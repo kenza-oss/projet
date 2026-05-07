@@ -35,7 +35,7 @@ export default function StepsGuideSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#1a0f0a] to-[#0A0A0A] grainy-texture">
+    <section className="py-16 md:py-24 px-4 md:px-6 relative overflow-hidden bg-gradient-to-br from-[#0A0A0A] via-[#000000] to-[#0A0A0A] grainy-texture">
       {/* Background Decorative Gradient */}
       <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
       <div className="absolute -bottom-48 -left-48 w-96 h-96 bg-[#D4AF37]/5 rounded-full blur-[120px]"></div>
