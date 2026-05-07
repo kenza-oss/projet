@@ -96,8 +96,8 @@ export default function CategorySection() {
               <div className="w-12 h-[1px] bg-black/10 group-hover:w-20 group-hover:bg-[#FF6600] transition-all duration-700"></div>
             </div>
 
-            <h2 className="text-5xl md:text-8xl font-display-luxury text-neutral-900 leading-tight tracking-tighter">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#FF6600] to-[#D4AF37] font-serif-luxury italic font-light">{t("home.categories.subtitle")}</span>
+            <h2 className="text-6xl md:text-9xl font-display-luxury text-neutral-900 leading-tight tracking-tighter">
+              <span className="font-serif-luxury italic font-light">{t("home.categories.subtitle")}</span>
             </h2>
 
             <div className="w-[100px] h-[1px] bg-gradient-to-r from-transparent via-[#FF6600]/50 to-transparent"></div>
