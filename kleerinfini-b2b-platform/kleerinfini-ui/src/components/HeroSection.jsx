@@ -18,7 +18,7 @@ export default function HeroSection({ onOpenMap }) {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
-    }, 8000); // 8 seconds interval
+    }, 4000); // Accelerated to 4 seconds
     return () => clearInterval(timer);
   }, []);
 
@@ -35,10 +35,10 @@ export default function HeroSection({ onOpenMap }) {
         <AnimatePresence mode="wait">
           <motion.div
             key={currentBgIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
             className="absolute inset-0 w-full h-full"
           >
             <img

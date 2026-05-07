@@ -90,11 +90,11 @@ export default function ExportProductsSection() {
 
   return (
     <section className="relative py-16 md:py-24 bg-[#FAF9F6] overflow-hidden">
-      {/* Luxury Separator */}
-      <div className="flex items-center justify-center pb-16">
-        <div className="w-40 h-[1px] bg-gradient-to-r from-transparent via-black/10 to-transparent"></div>
-        <div className="mx-6 w-2 h-2 rotate-45 border border-[#D4AF37] bg-transparent shadow-[0_0_15px_rgba(212,175,55,0.3)]"></div>
-        <div className="w-40 h-[1px] bg-gradient-to-l from-transparent via-black/10 to-transparent"></div>
+      {/* Luxury Separator - More Prominent */}
+      <div className="flex items-center justify-center pb-20">
+        <div className="w-60 h-[1.5px] bg-gradient-to-r from-transparent via-neutral-900/40 to-transparent"></div>
+        <div className="mx-8 w-3 h-3 rotate-45 border-2 border-[#D4AF37] bg-neutral-900 shadow-[0_0_20px_rgba(212,175,55,0.4)]"></div>
+        <div className="w-60 h-[1.5px] bg-gradient-to-l from-transparent via-neutral-900/40 to-transparent"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
