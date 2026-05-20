@@ -66,21 +66,21 @@ export default function HeroSection({ onOpenMap }) {
                 playsInline
                 onEnded={handleNextSlide}
                 className="w-full h-full object-cover"
-                style={{ filter: 'brightness(0.70)' }}
+                style={{ filter: currentBgIndex === 0 ? 'brightness(0.70)' : 'brightness(1)' }}
               />
             ) : (
               <img
                 src={backgroundMedia[currentBgIndex].src}
                 alt={`Luxury Background ${currentBgIndex + 1}`}
                 className="w-full h-full object-cover"
-                style={{ filter: 'brightness(0.70)' }}
+                style={{ filter: currentBgIndex === 0 ? 'brightness(0.70)' : 'brightness(1)' }}
               />
             )}
           </motion.div>
         </AnimatePresence>
         
         {/* Luminous Overlays - Adjusted for better visibility */}
-        <div className="absolute inset-0 bg-black/30"></div>
+        {currentBgIndex === 0 && <div className="absolute inset-0 bg-black/30 transition-opacity duration-1000"></div>}
         <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-[#0A0A0A]/30 to-transparent"></div>
         <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-[#0A0A0A] to-transparent z-10"></div>
       </div>
@@ -93,17 +93,13 @@ export default function HeroSection({ onOpenMap }) {
         className="absolute top-8 left-8 z-50 group cursor-pointer"
       >
         <div className="relative flex items-center">
-          {/* Outer Glass Ring */}
-          <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg border-[1.5px] border-white/40 flex items-center justify-center shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-transform duration-500 group-hover:scale-110 z-20">
-            {/* Inner Gold Ring */}
-            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.6)] relative">
-              <img
-                src="https://flagcdn.com/w160/dz.png"
-                alt="Algeria Flag"
-                className="w-full h-full object-cover scale-150"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/30"></div>
-            </div>
+          {/* Algeria Flag Map */}
+          <div className="w-16 h-16 flex items-center justify-center transition-transform duration-500 group-hover:scale-110 z-20 drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/1/16/Flag_map_of_Algeria.svg"
+              alt="Algeria Map Flag"
+              className="w-full h-full object-contain drop-shadow-2xl"
+            />
           </div>
 
           {/* Sliding Label */}
