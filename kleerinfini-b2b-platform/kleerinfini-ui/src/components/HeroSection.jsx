@@ -4,11 +4,14 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-import heroBgNew from "../assets/hero_bg_new_main.png";
 import heroBg2 from "../assets/hero_bg_marina.jpg";
 import heroBg4 from "../assets/hero_bg_3_breakfast.jpg";
 
-const backgroundImages = [heroBgNew, heroBg2, heroBg4];
+const backgroundMedia = [
+  { type: "video", src: "https://res.cloudinary.com/dptb2m02i/video/upload/q_auto,f_auto,w_1920/v1779275439/kleerinfini/hero/avxdc2ce3rilytuckpaw.mp4" },
+  { type: "image", src: heroBg2 },
+  { type: "image", src: heroBg4 }
+];
 
 export default function HeroSection({ onOpenMap }) {
   const { t } = useTranslation();
@@ -17,7 +20,7 @@ export default function HeroSection({ onOpenMap }) {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentBgIndex((prev) => (prev + 1) % backgroundImages.length);
+      setCurrentBgIndex((prev) => (prev + 1) % backgroundMedia.length);
     }, 8000); // Stay longer (8 seconds)
     return () => clearInterval(timer);
   }, []);
@@ -41,12 +44,24 @@ export default function HeroSection({ onOpenMap }) {
             transition={{ duration: 0.6, ease: "easeInOut" }}
             className="absolute inset-0 w-full h-full"
           >
-            <img
-              src={backgroundImages[currentBgIndex]}
-              alt={`Luxury Background ${currentBgIndex + 1}`}
-              className="w-full h-full object-cover"
-              style={{ filter: 'brightness(0.82) contrast(1.05)' }}
-            />
+            {backgroundMedia[currentBgIndex].type === "video" ? (
+              <video
+                src={backgroundMedia[currentBgIndex].src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
+                style={{ filter: 'brightness(0.82) contrast(1.05)' }}
+              />
+            ) : (
+              <img
+                src={backgroundMedia[currentBgIndex].src}
+                alt={`Luxury Background ${currentBgIndex + 1}`}
+                className="w-full h-full object-cover"
+                style={{ filter: 'brightness(0.82) contrast(1.05)' }}
+              />
+            )}
           </motion.div>
         </AnimatePresence>
         
