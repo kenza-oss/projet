@@ -102,7 +102,7 @@ export default function Header({ theme = "dark" }) {
         <div className="hidden lg:flex items-center gap-6">
           <button
             onClick={() => navigate('/login')}
-            className={`${isLight ? 'text-gray-600 hover:text-black' : 'text-white hover:text-white'} flex items-center gap-2 text-[12px] font-bold tracking-[0.2em] transition-colors group`}
+            className={`flex items-center gap-2 text-[12px] font-bold tracking-[0.2em] transition-all group px-5 py-2 rounded-xl backdrop-blur-md bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 shadow-[0_4px_30px_rgba(0,0,0,0.1)] ${isLight ? 'text-gray-900 border-gray-200' : 'text-white'}`}
           >
             <User size={16} className="text-[#D4AF37]" />
             {t("home.nav.accessVip")}
@@ -110,7 +110,7 @@ export default function Header({ theme = "dark" }) {
 
           <button
             onClick={() => navigate('/producer-inscription')}
-            className="px-6 py-3 text-[10px] tracking-[0.25em] font-bold rounded-xl bg-[#F97316] text-white hover:bg-[#EA580C] hover:shadow-[0_0_20px_rgba(249,115,22,0.4)] transition-all shadow-lg uppercase border border-white/10"
+            className="px-6 py-3 text-[10px] tracking-[0.25em] font-bold rounded-xl bg-[#FF0000] text-white hover:bg-[#CC0000] hover:shadow-[0_0_20px_rgba(255,0,0,0.6)] transition-all shadow-lg uppercase border border-white/10"
           >
             {t("home.nav.becomePartner")}
           </button>
@@ -183,13 +183,13 @@ export default function Header({ theme = "dark" }) {
           <div className="mt-auto space-y-4 pt-10">
             <button
               onClick={() => { navigate('/login'); setIsOpen(false); }}
-              className={`w-full py-5 ${isLight ? 'text-gray-500 border-gray-200' : 'text-white border-white/20'} border rounded-2xl text-sm font-bold tracking-widest hover:border-[#FF6600] transition-colors`}
+              className={`w-full py-5 ${isLight ? 'text-gray-500 border-gray-200 bg-white/50' : 'text-white border-white/20 bg-white/5'} border rounded-2xl text-sm font-bold tracking-widest hover:border-white/40 backdrop-blur-md transition-all shadow-[0_4px_30px_rgba(0,0,0,0.1)]`}
             >
               {t("home.nav.accessVip")}
             </button>
             <button
               onClick={() => { navigate('/producer-inscription'); setIsOpen(false); }}
-              className="w-full btn-luxury py-5 text-sm"
+              className="w-full py-5 text-sm rounded-2xl font-bold tracking-widest uppercase bg-[#FF0000] text-white hover:bg-[#CC0000] transition-colors shadow-lg"
             >
               {t("home.nav.becomePartner")}
             </button>

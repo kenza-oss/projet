@@ -122,11 +122,11 @@ export default function HeroSection({ onOpenMap }) {
           className="space-y-6 md:space-y-10 w-full"
         >
           <div className="flex items-center justify-center gap-6 mb-4">
-            <div className="w-12 h-[1px] bg-[#FF6600]"></div>
-            <span className="text-[#FF6600] font-black uppercase tracking-[0.6em] text-[10px]">
+            <div className="w-12 h-[1px] bg-[#FF0000]"></div>
+            <span className="text-[#FF0000] font-black uppercase tracking-[0.6em] text-[10px]">
               {t("home.hero.group_label")}
             </span>
-            <div className="w-12 h-[1px] bg-[#FF6600]"></div>
+            <div className="w-12 h-[1px] bg-[#FF0000]"></div>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display-luxury text-white leading-tight tracking-tight mb-4 md:mb-8 text-shadow-premium px-2">
