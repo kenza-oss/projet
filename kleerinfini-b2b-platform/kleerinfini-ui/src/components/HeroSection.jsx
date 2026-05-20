@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-import heroCargo from "../assets/hero_bg_cargo.jpg";
+import heroGlobe from "../assets/hero_bg_globe.jpg";
 import heroBg2 from "../assets/hero_bg_marina.jpg";
 import heroBg4 from "../assets/hero_bg_3_breakfast.jpg";
 
 const backgroundMedia = [
-  { type: "image", src: heroCargo },
+  { type: "image", src: heroGlobe },
   { type: "image", src: heroBg2 },
   { type: "image", src: heroBg4 }
 ];
@@ -146,7 +146,7 @@ export default function HeroSection({ onOpenMap }) {
               <div key={idx} className="space-y-4 group">
                 <div className="flex flex-col items-center justify-center gap-2">
                   <div className="flex items-center gap-3">
-                    <stat.icon size={20} className="text-[#FF6600]" />
+                    <stat.icon size={24} className="text-[#FF0000] drop-shadow-[0_0_8px_rgba(255,0,0,0.8)]" />
                     <span className="text-3xl font-display-luxury font-light tracking-tighter text-white group-hover:text-luxury-gold transition-colors duration-500">
                       {stat.value}
                     </span>
