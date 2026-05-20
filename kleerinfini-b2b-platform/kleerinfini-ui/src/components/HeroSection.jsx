@@ -94,15 +94,15 @@ export default function HeroSection({ onOpenMap }) {
       >
         <div className="relative flex items-center">
           {/* Outer Glass Ring */}
-          <div className="w-14 h-14 rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.3)] transition-transform duration-500 group-hover:scale-105 z-20">
+          <div className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-lg border-[1.5px] border-white/40 flex items-center justify-center shadow-[0_0_25px_rgba(255,255,255,0.2)] transition-transform duration-500 group-hover:scale-110 z-20">
             {/* Inner Gold Ring */}
-            <div className="w-10 h-10 rounded-full overflow-hidden border-[1px] border-[#D4AF37] shadow-[0_0_10px_rgba(212,175,55,0.3)] relative">
+            <div className="w-11 h-11 rounded-full overflow-hidden border-2 border-[#FFD700] shadow-[0_0_15px_rgba(255,215,0,0.6)] relative">
               <img
                 src="https://flagcdn.com/w160/dz.png"
                 alt="Algeria Flag"
                 className="w-full h-full object-cover scale-150"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-white/20"></div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-white/30"></div>
             </div>
           </div>
 
