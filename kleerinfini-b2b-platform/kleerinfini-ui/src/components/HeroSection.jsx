@@ -66,18 +66,14 @@ export default function HeroSection({ onOpenMap }) {
                 playsInline
                 onEnded={handleNextSlide}
                 className="w-full h-full object-cover"
-                style={{ filter: 'brightness(0.50) contrast(1.10) grayscale(0.15)' }}
+                style={{ filter: 'brightness(0.70)' }}
               />
             ) : (
               <img
                 src={backgroundMedia[currentBgIndex].src}
                 alt={`Luxury Background ${currentBgIndex + 1}`}
                 className="w-full h-full object-cover"
-                style={{ 
-                  filter: currentBgIndex === 0 
-                    ? 'brightness(0.50) contrast(1.10) grayscale(0.15)' 
-                    : 'brightness(0.82) contrast(1.05)' 
-                }}
+                style={{ filter: 'brightness(0.70)' }}
               />
             )}
           </motion.div>
