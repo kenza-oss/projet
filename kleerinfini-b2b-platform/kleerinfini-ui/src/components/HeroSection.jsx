@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
-import heroLogistics from "../assets/hero_bg_logistics.jpg";
+import heroCargo from "../assets/hero_bg_cargo.jpg";
 import heroBg2 from "../assets/hero_bg_marina.jpg";
 import heroBg4 from "../assets/hero_bg_3_breakfast.jpg";
 
 const backgroundMedia = [
-  { type: "image", src: heroLogistics },
+  { type: "image", src: heroCargo },
   { type: "image", src: heroBg2 },
   { type: "image", src: heroBg4 }
 ];
@@ -27,10 +27,10 @@ export default function HeroSection({ onOpenMap }) {
       return;
     }
 
-    // If it's an image, switch after 8 seconds
+    // If it's an image, switch after 15 seconds
     const timer = setInterval(() => {
       setCurrentBgIndex((prev) => (prev + 1) % backgroundMedia.length);
-    }, 8000);
+    }, 15000);
     
     return () => clearInterval(timer);
   }, [currentBgIndex]);
@@ -73,7 +73,11 @@ export default function HeroSection({ onOpenMap }) {
                 src={backgroundMedia[currentBgIndex].src}
                 alt={`Luxury Background ${currentBgIndex + 1}`}
                 className="w-full h-full object-cover"
-                style={{ filter: 'brightness(0.50) contrast(1.10) grayscale(0.15)' }}
+                style={{ 
+                  filter: currentBgIndex === 0 
+                    ? 'brightness(0.50) contrast(1.10) grayscale(0.15)' 
+                    : 'brightness(0.82) contrast(1.05)' 
+                }}
               />
             )}
           </motion.div>

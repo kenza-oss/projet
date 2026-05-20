@@ -87,7 +87,7 @@ body {
   display: block;
 }
 
-h1 { font-size: clamp(2.5rem, 8vw, 4.5rem); line-height: 1.1; font-weight: 800; }
+h1 { font-size: clamp(2.5rem, 6vw, 3.8rem); line-height: 1.1; font-weight: 300; letter-spacing: -0.02em; }
 h2 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 700; }
 p { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; }
 
@@ -107,11 +107,12 @@ p { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; }
   background-size: cover;
   background-position: center;
   z-index: 0;
+  animation: panBg 15s ease-in-out infinite alternate;
 }
 
 @keyframes panBg {
-  0% { transform: scale(1.1) translate(0, 0); }
-  100% { transform: scale(1.2) translate(-2%, -2%); }
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.1) translate(-1%, -1%); }
 }
 
 .glass-overlay {
@@ -130,4 +131,100 @@ p { color: var(--text-muted); line-height: 1.6; font-size: 1.1rem; }
 @keyframes floatSlow {
   0%, 100% { transform: translate(0, 0); }
   50% { transform: translate(20px, -20px); }
+}
+
+.pack-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.pack-images-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  grid-template-rows: 220px 160px;
+}
+
+@media (max-width: 1024px) {
+  .pack-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .pack-images-grid {
+    grid-template-rows: 180px 120px;
+  }
+}
+
+@media (max-width: 768px) {
+  .glass-card {
+    padding: 24px !important;
+    border-radius: 24px !important;
+  }
+  
+  .pack-images-grid {
+    grid-template-rows: 150px 100px;
+  }
+}
+
+.nav-container {
+  padding: 24px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  background: rgba(5,5,5,0.8);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 12px 4%;
+  }
+  
+  .nav-logo {
+    font-size: 1.4rem;
+  }
+  
+  .nav-links {
+    gap: 12px;
+  }
+  
+  .nav-links a {
+    display: none;
+  }
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
