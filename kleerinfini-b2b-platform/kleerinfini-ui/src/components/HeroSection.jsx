@@ -19,11 +19,24 @@ export default function HeroSection({ onOpenMap }) {
   const [currentBgIndex, setCurrentBgIndex] = useState(0);
 
   useEffect(() => {
+    const currentMedia = backgroundMedia[currentBgIndex];
+    
+    // If it's a video, we wait for it to finish (handled by onEnded)
+    if (currentMedia.type === "video") {
+      return;
+    }
+
+    // If it's an image, switch after 8 seconds
     const timer = setInterval(() => {
       setCurrentBgIndex((prev) => (prev + 1) % backgroundMedia.length);
-    }, 8000); // Stay longer (8 seconds)
+    }, 8000);
+    
     return () => clearInterval(timer);
-  }, []);
+  }, [currentBgIndex]);
+
+  const handleNextSlide = () => {
+    setCurrentBgIndex((prev) => (prev + 1) % backgroundMedia.length);
+  };
 
   const stats = [
     { icon: Users, label: "home.hero.stats.verified", value: "850+" },
@@ -48,18 +61,18 @@ export default function HeroSection({ onOpenMap }) {
               <video
                 src={backgroundMedia[currentBgIndex].src}
                 autoPlay
-                loop
                 muted
                 playsInline
+                onEnded={handleNextSlide}
                 className="w-full h-full object-cover"
-                style={{ filter: 'brightness(0.82) contrast(1.05)' }}
+                style={{ filter: 'brightness(0.60) contrast(1.15) saturate(1.2)' }}
               />
             ) : (
               <img
                 src={backgroundMedia[currentBgIndex].src}
                 alt={`Luxury Background ${currentBgIndex + 1}`}
                 className="w-full h-full object-cover"
-                style={{ filter: 'brightness(0.82) contrast(1.05)' }}
+                style={{ filter: 'brightness(0.60) contrast(1.15) saturate(1.2)' }}
               />
             )}
           </motion.div>
