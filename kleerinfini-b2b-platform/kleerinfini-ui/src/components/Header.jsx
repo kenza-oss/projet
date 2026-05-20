@@ -40,7 +40,7 @@ export default function Header({ theme = "dark" }) {
   const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
 
   return (
-    <header className="absolute top-0 left-0 w-full z-50 px-6 py-1">
+    <header className="absolute top-6 left-0 w-full z-50 px-6 py-1">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo Section */}
         <div className="flex items-center">
