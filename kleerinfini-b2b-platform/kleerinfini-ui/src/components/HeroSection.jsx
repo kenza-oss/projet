@@ -4,11 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion, AnimatePresence } from "framer-motion";
 
+import heroLogistics from "../assets/hero_bg_logistics.jpg";
 import heroBg2 from "../assets/hero_bg_marina.jpg";
 import heroBg4 from "../assets/hero_bg_3_breakfast.jpg";
 
 const backgroundMedia = [
-  { type: "video", src: "https://res.cloudinary.com/dptb2m02i/video/upload/q_auto,f_auto,w_1920/v1779275439/kleerinfini/hero/avxdc2ce3rilytuckpaw.mp4" },
+  { type: "image", src: heroLogistics },
   { type: "image", src: heroBg2 },
   { type: "image", src: heroBg4 }
 ];
