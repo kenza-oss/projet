@@ -30,7 +30,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,kleerinfini-backend.onrender.com,kleerinfini-backend-xo0t.onrender.com,projet-d93l.onrender.com,kleerinfini.dz,www.kleerinfini.dz', cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1,kleerinfini-backend.onrender.com,kleerinfini-backend-xo0t.onrender.com,projet.onrender.com,projet-d93l.onrender.com,kleerinfini.dz,www.kleerinfini.dz', cast=lambda v: [s.strip() for s in v.split(',')])
 
 # Application definition
 INSTALLED_APPS = [
@@ -324,7 +324,7 @@ CELERY_RESULT_SERIALIZER = 'json'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,https://projet-d93l.onrender.com,http://localhost:5173,http://127.0.0.1:5173,https://kleerinfini.dz,https://www.kleerinfini.dz', cast=lambda v: [s.strip() for s in v.split(',')])
+CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,https://projet.onrender.com,https://projet-d93l.onrender.com,http://localhost:5173,http://127.0.0.1:5173,https://kleerinfini.dz,https://www.kleerinfini.dz', cast=lambda v: [s.strip() for s in v.split(',')])
 CORS_ALLOW_CREDENTIALS = True
 
 # Base CORS origins - always include production domains
@@ -334,6 +334,7 @@ _DEFAULT_CORS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
     'http://localhost:3000',
+    'https://projet.onrender.com',
     'https://projet-d93l.onrender.com',
     'https://projet-1.onrender.com',
     'https://projet-1-y2ku.onrender.com',
