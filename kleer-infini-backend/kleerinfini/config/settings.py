@@ -326,11 +326,39 @@ CELERY_RESULT_SERIALIZER = 'json'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS', default='https://kleerinfini-backend.onrender.com,https://kleerinfini-backend-xo0t.onrender.com,https://projet-d93l.onrender.com,http://localhost:5173,http://127.0.0.1:5173,https://kleerinfini.dz,https://www.kleerinfini.dz', cast=lambda v: [s.strip() for s in v.split(',')])
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOWED_ORIGINS = config(
-    'CORS_ALLOWED_ORIGINS', 
-    default='https://projet-d93l.onrender.com,https://projet-1.onrender.com,https://projet-1-y2ku.onrender.com,https://kleerinfini-frontend.onrender.com,http://localhost:5173,http://127.0.0.1:5173,https://kleerinfini.dz,https://www.kleerinfini.dz', 
-    cast=lambda v: [s.strip() for s in v.split(',')]
+
+# Base CORS origins - always include production domains
+_DEFAULT_CORS = [
+    'https://kleerinfini.dz',
+    'https://www.kleerinfini.dz',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
+    'http://localhost:3000',
+    'https://projet-d93l.onrender.com',
+    'https://projet-1.onrender.com',
+    'https://projet-1-y2ku.onrender.com',
+    'https://kleerinfini-frontend.onrender.com',
+]
+
+# Merge env var (if set) with the always-required production origins
+_env_cors = config(
+    'CORS_ALLOWED_ORIGINS',
+    default='',
+    cast=lambda v: [s.strip() for s in v.split(',') if s.strip()]
 )
+CORS_ALLOWED_ORIGINS = list(dict.fromkeys(_DEFAULT_CORS + _env_cors))
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 EMAIL_BACKEND = config('EMAIL_BACKEND', default='django.core.mail.backends.smtp.EmailBackend')
 EMAIL_HOST = config('EMAIL_HOST', default='smtp.gmail.com')
