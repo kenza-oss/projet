@@ -67,12 +67,10 @@ class ProductAdmin(ModelAdmin):
 
 
 class CategoryAdminForm(forms.ModelForm):
+    image = forms.CharField(widget=AdminImagePreviewWidget(folder='categories'), required=False, label="Image de la catégorie")
     class Meta:
         model = Category
         fields = '__all__'
-        widgets = {
-            'image': AdminImagePreviewWidget(),
-        }
 
 
 @admin.register(Category)

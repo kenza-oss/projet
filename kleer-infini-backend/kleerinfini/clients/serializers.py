@@ -1,6 +1,12 @@
 from rest_framework import serializers
 from .models import Invitation, ClientProfile
 
+class HybridImageField(serializers.ImageField):
+    def to_internal_value(self, data):
+        if isinstance(data, str):
+            return data
+        return super().to_internal_value(data)
+
 class InviteClientSerializer(serializers.ModelSerializer):
     class Meta:
         model = Invitation
@@ -10,6 +16,7 @@ class ClientProfileSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(source='user.email', read_only=True)
     first_name = serializers.CharField(source='user.first_name', required=False)
     last_name = serializers.CharField(source='user.last_name', required=False)
+    logo = HybridImageField(required=False, allow_null=True)
     logo_url = serializers.SerializerMethodField()
     
     user_id = serializers.UUIDField(source='user.id', read_only=True)
@@ -46,11 +53,6 @@ class ClientProfileSerializer(serializers.ModelSerializer):
         if has_user_changes:
             instance.user.save()
 
-        # If logo is provided as a string (existing URL), ignore it
-        # Model.ImageField fails if it gets a string that isn't a filename it knows
-        logo = validated_data.get('logo')
-        if isinstance(logo, str):
-            validated_data.pop('logo')
-
+        # If logo is provided as a string, it will be saved directly since we use HybridImageField
         return super().update(instance, validated_data)
  

@@ -3,6 +3,18 @@ from rest_framework import serializers
 from .models import Product, Category, Region, Type, ProductImage, ProductCertification
 from .utils import get_cloudinary_url
 
+class HybridImageField(serializers.ImageField):
+    def to_internal_value(self, data):
+        if isinstance(data, str):
+            return data
+        return super().to_internal_value(data)
+
+class HybridFileField(serializers.FileField):
+    def to_internal_value(self, data):
+        if isinstance(data, str):
+            return data
+        return super().to_internal_value(data)
+
 class CategorySerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
     image_url = serializers.SerializerMethodField()
@@ -66,6 +78,11 @@ class ProductSerializer(serializers.ModelSerializer):
     certification_files = ProductCertificationSerializer(many=True, read_only=True)
     category_name = serializers.ReadOnlyField(source='category.name')
     
+    fiche_tech = HybridFileField(required=False, allow_null=True)
+    certification_file = HybridFileField(required=False, allow_null=True)
+    catalogue = HybridFileField(required=False, allow_null=True)
+    video = HybridFileField(required=False, allow_null=True)
+    
     category_id = serializers.PrimaryKeyRelatedField(
         queryset=Category.objects.all(), source='category'
     )
@@ -120,38 +137,134 @@ class ProductSerializer(serializers.ModelSerializer):
         ]
 
     def create(self, validated_data):
-        # Extraire les fichiers multiples du multipart
-        images_data = self.context.get('view').request.FILES.getlist('images')
-        certs_data = self.context.get('view').request.FILES.getlist('certification_files')
+        request = self.context.get('view').request
         
+        # Extract files from multipart request
+        images_files = request.FILES.getlist('images')
+        certs_files = request.FILES.getlist('certification_files')
+        
+        # Extract direct uploaded Cloudinary URLs
+        images_urls = request.data.getlist('images') if hasattr(request.data, 'getlist') else request.data.get('images', [])
+        certs_urls = request.data.getlist('certification_files') if hasattr(request.data, 'getlist') else request.data.get('certification_files', [])
+        
+        # Normalize URLs inputs
+        if isinstance(images_urls, str):
+            images_urls = [images_urls]
+        elif not isinstance(images_urls, list):
+            images_urls = []
+            
+        if isinstance(certs_urls, str):
+            certs_urls = [certs_urls]
+        elif not isinstance(certs_urls, list):
+            certs_urls = []
+
         product = Product.objects.create(**validated_data)
         
-        for image_data in images_data:
+        # Save image files
+        for image_data in images_files:
             ProductImage.objects.create(product=product, image=image_data)
             
-        for cert_data in certs_data:
+        # Save image URLs
+        for image_url in images_urls:
+            if isinstance(image_url, str) and image_url.startswith('http'):
+                ProductImage.objects.create(product=product, image=image_url)
+                
+        # Save certification files
+        for cert_data in certs_files:
             ProductCertification.objects.create(product=product, file=cert_data)
+            
+        # Save certification URLs
+        for cert_url in certs_urls:
+            if isinstance(cert_url, str) and cert_url.startswith('http'):
+                ProductCertification.objects.create(product=product, file=cert_url)
             
         return product
 
     def update(self, instance, validated_data):
-        images_data = self.context.get('view').request.FILES.getlist('images')
-        certs_data = self.context.get('view').request.FILES.getlist('certification_files')
+        request = self.context.get('view').request
         
         # On met à jour les champs classiques
         for attr, value in validated_data.items():
             setattr(instance, attr, value)
         instance.save()
 
-        # Ajouter de nouvelles images
-        if images_data:
-            for image_data in images_data:
-                ProductImage.objects.create(product=instance, image=image_data)
+        # Extract files from multipart request
+        images_files = request.FILES.getlist('images')
+        certs_files = request.FILES.getlist('certification_files')
         
-        # Ajouter de nouvelles certifications
-        if certs_data:
-            for cert_data in certs_data:
-                ProductCertification.objects.create(product=instance, file=cert_data)
+        # Extract direct uploaded Cloudinary URLs
+        images_urls = request.data.getlist('images') if hasattr(request.data, 'getlist') else request.data.get('images', [])
+        certs_urls = request.data.getlist('certification_files') if hasattr(request.data, 'getlist') else request.data.get('certification_files', [])
+        
+        # Normalize URLs inputs
+        if isinstance(images_urls, str):
+            images_urls = [images_urls]
+        elif not isinstance(images_urls, list):
+            images_urls = []
+            
+        if isinstance(certs_urls, str):
+            certs_urls = [certs_urls]
+        elif not isinstance(certs_urls, list):
+            certs_urls = []
+
+        # 1. Sync / Add Images
+        # Save image files
+        for image_data in images_files:
+            ProductImage.objects.create(product=instance, image=image_data)
+            
+        # Save image URLs (only if not already created)
+        existing_images = set(instance.images.values_list('image', flat=True))
+        for image_url in images_urls:
+            if isinstance(image_url, str) and image_url.startswith('http') and image_url not in existing_images:
+                ProductImage.objects.create(product=instance, image=image_url)
+
+        # Optional: Delete images that are no longer in the request
+        if images_urls:
+            # Get list of URLs sent
+            sent_urls = []
+            for img in images_urls:
+                if isinstance(img, str):
+                    sent_urls.append(img)
+                elif isinstance(img, dict):
+                    url = img.get('image') or img.get('image_url')
+                    if url:
+                        sent_urls.append(url)
+            
+            # Delete ProductImage objects that are not in sent_urls (for existing URLs)
+            for pi in instance.images.all():
+                pi_url = pi.image.name if pi.image else ''
+                # check if pi_url or complete url is in sent_urls
+                is_kept = False
+                for su in sent_urls:
+                    if pi_url in su or su in pi_url:
+                        is_kept = True
+                        break
+                if not is_kept and sent_urls: # only delete if we actually received a list of urls
+                    pi.delete()
+
+        # 2. Sync / Add Certifications
+        # Save certification files
+        for cert_data in certs_files:
+            ProductCertification.objects.create(product=instance, file=cert_data)
+            
+        # Save certification URLs (only if not already created)
+        existing_certs = set(instance.certification_files.values_list('file', flat=True))
+        for cert_url in certs_urls:
+            if isinstance(cert_url, str) and cert_url.startswith('http') and cert_url not in existing_certs:
+                ProductCertification.objects.create(product=instance, file=cert_url)
+
+        # Optional: Delete certifications that are no longer in the request
+        if certs_urls:
+            sent_certs = [c if isinstance(c, str) else c.get('file') for c in certs_urls if isinstance(c, str) or (isinstance(c, dict) and 'file' in c)]
+            for pc in instance.certification_files.all():
+                pc_file = pc.file.name if pc.file else ''
+                is_kept = False
+                for sc in sent_certs:
+                    if pc_file in sc or sc in pc_file:
+                        is_kept = True
+                        break
+                if not is_kept and sent_certs:
+                    pc.delete()
         
         return instance
 

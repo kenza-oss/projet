@@ -285,28 +285,31 @@ const ProducerDashboard = () => {
       formPayload.append("est_pret", formData.isReady ? "true" : "false");
 
       // Gestion des fichiers
-      if (formData.fiche_tech instanceof File) formPayload.append("fiche_tech", formData.fiche_tech);
-      if (formData.video instanceof File) formPayload.append("video", formData.video);
-      if (formData.catalogue instanceof File) formPayload.append("catalogue", formData.catalogue);
+      if (formData.fiche_tech) formPayload.append("fiche_tech", formData.fiche_tech);
+      if (formData.video) formPayload.append("video", formData.video);
+      if (formData.catalogue) formPayload.append("catalogue", formData.catalogue);
 
       // Ajout des certifications multiples
       if (formData.certification_files && formData.certification_files.length > 0) {
         formData.certification_files.forEach((file) => {
-          if (file instanceof File) {
+          if (file) {
             formPayload.append("certification_files", file);
           }
         });
       }
 
-      // Legacy support check (optional since we have multi-upload now)
-      if (formData.certification instanceof File) {
+      // Legacy support check
+      if (formData.certification) {
         formPayload.append("certification_file", formData.certification);
       }
 
       // Images multiples
       if (formData.images && formData.images.length > 0) {
         formData.images.forEach((img) => {
-          if (img.file instanceof File) {
+          const imgValue = img.preview || img.image || (typeof img === 'string' ? img : img.image_url);
+          if (imgValue) {
+            formPayload.append("images", imgValue);
+          } else if (img.file) {
             formPayload.append("images", img.file);
           }
         });

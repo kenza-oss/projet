@@ -21,7 +21,24 @@ class CertificationSerializer(serializers.ModelSerializer):
             return obj.image.url
         return None
 
+class HybridImageField(serializers.ImageField):
+    def to_internal_value(self, data):
+        if isinstance(data, str):
+            return data
+        return super().to_internal_value(data)
+
+class HybridFileField(serializers.FileField):
+    def to_internal_value(self, data):
+        if isinstance(data, str):
+            return data
+        return super().to_internal_value(data)
+
 class ProducerProfileSerializer(serializers.ModelSerializer):
+    logo = HybridImageField(required=False, allow_null=True)
+    profile_photo = HybridImageField(required=False, allow_null=True)
+    cover_image = HybridImageField(required=False, allow_null=True)
+    documents = HybridFileField(required=False, allow_null=True)
+
     first_name = serializers.CharField(source='user.first_name', read_only=True)
     last_name = serializers.CharField(source='user.last_name', read_only=True)
     user_email = serializers.EmailField(source='user.email', read_only=True)

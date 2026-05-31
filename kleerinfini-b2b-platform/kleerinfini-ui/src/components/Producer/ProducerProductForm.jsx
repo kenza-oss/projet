@@ -4,6 +4,7 @@ import {
     Image as ImageIcon, Video, Globe, AlertCircle, Save, Info, Trash2, Plus
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import CloudinaryUploadButton from "../CloudinaryUploadButton";
 
 const ProducerProductForm = ({ product, onSubmit, onCancel, categories = [] }) => {
     const [activeSection, setActiveSection] = useState("general");
@@ -543,24 +544,37 @@ const ProducerProductForm = ({ product, onSubmit, onCancel, categories = [] }) =
                                     </div>
 
                                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                                        {formData.images.map((img, idx) => (
-                                            <div key={idx} className="aspect-square rounded-2xl overflow-hidden relative group border border-gray-100 bg-white">
-                                                <img src={img.preview || img} alt={`${isService ? 'Service' : 'Product'} ${idx}`} className="w-full h-full object-cover" />
-                                                <button
-                                                    type="button"
-                                                    onClick={() => removeImage(idx)}
-                                                    className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity transform hover:scale-110"
-                                                >
-                                                    <Trash2 size={14} />
-                                                </button>
-                                            </div>
-                                        ))}
+                                        {formData.images.map((img, idx) => {
+                                            const imgSrc = img.preview || img.image || (typeof img === 'string' ? img : img.image_url);
+                                            return (
+                                                <div key={idx} className="aspect-square rounded-2xl overflow-hidden relative group border border-gray-100 bg-white">
+                                                    <img src={imgSrc} alt={`${isService ? 'Service' : 'Product'} ${idx}`} className="w-full h-full object-cover" />
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => removeImage(idx)}
+                                                        className="absolute top-2 right-2 p-2 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-opacity transform hover:scale-110"
+                                                    >
+                                                        <Trash2 size={14} />
+                                                    </button>
+                                                </div>
+                                            );
+                                        })}
 
-                                        <label className="aspect-square rounded-2xl border-2 border-dashed border-gray-200 hover:border-blue-500 hover:bg-blue-50 transition-colors flex flex-col items-center justify-center cursor-pointer text-gray-400 hover:text-blue-500 gap-2">
-                                            <Plus size={24} />
-                                            <span className="text-[10px] font-bold uppercase tracking-widest">Ajouter</span>
-                                            <input type="file" multiple accept="image/*" onChange={handleImageUpload} className="hidden" />
-                                        </label>
+                                        <div className="aspect-square">
+                                            <CloudinaryUploadButton
+                                                value={null}
+                                                folder="products"
+                                                accept="image/*"
+                                                label="Ajouter"
+                                                helperText="JPG, PNG, WEBP"
+                                                onUploaded={(url) => {
+                                                    setFormData(prev => ({
+                                                        ...prev,
+                                                        images: [...prev.images, url]
+                                                    }));
+                                                }}
+                                            />
+                                        </div>
                                     </div>
                                     <p className="text-xs text-gray-400 pl-1">Formats acceptés: JPG, PNG, WEBP. Max 5MB par image.</p>
                                 </div>
@@ -570,53 +584,41 @@ const ProducerProductForm = ({ product, onSubmit, onCancel, categories = [] }) =
                                 {/* Tech Sheet */}
                                 <div className="space-y-4">
                                     <label className="text-xs font-bold text-gray-900 uppercase tracking-widest pl-1">Fiche Technique (PDF)</label>
-                                    <div className="flex items-center gap-4">
-                                        <label className="flex-1 cursor-pointer group">
-                                            <input type="file" accept=".pdf" onChange={(e) => handleFileChange(e, "fiche_tech")} className="hidden" />
-                                            <div className="w-full bg-white border border-gray-200 group-hover:border-blue-300 rounded-2xl p-4 flex items-center gap-4 transition-all">
-                                                <div className="w-10 h-10 bg-red-50 text-red-500 rounded-lg flex items-center justify-center">
-                                                    <FileText size={20} />
-                                                </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <p className="font-bold text-sm text-gray-800 truncate">
-                                                        {formData.fiche_tech ? (formData.fiche_tech.name || (typeof formData.fiche_tech === 'string' ? "Fichier existant" : "Document sélectionné")) : "Aucun fichier sélectionné"}
-                                                    </p>
-                                                    <p className="text-xs text-gray-400">Cliquez pour importer (Max 10MB)</p>
-                                                </div>
-                                            </div>
-                                        </label>
-                                        {formData.fiche_tech && (
-                                            <button type="button" onClick={() => handleRemoveFile("fiche_tech")} className="p-4 bg-red-50 text-red-500 rounded-2xl hover:bg-red-100 transition-colors">
-                                                <Trash2 size={20} />
-                                            </button>
-                                        )}
-                                    </div>
+                                    <CloudinaryUploadButton
+                                        value={typeof formData.fiche_tech === 'string' ? formData.fiche_tech : (formData.fiche_tech?.name ? null : formData.fiche_tech)}
+                                        folder="fiches_tech"
+                                        accept=".pdf"
+                                        label="Charger la fiche technique"
+                                        helperText="PDF uniquement (Max 10MB)"
+                                        isPdf={true}
+                                        onUploaded={(url) => {
+                                            setFormData(prev => ({ ...prev, fiche_tech: url }));
+                                            setErrors(prev => { const e = { ...prev }; delete e.fiche_tech; return e; });
+                                        }}
+                                        onClear={() => {
+                                            setFormData(prev => ({ ...prev, fiche_tech: null }));
+                                        }}
+                                    />
                                 </div>
 
                                 {/* Video */}
                                 <div className="space-y-4">
                                     <label className="text-xs font-bold text-gray-900 uppercase tracking-widest pl-1">Vidéo de présentation (Optionnel)</label>
-                                    <div className="flex items-center gap-4">
-                                        <label className="flex-1 cursor-pointer group">
-                                            <input type="file" accept="video/*" onChange={(e) => handleFileChange(e, "video")} className="hidden" />
-                                            <div className="w-full bg-white border border-gray-200 group-hover:border-purple-300 rounded-2xl p-4 flex items-center gap-4 transition-all">
-                                                <div className="w-10 h-10 bg-purple-50 text-purple-500 rounded-lg flex items-center justify-center">
-                                                    <Video size={20} />
-                                                </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <p className="font-bold text-sm text-gray-800 truncate">
-                                                        {formData.video ? (formData.video.name || "Vidéo sélectionnée") : "Aucune vidéo"}
-                                                    </p>
-                                                    <p className="text-xs text-gray-400">MP4, WebM (Max 50MB)</p>
-                                                </div>
-                                            </div>
-                                        </label>
-                                        {formData.video && (
-                                            <button type="button" onClick={() => handleRemoveFile("video")} className="p-4 bg-red-50 text-red-500 rounded-2xl hover:bg-red-100 transition-colors">
-                                                <Trash2 size={20} />
-                                            </button>
-                                        )}
-                                    </div>
+                                    <CloudinaryUploadButton
+                                        value={formData.video}
+                                        folder="videos"
+                                        accept="video/*"
+                                        label="Charger la vidéo de présentation"
+                                        helperText="MP4, WebM (Max 50MB)"
+                                        isVideo={true}
+                                        onUploaded={(url) => {
+                                            setFormData(prev => ({ ...prev, video: url }));
+                                            setErrors(prev => { const e = { ...prev }; delete e.video; return e; });
+                                        }}
+                                        onClear={() => {
+                                            setFormData(prev => ({ ...prev, video: null }));
+                                        }}
+                                    />
                                 </div>
 
                                 <div className="h-px bg-gray-100 w-full" />
@@ -650,33 +652,39 @@ const ProducerProductForm = ({ product, onSubmit, onCancel, categories = [] }) =
                                         ))}
 
                                         {/* New Certs */}
-                                        {formData.certification_files.map((file, idx) => (
-                                            <div key={`new-${idx}`} className="w-full bg-blue-50/30 border border-blue-100 rounded-2xl p-4 flex items-center gap-4 group animate-pulse-subtle">
-                                                <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
-                                                    <FileText size={20} />
+                                        {formData.certification_files.map((file, idx) => {
+                                            const fileName = typeof file === 'string' ? file.split('/').pop() : file.name;
+                                            return (
+                                                <div key={`new-${idx}`} className="w-full bg-blue-50/30 border border-blue-100 rounded-2xl p-4 flex items-center gap-4 group animate-pulse-subtle">
+                                                    <div className="w-10 h-10 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center">
+                                                        <FileText size={20} />
+                                                    </div>
+                                                    <div className="flex-1 min-w-0">
+                                                        <p className="font-bold text-sm text-blue-900 truncate">{fileName}</p>
+                                                        <p className="text-[10px] text-blue-400 uppercase font-black tracking-widest">Nouveau fichier</p>
+                                                    </div>
+                                                    <button type="button" onClick={() => removeFileArray(idx, "certification_files")} className="p-2 text-red-400 hover:bg-red-50 rounded-lg transition-all">
+                                                        <Trash2 size={16} />
+                                                    </button>
                                                 </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <p className="font-bold text-sm text-blue-900 truncate">{file.name}</p>
-                                                    <p className="text-[10px] text-blue-400 uppercase font-black tracking-widest">Nouveau fichier</p>
-                                                </div>
-                                                <button type="button" onClick={() => removeFileArray(idx, "certification_files")} className="p-2 text-red-400 hover:bg-red-50 rounded-lg transition-all">
-                                                    <Trash2 size={16} />
-                                                </button>
-                                            </div>
-                                        ))}
+                                            );
+                                        })}
 
-                                        <label className="flex-1 cursor-pointer group block">
-                                            <input type="file" multiple accept=".pdf,.jpg,.jpeg,.png" onChange={(e) => handleFileChange(e, "certification_files")} className="hidden" />
-                                            <div className={`w-full bg-white border-2 border-dashed ${errors.certification_files ? 'border-red-300 bg-red-50' : 'border-gray-200'} hover:border-emerald-300 rounded-2xl p-8 flex flex-col items-center justify-center gap-3 transition-all`}>
-                                                <div className="w-12 h-12 bg-gray-50 text-gray-400 group-hover:bg-emerald-50 group-hover:text-emerald-500 rounded-full flex items-center justify-center transition-colors">
-                                                    <Plus size={24} />
-                                                </div>
-                                                <div className="text-center">
-                                                    <p className="font-black text-xs text-gray-900 uppercase tracking-widest">Ajouter un Certificat</p>
-                                                    <p className="text-[10px] text-gray-400 mt-1 font-bold">PDF, JPG, PNG (Max 10MB)</p>
-                                                </div>
-                                            </div>
-                                        </label>
+                                        <CloudinaryUploadButton
+                                            value={null}
+                                            folder="product_certifications"
+                                            accept=".pdf,.jpg,.jpeg,.png"
+                                            label="Ajouter une certification"
+                                            helperText="PDF, JPG, PNG (Max 10MB)"
+                                            onUploaded={(url) => {
+                                                const updatedCerts = [...formData.certification_files, url];
+                                                setFormData(prev => ({
+                                                    ...prev,
+                                                    certification_files: updatedCerts
+                                                }));
+                                                validate("certification_files", updatedCerts);
+                                            }}
+                                        />
                                     </div>
                                     {errors.certification_files && <p className="text-red-500 text-xs font-bold pl-2">{errors.certification_files}</p>}
                                 </div>
@@ -686,27 +694,20 @@ const ProducerProductForm = ({ product, onSubmit, onCancel, categories = [] }) =
                                     <label className="text-xs font-bold text-gray-900 uppercase tracking-widest pl-1">
                                         Catalogue à télécharger (Optionnel)
                                     </label>
-                                    <div className="flex items-center gap-4">
-                                        <label className="flex-1 cursor-pointer group">
-                                            <input type="file" accept=".pdf" onChange={(e) => handleFileChange(e, "catalogue")} className="hidden" />
-                                            <div className="w-full bg-white border border-gray-200 group-hover:border-blue-300 rounded-2xl p-4 flex items-center gap-4 transition-all">
-                                                <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-lg flex items-center justify-center">
-                                                    <FileText size={20} />
-                                                </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <p className="font-bold text-sm text-gray-800 truncate">
-                                                        {formData.catalogue ? (formData.catalogue.name || (typeof formData.catalogue === 'string' ? "Catalogue existant" : "Catalogue sélectionné")) : "Aucun catalogue"}
-                                                    </p>
-                                                    <p className="text-xs text-gray-400">PDF uniquement (Max 20MB)</p>
-                                                </div>
-                                            </div>
-                                        </label>
-                                        {formData.catalogue && (
-                                            <button type="button" onClick={() => handleRemoveFile("catalogue")} className="p-4 bg-red-50 text-red-500 rounded-2xl hover:bg-red-100 transition-colors">
-                                                <Trash2 size={20} />
-                                            </button>
-                                        )}
-                                    </div>
+                                    <CloudinaryUploadButton
+                                        value={formData.catalogue}
+                                        folder="catalogues"
+                                        accept=".pdf"
+                                        label="Charger le catalogue"
+                                        helperText="PDF uniquement (Max 20MB)"
+                                        isPdf={true}
+                                        onUploaded={(url) => {
+                                            setFormData(prev => ({ ...prev, catalogue: url }));
+                                        }}
+                                        onClear={() => {
+                                            setFormData(prev => ({ ...prev, catalogue: null }));
+                                        }}
+                                    />
                                 </div>
 
                             </motion.div>

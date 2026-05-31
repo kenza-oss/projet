@@ -4,6 +4,7 @@ import api from '../../api/axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import ClientPublicProfile from '../../components/ClientPublicProfile';
+import { uploadToCloudinary } from '../../api/cloudinary';
 
 const ClientProfile = () => {
     const { t } = useTranslation();
@@ -65,13 +66,14 @@ const ClientProfile = () => {
         const file = e.target.files[0];
         if (!file) return;
 
-        const formData = new FormData();
-        formData.append('logo', file);
-
         setSaving(true);
         try {
-            const response = await api.patch('/client-profiles/me/', formData, {
-                headers: { 'Content-Type': 'multipart/form-data' }
+            // Upload directly to Cloudinary
+            const result = await uploadToCloudinary(file, 'clients/logos');
+            
+            // Patch profile with direct URL
+            const response = await api.patch('/client-profiles/me/', {
+                logo: result.secure_url
             });
             setProfile(response.data);
             setSuccess(true);

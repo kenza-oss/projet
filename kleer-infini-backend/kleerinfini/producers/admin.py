@@ -9,8 +9,19 @@ from admin_panel.widgets import AdminImagePreviewWidget
 
 from .models import ProducerProfile, Certification
 
+class ProducerProfileAdminForm(forms.ModelForm):
+    profile_photo = forms.CharField(widget=AdminImagePreviewWidget(folder='producers/photos'), required=False, label="Photo de profil")
+    logo = forms.CharField(widget=AdminImagePreviewWidget(folder='producers/logos'), required=False, label="Logo")
+    cover_image = forms.CharField(widget=AdminImagePreviewWidget(folder='producers/covers'), required=False, label="Image de couverture")
+    documents = forms.CharField(widget=AdminImagePreviewWidget(folder='producers/docs'), required=False, label="Documents administratifs")
+
+    class Meta:
+        model = ProducerProfile
+        fields = '__all__'
+
 @admin.register(ProducerProfile)
 class ProducerProfileAdmin(EditToggleAdminMixin, ModelAdmin):
+    form = ProducerProfileAdminForm
     list_display = ('id', 'user', 'company_name', 'email', 'phone', 'city', 'country_display', 'is_approved')
     list_editable = ('is_approved',)
     search_fields = ('user__email', 'company_name', 'activity', 'email', 'phone', 'city')
@@ -160,18 +171,12 @@ class ProducerProfileAdmin(EditToggleAdminMixin, ModelAdmin):
                       'logo_preview', 'cover_image_preview', 'approval_date',
                       'subscription_status_display', 'subscription_proof_display')
 
-    formfield_overrides = {
-        models.ImageField: {'widget': AdminImagePreviewWidget},
-    }
-
 
 class CertificationAdminForm(forms.ModelForm):
+    image = forms.CharField(widget=AdminImagePreviewWidget(folder='producers/certifications'), required=False, label="Image")
     class Meta:
         model = Certification
         fields = '__all__'
-        widgets = {
-            'image': AdminImagePreviewWidget(),
-        }
 
 @admin.register(Certification)
 class CertificationAdmin(EditToggleAdminMixin, ModelAdmin):

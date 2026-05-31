@@ -3,6 +3,7 @@ import {
   getProducerProfile, updateProducerProfile
 } from "../../api/profiles";
 import { useAuth } from "../../context/AuthContext";
+import { uploadToCloudinary } from "../../api/cloudinary";
 import {
   User, Mail, Phone, MapPin, Globe, Save, Camera, Trash2, Plus, X,
   Building2, CheckCircle, Briefcase, ShieldCheck, Award,
@@ -200,22 +201,45 @@ const ProducerProfile = ({ profileData, onSave }) => {
     setProfile(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleImageChange = (e, type) => {
+  const handleImageChange = async (e, type) => {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Create a local URL for immediate synchronous preview
+    // Show temporary blob preview immediately so they see it instantly
     const previewUrl = URL.createObjectURL(file);
-
     if (type === 'logo') {
-      setLogoFile(file);
       setLogoPreview(previewUrl);
     } else if (type === 'profilePhoto') {
-      setProfilePhotoFile(file);
       setProfilePhotoPreview(previewUrl);
     } else if (type === 'coverImage') {
-      setCoverImageFile(file);
       setCoverImagePreview(previewUrl);
+    }
+
+    try {
+      const folder = type === 'logo' ? 'producers/logos' : 
+                     type === 'profilePhoto' ? 'producers/photos' : 'producers/covers';
+      
+      const result = await uploadToCloudinary(file, folder);
+      
+      if (type === 'logo') {
+        setLogoFile(result.secure_url);
+        setLogoPreview(result.secure_url);
+        setProfile(prev => ({ ...prev, logo: result.secure_url }));
+      } else if (type === 'profilePhoto') {
+        setProfilePhotoFile(result.secure_url);
+        setProfilePhotoPreview(result.secure_url);
+        setProfile(prev => ({ ...prev, profilePhoto: result.secure_url }));
+      } else if (type === 'coverImage') {
+        setCoverImageFile(result.secure_url);
+        setCoverImagePreview(result.secure_url);
+        setProfile(prev => ({ ...prev, coverImage: result.secure_url }));
+      }
+    } catch (err) {
+      alert("Erreur lors de l'upload vers Cloudinary : " + err.message);
+      // Reset previews on failure
+      if (type === 'logo') setLogoPreview(profile.logo);
+      else if (type === 'profilePhoto') setProfilePhotoPreview(profile.profilePhoto);
+      else if (type === 'coverImage') setCoverImagePreview(profile.coverImage);
     }
   };
 
@@ -588,8 +612,18 @@ const ProducerProfile = ({ profileData, onSave }) => {
               </select>
               <label className="col-span-2 flex items-center justify-center gap-2 bg-gray-50 border border-dashed border-gray-200 p-4 rounded-xl cursor-pointer hover:bg-white transition-colors">
                 <UploadCloud size={16} className="text-red-500" />
-                <span className="text-[10px] font-bold text-gray-500">{newCert.file ? newCert.file.name : "Fichier Preuve (obligatoire)"}</span>
-                <input type="file" onChange={e => setNewCert({ ...newCert, file: e.target.files[0] })} className="hidden" />
+                <span className="text-[10px] font-bold text-gray-500">{newCert.file ? (typeof newCert.file === 'string' ? newCert.file.split('/').pop() : newCert.file.name) : "Fichier Preuve (obligatoire)"}</span>
+                <input type="file" onChange={async (e) => {
+                  const file = e.target.files[0];
+                  if (file) {
+                    try {
+                      const result = await uploadToCloudinary(file, "producers/certifications");
+                      setNewCert({ ...newCert, file: result.secure_url });
+                    } catch (err) {
+                      alert("Erreur upload: " + err.message);
+                    }
+                  }
+                }} className="hidden" />
               </label>
               <button onClick={handleAddCert} className="col-span-2 py-3 bg-red-600 text-white rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-red-700 transition-shadow">Ajouter</button>
             </div>
