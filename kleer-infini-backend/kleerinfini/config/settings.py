@@ -119,8 +119,12 @@ DATABASE_URL = config('DATABASE_URL', default=None)
 
 if DATABASE_URL:
     DATABASES = {
-        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
+        'default': dj_database_url.parse(DATABASE_URL, conn_max_age=0, ssl_require=True)
     }
+    # Prevent database connection hangs on startup by setting a connection timeout
+    if 'OPTIONS' not in DATABASES['default']:
+        DATABASES['default']['OPTIONS'] = {}
+    DATABASES['default']['OPTIONS']['connect_timeout'] = 5
 elif config('USE_SQLITE', default='True', cast=bool):
     DATABASES = {
         'default': {
@@ -137,14 +141,16 @@ else:
             'PASSWORD': config('DB_PASSWORD'),
             'HOST': config('DB_HOST'),
             'PORT': config('DB_PORT', default='5432'),
-            'OPTIONS': {'client_encoding': 'UTF8'},
+            'OPTIONS': {'client_encoding': 'UTF8', 'connect_timeout': 5},
         }
     }
 
-# Channel Layers: use Redis if REDIS_URL is set (production), else InMemory (local dev)
+# Channel Layers: use Redis only if USE_REDIS is explicitly set and REDIS_URL is configured.
+# Otherwise fall back to InMemoryChannelLayer, which is safer, faster, and 100% sufficient for single-instance deploys.
 REDIS_URL = config('REDIS_URL', default=None)
+USE_REDIS = config('USE_REDIS', default=False, cast=bool)
 
-if REDIS_URL:
+if USE_REDIS and REDIS_URL:
     CHANNEL_LAYERS = {
         'default': {
             'BACKEND': 'channels_redis.core.RedisChannelLayer',
