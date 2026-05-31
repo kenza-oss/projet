@@ -27,7 +27,7 @@ class CategorySerializer(serializers.ModelSerializer):
     def get_image(self, obj):
         if not obj.image:
             return None
-        name = obj.image.name
+        name = obj.image if isinstance(obj.image, str) else getattr(obj.image, 'name', '')
         if not name:
             return None
         if name.startswith('http'):
@@ -63,7 +63,8 @@ class ProductImageSerializer(serializers.ModelSerializer):
     def get_image(self, obj):
         if not obj.image:
             return None
-        return get_cloudinary_url(obj.image.name)
+        val = obj.image if isinstance(obj.image, str) else getattr(obj.image, 'name', '')
+        return get_cloudinary_url(val)
 
     def get_image_url(self, obj):
         return self.get_image(obj)
@@ -103,7 +104,8 @@ class ProductSerializer(serializers.ModelSerializer):
     def _get_file_url(self, field_file):
         if not field_file:
             return None
-        return get_cloudinary_url(field_file.name)
+        val = field_file if isinstance(field_file, str) else getattr(field_file, 'name', '')
+        return get_cloudinary_url(val)
 
     def get_fiche_tech_url(self, obj):
         return self._get_file_url(obj.fiche_tech)
@@ -115,8 +117,10 @@ class ProductSerializer(serializers.ModelSerializer):
         return self._get_file_url(obj.certification_file)
 
     def validate_fiche_tech(self, value):
-        if value and not value.name.lower().endswith('.pdf'):
-            raise serializers.ValidationError("Le fichier doit être au format PDF.")
+        if value:
+            name = value if isinstance(value, str) else getattr(value, 'name', '')
+            if name and not name.lower().endswith('.pdf'):
+                raise serializers.ValidationError("Le fichier doit être au format PDF.")
         return value
 
     def validate_images(self, value):
@@ -232,7 +236,8 @@ class ProductSerializer(serializers.ModelSerializer):
             
             # Delete ProductImage objects that are not in sent_urls (for existing URLs)
             for pi in instance.images.all():
-                pi_url = pi.image.name if pi.image else ''
+                val = pi.image if isinstance(pi.image, str) else getattr(pi.image, 'name', '')
+                pi_url = val or ''
                 # check if pi_url or complete url is in sent_urls
                 is_kept = False
                 for su in sent_urls:
@@ -257,7 +262,8 @@ class ProductSerializer(serializers.ModelSerializer):
         if certs_urls:
             sent_certs = [c if isinstance(c, str) else c.get('file') for c in certs_urls if isinstance(c, str) or (isinstance(c, dict) and 'file' in c)]
             for pc in instance.certification_files.all():
-                pc_file = pc.file.name if pc.file else ''
+                val = pc.file if isinstance(pc.file, str) else getattr(pc.file, 'name', '')
+                pc_file = val or ''
                 is_kept = False
                 for sc in sent_certs:
                     if pc_file in sc or sc in pc_file:

@@ -8,12 +8,17 @@ MAX_IMAGE_SIZE_BYTES = MAX_IMAGE_SIZE_MB * 1024 * 1024
 
 def validate_image_size(image):
     """Rejette les images trop lourdes avant l'upload vers Cloudinary."""
-    if hasattr(image, 'size') and image.size > MAX_IMAGE_SIZE_BYTES:
-        raise ValidationError(
-            f"L'image est trop lourde ({image.size // (1024*1024)} MB). "
-            f"La taille maximale autorisée est {MAX_IMAGE_SIZE_MB} MB. "
-            f"Veuillez compresser l'image avant de l'uploader."
-        )
+    try:
+        if hasattr(image, 'size'):
+            size = image.size
+            if size is not None and size > MAX_IMAGE_SIZE_BYTES:
+                raise ValidationError(
+                    f"L'image est trop lourde ({size // (1024*1024)} MB). "
+                    f"La taille maximale autorisée est {MAX_IMAGE_SIZE_MB} MB. "
+                    f"Veuillez compresser l'image avant de l'uploader."
+                )
+    except (TypeError, AttributeError, ValueError):
+        pass
 
 
 class Category(models.Model):
