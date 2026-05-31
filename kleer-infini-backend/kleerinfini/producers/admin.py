@@ -71,19 +71,25 @@ class ProducerProfileAdmin(EditToggleAdminMixin, ModelAdmin):
     
     def profile_photo_preview(self, obj):
         if obj.profile_photo:
-            return mark_safe(f'<img src="{obj.profile_photo.url}" width="100" style="border-radius: 5px;" />')
+            url = obj.profile_photo if isinstance(obj.profile_photo, str) else getattr(obj.profile_photo, 'url', '')
+            if url:
+                return mark_safe(f'<img src="{url}" width="100" style="border-radius: 5px;" />')
         return "Aucune photo"
     profile_photo_preview.short_description = "Aperçu Photo"
 
     def logo_preview(self, obj):
         if obj.logo:
-            return mark_safe(f'<img src="{obj.logo.url}" width="100" style="border-radius: 5px;" />')
+            url = obj.logo if isinstance(obj.logo, str) else getattr(obj.logo, 'url', '')
+            if url:
+                return mark_safe(f'<img src="{url}" width="100" style="border-radius: 5px;" />')
         return "Aucun logo"
     logo_preview.short_description = "Aperçu Logo"
 
     def cover_image_preview(self, obj):
         if obj.cover_image:
-            return mark_safe(f'<img src="{obj.cover_image.url}" width="200" style="border-radius: 5px;" />')
+            url = obj.cover_image if isinstance(obj.cover_image, str) else getattr(obj.cover_image, 'url', '')
+            if url:
+                return mark_safe(f'<img src="{url}" width="200" style="border-radius: 5px;" />')
         return "Aucune bannière"
     cover_image_preview.short_description = "Aperçu Bannière"
 

@@ -19,8 +19,10 @@ class ProductImageInline(admin.TabularInline):
 
     def cloudinary_link(self, obj):
         if obj.image:
-            url = get_cloudinary_url(obj.image.name)
-            return mark_safe(f'<a href="{url}" target="_blank" style="color: #2563eb; font-weight: bold; text-decoration: underline;">🔗 Ouvrir dans Cloudinary</a>')
+            val = obj.image if isinstance(obj.image, str) else getattr(obj.image, 'name', '')
+            url = get_cloudinary_url(val)
+            if url:
+                return mark_safe(f'<a href="{url}" target="_blank" style="color: #2563eb; font-weight: bold; text-decoration: underline;">🔗 Ouvrir dans Cloudinary</a>')
         return "Pas d'image"
     cloudinary_link.short_description = "Lien Cloudinary"
 
@@ -86,15 +88,19 @@ class CategoryAdmin(EditToggleAdminMixin, ModelAdmin):
 
     def image_preview(self, obj):
         if obj.image:
-            url = get_cloudinary_url(obj.image.name)
-            return mark_safe(f'<img src="{url}" width="120" style="border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.15);" />')
+            val = obj.image if isinstance(obj.image, str) else getattr(obj.image, 'name', '')
+            url = get_cloudinary_url(val)
+            if url:
+                return mark_safe(f'<img src="{url}" width="120" style="border-radius: 6px; box-shadow: 0 1px 4px rgba(0,0,0,0.15);" />')
         return "Pas d'image"
     image_preview.short_description = 'Aperçu'
 
     def cloudinary_link(self, obj):
         if obj.image:
-            url = get_cloudinary_url(obj.image.name)
-            return mark_safe(f'<a href="{url}" target="_blank" style="color: #2563eb; font-weight: bold; text-decoration: underline;">🔗 Ouvrir dans Cloudinary</a>')
+            val = obj.image if isinstance(obj.image, str) else getattr(obj.image, 'name', '')
+            url = get_cloudinary_url(val)
+            if url:
+                return mark_safe(f'<a href="{url}" target="_blank" style="color: #2563eb; font-weight: bold; text-decoration: underline;">🔗 Ouvrir dans Cloudinary</a>')
         return "Pas d'image"
     cloudinary_link.short_description = "Lien Cloudinary"
 
@@ -173,7 +179,9 @@ class ProductImageAdmin(ModelAdmin):
     
     def image_preview(self, obj):
         if obj.image:
-            url = get_cloudinary_url(obj.image.name)
-            return mark_safe(f'<img src="{url}" width="100" style="border-radius: 6px;" />')
+            val = obj.image if isinstance(obj.image, str) else getattr(obj.image, 'name', '')
+            url = get_cloudinary_url(val)
+            if url:
+                return mark_safe(f'<img src="{url}" width="100" style="border-radius: 6px;" />')
         return "Pas d'image"
     image_preview.short_description = "Aperçu"
