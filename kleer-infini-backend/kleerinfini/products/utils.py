@@ -19,7 +19,7 @@ def get_cloudinary_url(name):
       - URL Cloudinary déjà complète (https://res.cloudinary.com/...)
       - URL Cloudinary sans protocole (res.cloudinary.com/...)
       - URLs externes non-Cloudinary (Unsplash, etc.) → None
-      - Chemins relatifs avec préfixes variés (media/products/, products/, etc.)
+      - Chemins relatifs avec préfixes variés (media/products/, categories/, etc.)
       - Public ID seul (ex: 625_xgqno3)
     """
     if not name:
@@ -52,18 +52,34 @@ def get_cloudinary_url(name):
     # ── Cas 4 : Chemin relatif ou public ID → construire l'URL Cloudinary ─────
     clean = name
 
-    # Normalisation vers le préfixe "media/products/" qui est celui en place sur Cloudinary
+    # Normalisation : tous les préfixes connus → retour du chemin Cloudinary réel
+    # Note: categories/ est stocké directement comme public_id sur Cloudinary
+    known_prefixes = [
+        # Produits
+        ('/media/products_images/', 'media/products/'),
+        ('media/products_images/', 'media/products/'),
+        ('/media/products/', 'media/products/'),
+        ('media/products/', 'media/products/'),
+        ('products_images/', 'media/products/'),
+        ('/products_images/', 'media/products/'),
+        ('/products/', 'media/products/'),
+        ('products/', 'media/products/'),
+        # Catégories (upload_to='categories/')
+        ('/media/categories/', 'categories/'),
+        ('media/categories/', 'categories/'),
+        ('/categories/', 'categories/'),
+        # categories/ sans slash → déjà propre, pas de transformation
+    ]
+
     found_prefix = False
-    for prefix in ['/media/products_images/', 'media/products_images/',
-                   '/media/products/', 'media/products/',
-                   'products_images/', '/products_images/',
-                   '/products/', 'products/']:
+    for prefix, replacement in known_prefixes:
         if clean.startswith(prefix):
-            clean = 'media/products/' + clean[len(prefix):]
+            clean = replacement + clean[len(prefix):]
             found_prefix = True
             break
 
-    # Si aucun préfixe connu n'est trouvé et que c'est un ID court (sans slash), on ajoute le préfixe par défaut
+    # Si aucun préfixe connu n'est trouvé et que c'est un ID court (sans slash),
+    # on ajoute le préfixe produits par défaut
     if not found_prefix and '/' not in clean:
         clean = 'media/products/' + clean
 

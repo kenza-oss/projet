@@ -1,4 +1,19 @@
 from django.db import models
+from django.core.exceptions import ValidationError
+
+
+# ── Validateur taille image (prévient les crashes OOM sur Render) ────────────
+MAX_IMAGE_SIZE_MB = 5
+MAX_IMAGE_SIZE_BYTES = MAX_IMAGE_SIZE_MB * 1024 * 1024
+
+def validate_image_size(image):
+    """Rejette les images trop lourdes avant l'upload vers Cloudinary."""
+    if hasattr(image, 'size') and image.size > MAX_IMAGE_SIZE_BYTES:
+        raise ValidationError(
+            f"L'image est trop lourde ({image.size // (1024*1024)} MB). "
+            f"La taille maximale autorisée est {MAX_IMAGE_SIZE_MB} MB. "
+            f"Veuillez compresser l'image avant de l'uploader."
+        )
 
 
 class Category(models.Model):
@@ -6,7 +21,13 @@ class Category(models.Model):
     description = models.TextField(blank=True)
     type = models.CharField(max_length=50, blank=True)
     specific_fields = models.TextField(blank=True)
-    image = models.ImageField(upload_to='categories/', null=True, blank=True, verbose_name='Image de la catégorie')
+    image = models.ImageField(
+        upload_to='categories/',
+        null=True,
+        blank=True,
+        verbose_name='Image de la catégorie',
+        validators=[validate_image_size],
+    )
     certifications = models.ManyToManyField('producers.Certification', blank=True, related_name='categories', verbose_name='Certifications')
 
     def __str__(self):

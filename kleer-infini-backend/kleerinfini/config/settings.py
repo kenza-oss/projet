@@ -86,6 +86,11 @@ CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_SECURE = not DEBUG
 # NOTE: CSRF_TRUSTED_ORIGINS est défini plus bas (ligne ~314) via config() — NE PAS dupliquer ici
 
+# ── Upload Memory Protection (évite les crashes OOM sur Render 512MB) ──────────
+# Fichiers > 3MB sont écrits sur disque temporaire au lieu d'être gardés en RAM
+FILE_UPLOAD_MAX_MEMORY_SIZE = 3 * 1024 * 1024   # 3 MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10 * 1024 * 1024  # 10 MB (limite totale par requête)
+
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
