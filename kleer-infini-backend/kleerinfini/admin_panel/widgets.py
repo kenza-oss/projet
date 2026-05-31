@@ -54,10 +54,11 @@ class AdminImagePreviewWidget(forms.Widget):
             progress_container_id, progress_bar_id
         )
         
-        # Determine preview display styles
-        is_pdf = preview_url.lower().endswith('.pdf')
-        is_video = preview_url.lower().endswith(('.mp4', '.webm', '.mov'))
-        is_image = not is_pdf and not is_video and preview_url != ""
+        # Determine preview display styles safely
+        preview_url_str = preview_url or ""
+        is_pdf = preview_url_str.lower().endswith('.pdf')
+        is_video = preview_url_str.lower().endswith(('.mp4', '.webm', '.mov'))
+        is_image = not is_pdf and not is_video and preview_url_str != ""
         
         # Image preview and delete/clear control
         preview_html = format_html(
@@ -80,16 +81,16 @@ class AdminImagePreviewWidget(forms.Widget):
             '}})();">Supprimer</button>'
             '</div>'
             '</div>',
-            preview_url,
+            preview_url_str,
             preview_id,
             '' if is_image else ' display: none;',
             input_id,
             '' if (is_pdf or is_video) else ' display: none;',
-            preview_url,
+            preview_url_str,
             placeholder_id,
-            '' if not preview_url else ' display: none;',
+            '' if not preview_url_str else ' display: none;',
             input_id,
-            '' if preview_url else ' display: none;',
+            '' if preview_url_str else ' display: none;',
             input_id,
             preview_id,
             input_id,
