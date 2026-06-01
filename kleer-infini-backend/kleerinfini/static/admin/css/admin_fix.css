@@ -1,0 +1,43 @@
+/*
+ * admin_fix.css — Correctif layout Django Unfold
+ *
+ * Problème : Le tableau de la liste (changelist) déborde vers la gauche et
+ * se cache derrière la sidebar fixe. Ce fichier force le défilement horizontal
+ * à l'intérieur du conteneur plutôt que sur toute la page.
+ */
+
+/* ── 1. Conteneur principal du changelist ─────────────────────────── */
+#changelist {
+    overflow-x: auto;
+    min-width: 0;
+}
+
+/* ── 2. Tableau des résultats ────────────────────────────────────────── */
+.results {
+    overflow-x: auto;
+    max-width: 100%;
+    display: block;
+}
+
+/* ── 3. Table elle-même : largeur minimale fixe pour rester lisible ── */
+.results table {
+    min-width: 600px;
+}
+
+/* ── 4. Conteneur #content : empêche l'overflow de remonter au body ── */
+#content {
+    min-width: 0;
+    overflow-x: auto;
+}
+
+/* ── 5. Conteneur #content-main (utilisé dans certaines pages) ─────── */
+#content-main {
+    min-width: 0;
+    overflow-x: auto;
+}
+
+/* ── 6. Zone principale : s'assurer qu'elle reste dans ses limites ── */
+#main {
+    min-width: 0;
+    overflow-x: hidden;
+}
