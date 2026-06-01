@@ -15,6 +15,7 @@ import dj_database_url
 import os
 from pathlib import Path
 from decouple import config
+from django.templatetags.static import static
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -168,38 +169,35 @@ else:
 
 
 UNFOLD = {
+    # STYLES: use lambda+static() so Django resolves to the correct /static/admin/css/admin_fix.css URL
+    # (without lambda, Unfold would prepend /admin/ and double the path)
     "STYLES": [
-        "admin/css/admin_fix.css",
-    ],
-    "styles": [
-        "admin/css/admin_fix.css",
+        lambda request: static("admin/css/admin_fix.css"),
     ],
     "SITE_TITLE": "KleerInfini Admin",
     "SITE_HEADER": "KleerInfini B2B Platform",
+    "DARK_MODE": True,
     "SIDEBAR": {
         "SHOW_ICONS": True,
         "COLLAPSE": False,
         "WIDTH": 250,
         "BACKGROUND_COLOR": "#111827",
     },
-    "THEME": {
-        "PRIMARY_COLOR": "#db2777",  # pink-600
-        "ACCENT_COLOR": "#be185d",   # pink-700
-        "DARK_MODE": True,
-    },
+    # Note: THEME key is NOT valid in Unfold and causes Alpine.js crashes
+    # Colors must use space-separated RGB values (Tailwind format)
     "COLORS": {
         "primary": {
-            "50": "#fdf2f8",
-            "100": "#fce7f3",
-            "200": "#fbcfe8",
-            "300": "#f9a8d4",
-            "400": "#f472b6",
-            "500": "#ec4899",
-            "600": "#db2777",
-            "700": "#be185d",
-            "800": "#9d174d",
-            "900": "#831843",
-            "950": "#500724",
+            "50": "253 242 248",
+            "100": "252 231 243",
+            "200": "251 207 232",
+            "300": "249 168 212",
+            "400": "244 114 182",
+            "500": "236 72 153",
+            "600": "219 39 119",
+            "700": "190 24 93",
+            "800": "157 23 77",
+            "900": "131 24 67",
+            "950": "80 7 36",
         },
     },
     "DASHBOARD": {
