@@ -169,7 +169,10 @@ else:
 
 UNFOLD = {
     "STYLES": [
-        lambda request: "admin/css/admin_fix.css",
+        "admin/css/admin_fix.css",
+    ],
+    "styles": [
+        "admin/css/admin_fix.css",
     ],
     "SITE_TITLE": "KleerInfini Admin",
     "SITE_HEADER": "KleerInfini B2B Platform",
