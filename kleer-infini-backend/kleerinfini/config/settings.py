@@ -15,8 +15,6 @@ import dj_database_url
 import os
 from pathlib import Path
 from decouple import config
-from django.templatetags.static import static
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -172,7 +170,7 @@ UNFOLD = {
     # STYLES: use lambda+static() so Django resolves to the correct /static/admin/css/admin_fix.css URL
     # (without lambda, Unfold would prepend /admin/ and double the path)
     "STYLES": [
-        lambda request: static("admin/css/admin_fix.css"),
+        lambda request: __import__("django.templatetags.static", fromlist=["static"]).static("admin/css/admin_fix.css"),
     ],
     "SITE_TITLE": "KleerInfini Admin",
     "SITE_HEADER": "KleerInfini B2B Platform",
